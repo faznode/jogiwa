@@ -1,0 +1,16 @@
+HTTP/2 200 
+age: 59
+cache-control: public
+content-security-policy: frame-src 'self' https://auth.turnkey.com https://export.turnkey.com https://secure.walletconnect.org https://verify.walletconnect.org https://*.walletconnect.com https://*.reown.com https://challenges.cloudflare.com
+content-type: application/json
+date: Fri, 23 Oct 2026 18:12:04 GMT
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /api/launches/trending
+x-vercel-cache: STALE
+x-vercel-id: sfo1::sfo1::dlslg-1792779182984-e720a5163a97
+

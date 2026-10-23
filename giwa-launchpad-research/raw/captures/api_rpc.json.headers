@@ -1,0 +1,16 @@
+HTTP/2 405 
+age: 0
+cache-control: public, max-age=0, must-revalidate
+content-security-policy: frame-src 'self' https://auth.turnkey.com https://export.turnkey.com https://secure.walletconnect.org https://verify.walletconnect.org https://*.walletconnect.com https://*.reown.com https://challenges.cloudflare.com
+date: Fri, 23 Oct 2026 18:13:04 GMT
+permissions-policy: camera=(), microphone=(), geolocation=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=63072000
+x-content-type-options: nosniff
+x-frame-options: DENY
+x-matched-path: /api/rpc
+x-vercel-cache: MISS
+x-vercel-id: sfo1::sfo1::t2vl5-1792779184653-35b1eb30b200
+content-length: 0
+

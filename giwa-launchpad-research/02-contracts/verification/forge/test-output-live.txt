@@ -1,0 +1,9 @@
+Compiling 1 files with Solc 0.8.30
+Solc 0.8.30 finished in 31.23ms
+Compiler run successful!
+Ran 3 tests for test/PonsV2CurveLiveDifferential.t.sol:PonsV2CurveLiveDifferentialTest
+[PASS] test_graduationAllocationIdentity() (gas: 13163)
+[PASS] test_liveBuyMatchesFormula() (gas: 107442)
+[PASS] test_liveSellMatchesFormula() (gas: 117782)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.89s (3.79s CPU time)
+Ran 1 test suite in 5.99s (5.89s CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)

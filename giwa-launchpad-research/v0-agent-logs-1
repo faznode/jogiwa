@@ -1,0 +1,1658 @@
+v0.app — log panel Worked for yang terbuka
+Step-by-step instructions - v0 by Vercel
+Captured: 2026-10-23T19:20:31.097Z
+Panels: 1
+Rows: 134; details: 126; summary-only: 8
+Scope: text exposed by the open UI panels.
+Original platform truncation is retained; image pixels are not embedded.
+
+===== Panel 1: Worked for 27m 17s =====
+Rows captured: 134/134
+
+--- Timeline and inline commentary ---
+Thought for a moment
+
+I'll fetch that link to see the steps you're referring to.
+
+Read linked instructions
+Thought for 22s
+Planned research phases
+Probed sandbox environment
+Thought for 1s
+Foundry install attempted
+Read REA repo docs
+Thought for 3s
+
+REA has a built-in EVM bytecode inspector (selectors/mutability) plus browser observation, HAR capture, and JS bundle analysis — all directly relevant. Fetching the mission-relevant guides now.
+
+Read REA web/EVM guides
+Thought for 2s
+
+Now I'll install REA in the sandbox (health check + version pin) while reading the JS workflow docs.
+
+Ran REA setup and doctor
+Thought for 1s
+Pinned REA version and commands
+Debugged Foundry install
+Thought for 1s
+Checked forge availability
+Thought for 2s
+
+Toolchain settled: forge/cast 1.5.1 work (fork tests via forge test --fork-url need no anvil), REA 6.7.0 pinned. Creating the workspace layout now, then starting Pons recon.
+
+Created research workspace
+Fetched Pons Family site and docs
+Thought for 30s
+Captured docs and verified chain
+Thought for 7s
+Checked Blockscout verification status
+Thought for 7s
+Tried Sourcify for verified sources
+Thought for a moment
+
+That command got routed to the browser sandbox (no curl/jq there) because it mentioned agent-browser. Re-running the Sourcify/Blockscout probes separately.
+
+Retried Sourcify lookups
+Thought for 3s
+Downloaded verified sources from Sourcify
+Thought for 7s
+Extracted Solidity source trees
+Read extraction output
+Thought for 5s
+Listed core source files
+Read PonsLaunchFactory source
+Thought for 8s
+Read PonsLauncherToken source
+Thought for 8s
+Read PonsLaunchLocker source
+Thought for 6s
+Read factory tail
+Thought for 4s
+Read live factory config on-chain
+Thought for 19s
+Extracted frontend JS bundle addresses
+Thought for 3s
+Grepped bundle for Pons endpoints
+Thought for 2s
+Extracted API routes and launch ABI
+Thought for 11s
+Recovered full v3 ABI from bundle
+Thought for 6s
+Located v3 contract addresses
+Thought for 6s
+Identified v3 contracts on-chain
+Thought for 4s
+Read v3 factory config
+Thought for 9s
+Downloaded v3 verified sources
+Thought for 8s
+Sized v2 source files
+Read bonding curve math
+Thought for 5s
+Mapped bonding curve functions
+Listed curve function signatures
+Read curve buy/sell/graduate
+Thought for 8s
+Read curve initialization
+Thought for 17s
+Read fee sweep logic
+Thought for 5s
+Mapped factory functions
+Thought for 4s
+Read factory graduation flow
+Thought for 9s
+Mapped meme hook functions
+Read hook afterSwap fee logic
+Thought for 7s
+Read live hook policy and modules
+Thought for 16s
+Wrote REA playbook
+Ran REA on Gen1 bytecode
+Thought for 7s
+Wrote event scan script
+Started background event scan
+Thought for 5s
+
+While the scan runs, I'll set up the fork verification: pick a real V2 launch, find real CurveBuy transactions on its curve, and check my formula against the on-chain tokensOut exactly.
+
+Located real curve buy transactions
+Thought for 15s
+Checked buy formula in Python
+Thought for 5s
+Wrote Foundry fork test
+Ran Foundry fork test
+Fixed address checksums
+Re-ran Foundry fork test
+Thought for 8s
+Wrote live differential fork test
+Ran live differential fork test
+Thought for a moment
+Fixed test and checked scan
+Thought for a moment
+
+The RPC's WAF rejects Python's default User-Agent (curl works). Adding a UA header and restarting the scan, then running the fixed forge test.
+
+Restarted scan and ran fork test
+Thought for 4s
+Searched Pons Family history
+Thought for a moment
+Searched The Block report on Pons
+Searched Pons infra incident and rivals
+Thought for 3s
+Searched Pons early attacks and infra outage
+Thought for a moment
+Found source URLs for Pons reports
+Thought for a moment
+Resolved article URLs via DuckDuckGo
+Thought for a moment
+Resolved source URLs via Bing
+Thought for 4s
+Fetched competitor sites
+Thought for 1s
+Loaded agent-browser skill
+Observed Pons launchpad in browser
+Thought for 2s
+Observed Pons token page
+Thought for 5s
+Inspected holder fee sharing module
+Thought for 4s
+Probed Pons API endpoints
+Read remaining API probe output
+Thought for a moment
+Extracted API schemas
+Read distribution and scan status
+Thought for 7s
+Observed Pons create flow
+Thought for 2s
+Captured footer links and step two
+anthropic/claude-fable-5.1
+used
+11.46
+credits
+1:14 AM
+
+Initial commit from v0
+
+--- Expanded detail records ---
+--- 1. Thought for a moment ---
+[Isi detail]
+The user wants me to follow steps 0 through 9 from that URL, so I should fetch it first to see what instructions it contains.
+
+--- 2. Read linked instructions ---
+[Isi detail]
+Visiting "ctxt.io/3/mO0QXIobC"
+Read
+ctxt.io
+
+--- 3. Thought for 22s ---
+[Isi detail]
+This is a large research and planning task covering steps 0 through 9 of a reverse-engineering and masterplan project, and I'm considering what's actually achievable here—it's fundamentally about producing markdown documents and facts files through legitimate competitive analysis of a public web app.
+
+Reverse engineering a public dApp's frontend and on-chain smart contracts for competitive research is standard practice in crypto, and the user is explicit about maintaining clean-room posture and avoiding phishing or wallet connections to lookalikes. The scope is enormous though—nine exhaustive phases with multiple reports each—so I need to think realistically about how much I can actually cover.
+
+Given my available tools (WebFetch, WebSearch, Bash, file tools), I'll need to track progress with a todo list since the user wants me to execute everything from step 0 through 9. I'm mapping out what's achievable: inspecting the REA repo and learning its setup via npm commands, checking the node version and sandbox constraints, then moving into recon on the target site and its docs, searching for socials and announcements, possibly using a browser tool to observe the site directly.
+
+From there I'd need to locate smart contract addresses in frontend bundles and query whatever chain explorer applies — trying to confirm if Robinhood Chain is live and finding its RPC/explorer, potentially installing Foundry via a curl script for fork testing if network access allows. I'd continue with web app reverse engineering through network captures, backend inference from what I observe, economic analysis via Dune dashboards and docs, and competitor research through general web searches.
+
+Then I'd move to GIWA's environment — checking docs.giwa.io and its explorer, verifying deployed contracts via RPC calls like cast or curl JSON-RPC — before generating 40+ ideas to score and finally compiling a 14-document masterplan. Given the sheer volume, I need to stay systematic, writing files progressively and keeping a _progress.md updated rather than trying to hold everything in context. I'm thinking the research workspace should live inside the current Next.js project directory at /vercel/share/v0-project, since that's what will actually persist.
+
+I'll start by setting up todos, then inspect the REA repo and check the sandbox environment — node version, whether foundry/cast is available, and network access to the GIWA RPC and GitHub. I want to run these checks in parallel: setting task list, checking the environment via bash, and fetching the REA README/AGENTS.md/docs. First though, I should look at the existing project directory structure.
+
+I'll set up the giwa-launchpad-research/ workspace to track this 10-step research mission, then start by exploring the environment and REA repo in parallel.
+
+--- 4. Planned research phases [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 5. Probed sandbox environment ---
+[Isi detail]
+$ node --version; pnpm --version; which cast forge anvil curl jq python3 2>&1; echo "--- net checks ---"; curl -s -m 10 -o /dev/null -w "github:%{http_code}\n" https://github.com/morluto/rea; curl -s -m 10 -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_chainId","params":[]}' https://sepolia-rpc.giwa.io; echo; curl -s -m 10 -o /dev/null -w "pons:%{http_code}\n" https://ponsfamily.com/launchpad; curl -s -m 10 -o /dev/null -w "ponsdocs:%{http_code}\n" https://docs.ponsfamily.com; ls /vercel/share/v0-project
+v24.16.0
+12.3.4
+which: no cast in (/vercel/share/pnpm/bin:/vercel/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin)
+which: no forge in (/vercel/share/pnpm/bin:/vercel/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin)
+which: no anvil in (/vercel/share/pnpm/bin:/vercel/share/pnpm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/
+
+...
+
+d.ts
+next.config.mjs
+node_modules
+package.json
+pnpm-lock.yaml
+pnpm-workspace.yaml
+postcss.config.mjs
+public
+tsconfig.json
+
+--- 6. Thought for 1s ---
+[Isi detail]
+Network access confirms the GIWA RPC is responding with the correct chain ID, and Pons sites are reachable, though foundry isn't installed yet so I'll queue that for later. Now I'm moving to inspect the REA repo, planning to fetch the README, AGENTS.md, and other docs in parallel while kicking off the foundry install in the background.
+
+Node 24 and network are good, and the GIWA Sepolia RPC confirms chain ID 91342. Foundry isn't installed, so I'll install it in the background while reading the REA repo docs.
+
+--- 7. Foundry install attempted ---
+[Isi detail]
+$ cd /tmp && curl -L -s https://foundry.paradigm.xyz | bash >/tmp/foundryup-install.log 2>&1; export PATH="$HOME/.foundry/bin:$PATH"; foundryup >/tmp/foundryup.log 2>&1; echo "exit:$?"; ls -la $HOME/.foundry/bin 2>&1; tail -5 /tmp/foundryup.log
+Running in background…
+
+--- 8. Read REA repo docs ---
+[Isi detail]
+Visiting "raw.githubusercontent.com/morluto/rea/main/README.md"
+Visiting "raw.githubusercontent.com/morluto/rea/main/AGENTS.md"
+Visiting "raw.githubusercontent.com/morluto/rea/main/docs/installation.md"
+Visiting "raw.githubusercontent.com/morluto/rea/main/docs/cli.md"
+Read
+raw.githubusercontent.com
+Read
+raw.githubusercontent.com
+Read
+raw.githubusercontent.com
+Read
+raw.githubusercontent.com
+
+--- 9. Thought for 3s ---
+[Isi detail]
+The REA EVM bytecode inspector looks relevant here, offering dispatch selectors, byte offsets, and inferred arguments for offline bytecode analysis. I want to pull more docs too—the tool catalog, prompts reference, and reverse-engineering tools guide—to get a fuller picture.
+
+--- 10. Read REA web/EVM guides ---
+[Isi detail]
+Visiting "raw.githubusercontent.com/morluto/rea/main/docs/evm-bytecode.md"
+Visiting "raw.githubusercontent.com/morluto/rea/main/docs/browser-observation.md"
+Visiting "raw.githubusercontent.com/morluto/rea/main/docs/web-network-captures.md"
+Read
+raw.githubusercontent.com
+Read
+raw.githubusercontent.com
+Read
+raw.githubusercontent.com
+
+--- 11. Thought for 2s ---
+[Isi detail]
+Given the full list is long, I'll prioritize fetching javascript-application-workflows.md and javascript-artifact-reconstruction.md since they seem most directly relevant to what I need right now.
+
+--- 12. Ran REA setup and doctor ---
+[Isi detail]
+$ cd /tmp && which ps prlimit; (timeout 280 npx -y rea-agents@latest --version 2>&1 | tail -3); echo "--- doctor ---"; (timeout 200 npx -y rea-agents@latest doctor --json 2>/dev/null | head -c 3500); echo; echo "--- setup dry-run ---"; (timeout 120 npx -y rea-agents@latest setup --yes --skill=false --dry-run --json 2>&1 | head -c 1500)
+/usr/bin/ps
+/usr/bin/prlimit
+--- doctor ---
+gelog: https://github.com/npm/cli/releases/tag/v12.2.1
+npm notice To update run: npm install -g npm@12.2.1
+npm notice
+--- doctor ---
+{"healthy":false,"environment_healthy":false,"scope":{"mode":"audit-wide","clients":[],"providers":[],"skill":false,"target":null},"scope_checks":[{"name":"node","ok":true,"classification":"heal
+
+...
+
+eadless-mcp 0.7.1 JAR. REA does not download or install it.","classification":"missing_analysis_engine"}]},{"id":"kuna","c
+
+--- 13. Thought for 1s ---
+[Isi detail]
+The environment checks pass — Node is fine, host is Amazon Linux 2023, and the necessary process tools are present. Native engines aren't installed but that's expected and not needed here. Now I want to check the installed version and review help for the key commands (inspect-evm-interface, analyze-web-bundle, inspect-web-network-capture, list-browser-targets), plus verify foundry's install status.
+
+REA works in the sandbox (Node 24.16.0 with ps/prlimit available; missing native engines don't matter for web/EVM targets). Next I'll pin the version, finalize the exact commands, and check on Foundry.
+
+--- 14. Pinned REA version and commands ---
+[Isi detail]
+$ cd /tmp && npx -y rea-agents@latest --version 2>/dev/null | grep -v notice | tail -1; echo "--- help ---"; npx -y rea-agents@latest --help 2>/dev/null | grep -E "^\s+(inspect-evm|analyze-web|inspect-web|list-browser|observe-web|capture-web|analyze-javascript|inspect-artifact|export|inspect-analysis)" | head -30; echo "--- evm help ---"; npx -y rea-agents@latest inspect-evm-interface --help 2>/dev/null | head -25; echo "--- foundry ---"; cat /tmp/foundryup.log 2>/dev/null | tail -3; ls $HOME/.foundry/bin 2>/dev/null
+6.7.0
+--- help ---
+  analyze-javascript-application          Statically reconstruct a local JavaScript/Electron application
+  analyze-web-bundle                      Capture and statically analyze a page bundle, defaulting to the selected target origin
+  capture-web-screenshot                  Capture one visible page viewport within the supplied origin scope
+  export-
+
+...
+
+h RUST_BACKTRACE=1 environment variable to display it.
+Run with RUST_BACKTRACE=full to include source snippets.
+foundryup
+
+--- 15. Debugged Foundry install ---
+[Isi detail]
+$ cat /tmp/foundryup.log | head -30; echo "---"; cat /tmp/foundryup-install.log | tail -5; echo "--- try direct download ---"; cd /tmp && mkdir -p fbin && curl -sL -m 120 -o foundry.tar.gz https://github.com/foundry-rs/foundry/releases/download/stable/foundry_stable_linux_amd64.tar.gz && tar -xzf foundry.tar.gz -C fbin && ls -la fbin && ./fbin/cast --version && ./fbin/anvil --version
+
+.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx
+
+ ╔═╗ ╔═╗ ╦ ╦ ╔╗╔ ╔╦╗ ╦═╗ ╦ ╦         Portable and modular toolkit
+ ╠╣  ║ ║ ║ ║ ║║║  ║║ ╠╦╝ ╚╦╝    for Ethereum Application Development
+ ╚   ╚═╝ ╚═╝ ╝╚╝ ═╩╝ ╩╚═  ╩                 written in Rust.
+
+.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx.xOx
+
+Repo       : https://gith
+
+...
+
+403541)
+Build Profile: maxperf
+
+./fbin/anvil: /lib64/libm.so.6: version `GLIBC_2.35' not found (required by ./fbin/anvil)
+
+--- 16. Thought for 1s ---
+[Isi detail]
+Good, cast 1.5.1-stable works, but anvil fails since it needs GLIBC 2.35 and Amazon Linux 2023 only has 2.34. I should check whether forge works too, since if it does I can still run fork tests with forge test --fork-url, and I should also verify whether the foundryup-installed binaries hit the same glibc issue.
+
+Cast 1.5.1 runs fine, but anvil fails since it requires GLIBC 2.35, which this Amazon Linux 2023 host only has 2.34. I'll check forge and the foundryup v1.8.6 binaries next, since forge test --fork-url can still do fork simulation without anvil.
+
+--- 17. Checked forge availability ---
+[Isi detail]
+$ cd /tmp && ./fbin/forge --version 2>&1 | head -2; echo "--- foundryup bins ---"; ls -la $HOME/.foundry/bin/ 2>&1; for b in forge cast anvil; do echo "== $b"; $HOME/.foundry/bin/$b --version 2>&1 | head -1; done; ldd --version | head -1
+forge Version: 1.5.1-stable
+Commit SHA: b0a9dd9ceda36f63e2326ce530c10e6916f4b8a2
+--- foundryup bins ---
+total 6576
+drwxr-xr-x 2 vercel-sandbox vercel-sandbox      23 Oct 23 17:48 .
+drwxr-xr-x 5 vercel-sandbox vercel-sandbox      46 Oct 23 17:48 .
+
+...
+
+ox/.foundry/bin/forge: No such file or directory
+== cast
+bash: line 1: /home/vercel-sandbox/.foundry/bin/cast: No such file or directory
+== anvil
+bash: line 1: /home/vercel-sandbox/.foundry/bin/anvil: No such file or directory
+ldd (GNU libc) 2.34
+
+--- 18. Thought for 2s ---
+[Isi detail]
+Good, forge and cast 1.5.1 work from the stable tarball, though anvil fails due to glibc issues. That's manageable since forge test with fork-url handles fork simulation without needing anvil, and I still have cast call, run, 4byte, storage, code, tx, receipt, and logs available for inspection and replay.
+
+Now I'll move into Phase 1 recon, starting by setting up workspace directories and doing initial fetches of ponsfamily.com and its docs to understand the Pons Family project.
+
+--- 19. Created research workspace ---
+[Isi detail]
+$ cd /vercel/share/v0-project && mkdir -p giwa-launchpad-research/{raw/{captures,bundles,abis,traces,bytecode,docs-snapshots},01-recon,02-contracts/verification,03-webapp,04-backend-infra,05-economics,06-competitors,07-giwa-env,08-ideation,09-masterplan} && mkdir -p /tmp/rea-tools && cp /tmp/fbin/forge /tmp/fbin/cast /tmp/rea-tools/ && ls giwa-launchpad-research && echo ok
+01-recon
+02-contracts
+03-webapp
+04-backend-infra
+05-economics
+06-competitors
+07-giwa-env
+08-ideation
+09-masterplan
+raw
+ok
+
+--- 20. Fetched Pons Family site and docs ---
+[Isi detail]
+Visiting "ponsfamily.com/launchpad"
+Visiting "docs.ponsfamily.com"
+Visiting "ponsfamily.com"
+Read
+ponsfamily.com
+Read
+docs.ponsfamily.com
+Read
+ponsfamily.com
+
+--- 21. Thought for 30s ---
+[Isi detail]
+This is a key finding that overturns the original hypothesis: the docs explicitly state there's no bonding curve or later migration — tokens launch directly into a Uniswap V3 pool with locked liquidity, and "graduation" just marks reaching a 4.2 ETH threshold. I need to flag this as a major correction.
+
+I'm also logging the supporting technical details: chain specs for Robinhood Chain (ID 4663, RPC, explorer), fixed 1B supply with 1% pool fee, launch protections (2-block window, hold/buy caps), the 70/30 creator/protocol fee split since block 8991118 versus the legacy 90/10 split, the buyback-and-burn mechanism for protocol fees, and the relevant factory/locker/position-manager contract addresses for both active and legacy systems.
+
+I'm noting a reference token PONS with its pool and launch tx, and that pricing pulls from the DeFiLlama ETH oracle. I'm also flagging an undocumented "launch snipe tax" with wallet whitelisting that needs deeper contract investigation, plus the discovery that tokens can be paired against tokenized stocks like NVDA, TSLA, and GME under a "Stocks" tab, not just WETH.
+
+The TokenLaunched event's pairToken field confirms the active factory supports multiple pair tokens via dexId and launchConfigId, meaning the docs stating "quoted against WETH only" are outdated. I'm also noting a "Community" tag indicates CTO status, a degraded-performance banner about backend upgrades, and a Vercel deployment ID visible via a query param on pons.png. Now I want to save a snapshot of the docs into raw/docs-snapshots/ by fetching the docs page directly.
+
+Next I'll run parallel work: capture HTTP headers and HTML from ponsfamily.com and docs.ponsfamily.com for infra footprint, verify on-chain details like the Robinhood RPC chain ID and factory contract code/verification via Blockscout, and search for background on Pons Family's history — past incidents, the Pools.trade rivalry, and any Dune dashboards. I'll start with the on-chain checks and header capture together.
+
+Turns out the mission's premise is wrong: pons launches directly into a locked Uniswap V3 pool, with no bonding curve or migration step—"graduation" just marks a 4.2 ETH paired-principal threshold. The docs also include contract addresses, event topics, and ABI fragments, so I'll snapshot the raw docs, capture infra headers, and verify the contracts on-chain with cast.
+
+--- 22. Captured docs and verified chain ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw && curl -sL -m 30 -D docs-snapshots/docs.ponsfamily.com.headers.txt -o docs-snapshots/docs.ponsfamily.com.html https://docs.ponsfamily.com && curl -sL -m 30 -D docs-snapshots/ponsfamily.com.headers.txt -o docs-snapshots/ponsfamily.com.launchpad.html https://ponsfamily.com/launchpad && echo "--- app headers ---" && grep -iE "^(server|x-vercel|x-powered|cf-|via|x-matched|cache-control|content-security|strict-transport|x-nextjs|set-cookie|age|x-robots)" docs-snapshots/ponsfamily.com.headers.txt | head -20 && echo "--- docs headers ---" && grep -iE "^(server|x-vercel|x-powered|cf-|via|x-matched|x-nextjs|age)" docs-snapshots/docs.ponsfamily.com.headers.txt | head -10 && echo "--- dns ---" && (getent hosts ponsfamily.com; getent hosts docs.ponsfamily.com) && echo "--- RPC ---" && RPC=https://rpc.mainnet.chain.robinhood.com && C=/tmp/rea-tools/cast && $C chain-id --rpc-url $RPC && $C block-number --rpc-url $RPC && echo "--- code sizes ---" && for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x31ca5E101941A93A7DD6d0497928700625CF54B5 0x1f7d7550B1b028f7571E69A784071F0205FD2EfA 0x73991a25C818Bf1f1128dEAaB1492D45638DE0D3 0xCaf681a66D020601342297493863E78C959E5cb2 0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 0x39dBED3a2bd333467115dE45665cC57F813C4571 0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA; do n=$($C code $a --rpc-url $RPC | wc -c); echo "$a codelen_hex=$n"; done
+--- app headers ---
+age: 0
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+content-security-policy: frame-src 'self' https://auth.turnkey.com https://export.turnkey.com https://secure.walletconnect.org https://verify.walletconnect.org https://*.walletconnect.com https://*.reown.com https://challenges.cloudflare.com
+server: Vercel
+strict-trans
+
+...
+
+0x39dBED3a2bd333467115dE45665cC57F813C4571 codelen_hex=10551
+0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA codelen_hex=44287
+
+--- 23. Thought for 7s ---
+[Isi detail]
+I'm confirming chain ID 4663 on-chain near block 96.1M, with all addresses showing deployed code and Robinhood Chain's RPC live—plus Vercel-hosted frontend using Turnkey, WalletConnect/Reown, and Cloudflare Turnstile. I notice one factory contract's bytecode is roughly 24.3KB, right at the edge of the 24KB contract size limit, which seems worth digging into further.
+
+The Uniswap V3 factory also sits right around 24.5KB, confirming several contracts are brushing up against that limit. I suspect Robinhood Chain is built on Arbitrum Orbit (Nitro)—Robinhood announced an Arbitrum-based L2 back in June 2025—so I should verify this later by checking something like the ArbSys precompile. Next I want to pull contract verification status from Blockscout's API v2 for each address and look up the launch transaction for PONS.
+
+Confirmed chain ID 4663 on-chain at block ~96.1M, all 11 documented addresses have code, and the frontend/docs are Vercel-hosted with Turnkey wallets, WalletConnect/Reown, and Cloudflare Turnstile detected via CSP. Next, I'll check Blockscout for verified sources and the PONS launch transaction.
+
+--- 24. Checked Blockscout verification status ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw && B=https://robinhoodchain.blockscout.com/api/v2 && for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x31ca5E101941A93A7DD6d0497928700625CF54B5 0x1f7d7550B1b028f7571E69A784071F0205FD2EfA 0x73991a25C818Bf1f1128dEAaB1492D45638DE0D3 0xCaf681a66D020601342297493863E78C959E5cb2 0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 0x39dBED3a2bd333467115dE45665cC57F813C4571 0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA; do r=$(curl -s -m 25 "$B/smart-contracts/$a"); echo "$a | $(echo "$r" | jq -r '[.name, .is_verified, .compiler_version, .optimization_enabled, .license_type, (.proxy_type//"-"), (.implementations|length), .language] | @tsv' 2>/dev/null || echo "$r" | head -c 200)"; done; echo "--- address info (creator/tx) ---"; for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x31ca5E101941A93A7DD6d0497928700625CF54B5; do curl -s -m 25 "$B/addresses/$a" | jq -c '{hash, name, creator: .creator_address_hash, creation_tx: .creation_transaction_hash, is_verified, proxy_type, implementations: [.implementations[]?.address]}'; done
+0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB | <!DOCTYPE html><html lang="en-US"><head><title>Just a moment...</title><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=Edge"><meta nam
+
+
+...
+
+q: parse error: Invalid numeric literal at line 1, column 10
+jq: parse error: Invalid numeric literal at line 1, column 10
+jq: parse error: Invalid numeric literal at line 1, column 10
+jq: parse error: Invalid numeric literal at line 1, column 10
+
+--- 25. Thought for 7s ---
+[Isi detail]
+Blockscout is hiding behind a Cloudflare challenge page, so curl won't get through. I should try WebFetch in case it can render past the block, and also check Sourcify, since many Blockscout instances sync verified contracts there.
+
+As a fallback, I could use agent-browser, which runs a real Chrome instance that might pass Cloudflare's managed challenge where curl can't, letting me read the Blockscout JSON API through an actual browser. If all else fails, bytecode-level analysis with the EVM inspection tool plus signature lookups will work too — but let me try Sourcify and WebFetch first.
+
+Blockscout's blocked by a Cloudflare JS challenge for curl, so I'll try Sourcify and WebFetch in parallel; if that fails, I'll fall back to the agent-browser or the EVM bytecode tool for unverified contracts.
+
+--- 26. Tried Sourcify for verified sources ---
+[Isi detail]
+$ cd /tmp && echo "--- sourcify chains has 4663? ---"; curl -s -m 20 https://sourcify.dev/server/chains | jq -c '[.[] | select(.chainId==4663) | {chainId,name,supported}]'; echo "--- sourcify lookups ---"; for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x39dBED3a2bd333467115dE45665cC57F813C4571; do echo "$a => $(curl -s -m 20 "https://sourcify.dev/server/v2/contract/4663/$a" | head -c 300)"; done; echo; echo "--- blockscout with UA ---"; curl -s -m 20 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept: application/json" "https://robinhoodchain.blockscout.com/api/v2/smart-contracts/0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB" | head -c 300; echo; echo "--- blockscout v1 api ---"; curl -s -m 20 "https://robinhoodchain.blockscout.com/api?module=contract&action=getsourcecode&address=0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB" | head -c 300; echo; echo "--- which agent-browser ---"; which agent-browser; agent-browser --version 2>&1 | head -1
+✓ v0 App
+  http://localhost:3000/
+--- sourcify chains has 4663? ---
+--- sourcify lookups ---
+0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB => 
+0x736D76699C26D0d966744cAe304C000d471f7F35 => 
+0x0c37a24F5D23A486FA692d1500881d698B1F77a4 => 
+0x39dBED3a2bd333467115dE45665cC57F813C4571 => 
+
+--- blockscout with UA ---
+
+--- blockscout v1 api ---
+
+--- which agent-browser ---
+/usr/l
+
+...
+
+ found
+sh: 1: curl: not found
+sh: 1: curl: not found
+sh: 1: curl: not found
+sh: 1: curl: not found
+sh: 1: curl: not found
+
+--- 27. Thought for a moment ---
+[Isi detail]
+Odd, this run landed in a different sandbox without curl or jq available — it seems mentioning agent-browser routed the command there. I'll keep agent-browser calls separate from curl/jq calls and redo the Sourcify checks without it.
+
+--- 28. Retried Sourcify lookups ---
+[Isi detail]
+$ cd /tmp && echo "--- sourcify chain 4663 ---"; curl -s -m 20 https://sourcify.dev/server/chains | jq -c '[.[] | select(.chainId==4663) | {chainId,name,supported}]'; echo "--- sourcify lookups ---"; for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x39dBED3a2bd333467115dE45665cC57F813C4571; do echo "$a => $(curl -s -m 20 "https://sourcify.dev/server/v2/contract/4663/$a" | head -c 300)"; done; echo; echo "--- blockscout UA+json ---"; curl -s -m 20 -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" -H "Accept: application/json" "https://robinhoodchain.blockscout.com/api/v2/smart-contracts/0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB" | head -c 200; echo; echo "--- routescan? ---"; curl -s -m 20 "https://api.routescan.io/v2/network/mainnet/evm/4663/etherscan/api?module=contract&action=getsourcecode&address=0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB" | head -c 400
+--- sourcify chain 4663 ---
+[{"chainId":4663,"name":"Robinhood Chain","supported":true}]
+--- sourcify lookups ---
+0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB => {"matchId":"41892230","creationMatch":"exact_match","runtimeMatch":"exact_match","verifiedAt":"2026-07-13T21:32:35Z","match":"exact_match","chainId":"4663","address":"0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB"}
+
+...
+
+UA-Compatible" content="IE=Edge"><meta nam
+--- routescan? ---
+{"status":"0","message":"chain not supported","result":null}
+
+--- 29. Thought for 3s ---
+[Isi detail]
+Sourcify confirms exact matches for the active factory and locker, plus the PONS token, but the legacy factory isn't verified there. I'll pull the full source data from the Sourcify v2 API using the contract endpoint with all fields requested so I get sources, ABI, metadata, compilation, and deployment info.
+
+I'll fetch this data for all 11 addresses and save them into raw/abis/ and raw/sources/.
+
+Sourcify confirms exact-match verified sources for the active factory, locker, and PONS token (verified 2026-07-13), while the legacy factory remains unverified (bytecode-only, for REA's EVM tool). I'll now download full sources, ABIs, and deployment metadata for all documented addresses.
+
+--- 30. Downloaded verified sources from Sourcify ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw && mkdir -p sources abis && for a in 0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB 0x736D76699C26D0d966744cAe304C000d471f7F35 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 0x31ca5E101941A93A7DD6d0497928700625CF54B5 0x1f7d7550B1b028f7571E69A784071F0205FD2EfA 0x73991a25C818Bf1f1128dEAaB1492D45638DE0D3 0xCaf681a66D020601342297493863E78C959E5cb2 0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 0x39dBED3a2bd333467115dE45665cC57F813C4571 0x10CC6BD38112cAc182db90B6a71d8Bb5939526bA; do curl -s -m 60 "https://sourcify.dev/server/v2/contract/4663/$a?fields=all" -o "sources/$a.sourcify.json"; echo "$a | $(jq -r '[.match, .compilation.name, .compilation.compilerVersion, .compilation.language, (.compilation.compilerSettings.optimizer.runs // "-"|tostring), (.deployment.transactionHash // "-"), (.deployment.blockNumber // "-"|tostring), (.deployment.deployer // "-"), (.sources|keys|length|tostring), (.proxyResolution.isProxy|tostring)] | join(" | ")' "sources/$a.sourcify.json" 2>/dev/null)"; jq '.abi' "sources/$a.sourcify.json" > "abis/$a.abi.json" 2>/dev/null; done; ls -la sources | head -15
+0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB | exact_match | PonsLaunchFactory | 0.8.30+commit.73712a01 | Solidity | 300 | 0x836c5e41d4a4162c922cb7f0cc6713018c40b32265fb3b63926b9fdfbe0c0e67 | 8991118 | 0xda4bCee76B29EFEc9697Fcf663601c2042043968 | 23 | false
+0x736D76699C26D0d966744cAe304C000d471f7F35 | exact_match | PonsLaunchLocker | 0.8.30+commit.73712a01 | Solidity | 3
+
+...
+
+
+-rw-r--r-- 1 vercel-sandbox vercel-sandbox 1877971 Oct 23 17:52 0xCaf681a66D020601342297493863E78C959E5cb2.sourcify.json
+
+--- 31. Thought for 7s ---
+[Isi detail]
+Found exact matches for PonsLaunchFactory and PonsLaunchLocker, both deployed by the same address with verified source code, but the legacy factory and locker aren't verified yet.
+
+Also seeing the canonical Uniswap v3 periphery contracts (Factory, NonfungiblePositionManager, SwapRouter02, QuoterV2) deployed early on-chain, a TransparentUpgradeableProxy that's likely WETH, the PONS token contract, and a UniswapV3Pool. I'll extract the source files to disk so I can read through PonsLaunchFactory, PonsLaunchLocker, and PonsLauncherToken in detail.
+
+Found verified sources for PonsLaunchFactory, PonsLaunchLocker, PonsLauncherToken, plus Uniswap V3 periphery contracts and a TransparentUpgradeableProxy. Extracting the source trees to review the actual contract logic.
+
+--- 32. Extracted Solidity source trees ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/sources && python3 - <<'EOF'
+import json, os
+targets = {
+ "0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB":"PonsLaunchFactory",
+ "0x736D76699C26D0d966744cAe304C000d471f7F35":"PonsLaunchLocker",
+ "0x39dBED3a2bd333467115dE45665cC57F813C4571":"PonsLauncherToken",
+ "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73":"Proxy_0x0Bd7",
+}
+for addr,name in targets.items():
+    d=json.load(open(f"{addr}.sourcify.json"))
+    out=f"tree_{name}"
+    os.makedirs(out,exist_ok=True)
+    for path,src in d.get("sources",{}).items():
+        p=os.path.join(out,path.replace("..","__"))
+        os.makedirs(os.path.dirname(p),exist_ok=True)
+        open(p,"w").write(src["content"] if isinstance(src,dict) else src)
+    comp=d.get("compilation",{})
+    print(name, "| target:", comp.get("fullyQualifiedName"), "| evmVersion:", comp.get("compilerSettings",{}).get("evmVersion"), "| viaIR:", comp.get("compilerSettings",{}).get("viaIR"))
+    print("  files:", sorted(d.get("sources",{}).keys()))
+    pr=d.get("proxyResolution") or {}
+    if pr.get("isProxy"): print("  PROXY:", pr.get("proxyType"), [i.get("address") for i in pr.get("implementations",[])])
+    ca=d.get("deployment") or {}
+    print("  deployer:", ca.get("deployer"), "tx:", ca.get("transactionHash"), "block:", ca.get("blockNumber"))
+    # constructor args
+    print("  ctorArgs:", (d.get("creationBytecode",{}) or {}).get("transformationValues",{}).get("constructorArguments","-")[:400])
+EOF
+echo "--- line counts ---"; wc -l tree_PonsLaunchFactory/*.sol tree_PonsLaunchFactory/**/*.sol tree_PonsLaunchLocker/*.sol tree_PonsLauncherToken/*.sol 2>/dev/null | sort -n | tail -20
+PonsLaunchFactory | target: contracts/src/PonsLaunchFactory.sol:PonsLaunchFactory | evmVersion: cancun | viaIR: True
+  files: ['contracts/lib/openzeppelin-contracts/contracts/access/Ownable.sol', 'contracts/lib/openzeppelin-contracts/contracts/ac
+
+...
+
+y ['0xC6B81b429797E0f555440b70cD99e032D7AE947e']
+  deployer: None tx: None block: None
+--- line counts ---
+0 total
+
+Traceback (most recent call last):
+  File "<stdin>", line 24, in <module>
+AttributeError: 'NoneType' object has no attribute 'get'
+
+--- 33. Read extraction output ---
+[Isi detail]
+Read
+extracting-solidity-source-trees-task-aa-2h.txt
+Read
+extracting-solidity-source-trees-task-aa-2h.txtLines 10-25
+
+--- 34. Thought for 5s ---
+[Isi detail]
+I'm checking the constructor arguments: the factory confirms a launch fee of 0.0005 ETH, and the locker's protocol fee share decodes to 10, suggesting the legacy 90/10 split was used.
+
+That means the default share later changed from 10 to 30 via some admin function—a centralization vector worth flagging, since the locker snapshots the share per-token at launch time rather than reading it dynamically. My size-checking script hit a path error due to the nested contracts/src structure, so now I'm moving on to read the core Phase 2 files directly: the launch factory, locker, launcher token, launchpad interface, and the liquidity/tick math libraries.
+
+The constructor args decode cleanly: factory has owner/locker addresses and a 0.0005 ETH launch fee, while the locker shows a protocol share of 10 (later raised to 30 per docs, suggesting an admin setter exists). Now I'll read the core contracts.
+
+--- 35. Listed core source files ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/sources && wc -l tree_PonsLaunchFactory/contracts/src/*.sol tree_PonsLaunchFactory/contracts/src/*/*.sol tree_PonsLaunchLocker/contracts/src/*.sol tree_PonsLauncherToken/contracts/src/*.sol; echo "--- diff token src factory-bundled vs standalone PONS ---"; diff -q tree_PonsLaunchFactory/contracts/src/PonsLauncherToken.sol tree_PonsLauncherToken/contracts/src/PonsLauncherToken.sol && echo SAME || echo DIFFERENT; diff tree_PonsLaunchFactory/contracts/src/interfaces/ILaunchpad.sol tree_PonsLaunchLocker/contracts/src/interfaces/ILaunchpad.sol >/dev/null && echo "ILaunchpad SAME"
+  604 tree_PonsLaunchFactory/contracts/src/PonsLaunchFactory.sol
+  223 tree_PonsLaunchFactory/contracts/src/PonsLauncherToken.sol
+  150 tree_PonsLaunchFactory/contracts/src/interfaces/ILaunchpad.sol
+   57 tree_PonsLaunchFactory/contracts/src/libr
+
+...
+
+src/PonsLaunchLocker.sol
+  223 tree_PonsLauncherToken/contracts/src/PonsLauncherToken.sol
+ 1615 total
+--- diff token src factory-bundled vs standalone PONS ---
+DIFFERENT
+
+bash: line 1: diff: command not found
+bash: line 1: diff: command not found
+
+Agent Error
+
+An error occurred while the agent was working, Command exited with code 127
+
+--- 36. Read PonsLaunchFactory source [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 37. Thought for 8s ---
+[Isi detail]
+I'm examining the core of Pons' design: the factory deploys the launcher token via CREATE2 with full constructor arguments, mints the entire supply into a one-sided V3 position, transfers the NFT to the locker, locks the position, optionally sets up fee redirect, and then executes an initial buy through the swap router, with a 0.0005 ETH launch fee going to the protocol fee recipient.
+
+Graduation is determined by the paired-token principal in the locked position reaching a threshold, and the whole system is config-driven through DexConfig and LaunchConfig arrays covering pair token, graduation threshold, initial tick, supply, max wallet/tx bps (tx capped at 110% of wallet), restriction blocks, and reserved fee. Owner powers are limited to adding configs, setting fees, enabling/disabling launching, and whitelisting launchers under Ownable2Step, with no pause or upgrade mechanism since the contract is immutable. I want to finish reading the rest of the factory and then move into the token, locker, interfaces, and math libraries, since the token's update hook likely enforces the wallet/tx restrictions and launch snipe tax with whitelist logic.
+
+This confirms the factory's core flow: CREATE2-deploy the token, mint full supply into a one-sided Uniswap V3 range, send the NFT to the locker, and optionally run the creator's first buy atomically—config-driven, Ownable2Step, non-upgradeable. Now reading the token, locker, and math libraries.
+
+--- 38. Read PonsLauncherToken source ---
+[Isi detail]
+Read
+PonsLauncherToken.sol
+
+--- 39. Thought for 8s ---
+[Isi detail]
+The factory bundle I'm looking at has no snipe tax at all, just launch protection, max wallet, and cumulative max tx during the restriction window. But the launchpad UI references a "snipe tax" exemption for whitelisted wallets that isn't mentioned anywhere in the docs, which points to a newer factory version not yet reflected in my current reference.
+
+The launchpad banner also mentions a backend upgrade ahead of a new rollout, hinting there's likely a third factory I haven't found yet. Several tokens going back over a month show "Whitelist used," meaning a snipe-tax factory has been live for a while — I need to dig into the frontend bundle to find its address, which will feed back into my factory analysis. I'm also noting that this token version's pool-pair check scans all fee tiers from the dex factory to prevent bypassing restrictions via an alternate pool. Next I'll quickly check the locker, interfaces, and math libraries before circling back to the factory code.
+
+This token version has no snipe tax—just launch-block blocking, max-wallet, and cumulative max-buy limits, with _isPairPool covering any fee tier against alt-pool bypass. Since the live launchpad shows newer tokens with snipe tax whitelists, a newer undocumented factory likely exists, so I'll search the frontend bundle for it while reading the locker and remaining files.
+
+--- 40. Read PonsLaunchLocker source ---
+[Isi detail]
+Read
+PonsLaunchLocker.sol
+
+--- 41. Thought for 6s ---
+[Isi detail]
+The locker itself looks clean—it permanently holds NFTs, splits fees via collectFees, and lets the owner adjust protocolFeeRecipient, protocolFeeShare (capped at 50), and feeCollectors, with no withdraw function. But the CTO mechanism is worth flagging: feeRedirects can only be set by the deployer or factory, meaning transferring creator fee payouts during a CTO would require the original deployer's cooperation, and the docs note that approval is administrative, depending on what the token's contracts actually allow.
+
+Next I want to check the remaining factory code (lines 560-604), the ILaunchpad interface, and the math libraries, reading each file directly rather than piping through shell commands.
+
+I've confirmed the Locker is non-custodial by design—no withdraw or arbitrary-call path exists, and owner powers are limited to fee recipient, a capped future fee share (50%), and fee-collector bots; notably, setFeeRedirect is deployer/factory-only, preventing community takeovers from reassigning creator fees without the deployer. Now finishing the factory tail and math libraries.
+
+--- 42. Read factory tail ---
+[Isi detail]
+Read
+PonsLaunchFactory.sol
+Read
+PonsLaunchFactory.solLines 560-605
+
+--- 43. Thought for 4s ---
+[Isi detail]
+I realize the initial buy with ETH value only works if the pair token is WETH, since the router requires tokenIn to equal WETH9 for msg.value to apply — so stock-paired launches like NVDA must come from a newer factory version. I should check the on-chain state of the active contracts to confirm this.
+
+The atomic first-buy flow uses exactInputSingle{value} with ETH wrapped to WETH, which won't support the stock-paired launches (NVDA/USDG/SPY) seen live—pointing to a newer factory version. I'll now pull the live on-chain config from the active factory and locker.
+
+--- 44. Read live factory config on-chain ---
+[Isi detail]
+$ cd /tmp && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; F=0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB; L=0x736D76699C26D0d966744cAe304C000d471f7F35; echo "== FACTORY =="; echo "owner: $($C call $F 'owner()(address)' --rpc-url $RPC)"; echo "pendingOwner: $($C call $F 'pendingOwner()(address)' --rpc-url $RPC)"; echo "locker: $($C call $F 'locker()(address)' --rpc-url $RPC)"; echo "launchFee: $($C call $F 'launchFee()(uint256)' --rpc-url $RPC)"; echo "launchEnabled: $($C call $F 'launchEnabled()(bool)' --rpc-url $RPC)"; DC=$($C call $F 'dexConfigCount()(uint256)' --rpc-url $RPC); LC=$($C call $F 'launchConfigCount()(uint256)' --rpc-url $RPC); echo "dexConfigCount: $DC launchConfigCount: $LC"; for i in $(seq 0 $((${DC%% *}-1))); do echo "dex[$i]: $($C call $F 'getDexConfig(uint256)((string,address,address,address,uint24,int24,bool))' $i --rpc-url $RPC)"; done; for i in $(seq 0 $((${LC%% *}-1))); do echo "launchCfg[$i]: $($C call $F 'getLaunchConfig(uint256)((address,uint256,int24,uint256,uint16,uint16,uint32,uint24,bool,bool))' $i --rpc-url $RPC)"; done; echo "== LOCKER =="; echo "owner: $($C call $L 'owner()(address)' --rpc-url $RPC)"; echo "factory: $($C call $L 'factory()(address)' --rpc-url $RPC)"; echo "protocolFeeRecipient: $($C call $L 'protocolFeeRecipient()(address)' --rpc-url $RPC)"; echo "protocolFeeShare: $($C call $L 'protocolFeeShare()(uint256)' --rpc-url $RPC)"; echo "== PONS token share (legacy locker 0x31ca) =="; echo "legacyLocker.protocolFeeShare: $($C call 0x31ca5E101941A93A7DD6d0497928700625CF54B5 'protocolFeeShare()(uint256)' --rpc-url $RPC)"; echo "legacyLocker.factory: $($C call 0x31ca5E101941A93A7DD6d0497928700625CF54B5 'factory()(address)' --rpc-url $RPC)"; echo "legacyLocker.owner: $($C call 0x31ca5E101941A93A7DD6d0497928700625CF54B5 'owner()(address)' --rpc-url $RPC)"; echo "legacyFactory.owner: $($C call 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 'owner()(address)' --rpc-url $RPC)"; echo "legacyFactory.launchEnabled: $($C call 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 'launchEnabled()(bool)' --rpc-url $RPC)"; echo "== proxy 0x0Bd7 =="; echo "symbol: $($C call 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 'symbol()(string)' --rpc-url $RPC) name: $($C call 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 'name()(string)' --rpc-url $RPC)"; echo "== deployer EOA? =="; echo "0xda4b code len: $($C code 0xda4bCee76B29EFEc9697Fcf663601c2042043968 --rpc-url $RPC | wc -c) balance: $($C balance 0xda4bCee76B29EFEc9697Fcf663601c2042043968 --rpc-url $RPC --ether)"; echo "== ArbSys precompile (Arbitrum Orbit check) =="; $C call 0x0000000000000000000000000000000000000064 'arbChainID()(uint256)' --rpc-url $RPC 2>&1 | head -1; $C call 0x000000000000000000000000000000000000006b 'arbOSVersion()(uint64)' --rpc-url $RPC 2>&1 | head -1
+== FACTORY ==
+owner: 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd
+pendingOwner: 0x0000000000000000000000000000000000000000
+locker: 0x736D76699C26D0d966744cAe304C000d471f7F35
+launchFee: 500000000000000 [5e14]
+launchEnabled: false
+dexConfigCount: 1 launchConfigCount: 1
+dex[0]: ("uniswap v3", 0x1f7d7550B1b028f7571E69A784071F0205FD2EfA, 0x73991a25C818Bf1f1128dEAaB1492D45638D
+
+...
+
+ile (Arbitrum Orbit check) ==
+4663
+Error: server returned an error response: error code 3: execution reverted, data: "0x"
+
+--- 45. Thought for 19s ---
+[Isi detail]
+Onchain, I notice the active factory has launchEnabled set to false, which confirms public launches are no longer accepted there and that the docs pointing to it are outdated — a newer v3 factory must exist. The legacy factory is also disabled, and ownership was transferred to a new address that I need to verify is a multisig like Safe.
+
+Looking at the launch config: pair token is WETH, graduation threshold is 4.2 ETH, initial tick -204200, total supply 1e27, max wallet/tx around 5-5.5%, using Uniswap V3 with a 1% fee tier. The locker takes a 30% protocol fee share. I'm also confirming this chain is an Arbitrum Orbit chain via its chain ID. Now I'm working through the math on the initial tick to estimate the starting market cap in ETH and USD terms, accounting for which token is token0 versus token1 in the pool.
+
+Checking both token ordering cases confirms the price comes out consistent at roughly 1.36e-9 WETH per token, giving an initial FDV around 1.36 ETH, with graduation happening once paired principal reaches 4.2 ETH. I'm now considering that since all 1e9 tokens sit in a single one-sided V3 position from the initial tick to the max tick, this effectively behaves like a bonding curve built from a concentrated liquidity range order, and I'm starting to work out the liquidity math for that range.
+
+For next steps, I want to locate the newer v3 factory contract with the snipe tax by digging into the launchpad's frontend JS bundles for addresses and tax-related keywords, and I also need to verify whether the owner address is a Safe multisig by checking if it has contract code. I'm planning to pull the frontend bundle with curl and grep through it for relevant strings.
+
+Actually, bundle extraction needs a CDP browser connection, and I'm not sure the agent-browser's Chrome instance is reachable from here since it may run in a separate sandbox. I should check what network-capture capabilities agent-browser offers — maybe it can produce a HAR file or I'll need to fall back to offline tools for inspecting bytecode. Let me pull up the agent-browser skill documentation since I'll need it for this phase anyway.
+
+Both documented factories have launchEnabled = false, meaning the docs are stale — live launches are actually coming from a third, undocumented factory handling stock-paired, snipe-tax tokens, with config details like WETH pairing, 4.2 ETH threshold, and ownership now at 0x263e… on Arbitrum Orbit. I'll now search the frontend bundle to locate this new factory.
+
+--- 46. Extracted frontend JS bundle addresses ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bundles && UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36" && for p in launchpad launchpad/create; do curl -sL -m 30 -A "$UA" "https://ponsfamily.com/$p" -o "page_$(echo $p | tr / _).html"; done && grep -oE '/_next/static/[^"]+\.js' page_launchpad.html page_launchpad_create.html | cut -d: -f2- | sort -u > chunk_urls.txt && wc -l chunk_urls.txt && grep -oE 'dpl_[A-Za-z0-9]+' page_launchpad.html | sort -u | head -2 && mkdir -p js && while read u; do f="js/$(basename $u)"; [ -f "$f" ] || curl -sL -m 60 -A "$UA" "https://ponsfamily.com$u" -o "$f"; done < chunk_urls.txt && du -sh js && echo "--- 0x addresses across chunks (top 60 by frequency) ---" && cat js/*.js | grep -oiE '0x[0-9a-f]{40}' | tr 'A-F' 'a-f' | sort | uniq -c | sort -rn | head -60
+49 chunk_urls.txt
+dpl_GEnxfSpjSd3XoUUAoNoLS3HM5X3S
+4.5M	js
+--- 0x addresses across chunks (top 60 by frequency) ---
+     22 0xffffffffffffffffffffffffffffffffffffffff
+     14 0x0000000000000000000000000000000000000000
+     10 0x8e38e38e38e38e38e38e38e38e38e38e38e38e38
+   
+
+...
+
+1d4e7b7281101be8
+      1 0xec262a75e413fafd0df80480274532c79d42da09
+      1 0xe93237c50d904957cf27e7b1133b510c669c2e74
+      1 0xe33e9e479df8802cb0866d5d05258bec4cf62948
+      1 0xe202bb8dd524ee9c5e679e5b5809f7a373a982ef
+
+--- 47. Thought for 3s ---
+[Isi detail]
+Most of these hits are standard wallet-library constants rather than the specific Pons addresses I documented earlier, so the app likely fetches that config dynamically instead of hardcoding it. Let me grep specifically for the known addresses to confirm.
+
+These hits are mostly standard wallet-library constants, with no hardcoded Pons addresses — likely fetched via API instead. I'll grep for Pons-specific strings, API hosts, and chain config.
+
+--- 48. Grepped bundle for Pons endpoints ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bundles && echo "--- known addrs ---"; cat js/*.js | grep -oiE '0x(a5aab3f0|736d7669|0c37a24f|31ca5e10|1f7d7550|73991a25|caf681a6|33e885ed|0bd7d308|39dbed3a)[0-9a-f]{32}' | sort | uniq -c; echo "--- hostnames/APIs ---"; cat js/*.js | grep -oE 'https?://[a-zA-Z0-9._-]+\.[a-z]{2,}[a-zA-Z0-9/._-]*' | grep -viE 'walletconnect|reown|w3modal|coinbase|metamask|rainbow|safe\.global|github|w3\.org|npmjs|reactjs|nextjs|vercel\.com|unpkg|jsdelivr|turnkey|phantom|trustwallet|ledger|openapi|schema\.org|google|apple|microsoft|mozilla|chrome|firefox|brave|opera|wikipedia|eips\.ethereum|ethereum\.org|infura|alchemy\.com/docs|chainlist' | sort | uniq -c | sort -rn | head -40; echo "--- pons-specific keywords ---"; for k in snipe Snipe whitelist graduationStatus TokenLaunched launchToken predictTokenAddress feeRedirect collectFees ponsfamily 'chain.robinhood' 4663 dune Dune ws:// wss:// 'api/' graphql supabase pusher ably socket.io posthog sentry turnstile launchConfigId dexId; do n=$(cat js/*.js | grep -o "$k" | wc -l); [ "$n" -gt 0 ] && echo "$k: $n"; done
+--- known addrs ---
+      1 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73
+      1 0x33e885eD0Ec9bF04EcfB19341582aADCb4c8A9E7
+      1 0x39dBED3a2bd333467115dE45665cC57F813C4571
+      1 0xCaf681a66D020601342297493863E78C959E5cb2
+--- hostnames/APIs ---
+      4 https://solscan.io/tx/
+      4 https://oxlib.sh
+      4 https://4byte.sourcify.dev/
+      3 https://react.dev/errors
+
+...
+
+chToken: 2
+ponsfamily: 7
+chain.robinhood: 2
+4663: 12
+dune: 1
+wss://: 3
+api/: 50
+ably: 11
+turnstile: 30
+launchConfigId: 10
+
+--- 49. Thought for 2s ---
+[Isi detail]
+I've identified the backend API, realtime, auth, and wallet infrastructure pieces, so now I want to dig into the specific endpoints and the launch function signature by searching for terms like "snipe", "launchToken", "ably", and "launchConfigId" to understand the new factory ABI with snipe tax.
+
+I've identified the backend host, Ably realtime, Turnstile, X/Discord OAuth, wagmi/viem, and the snipe/launchToken references. Now extracting the surrounding code to recover the API routes and the new launch ABI.
+
+--- 50. Extracted API routes and launch ABI ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bundles && echo "--- api paths ---"; cat js/*.js | grep -oE '["`'"'"'](/api/[a-zA-Z0-9/_${}:.-]+|https://balancesapi\.ponsfamily\.com[a-zA-Z0-9/_${}:.-]*)' | sort | uniq -c | sort -rn | head -60; echo; echo "--- launchToken ABI context ---"; grep -l 'launchToken' js/*.js; grep -oE '.{0,1500}launchToken.{0,2500}' js/*.js | head -c 5000
+--- api paths ---
+      4 `/api/identities
+      2 `/api/profile/${e}
+      2 `/api/launches
+      2 "/api/session
+      2 "/api/profile/nonce
+      2 "/api/human
+      1 `/api/sponsor/x-resolve
+      1 `/api/profile/username
+      1 `/api/notifications
+      1 `/api/legal/acceptance
+      1 `/api/launches/sparklines
+      1 `/api/launches/pinned
+      1 `/api/deployer
+
+...
+
+,website:e.socials.website.trim(),farcaster:e.socials.farcaster.trim()},creatorFeeRecipient:e.creatorFeeRecipient,creatorT
+
+--- 51. Thought for 11s ---
+[Isi detail]
+This is a major shift — the new v3 factory has a totally different interface, with launch parameters bundled into a struct including creator fees, buyback options, and economic previews, plus a separate function to preview launch economics before committing.
+
+Looking at getLaunchedToken's return struct, I notice fields like creatorFeeRecipient, curve, and phase — confirming there IS a bonding curve phase in v3, which validates my hypothesis that tokens start on a curve and graduate to Uniswap, though this appears false for v1/v2. I'm also seeing fields like phantomQuote, snipeTax parameters, buybackBurnBps, protocolFeeShareBps, vestingSeconds, and vault-related fields (totalLocked, totalReleased, vested, releasable) that point to a creator fee vesting vault mechanism, plus a hookRecipient field that hints at possible Uniswap V4 hook integration. I need to pull the full ABI from the relevant chunk and track down where the factory address is actually defined — it might be fetched dynamically from an API endpoint rather than hardcoded, so I should search for 0x address patterns across the codebase.
+
+The live app actually targets a v3 factory with a much more complex design than v1/v2—confirming the bonding-curve hypothesis holds only for v3. Next I'll extract the full v3 ABI and its address constants.
+
+--- 52. Recovered full v3 ABI from bundle ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bundles && python3 - <<'EOF'
+import re,json,glob
+src=open('js/14-4wv1j-s73i.js').read()
+# find all function/event names in ABI-like fragments
+names=sorted(set(re.findall(r'type:"(function|event|error)",name:"([A-Za-z0-9_]+)"',src)))
+print("ABI entries in 14-4wv1j-s73i.js:",len(names))
+for t,n in names: print(f"  {t}: {n}")
+# extract inputs for key functions
+for fn in ["launchToken","previewLaunchEconomics","getLaunchConfig","getLaunchedToken","buy","sell","quoteBuy","quoteSell","graduate","migrate","claim","collectFees","release","getCurveState","curveState","state","previewBuy","previewSell","snipeTax","snipeTaxBps","currentSnipeTaxBps"]:
+    m=re.search(r'\{type:"function",name:"'+fn+r'".{0,2500}?\]\}(?=,\{type:|\])',src)
+    if m: print("\n==",fn,"==\n",m.group(0)[:2200])
+EOF
+ABI entries in 14-4wv1j-s73i.js: 35
+  error: NativeValueMismatch
+  error: NotApprovedLauncher
+  error: NotBuybackController
+  error: NotVestBeneficiary
+  error: RefundFailed
+  error: ZeroAddress
+  error: ZeroAmount
+  event: TokenLaunched
+  function: VESTING_DURATION
+  function: approvedPairTokens
+  function: buybackBurnBps
+  function: buybackCreatorRecipient
+  function
+
+...
+
+"release",stateMutability:"nonpayable",inputs:[{name:"token",type:"address"}],outputs:[{name:"released",type:"uint256"}]}
+
+--- 53. Thought for 6s ---
+[Isi detail]
+I'm seeing that the v3 design actually builds a Uniswap V4 hook, with virtual reserves powering a bonding curve alongside fee settings, graduation thresholds, and vesting mechanics for creator fees.
+
+Now I need to locate the v3 factory address itself, so I'm going to dig through the frontend chunks for config objects or hardcoded strings referencing "factory", "curve", "hook", or "vault" to pin down the actual deployed addresses, and also check whether the TokenLaunched event signature differs in v3.
+
+v3 uses a Uniswap V4 hook architecture with a bonding curve, phantom quote reserves, approved pair tokens, a buyback vault, creator-fee vesting, on-chain CTO transfer, and a decaying snipe tax. Now I'll locate the v3 addresses in the bundle.
+
+--- 54. Located v3 contract addresses ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bundles && echo "--- address-with-key patterns ---"; cat js/*.js | grep -oE '[a-zA-Z0-9_]{3,40}:"0x[0-9a-fA-F]{40}"' | sort | uniq -c | sort -rn | head -50; echo "--- v3 TokenLaunched event + others ---"; python3 - <<'EOF'
+import re
+src=open('js/14-4wv1j-s73i.js').read()
+for ev in ["TokenLaunched"]:
+    for m in re.finditer(r'\{type:"event",name:"'+ev+r'".{0,1500}?\]\}',src):
+        print(m.group(0)[:1500]); print('---')
+# pairTokenEconomics / vestingTerms / canLaunch outputs
+for fn in ["pairTokenEconomics","vestingTerms","canLaunch","launchAndBuy","memeHook","buybackVault","approvedPairTokens","transferCreatorFeeRecipient","snipeTaxStartBps","maxCreatorTaxBps"]:
+    m=re.search(r'\{type:"function",name:"'+fn+r'".{0,900}?\]\}',src)
+    if m: print(fn,"=>",m.group(0)[:900])
+EOF
+--- address-with-key patterns ---
+      3 contract_address:"0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"
+      3 contract_address:"0x2791Bca1f2de4661ED88A30C99A7a9449Aa84174"
+      2 address:"0xcA11bde05977b3631167028862bE2a173976CA11"
+      1 pai
+
+...
+
+Bps => {type:"function",name:"snipeTaxStartBps",stateMutability:"view",inputs:[],outputs:[{name:"",type:"uint256"}]}
+maxCreatorTaxBps => {type:"function",name:"maxCreatorTaxBps",stateMutability:"view",inputs:[],outputs:[{name:"",type:"uint256"}]}
+
+--- 55. Thought for 6s ---
+[Isi detail]
+I'm listing out several candidate wallet addresses, noting that the four starting with 0xde0000...01-04 are probably associated with Rob.
+
+Those could be Robinhood Chain's tokenized stock precompiles, so I want to check them on-chain using cast to see code length and probe functions like memeHook(), launchFee(), and symbol(). Alternatively, I should compute the topic0 hash for the TokenLaunched event and scan recent blocks for matching logs chain-wide, since the public RPC might allow small bounded ranges for eth_getLogs.
+
+Found several candidate addresses, including 0xde00…01–04. Now I'll verify these on-chain by scanning recent logs for the v3 TokenLaunched event topic.
+
+--- 56. Identified v3 contracts on-chain ---
+[Isi detail]
+$ cd /tmp && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; for a in 0xf3081494B87e8D5fb7960f066E931D1D0e6E3d67 0xe202BB8dd524eE9C5E679e5B5809f7A373a982Ef 0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4 0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168 0xde00000000000000000000000000000000000001 0xde00000000000000000000000000000000000002; do echo "== $a code=$($C code $a --rpc-url $RPC | wc -c)"; for f in 'memeHook()(address)' 'buybackVault()(address)' 'launchFee()(uint256)' 'launchEnabled()(bool)' 'owner()(address)' 'symbol()(string)' 'snipeTaxStartBps()(uint256)' 'snipeTaxSeconds()(uint256)' 'protocolFeeShareBps()(uint256)' 'buybackBurnBps()(uint256)' 'maxCreatorTaxBps()(uint256)' 'VESTING_DURATION()(uint256)'; do r=$($C call $a "$f" --rpc-url $RPC 2>/dev/null); [ -n "$r" ] && echo "   $f = $r"; done; done; echo "== topic0 v3 TokenLaunched =="; T=$($C keccak "TokenLaunched(address,address,address,address,uint256,uint256)"); echo $T; BN=$($C block-number --rpc-url $RPC); echo "latest $BN"; echo "== recent logs with that topic (last 3000 blocks) =="; $C logs --rpc-url $RPC --from-block $((BN-3000)) --to-block $BN "$T" 2>&1 | grep -E "address|blockNumber|transactionHash" | head -12
+== 0xf3081494B87e8D5fb7960f066E931D1D0e6E3d67 code=10957
+   symbol()(string) = "TAO"
+== 0xe202BB8dd524eE9C5E679e5B5809f7A373a982Ef code=12321
+== 0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4 code=2367
+   owner()(address) = 0xf09AFe78d3c7d359b334d7cB88995751F7eC5E13
+   symbol()(string) = "cbBTC"
+== 0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168 code=343
+   owner()(address) = 0
+
+...
+
+3f40801EC7e
+  blockNumber: 96129473
+  transactionHash: 0xe9bedf76c8ff3701b87ffa42c14d8ff87a8aad632d21b0ef3c131aeb99b58b45
+
+--- 57. Thought for 4s ---
+[Isi detail]
+I found the v3 factory at 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e, which has emitted 4 TokenLaunched events in the last 3000 blocks. I need to figure out the actual block time for this chain to estimate how recent that activity is, since Arbitrum Orbit chains can vary quite a bit from the standard ~0.25s blocks.
+
+Found the active v3 factory at 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e, which has emitted 4 TokenLaunched events in the last 3000 blocks with pair tokens TAO, cbBTC, and USDG. Now checking its config and Sourcify verification.
+
+--- 58. Read v3 factory config ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; F=0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e; echo "code=$($C code $F --rpc-url $RPC | wc -c)"; for f in 'owner()(address)' 'memeHook()(address)' 'buybackVault()(address)' 'launchFee()(uint256)' 'launchEnabled()(bool)' 'snipeTaxStartBps()(uint256)' 'snipeTaxSeconds()(uint256)' 'protocolFeeShareBps()(uint256)' 'buybackBurnBps()(uint256)' 'maxCreatorTaxBps()(uint256)' 'VESTING_DURATION()(uint256)' 'buybackEnabled()(bool)' 'buybackCreatorRecipient()(address)' 'poolManager()(address)' 'weth()(address)' 'protocolFeeRecipient()(address)' 'treasury()(address)' 'launchConfigCount()(uint256)'; do r=$($C call $F "$f" --rpc-url $RPC 2>/dev/null); [ -n "$r" ] && echo "   $f = $r"; done; echo "-- launch config 0/1 --"; for i in 0 1 2; do $C call $F 'getLaunchConfig(uint256)((uint256,uint256,uint256,uint256,uint24,int24,bool))' $i --rpc-url $RPC 2>/dev/null | sed "s/^/   cfg[$i]: /"; done; echo "-- pairTokenEconomics --"; for p in 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73 0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168 0xf3081494B87e8D5fb7960f066E931D1D0e6E3d67 0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4; do echo "   $p approved=$($C call $F 'approvedPairTokens(address)(bool)' $p --rpc-url $RPC) econ=$($C call $F 'pairTokenEconomics(address)(uint256,uint256,uint8)' $p --rpc-url $RPC 2>/dev/null | tr '\n' ' ')"; done; echo "-- sourcify --"; curl -s -m 30 "https://sourcify.dev/server/v2/contract/4663/$F" ; echo; echo "-- memeHook/vault sourcify --"; H=$($C call $F 'memeHook()(address)' --rpc-url $RPC); V=$($C call $F 'buybackVault()(address)' --rpc-url $RPC); for a in $H $V; do echo "$a => $(curl -s -m 30 "https://sourcify.dev/server/v2/contract/4663/$a")"; done
+code=48357
+   owner()(address) = 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd
+   memeHook()(address) = 0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044
+   buybackVault()(address) = 0x42df2a798f82289E177311362e8f5ccC45c1219c
+   launchFee()(uint256) = 500000000000000 [5e14]
+   launchEnabled()(bool) = true
+   snipeTaxStartBps()(uint256) = 9900
+   snipeTaxSeconds()(uint256) = 3
+  
+
+...
+
+rifiedAt":"2026-08-20T02:28:57Z","match":"match","chainId":"4663","address":"0x42df2a798f82289E177311362e8f5ccC45c1219c"}
+
+--- 59. Thought for 9s ---
+[Isi detail]
+I'm confirming the v3 factory, memeHook, and buybackVault contracts are all verified on Sourcify, and noting the configuration details: supply of 1e27, a 1% curve fee, phantom quote of 1.68 ETH, graduation threshold of 4.2 ETH, zero pool fee suggesting V4 dynamic fee, and tick spacing of 200.
+
+There's also a steep 99% snipe tax decaying over three seconds, a max creator tax of 10%, and multiple possible pair tokens (USDG, TAO, cbBTC) each with their own phantom/threshold values. WETH itself isn't approved as a pair token though—instead the bundle shows pairToken as the zero address, meaning native ETH is the default quote asset, paired with that 1.68 ETH phantom and 4.2 ETH threshold. The poolManager address points to Uniswap V4's PoolManager on Robinhood Chain.
+
+Now I want to pull the actual Sourcify source code for the factory, hook, and vault contracts, and also track down the curve implementation that's likely deployed per-token as a clone or separate contract for each launch.
+
+v3 is fully verified on Sourcify, with factory, hook, and vault all matching, and configured with 1e27 supply, 1% curve fee, 1.68 ETH virtual reserve, 4.2 ETH graduation, a 99%-decaying snipe tax over 3 seconds, 10% max creator tax, and multi-token pairing via Uniswap V4's PoolManager. Now downloading the v3 source trees.
+
+--- 60. Downloaded v3 verified sources ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/sources && for a in 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e 0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044 0x42df2a798f82289f82289E177311362e8f5ccC45c1219c 0x8366a39CC670B4001A1121B8F6A443A643e40951; do :; done; for a in 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e 0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044 0x42df2a798f82289E177311362e8f5ccC45c1219c 0x8366a39CC670B4001A1121B8F6A443A643e40951; do curl -s -m 90 "https://sourcify.dev/server/v2/contract/4663/$a?fields=all" -o "$a.sourcify.json"; jq '.abi' "$a.sourcify.json" > "../abis/$a.abi.json" 2>/dev/null; done; python3 - <<'EOF'
+import json, os
+for addr in ["0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e","0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044","0x42df2a798f82289E177311362e8f5ccC45c1219c","0x8366a39CC670B4001A1121B8F6A443A643e40951"]:
+    try: d=json.load(open(f"{addr}.sourcify.json"))
+    except Exception as e: print(addr,"ERR",e); continue
+    comp=d.get("compilation") or {}
+    name=(comp.get("name") or "unknown")
+    out=f"tree_v3_{name}"
+    os.makedirs(out,exist_ok=True)
+    for path,src in (d.get("sources") or {}).items():
+        p=os.path.join(out,path.replace("..","__")); os.makedirs(os.path.dirname(p),exist_ok=True)
+        open(p,"w").write(src["content"] if isinstance(src,dict) else src)
+    dep=d.get("deployment") or {}
+    cs=comp.get("compilerSettings") or {}
+    print(f"{addr} | {name} | {comp.get('compilerVersion')} | runs={cs.get('optimizer',{}).get('runs')} viaIR={cs.get('viaIR')} evm={cs.get('evmVersion')} | deployer={dep.get('deployer')} block={dep.get('blockNumber')} tx={dep.get('transactionHash')} | files={len(d.get('sources') or {})}")
+    own=[p for p in (d.get('sources') or {}) if not any(x in p for x in ['openzeppelin','v4-core','v4-periphery','solmate','forge-std','permit2','uniswap'])]
+    print("   own files:", own)
+EOF
+0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e | PonsV2LaunchFactory | 0.8.35+commit.47b9dedd | runs=200 viaIR=True evm=cancun | deployer=0xFdDE5a1E3cDF791Da71E49F817D70C7ceD72CC36 block=26841846 tx=0x3817f297aa7c2ef78789bffac57491ceedc218fef962d47ed
+
+...
+
+ibraries/TickBitmap.sol', 'src/libraries/TickMath.sol', 'src/libraries/UnsafeMath.sol', 'src/types/BalanceDelta.sol', 'src/types/Currency.sol', 'src/types/PoolId.sol', 'src/types/PoolKey.sol', 'src/types/Slot0.sol', 'src/types/PoolOperation.sol']
+
+--- 61. Thought for 8s ---
+[Isi detail]
+I'm sorting out the naming confusion across the Pons factory versions - there's the legacy factory (L1), the "active" one referenced in docs (L2), and the current PonsV2 with the V4 hook and bonding curve, which I'll just call V2 going forward to keep things clear.
+
+Now I'm cataloging the PonsV2 source files - the factory, launcher token, bonding curve, buyback vault, locker, meme hook, graduation executor, deployer, guard, and math modules. I want to check file sizes first before diving into the critical ones: the bonding curve math (since that's where the actual formula lives), the factory, the hook, and graduation logic.
+
+The V2 source tree is complete, covering the factory, token, bonding curve, V4 hook, graduation logic, buyback vault, and launch deployer/locker, deployed at block 26,841,846. I'll now dig into the curve math, the core of Phase 2.
+
+--- 62. Sized v2 source files ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/sources/tree_v3_PonsV2LaunchFactory/contracts/src/v2 && wc -l *.sol hooks/*.sol libraries/*.sol interfaces/*.sol
+   872 PonsV2BondingCurve.sol
+   357 PonsV2BuybackVault.sol
+   209 PonsV2GraduationExecutor.sol
+   125 PonsV2GraduationGuard.sol
+   210 PonsV2LaunchDeployer.sol
+  1526 PonsV2LaunchFactory.sol
+   123 PonsV2LaunchLocker.sol
+   106 PonsV2LauncherToken.sol
+   887 hooks/PonsV2MemeHook.sol
+    88 libraries/PonsV2BondingCurveMath.sol
+    63 libraries/PonsV2GraduationMath.sol
+   154 interfaces/ILaunchpadV2.sol
+    12 interfaces/ILaunchpadV2Graduation.sol
+  4732 total
+
+--- 63. Read bonding curve math ---
+[Isi detail]
+Read
+PonsV2BondingCurveMath.sol
+
+--- 64. Thought for 5s ---
+[Isi detail]
+This looks like a standard constant-product AMM formula with fees, similar to the IQ AI BootstrapPool, using a virtual quote reserve concept. I should move on to reading through the full PonsV2BondingCurve.sol file since it's substantial at 872 lines.
+
+Given the size, I'll tackle it in two chunks, zeroing in on state variables, buy/sell logic, snipe tax, fee splits, and the graduation trigger — then move to the factory (focusing on launch mechanics and economics), the hook (post-graduation fee handling), GraduationExecutor plus GraduationMath for price continuity, and BuybackVault. To manage context efficiently, I'll grep for function signatures and state variables first rather than reading everything linearly.
+
+I've confirmed the curve uses constant-product math with fee-on-input, adapted from the IQ AI BootstrapPool audit. Next I'll map out the PonsV2BondingCurve structure before diving into its critical sections.
+
+--- 65. Mapped bonding curve functions ---
+[Isi detail]
+Scanned 1 file
+
+--- 66. Listed curve function signatures ---
+[Isi detail]
+Scanned 1 file
+
+--- 67. Read curve buy/sell/graduate ---
+[Isi detail]
+Read
+PonsV2BondingCurve.sol
+Read
+PonsV2BondingCurve.solLines 290-649
+
+--- 68. Thought for 8s ---
+[Isi detail]
+This buy mechanism is quite rich: fees and taxes (trading fee, creator tax, and a decaying anti-snipe tax that halves over time) are taken off the quote currency before applying a constant-product formula against a virtual reserve, with reserved tokens held back for eventual pool graduation, plus partial-fill refund protection and slippage bounds to guard against grief attacks.
+
+Selling closes once the token is ready to graduate, with similar fee/tax deductions. Fee sweeping splits proceeds between protocol, buyback (which internally swaps on the curve to buy and lock tokens in a vault, requiring a trusted operator), and creator shares. Graduation itself is permissionless but factory-gated, transferring tracked quote and token balances to seed a V4 pool while stranding any donated funds to prevent donation attacks.
+
+I still need to trace through initialize() to understand how reservedTokens and launch supply are computed, dig into the fee-sweep split logic, and then examine the factory's graduation math for price continuity, V4 pool seeding, and LP locking—so I'll read through those sections next while staying economical.
+
+The curve's defenses look solid—snipe-tax halvings, quote-leg-only fees, a reservedTokens hard stop with partial-fill/refund protection against griefing, price-bound slippage, stranded donations at graduation, and sell closure near graduation. Next I'll check initialization logic for reservedTokens and the fee sweep.
+
+--- 69. Read curve initialization ---
+[Isi detail]
+Read
+PonsV2BondingCurve.sol
+Read
+PonsV2BondingCurve.solLines 166-289
+
+--- 70. Thought for 17s ---
+[Isi detail]
+I'm working out the bonding curve formulas: setting the virtual quote reserve to the phantom quote value, token reserve to total supply, invariant as their product, and deriving reserved tokens from the graduation threshold ratio.
+
+So 285.71M tokens (28.57%) go to the V4 pool at graduation, leaving 714.29M sellable on the curve, with price continuity confirmed between curve-end price and pool seed price (~2.058e-8 ETH/token, 20.58 ETH mcap, a 12.25x multiple from the 1.68 ETH starting mcap). I'm also tracing the snipe tax decay schedule (99%→halving every ~0.214s, reaching ~6.18% after 1s, near-zero by 3s) before noting these numbers apply to the native ETH config and I need to redo the ratio for other quote tokens like USDG (phantom 3236, threshold 8090, ratio 2.5).
+
+Checking that 2.5x ratio holds across all quote assets now — ETH (4.2/1.68), TAO (37.4975/14.999), and cbBTC (13184752/5273900) all confirm G = 2.5·Q₀, which means the reserved supply fraction is always S/3.5 (28.571%) and graduation mcap is always 12.25·Q₀ in quote units regardless of pair. Next I want to look at how _sweepFees splits proceeds between protocol and creator shares.
+
+Then I need to trace through the factory's launch economics hash, the graduation path to V4 (pool creation, LP locking, hook fee splits post-graduation), and the BuybackVault — noting that docs mention burning but the code seems to describe a five-year vesting lock with the creator as beneficiary instead, which is worth verifying. Let me dig into _sweepFees around lines 741-850 next.
+
+I've derived the formula sheet: using phantom Q₀ and threshold G=2.5·Q₀, 28.57% of supply reserves for the V4 pool while 71.43% sells on the curve, yielding a 12.25× price multiple and ~20.58 ETH graduation FDV from a 1.68 ETH initial FDV. Now checking the fee sweep split and buyback path.
+
+--- 71. Read fee sweep logic ---
+[Isi detail]
+Read
+PonsV2BondingCurve.sol
+Read
+PonsV2BondingCurve.solLines 696-871
+
+--- 72. Thought for 5s ---
+[Isi detail]
+I'm working out the fee split: the fee goes to protocol and a creator bucket, and the buyback slice comes from the creator's bucket (not protocol's), gets swapped internally for the memecoin, and locked five years in a buyback vault shared between creator and protocol. Creator tax goes entirely to the creator, with all payouts handled via a claimable FeeEscrow ledger using pull payments.
+
+Now I need to pull the factory's actual economics values — protocolFeeShareBps, buybackBurnBps, maxInternalPriceImpactBps — since these live on the factory as a fee policy, and trace through the graduation flow, GraduationMath, and the hook's post-graduation fee logic. I'll start by grepping the factory for the relevant function names.
+
+I've traced the fee flow: base fee splits into protocol and creator shares, with the buyback portion drawn from the creator's bucket, swapped for the memecoin, and locked in a 5-year vesting vault (not burned, despite what the docs say); creator tax goes fully to the creator, all distributed via a pull-based FeeEscrow. Next I'll examine the factory's graduation path and the V4 hook's post-graduation fee handling.
+
+--- 73. Mapped factory functions ---
+[Isi detail]
+Scanned 1 file
+
+--- 74. Thought for 4s ---
+[Isi detail]
+I notice the snipeTaxSeconds default is 15 in code but was changed on-chain to 3 by the owner, with a max cap of 60 seconds. I'm also noting the timelock parameters: a 3-day timelock with a 3-day execution window for creator fee recipient changes (CTO override), a 7-day graduation rescue delay, and that renounceOwnership is disabled.
+
+launchFor seems to support gasless or relayed launches, possibly via a Turnkey embedded wallet. I want to dig into the graduate function and the graduation math/executor logic, then look at how the hook handles fees, so I'll read through the factory contract around lines 1084-1260.
+
+Key factory constants noted: snipe-tax window defaults to 15s (owner reduced to 3s, max 60s), 32 max exemptions, CTO override timelocked 3 days with a 3-day execution window, 7-day graduation rescue delay, disabled renounceOwnership, and a relayed launchForwarder. Next, I'll dig into the graduation path.
+
+--- 75. Read factory graduation flow ---
+[Isi detail]
+Read
+PonsV2LaunchFactory.sol
+Read
+PonsV2LaunchFactory.solLines 1062-1291
+
+--- 76. Thought for 9s ---
+[Isi detail]
+Graduation happens in two phases: graduate() sweeps the curve into the factory, then createGraduatedPool() — permissionless and retryable — seeds the V4 pool with a full-range position sent to the locker. The pooled token amount only reflects the real-quote-backed portion of reserves, since the virtual-reserve remainder stays permanently locked.
+
+Running the numbers: at graduation trackedTokens ≈ 285.71M, sweptQuote = 4.2 ETH, giving a pool allocation of ~204.08M tokens and leaving ~81.63M tokens (8.16% of supply) locked forever. The resulting pool price matches the curve's terminal price exactly, so the final distribution is roughly 71.43% sold, 20.41% in the pool, and 8.16% permanently locked.
+
+Next I want to dig into the hook's post-graduation mechanics — fee dynamics in beforeSwap/afterSwap, fee splits, buyback logic, creator tax after graduation, and the rescuePoolFees function — then briefly check the BuybackVault and GraduationExecutor/Guard before moving to fork verification testing and writing up Phase 2. I should stay efficient since there are more phases to cover.
+
+Confirmed graduation works in two phases: graduate() sweeps the curve into the factory, then createGraduatedPool() seeds a full-range V4 position with ~204.08M tokens and 4.2 ETH, permanently locking the ~81.63M token remainder (8.16% of supply). Next I'll check the V4 hook's post-graduation fee logic.
+
+--- 77. Mapped meme hook functions ---
+[Isi detail]
+Scanned 1 file
+
+--- 78. Read hook afterSwap fee logic ---
+[Isi detail]
+Read
+PonsV2MemeHook.sol
+Read
+PonsV2MemeHook.solLines 420-554
+
+--- 79. Thought for 7s ---
+[Isi detail]
+I'm tracing how the hook collects its fee and creator tax from the unspecified currency during afterSwap, keeping them in separate pending buckets before a batched sweep swaps memecoin fees into quote currency and splits them among protocol, buyback, and creator, with buyback funds locked in a vault. I'm also checking whether the LP fee is effectively zero since poolFee is set to 0 in the config.
+
+Next I want to pull the live hook policy values — protocolFeeShareBps, buybackBurnBps, hookFeeBps, maxInternalPriceImpactBps, feeSweepOperator, protocolFeeRecipient — along with the fee escrow, locker, graduation executor, launch deployer, and forwarder addresses from the factory. After that I'll check the BuybackVault's vesting duration and beneficiaries, look at on-chain event stats for launches and graduations, and then write the fork verification test.
+
+Confirmed the hook captures all post-graduation revenue since poolFee is set to 0, routing hookFeeBps and creatorTaxBps into pending buckets, converting memecoin fees in batched sweeps, and locking the buyback slice. Next, I'll read the live policy values and remaining module addresses.
+
+--- 80. Read live hook policy and modules ---
+[Isi detail]
+$ cd /tmp && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; H=0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044; F=0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e; V=0x42df2a798f82289E177311362e8f5ccC45c1219c; echo "== HOOK =="; for f in 'owner()(address)' 'factory()(address)' 'protocolFeeShareBps()(uint256)' 'buybackBurnBps()(uint256)' 'hookFeeBps()(uint256)' 'maxInternalPriceImpactBps()(uint256)' 'protocolFeeRecipient()(address)' 'feeSweepOperator()(address)' 'buybackVault()(address)' 'feeEscrow()(address)' 'poolManager()(address)'; do r=$($C call $H "$f" --rpc-url $RPC 2>/dev/null); [ -n "$r" ] && echo "   $f = $r"; done; echo "== FACTORY modules =="; for f in 'launchLocker()(address)' 'locker()(address)' 'feeEscrow()(address)' 'graduationExecutor()(address)' 'graduationGuard()(address)' 'launchDeployer()(address)' 'launchForwarder()(address)' 'feePolicy()(address)' 'positionManager()(address)' 'permit2()(address)' 'pendingOwner()(address)'; do r=$($C call $F "$f" --rpc-url $RPC 2>/dev/null); [ -n "$r" ] && echo "   $f = $r"; done; echo "== VAULT =="; for f in 'VESTING_DURATION()(uint256)' 'owner()(address)' 'factory()(address)' 'hook()(address)'; do r=$($C call $V "$f" --rpc-url $RPC 2>/dev/null); [ -n "$r" ] && echo "   $f = $r"; done; echo "== owner 0x263e is contract? =="; echo "code len: $($C code 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd --rpc-url $RPC | wc -c)"; $C call 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd 'getThreshold()(uint256)' --rpc-url $RPC 2>&1 | head -1; $C call 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd 'getOwners()(address[])' --rpc-url $RPC 2>&1 | head -1; $C call 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd 'VERSION()(string)' --rpc-url $RPC 2>&1 | head -1; echo "== block time estimate =="; B=$($C block-number --rpc-url $RPC); T1=$($C block $B --field timestamp --rpc-url $RPC); T0=$($C block $((B-10000)) --field timestamp --rpc-url $RPC); echo "10000 blocks took $((T1-T0)) s => $(python3 -c "print(round(($T1-$T0)/10000,3))") s/block"; echo "v2 factory deploy block 26841846 ts: $($C block 26841846 --field timestamp --rpc-url $RPC | xargs -I{} date -u -d @{} +%F)"; echo "gen2 deploy 8991118 ts: $($C block 8991118 --field timestamp --rpc-url $RPC | xargs -I{} date -u -d @{} +%F)"; echo "gen1 deploy 8600612 ts: $($C block 8600612 --field timestamp --rpc-url $RPC | xargs -I{} date -u -d @{} +%F)"; echo "now ts: $(date -u -d @$T1 +%F)"
+== HOOK ==
+   owner()(address) = 0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd
+   factory()(address) = 0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e
+   protocolFeeShareBps()(uint256) = 3000
+   buybackBurnBps()(uint256) = 5000
+   hookFeeBps()(uint256) = 100
+   maxInternalPriceImpactBps()(uint256) = 300
+   protocolFeeRecipient()(address) = 0x31eA5b453A6Cd60F36203830DE046ff32De
+
+...
+
+oy block 26841846 ts: 2026-08-03
+gen2 deploy 8991118 ts: 2026-07-13
+gen1 deploy 8600612 ts: 2026-07-13
+now ts: 2026-10-23
+
+--- 81. Thought for 16s ---
+[Isi detail]
+I'm looking at the hook policy parameters on-chain: a 30% protocol fee share, 50% buyback-burn basis points from the creator bucket, a 1% hook fee, and a 3% max internal price impact cap, along with the key operator addresses like the fee sweep keeper, fee escrow, locker, graduation executor, and guard contracts.
+
+I'm also noting vault vesting is set to 5 years, ownership sits with a 2-of-3 Gnosis Safe multisig with no timelock, and block times look suspiciously fast at ~0.105s — consistent with a 100ms Orbit chain like Robinhood Chain. The deployment timeline shows Gen1 and Gen2 factories both launched the same day (July 13, 2026), roughly 11 hours apart — likely a quick replacement after early attacks — followed by a V2 curve+hook upgrade on August 3, 2026, suggesting Pons became the top launchpad on its chain within weeks of going live.
+
+Next I want to pull event-based stats (TokenLaunched and PoolGraduated counts) across all three factories for Phase 5, but since the RPC times out on wide eth_getLogs ranges, I'll need to chunk the ~87.5M block span into pieces and test what size the RPC tolerates before writing a script to count logs per factory with adaptive chunking, running it in the background while I continue writing up findings.
+
+First I should lock in Step 0 and the progress files so work is persisted, then kick off the log-scan script in the background and proceed to the fork verification test — I have enough REA knowledge now to write the playbook.
+
+Confirmed the owner is a 2-of-3 Gnosis Safe (no timelock), with hook policy details (1% fee, 30% protocol share, 50% buyback-and-lock, 3% max price impact), 5-year vault vesting, and a factory timeline showing Gen1 (replaced ~11h later) and Gen2 both deployed 2026-07-13, V2 on 2026-08-03. Now writing the Step 0 playbook and progress files before continuing.
+
+--- 82. Wrote REA playbook [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 83. Ran REA on Gen1 bytecode ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/bytecode && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; $C code 0x0c37a24F5D23A486FA692d1500881d698B1F77a4 --rpc-url $RPC > gen1-factory.hex; $C code 0x31ca5E101941A93A7DD6d0497928700625CF54B5 --rpc-url $RPC > gen1-locker.hex; wc -c *.hex; for n in gen1-factory gen1-locker; do npx -y rea-agents@6.7.0 inspect-evm-interface $n.hex hex --json > $n.rea.json 2>$n.rea.err; echo "== $n: $(jq -r '.evidence_kind // .result.evidence_kind // "?"' $n.rea.json) functions=$(jq '[.. | objects | select(has("selector"))] | length' $n.rea.json)"; jq -r '[.. | objects | select(has("selector")) | .selector] | unique | .[]' $n.rea.json > $n.selectors.txt; wc -l < $n.selectors.txt; done; echo "--- metadata (compiler) ---"; jq -c '.. | objects | select(has("metadata")) | .metadata | {solc: (.solc // .decoded.solc // null), ipfs: (.ipfs // null)}' gen1-factory.rea.json 2>/dev/null | head -2; echo "--- resolve selector names via cast 4byte (factory) ---"; while read s; do echo "$s $($C 4byte $s 2>/dev/null | head -1)"; done < gen1-factory.selectors.txt | sort -k2 | head -80
+48387 gen1-factory.hex
+ 9725 gen1-locker.hex
+58112 total
+== gen1-factory: ? functions=48
+48
+== gen1-locker: ? functions=46
+46
+--- metadata (compiler) ---
+{"solc":null,"ipfs":null}
+{"solc":null,"ipfs":null}
+--- resolve selector names via cast 4byte (factory) ---
+0x79ba5097 acceptOwnership()
+79ba5097 acceptOwnership()
+0x767f5993 addDexConfig((string,address,address,addre
+
+...
+
+6,uint16,uint16,uint32,uint24,bool,bool))
+0xda3eda65 whitelistedLaunchers(address)
+da3eda65 whitelistedLaunchers(address)
+
+--- 84. Thought for 7s ---
+[Isi detail]
+I'm finding that the 24 unique selectors recovered from Gen1 match the same function set as Gen2's PonsLaunchFactory via 4byte lookup, suggesting Gen1 shares the identical interface. Comparing bytecode sizes (48387 vs 48709) shows a slight difference, so Gen2 looks like a redeploy that likely fixes a bug or adjusts a parameter rather than changing the ABI.
+
+Now I want to kick off a background scan counting TokenLaunched and PoolGraduated events across all three factories, writing a Python JSON-RPC script that chunks through roughly 87.5M blocks with topic and address filters, starting at 1M-block chunks and adapting down if requests time out, saving results to a launch-events JSON file.
+
+The 24 unique selectors from the unverified Gen1 factory all resolve to the same interface as the verified Gen2 PonsLaunchFactory, confirming it's a same-ABI redeploy with minor bytecode differences. Now I'll kick off a chunked on-chain event scan across all three generations in the background while running fork verification.
+
+--- 85. Wrote event scan script [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 86. Started background event scan ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research && GRAD=$(/tmp/rea-tools/cast keccak "PoolGraduated(address,uint256,uint256,uint256)") && echo "PoolGraduated topic: $GRAD" && grep -n "event PoolGraduated" -A3 raw/sources/tree_v3_PonsV2LaunchFactory/contracts/src/v2/PonsV2LaunchFactory.sol | head -6 && python3 02-contracts/verification/scan_events.py raw/traces/launch-events.json $GRAD > raw/traces/scan.log 2>&1
+Running in background…
+
+--- 87. Thought for 5s ---
+[Isi detail]
+While the scan runs, I want to verify my formula against a real transaction: I'll pick an actual V2 curve buy tx, pull the CurveBuy event details (quoteIn, tokensOut, fee, tax) and the curve state at the prior block, then recompute tokensOut in Python with big ints to confirm it matches exactly.
+
+Beyond the differential check, I also want a Foundry fork test — set up a minimal project, fork at the block before the transaction, impersonate the buyer, call buy with the real quoteIn, and assert the resulting tokensOut matches both the on-chain event and the Solidity formula. To do this I need to identify a real buy tx first, so I'm looking at one of the recent launch transactions to grab its curve address and find the CurveBuy logs on that curve.
+
+--- 88. Located real curve buy transactions ---
+[Isi detail]
+$ cd /tmp && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; TX=0x97625bc7aecd155186d2338a9e03f9a07258cbec764cf62304aeab8a4b248acd; echo "== launch tx receipt (topics of TokenLaunched v2) =="; $C receipt $TX --rpc-url $RPC --json | jq -c '.logs[] | select(.topics[0]=="0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607") | {token: ("0x"+.topics[1][26:]), curve: ("0x"+.topics[2][26:]), deployer: ("0x"+.topics[3][26:]), data}'; echo "gasUsed launch: $($C receipt $TX --rpc-url $RPC --json | jq -r .gasUsed) block: $($C receipt $TX --rpc-url $RPC --json | jq -r .blockNumber)"; CURVE=$($C receipt $TX --rpc-url $RPC --json | jq -r '.logs[] | select(.topics[0]=="0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607") | "0x"+.topics[2][26:]'); TOKEN=$($C receipt $TX --rpc-url $RPC --json | jq -r '.logs[] | select(.topics[0]=="0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607") | "0x"+.topics[1][26:]'); echo "curve=$CURVE token=$TOKEN"; echo "== curve params =="; for f in 'phantomQuote()(uint256)' 'feeBps()(uint256)' 'creatorTaxBps()(uint256)' 'graduationThreshold()(uint256)' 'reservedTokens()(uint256)' 'launchSupply()(uint256)' 'launchedAt()(uint256)' 'snipeTaxStartBps()(uint256)' 'snipeTaxSeconds()(uint256)' 'buybackEnabled()(bool)' 'pairToken()(address)' 'trackedQuote()(uint256)' 'trackedTokens()(uint256)' 'graduated()(bool)'; do echo "   $f = $($C call $CURVE "$f" --rpc-url $RPC)"; done; echo "== CurveBuy logs on this curve =="; TB=$($C keccak "CurveBuy(address,address,uint256,uint256,uint256,uint256)"); echo "topic $TB"; BN=$($C receipt $TX --rpc-url $RPC --json | jq -r .blockNumber); L=$($C block-number --rpc-url $RPC); $C logs --rpc-url $RPC --from-block $BN --to-block $L --address $CURVE "$TB" --json | jq -c '.[] | {bn: .blockNumber, tx: .transactionHash, buyer: ("0x"+.topics[1][26:]), data}' | head -8; echo "count: $($C logs --rpc-url $RPC --from-block $BN --to-block $L --address $CURVE "$TB" --json | jq length)"
+== launch tx receipt (topics of TokenLaunched v2) ==
+{"token":"0x65b101d4f151f1091874e2668b7f1f80268e9e8e","curve":"0xb9c425ff3706e17b061fda39bb9062999be542f9","deployer":"0x05ec1e5c1d5eea69ae06d1d71900fd0963c2587a","data":"0x0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+
+...
+
+0000000000000000000000000000000708ccaca7c000000000000000000000000000000000000000000000000000000e1199594f8000"}
+count: 123
+
+--- 89. Thought for 15s ---
+[Isi detail]
+The on-chain reservedTokens value of 285714285714285714285714285 confirms my derivation of S/3.5 exactly, down to the wei. I'm now noting that the launch transaction included an initial buy through launchAndBuy, with the launchForwarder address as buyer.
+
+Decoding the first buy's details: quoteIn 0.01 ETH, with fee at 1% and tax at 2%, matching the creator tax rate for this launch. The second buy, six blocks later, shows a 0.05 ETH purchase where the fee field is inflated beyond the normal 1%, revealing a snipe tax component — working through the math, this comes out to 618 bps, consistent with the halving decay formula at roughly 1 second post-launch.
+
+Now I'm planning out the forge fork test setup: forking at the block just before the second buy, warping to that block's actual timestamp so the snipe tax calculation lines up correctly, then pranking the buyer address, funding them with ETH, and calling buy with the known parameters to assert the tokensOut matches the on-chain value and the Solidity-side formula computation agrees. I also want to verify the first buy similarly.
+
+I'll first run a quick Python check of the bonding curve math for the initial launchAndBuy trade using the exempt (no snipe tax) case, before moving into writing the actual forge test. I need to pull the real block timestamps to use in the fork setup.
+
+Confirmed on-chain reservedTokens and fee calculations match my derivation exactly, including the snipe tax halving formula on the second buy. Now building the Foundry fork test to reproduce these outputs.
+
+--- 90. Checked buy formula in Python ---
+[Isi detail]
+$ cd /tmp && RPC=https://rpc.mainnet.chain.robinhood.com; C=/tmp/rea-tools/cast; CURVE=0xb9c425ff3706e17b061fda39bb9062999be542f9; B1=$((0x5bacf5f)); B2=$((0x5bacf65)); echo "launch block $B1 ts=$($C block $B1 --field timestamp --rpc-url $RPC); buy2 block $B2 ts=$($C block $B2 --field timestamp --rpc-url $RPC)"; echo "state before buy2 (block $((B2-1))):"; for f in 'trackedQuote()(uint256)' 'trackedTokens()(uint256)' 'quoteFeeBalance()(uint256)' 'creatorTaxBalance()(uint256)'; do echo "  $f = $($C call $CURVE "$f" --rpc-url $RPC --block $((B2-1)))"; done; python3 - <<'EOF'
+BP=10000
+Q0=1680000000000000000; S=10**27
+# --- buy #1 (atomic launch buy, exempt from snipe tax) ---
+spent=10**16; fee=spent*100//BP; tax=spent*200//BP; snipe=0
+net=spent-fee-tax-snipe
+out=(net*(BP-0))*S//(Q0*BP+net*(BP-0))
+print("buy1 expected tokensOut:", out, hex(out), "onchain 0x4bfa205309e4d775ecc23 ->", out==0x4bfa205309e4d775ecc23)
+print("buy1 fee", fee, "onchain", 0x5af3107a4000, fee==0x5af3107a4000, "tax", tax, tax==0xb5e620f48000)
+# state after buy1
+trackedQuote=spent; trackedTokens=S-out; feeBal=fee+snipe; taxBal=tax
+# --- buy #2 one second later (snipe tax 9900>>4 = 618 bps) ---
+elapsed=1; window=3; snipeBps=9900>>((elapsed*14)//window)
+maxSnipe=BP-100-200-100
+snipeBps=min(snipeBps,maxSnipe)
+spent2=0xb1a2bc2ec50000
+qres=Q0+trackedQuote-feeBal-taxBal; tres=trackedTokens
+fee2=spent2*100//BP; tax2=spent2*200//BP; snipe2=spent2*snipeBps//BP
+net2=spent2-fee2-tax2-snipe2
+out2=net2*tres//(qres+net2)
+print("snipeBps",snipeBps,"buy2 expected tokensOut:", hex(out2), "onchain 0x158629d59b4fe7a4f05c7f ->", out2==0x158629d59b4fe7a4f05c7f)
+print("buy2 fee+snipe", fee2+snipe2, "onchain", 0xcc11602be6000, fee2+snipe2==0xcc11602be6000, "tax2", tax2==0x38d7ea4c68000)
+# graduation economics
+reserved=S*Q0//(Q0+4200000000000000000)
+print("reserved", reserved, reserved==285714285714285714285714285)
+G=4200000000000000000
+poolTokens=reserved*G//(G+Q0)
+print("poolTokens", poolTokens/1e18, "lockedExcess", (reserved-poolTokens)/1e18, "sellable", (S-reserved)/1e18)
+p0=Q0/S; pg=(Q0+G)/reserved
+print("initial price ETH/token", p0, "FDV0 ETH", p0*1e9, "grad price", pg, "FDV grad ETH", pg*1e9, "multiple", pg/p0)
+# gross ETH needed to graduate (no creator tax, no snipe): net needed = G ; gross = G/(1-0.01)
+print("gross ETH to graduate at 1% fee only:", G/0.99/1e18, " with 2% creator tax:", G/0.97/1e18)
+EOF
+launch block 96128863 ts=1792778127; buy2 block 96128869 ts=1792778128
+state before buy2 (block 96128868):
+  trackedQuote()(uint256) = 10000000000000000 [1e16]
+  trackedTokens()(uint256) = 994259335976800615493874653 [9.942e26]
+  quoteFeeBalance()(uint256) = 100000000000000 [1e14]
+  creatorTaxBalance()(uint256) = 200000000000000 [2e14]
+buy1 expected tokensOu
+
+...
+
+8 FDV grad ETH 20.58 multiple 12.25
+gross ETH to graduate at 1% fee only: 4.242424242424243  with 2% creator tax: 4.3298969072164954
+
+--- 91. Thought for 5s ---
+[Isi detail]
+Both real buys reproduce exactly on tokensOut, fee, tax, and snipe tax, confirming the on-chain formula is verified. Now I'm setting up a Foundry fork test project in 02-contracts/verification/ that forks at block 96128868 and replays buy #2 with vm.warp, asserting the result matches the on-chain event.
+
+Since forge-std may require a git fetch, I'll avoid that dependency entirely by writing a self-contained test with a minimal cheatcode interface at the standard Vm address and simple require-based assertions instead of a full Test base contract.
+
+Both real buys reproduced exactly—tokensOut, base fee, creator tax, and the 618 bps snipe tax all match—confirming the curve formula is onchain-verified. Now writing the Foundry fork test as the permanent verification artifact, self-contained with no forge-std dependency.
+
+--- 92. Wrote Foundry fork test [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 93. Ran Foundry fork test ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/02-contracts/verification/forge && printf '[profile.default]\nsrc = "src"\ntest = "test"\nout = "out"\nlibs = []\nsolc = "0.8.30"\nevm_version = "cancun"\nrpc_endpoints = { robinhood = "https://rpc.mainnet.chain.robinhood.com" }\n' > foundry.toml && mkdir -p src && printf '// SPDX-License-Identifier: MIT\npragma solidity ^0.8.26;\n' > src/.keep.sol && /tmp/rea-tools/forge test --fork-url https://rpc.mainnet.chain.robinhood.com --fork-block-number 96128868 -vv 2>&1 | tail -25
+Warning: Found unknown `rpc_endpoints` config for profile `default` defined in foundry.toml.
+Compiling 2 files with Solc 0.8.30
+Solc 0.8.30 finished in 4.54ms
+Error: Compiler run failed:
+Error (9429): This looks like an address but has an invalid checksum. Correct checksummed address: "0xb9c425Ff3706E17b061FdA39bb9062999be542f9". If this is not used as an address, plea
+
+...
+
+0x610dE2B5FE686748CeaA6c5F1Cb45F3AA9672208;
+   |                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+--- 94. Fixed address checksums [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 95. Re-ran Foundry fork test ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/02-contracts/verification/forge && sed -i '/rpc_endpoints/d' foundry.toml && /tmp/rea-tools/forge test --fork-url https://rpc.mainnet.chain.robinhood.com --fork-block-number 96128868 -vv 2>&1 | tail -15 | tee test-output.txt
+[2m2026-10-23T18:06:36.100853Z[0m [31mERROR[0m [2msharedbackend[0m[2m:[0m Failed to send/recv `basic` [3merr[0m[2m=[0mfailed to get account for 0x1804c8AB1F12E6bbf3894d4083f33e07309d1f38: server returned an error response: error code 
+
+...
+
+-32000: historical state b4990dd693d591cf663551c68be8013fa286a8db1edf060f751710d97183e08a is not available] setUp() (gas: 0)
+
+Encountered a total of 1 failing tests, 0 tests succeeded
+
+Tip: Run `forge test --rerun` to retry only the 1 failed test
+
+--- 96. Thought for 8s ---
+[Isi detail]
+I realize the RPC node likely only retains a short window of recent historical state — that earlier block query worked when it was fresh, but now it's probably been pruned. I should try forking from the latest block instead and replaying from there.
+
+Since I already did a Python exact-match against real transactions using pre-state fetched at the time, that satisfies the "reproduces real tx outputs exactly" requirement independent of the forge test. So I'll restructure the forge test as a live-fork differential test — compute the formula against current reserves, execute a real buy, and compare outputs — rather than relying on historical replay, and split the tests into a historical replay file (requiring archive access) and a live differential file.
+
+Since the public RPC prunes historical state too fast for a pinned archive fork, I'll convert the forge test into a live-fork differential test comparing the formula against the live contract on a fresh buy, while keeping the archive-pinned test documented.
+
+--- 97. Wrote live differential fork test [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 98. Ran live differential fork test ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/02-contracts/verification/forge && /tmp/rea-tools/forge test --match-contract LiveDifferential --fork-url https://rpc.mainnet.chain.robinhood.com -vv 2>&1 | grep -vE "^\s*$" | tail -14 | tee test-output-live.txt; echo "--- scan progress ---"; tail -3 ../../../raw/traces/scan.log
+Compiler run failed:
+Error (9429): This looks like an address but has an invalid checksum. Correct checksummed address: "0xBEeF0000000000000000000000000000000000bE". If this is not used as an address, please prepend '00'. For more information please see https://docs.soliditylang.org/en/develop/types.html#address-literals
+SyntaxError: This looks like an address but has 
+
+...
+
+tp_error_default
+    raise HTTPError(req.full_url, code, msg, hdrs, fp)
+urllib.error.HTTPError: HTTP Error 403: Forbidden
+
+--- 99. Thought for a moment ---
+[Isi detail]
+I see two problems: a checksum issue, and the scan hitting HTTP 403 from the RPC, likely rate-limited early on. I'll fix the checksum and check the start of the scan log to confirm.
+
+--- 100. Fixed test and checked scan ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research && sed -i 's/0xBEEF0000000000000000000000000000000000BE/0xBEeF0000000000000000000000000000000000bE/' 02-contracts/verification/forge/test/PonsV2CurveLiveDifferential.t.sol && head -12 raw/traces/scan.log && echo "--- rpc sanity ---" && curl -s -m 15 -o /dev/null -w "%{http_code}\n" -X POST -H 'content-type: application/json' --data '{"jsonrpc":"2.0","id":1,"method":"eth_blockNumber","params":[]}' https://rpc.mainnet.chain.robinhood.com
+Traceback (most recent call last):
+  File "/vercel/share/v0-project/giwa-launchpad-research/02-contracts/verification/scan_events.py", line 65, in <module>
+    main()
+    ~~~~^^
+  File "/vercel/share/v0-project/giwa-launchpad-research/02-contract
+
+...
+
+~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/vercel-sandbox/.local/share/uv/python/cpython-3.13.17-linux-x86_64-gnu/lib/python3.13/urllib/request.py", line 189, in urlopen
+    return opener.open(url, data, timeout)
+--- rpc sanity ---
+200
+
+--- 101. Thought for a moment ---
+[Isi detail]
+That first 403 likely came from the RPC's WAF flagging Python-urllib's default User-Agent, since curl worked fine. I'll add a custom User-Agent header to the script, rerun it in the background, then proceed with the forge test.
+
+--- 102. Restarted scan and ran fork test ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research && sed -i 's/headers={"content-type": "application\/json"}/headers={"content-type": "application\/json", "user-agent": "curl\/8.5 giwa-research"}/' 02-contracts/verification/scan_events.py && GRAD=$(/tmp/rea-tools/cast keccak "PoolGraduated(address,uint256,uint256,uint256)") && (nohup python3 02-contracts/verification/scan_events.py raw/traces/launch-events.json $GRAD > raw/traces/scan.log 2>&1 &) && sleep 8 && tail -2 raw/traces/scan.log && cd 02-contracts/verification/forge && /tmp/rea-tools/forge test --match-contract LiveDifferential --fork-url https://rpc.mainnet.chain.robinhood.com -vv 2>&1 | grep -vE "^\s*$" | tail -12 | tee test-output-live.txt
+[gen2] 1507812/87145045 blocks, logs=10160, chunk=244140, 6s
+[gen2] 1751952/87145045 blocks, logs=14764, chunk=305175, 6s
+Compiling 1 files with Solc 0.8.30
+Solc 0.8.30 finished in 31.23ms
+Compiler run successful!
+Ran 3 tests for test/PonsV2CurveLiveDifferential.t.sol:PonsV2CurveLiveDifferentialTest
+[PASS]
+
+...
+
+7782)
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 5.89s (3.79s CPU time)
+Ran 1 test suite in 5.99s (5.89s CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)
+
+--- 103. Thought for 4s ---
+[Isi detail]
+All three fork tests pass — buy formula matches the live contract, sell formula matches, and the graduation allocation identity holds. The scan is moving fast too: Gen2 hit 14.7k launches in the first 1.75M blocks, which at ~0.1s/block is about 2 days, meaning roughly 7k launches/day, consistent with the "very high daily token counts" I expected. Now I'm ready to save the Phase 2 results.
+
+I'll move on to recon items needing web research: Pons' history (attacks, the infra incident, the Pools.trade rivalry, Lemon.fun, NOXA), the Dune dashboard, and socials. To stay efficient with context, I'll run several web searches in parallel rather than one at a time.
+
+All three fork tests pass—live buy/sell match my formulas exactly and the graduation allocation checks out—while the event scan runs quickly (Gen2 already showing ~14.7k launches in its first 2 days). Next, I'll gather public history on attacks, the infra incident, the Pools.trade rivalry, and the competitor landscape.
+
+--- 104. Searched Pons Family history ---
+[Isi detail]
+Searching "Pons Family launchpad Robinhood Chain memecoin "pons" attack exploit postmortem 2026"
+Analyzing 8 results...
+No public “Robinhood Chain memecoin Pons attack/exploit postmortem 2026” is provided in the results. The reports instead describe alleged abuse of Pons V2’s anti-sniping tax exemption (a whitelist) rather than a hack: creators exempted selected wallets from a decaying 99% “snipe tax,” and those wallets bought most of each token’s supply immediately. The Block reviewed 10 launches and tied the pattern/fund flows to an alleged coordinated operation extracting at least ~$18.43M across 53 launches (Wazz’s estimate) on Robinhood Chain [1].
+theblock.co
+stackandstory.com
+github.com
+optimisus.com
+avoid.net
+bitquery.io
+pondstreetledger.com
+gate.com
+
+--- 105. Thought for a moment ---
+[Isi detail]
+This is a significant finding — The Block reported alleged abuse of the snipe tax exemption whitelist, where creators exempt wallets that buy most of the supply immediately, essentially enabling insider bundling, extracting roughly $18.43M across 53 launches. I want to pull up that article and also look into the infrastructure incident and Pools.trade.
+
+--- 106. Searched The Block report on Pons ---
+[Isi detail]
+Searching "The Block pons Robinhood Chain snipe tax whitelist launches $18 million Wazz"
+Analyzing 8 results...
+An investigation by analyst Wazz linked 53 memecoin launches on the Robinhood Chain to a single $18.43 million extraction operation [1][2]. The scheme involved creators using the Pons V2 launchpad, which features a 99% anti-sniping tax on early buys [1][3]. Creators abused a platform setting that allows them to whitelist up to 32 wallets, exempting them from this tax [1][2]. These whitelisted wallets then bought out the majority of the token supply within seconds of launch, effectively rug-pulling other participants [1][3]. Proceeds were frequently funneled to fund subsequent token launches [1][4].
+theblock.co
+coinmarketcap.com
+8bitcrypto.com
+tokenpost.com
+cryptonews.com
+ponsfamily.com
+toobit.com
+docs.ponsfamily.com
+
+--- 107. Searched Pons infra incident and rivals ---
+[Isi detail]
+Searching "pons launchpad Robinhood Chain outage RPC provider incident Pools.trade "Crowd Launch" Lemon.fun NOXA market share"
+Analyzing 8 results...
+Pools.trade is a launchpad built by Uniswap Labs on Robinhood Chain that launched officially on 5 August 2026. It competes with the incumbent, Pons, by offering zero launch fees and a 0.25% trading fee. It features two modes: Instant Launch, which uses a bonding curve, and Crowd Launch, a four-hour continuous clearing auction. Noxa.fun was the chain’s first major launchpad but ceased new launches on 11 July 2026 and went dark on 13 July. Pools.trade currently holds significant market share, capturing roughly 40-54% of new token launches and trading volume shortly after its debut.
+memecentral.fun
+thedefiant.io
+dune.com
+docs.bitquery.io
+ponscopytrading.com
+coingabbar.com
+docs.bitquery.io
+broadchain.info
+
+--- 108. Thought for 3s ---
+[Isi detail]
+Pools.trade from Uniswap Labs launched August 5, 2026, with no launch fee, a 0.25% trading fee, and two mechanisms—Instant Launch via bonding curve and Crowd Launch via a four-hour clearing auction. Noxa.fun, the earlier dominant launchpad, stopped launches July 11 and went fully dark July 13, the very day Pons Gen1/Gen2 deployed, and Pools.trade quickly captured 40-54% of launches in the gap.
+
+Now I need to dig into The Block article plus details on the Pons infrastructure incident and its history of attacks, searching with different terms for the "early attacks" angle, and also track down the Pons X account and any Dune dashboard. I'll run a couple more searches before fetching the top sources.
+
+--- 109. Searched Pons early attacks and infra outage ---
+[Isi detail]
+Searching "ponsfamily pons Robinhood Chain July 2026 sniper bots attack legacy factory relaunch indexer outage Alchemy incident degraded"
+Analyzing 8 results...
+Pons is a noncustodial token launch and trading platform on the Robinhood Chain [1]. In July 2026, the platform experienced a series of operational disruptions following the collapse of the competitor platform NOXA [2][3]. In mid-July 2026, Pons faced a frontend authorization vulnerability, which the team patched, clarifying that it did not affect the V2 launchpad's Multicall3 functionality [4]. Shortly after, the team paused V2 launches to address sniping issues, subsequently relaunching after patching and auditing [5]. Throughout this period, the platform also contended with bot activity that artificially inflated transaction counts and issuance metrics [2]. These vulnerabilities and bot-driven exploits, such as abusing sniper tax exemptions to drain liquidity, remained a focus of security audits through September 2026 [6][7].
+docs.ponsfamily.com
+htx.com
+cryptotimes.io
+chaincatcher.com
+tweetlook.com
+hackerbane.com
+kucoin.com
+zamantika.com
+
+--- 110. Thought for a moment ---
+[Isi detail]
+I still need actual source URLs since the search summaries only gave citation numbers, not links. I'll run a more targeted search specifically for the The Block article and Pons' X posts.
+
+--- 111. Found source URLs for Pons reports ---
+[Isi detail]
+Searching "theblock.co Robinhood Chain memecoin launches $18.43 million Pons V2 whitelist investigation"
+Analyzing 8 results...
+Onchain analyst Wazz identified a coordinated operation that extracted at least $18.43 million from 53 memecoin launches on Robinhood Chain between July 10 and September 21, 2026 [1][2]. The investigation revealed that creators of these tokens used the Pons V2 launchpad to systematically bypass a 99% anti-sniping tax [1][2]. By exempting specific wallets from this tax, the operators bundled transactions to acquire over 70% of the token supply immediately upon launch [1][3]. Proceeds were then cycled to fund subsequent token deployments [1][2]. No suspects have been identified or held legally responsible for the activity [4].
+theblock.co
+ebtcnews.com
+tokenpost.com
+bsc.news
+cryptosynk.com
+gate.com
+gate.com
+cvj.ai
+
+--- 112. Thought for a moment ---
+[Isi detail]
+Since the search isn't surfacing direct URLs, I'm trying a DuckDuckGo HTML search for The Block article on Pons, Robinhood, and the $18.43 million figure to find a working link.
+
+--- 113. Resolved article URLs via DuckDuckGo ---
+[Isi detail]
+Visiting "html.duckduckgo.com/html/"
+Visiting "html.duckduckgo.com/html/"
+Read
+html.duckduckgo.com
+Read
+html.duckduckgo.com
+
+--- 114. Thought for a moment ---
+[Isi detail]
+Since DuckDuckGo HTML didn't return results via WebFetch, I'll try searching Bing instead through a curl command and filter for theblock.co links in the output.
+
+--- 115. Resolved source URLs via Bing ---
+[Isi detail]
+$ cd /tmp && UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"; for q in "theblock.co+pons+robinhood+chain+18.43+million+Wazz" "pools.trade+Crowd+Launch+Robinhood+Chain+Uniswap+Labs+pons" "pons+launchpad+robinhood+chain+pauses+V2+launches+sniping+audit" "noxa.fun+robinhood+chain+launchpad+shut+down+july+2026" "lemon.fun+robinhood+chain+launchpad"; do echo "=== $q"; curl -s -m 20 -A "$UA" "https://www.bing.com/search?q=$q&setlang=en" | grep -oE 'href="https?://[^"]+"' | grep -vE 'bing\.com|microsoft|go\.microsoft|msn\.com|w3\.org|schema\.org|javascript|/images/|/videos/|/maps|/news/search|/shop' | sed 's/href=//; s/"//g' | sort -u | head -12; done
+=== theblock.co+pons+robinhood+chain+18.43+million+Wazz
+=== pools.trade+Crowd+Launch+Robinhood+Chain+Uniswap+Labs+pons
+=== pons+launchpad+robinhood+chain+pauses+V2+launches+sniping+audit
+=== noxa.fun+robinhood+chain+launchpad+shut+down+july+2026
+=== lemon.fun+robinhood+chain+launchpad
+
+--- 116. Thought for 4s ---
+[Isi detail]
+Bing came back empty, likely a blocked or consent page, so I can't rely on that. I'm trying to find a reliable way to get actual source URLs rather than guessing page paths directly.
+
+I'll note sources as summaries from web search results (The Block, Wazz thread) with exact URLs unresolved, flagging that as an open question, and try directly fetching competitor sites like pools.trade, lemon.fun, and noxa.fun for their docs.
+
+Search results aren't giving me usable link lists, so I'll note article facts with summary-level citations and flag exact URLs as open items while I fetch competitor sites directly instead.
+
+--- 117. Fetched competitor sites ---
+[Isi detail]
+Visiting "pools.trade"
+Visiting "docs.pools.trade"
+Visiting "lemon.fun"
+Read
+lemon.fun
+
+--- 118. Thought for 1s ---
+[Isi detail]
+I'm noting lemon.fun supports multiple chains and lets users connect coins to real stocks with customizable bonding caps, taxes, and allocations, plus a leverage feature and $LEMON token. Since pools.trade and its docs didn't load properly, likely due to heavy JS, I'll try using agent-browser to access that site directly instead.
+
+--- 119. Loaded agent-browser skill [summary-only] ---
+[Aktivitas]
+UI menyediakan judul aktivitas ini tanpa detail tambahan.
+
+--- 120. Observed Pons launchpad in browser ---
+[Isi detail]
+$ agent-browser open "https://ponsfamily.com/launchpad" && agent-browser set viewport 1440 900 && agent-browser wait --load networkidle && agent-browser screenshot /tmp/agent-browser/pons-launchpad.png && agent-browser snapshot -i
+✓ Pons | Token launchpad on Robinhood Chain
+  https://ponsfamily.com/launchpad
+✓ Done
+✓ Done
+✓ Screenshot saved to /tmp/agent-browser/pons-launchpad.png
+- complementary "Sidebar" [ref=e1] clickable [onclick]
+  - link "Pons home" [ref=e2]
+  - generic "/" [ref=e7] clickable [onclick]
+    - combobox "Search tokens and people" [expanded=false, ref=e15]
+  - navigation "Prim
+
+...
+
+ [ref=e218]
+  - link "Law Enforcement Requests" [ref=e219]
+- link "Pons on X" [ref=e29]
+- link "Pons on GitHub" [ref=e30]
+
+--- 121. Thought for 2s ---
+[Isi detail]
+I'm noting the clean UX elements: sidebar nav, sign-in via embedded wallet, trending carousel, filters for market cap/new/active/graduation status, and badges like "Serial deployer," "Pons Verified," and whitelist icons. I'm also wondering what "PLP" stands for, possibly a Pons Liquidity Pool, and want to verify that.
+
+Let me quickly check the token page, create page, and PLP/Analytics sections. I'll open a token page like microduck for screenshot and snapshot, then move to the create page, then PLP and Analytics, keeping invocations minimal.
+
+--- 122. Observed Pons token page ---
+[Isi detail]
+$ agent-browser click @e72 && agent-browser wait --load networkidle && agent-browser get url && agent-browser screenshot /tmp/agent-browser/pons-token.png && agent-browser snapshot -i
+✓ Done
+✓ Done
+https://ponsfamily.com/launchpad/0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725
+✓ Screenshot saved to /tmp/agent-browser/pons-token.png
+- complementary "Sidebar" [ref=e1] clickable [onclick]
+  - link "Pons home" [ref=e2]
+  - generic "/" [ref=e10] clickable [onclick]
+    - combobox "Search tokens and people" [expanded=false, ref=e26]
+  - navigation "Primary" [
+
+...
+
+ [ref=e171]
+  - link "Law Enforcement Requests" [ref=e172]
+- link "Pons on X" [ref=e41]
+- link "Pons on GitHub" [ref=e42]
+
+--- 123. Thought for 5s ---
+[Isi detail]
+I'm noting the token page layout: a TradingView-style chart with various timeframes and indicators, buy/sell order panels, and a geo-restriction blocking stock-paired tokens. The stats show nearly 18,000 holders, over 110,000 trades, 1B supply, and community earnings of $527.9K.
+
+Then I spot "Holder fee sharing — Rounds paid 1,583," which looks like a distinct feature distributing creator fees to holders in rounds — something I haven't encountered in the contracts yet, possibly a newer or offchain module. I want to scroll down to examine that section and its figures before moving on to the create page.
+
+The token page shows order tabs, regional geo-gating on equity pairs, a 24-minute launch-to-graduation window, and a "Holder fee sharing — Rounds paid 1,583" module that wasn't in the contracts I reviewed. I'll scroll down to inspect this module further.
+
+--- 124. Inspected holder fee sharing module ---
+[Isi detail]
+$ agent-browser scroll down 700 && agent-browser screenshot /tmp/agent-browser/pons-token-fees.png && agent-browser get text "[aria-label='Holder fee sharing'], section:has(h2)" 
+✓ Done
+✓ Screenshot saved to /tmp/agent-browser/pons-token-fees.png
+Holder fee sharing
+Rounds paid
+1,583
+1
+,
+5
+8
+3
+Last round
+$51.60
+$
+5
+1
+.
+6
+0
+Next round
+$830.26
+$
+8
+3
+0
+.
+2
+6
+
+--- 125. Thought for 4s ---
+[Isi detail]
+I'm noticing the holder fee sharing numbers—1,583 rounds paid, $51.60 last round, $830.26 next round—and wondering if this is a creator-fee redistribution mechanism tied to this specific token, possibly a community/CTO-style feature where fees flow back to holders, though I'm not fully certain of the exact source.
+
+Rather than guessing further, I'll pull the actual API responses—launches, trending, pinned, deployers, verified tokens, migrations, balances—to check the schema fields directly for something like a "holderFeeSharing" property, as part of the data-layer investigation before moving to the create page screenshot.
+
+--- 126. Probed Pons API endpoints ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/captures && UA="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"; for p in "launches?limit=2" "launches/trending" "launches/pinned" "launches/sparklines?tokens=0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725" "launches/ticks?token=0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725&interval=1h&limit=2" "deployers?limit=2" "tokens/verified" "tokens/migrations" "identities?addresses=0x05ec1e5c1d5eea69ae06d1d71900fd0963c2587a" "profile/0x05ec1e5c1d5eea69ae06d1d71900fd0963c2587a" "notifications" "session" "human" "trade/route" "glossary/Errors" "rpc"; do f="api_$(echo $p | tr '/?&=' '____' | cut -c1-80).json"; code=$(curl -s -m 25 -A "$UA" -H "accept: application/json" -D "$f.headers" -o "$f" -w "%{http_code}" "https://ponsfamily.com/api/$p"); ct=$(grep -i '^content-type' "$f.headers" | tr -d '\r' | cut -d' ' -f2); cache=$(grep -iE '^(cache-control|x-vercel-cache|cdn-cache-control)' "$f.headers" | tr -d '\r' | tr '\n' ' '); echo "== /api/$p -> $code $ct [$cache]"; head -c 600 "$f" | tr '\n' ' '; echo; done; echo "== balancesapi =="; curl -s -m 20 -A "$UA" -D - -o /dev/null "https://balancesapi.ponsfamily.com/" | grep -iE "^(HTTP|server|content-type|access-control|x-powered|cf-)" | tr -d '\r'; echo; curl -s -m 20 -A "$UA" "https://balancesapi.ponsfamily.com/" | head -c 300
+== /api/launches?limit=2 -> 200 application/json [cache-control: public x-vercel-cache: MISS ]
+{"items":[{"address":"0x51250b135174ca09450ec01c4aff73cf69dbb590","name":"NovaAI","symbol":"NOVAAI","protocol":"v2","stage":"graduated","artwork":"ipfs://bafybeib2aspxbl443kxnvf5vuhq6pfcfeotm5pcw66sy25qlhodwpsjdsq","description":"Hong Kong Group's application in the field of 
+
+...
+
+ent-type: application/json
+server: cloudflare
+cf-cache-status: DYNAMIC
+cf-ray: a4f2b6b08cb8169c-SJC
+
+{"error":"not found"}
+
+--- 127. Read remaining API probe output ---
+[Isi detail]
+Read
+probing-pons-api-endpoints-task-ws-5-x.txt
+Read
+probing-pons-api-endpoints-task-ws-5-x.txtLines 19-42
+
+--- 128. Thought for a moment ---
+[Isi detail]
+I'm pulling the full launch item schema from the saved file and checking the microduck token entry for its fee-sharing fields, then I'll draft the Phase 1-4 reports and check on the scan progress.
+
+--- 129. Extracted API schemas ---
+[Isi detail]
+$ cd /vercel/share/v0-project/giwa-launchpad-research/raw/captures && echo "== launches item keys =="; jq -c '.items[0] | to_entries | map({k:.key, t:(.value|type), v:(if (.value|type)=="object" then (.value|keys) elif (.value|type)=="array" then "array" else .value end)})' api_launches_limit_2.json | head -c 3000; echo; echo "== top-level keys =="; jq -c 'del(.items) ' api_launches_limit_2.json; echo "== trending item keys =="; jq -c '.items[0] | del(.launch) ' api_launches_trending.json | head -c 800; echo; echo "== ticks keys =="; jq -c '.ticks[0] | keys' api_launches_ticks_token_0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725_interval_1h_limit_2.json; echo "== microduck launch record =="; UA="Mozilla/5.0 Chrome/130.0"; curl -s -m 25 -A "$UA" "https://ponsfamily.com/api/launches?limit=50&sort=marketcap" -o api_launches_50.json; jq -c '.items[] | select(.symbol=="microduck") | del(.description)' api_launches_50.json | head -c 2500; echo; echo "== stage/protocol distribution in top 50 =="; jq -r '.items[] | "\(.protocol) \(.stage) \(.quote.symbol) wl=\(.whitelisted)"' api_launches_50.json | sort | uniq -c | sort -rn; echo "== scan progress =="; tail -2 ../traces/scan.log
+== launches item keys ==
+[{"k":"address","t":"string","v":"0x51250b135174ca09450ec01c4aff73cf69dbb590"},{"k":"name","t":"string","v":"NovaAI"},{"k":"symbol","t":"string","v":"NOVAAI"},{"k":"protocol","t":"string","v":"v2"},{"k":"stage","t":"string","v":"graduated"},{"k":"artwork","t":"string","v":"ipfs://bafybeib2aspxbl443kxnvf5vuhq6pfcfeotm5pcw66sy25qlhodwpsjdsq"},{"k
+
+...
+
+e api_launches_ticks_token_0xd5f1afea47b1a9eab414d2ee740cf1d6d039e725_interval_1h_limit_2.json: No such file or directory
+
+--- 130. Read distribution and scan status ---
+[Isi detail]
+Read
+extracting-api-schemas-task-78-v8.txt
+Read
+extracting-api-schemas-task-78-v8.txtLines 13-39
+
+--- 131. Thought for 7s ---
+[Isi detail]
+I see that the holder fee sharing mechanism routes through a third-party distributor contract rather than directly to holders — the data shows payouts of 1419 rounds distributing 2490 NVDA, and the API distinguishes this via fees.recipient being "holders" versus "creator." This seems to be a recognized ecosystem pattern where creators can designate their fee recipient as a distributor contract.
+
+Looking at whitelist usage, only 7 of the top 50 tokens used a whitelist feature, with varying parameters. Meanwhile the v2 scan is progressing steadily (44,589 launches found across 19M of 69M blocks) despite hitting a rate limit, and it'll keep going adaptively. While that finishes, I should capture the create page and PLP/analytics pages for the surface map and start drafting the Phase 1 and Phase 2 reports — let me grab the create page first.
+
+Found how "holder fee sharing" works (via a distributor contract set as creatorFeeRecipient, detected by the Pons UI) and that 7 of the top-50 tokens use snipe-tax whitelists; the scan is still progressing through 44.6k V2 launches despite hitting 429s. Now capturing the create flow and remaining routes.
+
+--- 132. Observed Pons create flow ---
+[Isi detail]
+$ agent-browser open "https://ponsfamily.com/launchpad/create" && agent-browser wait --load networkidle && agent-browser screenshot /tmp/agent-browser/pons-create.png && agent-browser snapshot -i
+✓ Launch a token on Robinhood Chain | Pons
+  https://ponsfamily.com/launchpad/create
+✓ Done
+✓ Screenshot saved to /tmp/agent-browser/pons-create.png
+- complementary "Sidebar" [ref=e1] clickable [onclick]
+  - link "Pons home" [ref=e2]
+  - generic "/" [ref=e7] clickable [onclick]
+    - combobox "Search tokens and people" [expanded=false, ref=e13]
+  - navigation "Primary"
+
+...
+
+s" [ref=e47]
+  - link "Law Enforcement Requests" [ref=e48]
+- link "Pons on X" [ref=e17]
+- link "Pons on GitHub" [ref=e18]
+
+--- 133. Thought for 2s ---
+[Isi detail]
+I'm planning a two-step creation flow covering identity and economics, with fields for image, name, ticker, description, and social links, plus a live preview card. I'm also laying out the footer links including docs, support, legal pages, and the whitepaper.
+
+I'll grab the footer link URLs for GitHub, X, Builders, and the MiCA whitepaper via a quick eval, then move on to completing step 2 of the creation flow by filling in the Economics form and clicking Continue.
+
+--- 134. Captured footer links and step two ---
+[Isi detail]
+$ agent-browser eval "(() => Array.from(document.querySelectorAll('nav[aria-label=Footer] a, a[aria-label*=\"Pons on\"]')).map(a => a.textContent.trim()+' -> '+a.href).join('\n'))()" && agent-browser fill @e22 "Research Probe" && agent-browser fill @e23 "PROBE" && agent-browser fill @e24 "clean-room research probe, not submitted" && agent-browser click @e15 && agent-browser wait --text "Economics" && agent-browser screenshot /tmp/agent-browser/pons-create-step2.png && agent-browser snapshot -i
+"Create a token -> https://ponsfamily.com/launchpad/create\nLaunches -> https://ponsfamily.com/launchpad\nPLP -> https://ponsfamily.com/plp\nAnalytics -> https://ponsfamily.com/analytics\nProfile -> https://ponsfamily.com/profile\nDocs -> https://docs.ponsfamily.com/\nSupport -> https://ponsfamily.com/support\nBuilders -> https://ponsfamily.com/builders\nExplorer -> ht
+
+...
+
+s" [ref=e47]
+  - link "Law Enforcement Requests" [ref=e48]
+- link "Pons on X" [ref=e17]
+- link "Pons on GitHub" [ref=e18]
+
+Screenshots exposed by UI: 0
+Image labels: Screenshot ; Screenshot ; Screenshot ; Screenshot ; Screenshot 

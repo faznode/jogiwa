@@ -1,0 +1,19 @@
+HTTP/2 200 
+age: 0
+cache-control: private, no-cache, no-store, max-age=0, must-revalidate
+content-security-policy: default-src 'self'; script-src 'self' 'nonce-N2FjMjBhZjEtYWJiNC00ZTlmLTlkOTYtMTU1ODcwYTEwYzNh' 'strict-dynamic'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; font-src 'self' data:; connect-src 'self' https: wss:; frame-src 'self' https://secure.walletconnect.org https://verify.walletconnect.org https://*.walletconnect.com https://*.reown.com https://auth.turnkey.com; worker-src 'self' blob:; manifest-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; upgrade-insecure-requests
+content-type: text/html; charset=utf-8
+date: Fri, 23 Oct 2026 17:50:24 GMT
+link: </>; rel=preconnect; crossorigin="", </pons.png?dpl=dpl_8Q4ZC7qxHVonHGXzdkq2baLPddz8>; rel=preload; as="image"
+permissions-policy: browsing-topics=(), camera=(), geolocation=(), microphone=(), payment=(), usb=()
+referrer-policy: strict-origin-when-cross-origin
+server: Vercel
+strict-transport-security: max-age=31536000; includeSubDomains
+vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+x-content-type-options: nosniff
+x-frame-options: SAMEORIGIN
+x-matched-path: /docs
+x-powered-by: Next.js
+x-vercel-cache: MISS
+x-vercel-id: sfo1::iad1::wt5hn-1792777824592-c9c7d748b22d
+

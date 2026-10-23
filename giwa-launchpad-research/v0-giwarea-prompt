@@ -1,0 +1,164 @@
+
+# MISSION
+Full reverse engineering of the Pons Family meme launchpad (https://ponsfamily.com/launchpad), using REA, followed by a COMPLETE, end-to-end MASTERPLAN for building an original meme launchpad from scratch on GIWA (Upbit/Dunamu L2) testnet.
+
+This run produces research + planning ONLY. Do NOT implement the product. The only code you may write is throwaway verification code (e.g. a Foundry fork test that proves a bonding-curve formula you inferred).
+
+You are acting as: lead reverse engineer + protocol/smart-contract architect + full-stack architect + product strategist. Be exhaustive. Prefer depth and evidence over speed. Work autonomously; only stop to ask me when blocked or when a step needs money/credentials (see Rules of Engagement).
+
+---
+
+# CONTEXT (starting hypotheses, VERIFY ALL OF IT, do not trust blindly)
+
+TARGET: Pons Family
+- Official domains: ponsfamily.com, docs.ponsfamily.com. Treat lookalikes (ponz.family, pons.family, etc.) as untrusted/possible phishing. Never connect a wallet to them.
+- Non-custodial memecoin launchpad on Robinhood Chain (EVM L2). Fixed-supply tokens.
+- Every launch starts on a bonding curve, then graduates into a Uniswap pool.
+- Reported features: fee split applied to both curve phase and post-graduation pool, optional creator tax, buyback mechanism, a PONS utility/fee-capture token, analytics page sourced from Dune.
+- Reported history: #1 launchpad on its chain within weeks, very high daily token counts, early attacks the team had to survive, an infrastructure-provider incident, and a rivalry with Uniswap's Pools.trade (which has a "Crowd Launch" 4-hour bidding window). Other competitors: Lemon.fun, NOXA.
+- Find and study public postmortems/threads about the attacks and the infra incident. They are gold for our security plan.
+
+DESTINATION: GIWA Sepolia testnet (mainnet NOT live yet, so design for migration)
+- OP Stack L2 by Dunamu (Upbit operator). Chain ID 91342. ETH gas.
+- RPC: https://sepolia-rpc.giwa.io (rate-limited). Flashblocks RPC: https://sepolia-rpc-flashblocks.giwa.io
+- Explorer: https://sepolia-explorer.giwa.io. Docs: https://docs.giwa.io/giwa-chain/en
+- viem exports `giwaSepolia` and `giwaSepoliaPreconf`.
+- Third-party RPCs exist (Alchemy, Nodit, GetBlock) but with limited API coverage (e.g. no debug/trace on Alchemy), so indexer design matters.
+- Ecosystem includes Dojang (address attestation/identity tied to Upbit). Investigate it.
+- Verify everything on docs.giwa.io. Check what DEX infra already exists on GIWA Sepolia (Uniswap V2/V3/V4 deployments? WETH? Permit2? Multicall3? Any router/factory?). This decides our graduation design.
+
+---
+
+# RULES OF ENGAGEMENT
+
+1. Observe everything on pons family so you've full context or ideas
+2. Wallets and money: never use my main wallet. 
+3. Clean-room posture: our product must be ORIGINAL. Extract behavior, math, architecture, and UX patterns into specs. Our contracts will be written from our own spec.
+4. Evidence discipline: every claim in every report carries a tag:
+   - [ONCHAIN] verified from chain data (include chain, address, block/tx hash)
+   - [OBSERVED] seen in browser/network/bundle (include capture ID or file path)
+   - [DOCS] stated in official docs/blog (include URL)
+   - [UNKNOWN] could not determine; add to `_open-questions.md`
+   Never invent addresses, selectors, formulas, or numbers. If REA returns evidence IDs/confidence/limitations, carry them through into the reports.
+5. Date awareness: today is 2026-10-24. Things move fast; check the latest state of Pons, GIWA and competitors via live sources before concluding.
+
+---
+
+# WORKSPACE LAYOUT (create first)
+
+giwa-launchpad-research/
+  _rea-playbook.md        REA cheat-sheet (Step 0)
+  _progress.md            phase log, decisions, blockers (update after every phase)
+  _evidence-index.md      ID → source mapping for every captured artifact
+  _open-questions.md      everything [UNKNOWN] + how to resolve
+  _findings-private.md    anything sensitive (never to be shared)
+  raw/                    captures, HARs, bundles, ABIs, traces (do not edit)
+  01-recon/  02-contracts/  03-webapp/  04-backend-infra/  05-economics/
+  06-competitors/  07-giwa-env/  08-ideation/  09-masterplan/
+
+Every phase ends with: (a) a report in its folder, (b) a machine-readable `facts.json` for that phase, (c) an update to `_progress.md` with a 10-line summary + open questions.
+
+---
+
+# STEP 0: LEARN REA (do this first)
+Inspect https://github.com/morluto/rea and learn how to use it properly. Read: README.md, AGENTS.md, .agents/skills, and in docs/: installation.md, cli.md, mcp-contracts.md (tool catalog), mcp-prompts.md, reverse-engineering-tools.md, browser-observation.md, web-network-captures.md, javascript-application-workflows.md, javascript-artifact-reconstruction.md, android-analysis.md, native-investigation.md. Read other target-specific guides (adb, flutter, apktool, pcap) when you reach those targets. Save a usage cheat-sheet to giwa-launchpad-research/_rea-playbook.md: which REA tool for which target, exact commands, and known limits.
+
+Setup notes: REA ships as a CLI + MCP server (npm package `rea-agents`; skill via `npx skills add morluto/rea`; setup via `npx -y rea-agents setup --yes`; health check via `npx -y rea-agents doctor`; Node 24). Pin the version you use in the playbook. After setup, restart the agent if it asks to load the full toolset. REA is local and does not upload targets.
+
+The playbook must also include a "target → REA tool" routing table specifically for THIS mission: web app bundles, browser network capture, EVM bytecode/ABI recovery (if REA has tooling; otherwise state which external tools you use instead, e.g. Foundry `cast`/`forge`/Anvil, heimdall/dedaub-style decompilers, Etherscan-style/Blockscout APIs), and any gaps. Be honest about what REA can't do for smart contracts and fill the gap with the best external tool, noting it in the playbook.
+
+---
+
+# PHASE 1: RECON & SURFACE MAP (01-recon/)
+- Map the full product surface: every route/page of ponsfamily.com (launchpad, token page, create flow, portfolio/profile, leaderboard, rewards/referral, PONS token/staking pages, analytics, docs, status page, etc.), every user role (trader, creator, holder, referrer, admin), every user journey.
+- Read ALL of docs.ponsfamily.com. Extract: fee table, curve parameters, graduation rules, creator tax rules, buyback rules, token supply/allocations, limits, FAQs, terms, risk disclosures, audit claims, team/ownership claims.
+- Collect public footprint: socials, announcements, GitHub/npm presence, audits, DefiLlama/CoinGecko/Dune dashboards, third-party writeups, incident threads.
+- Passive infra footprint: DNS/CDN/hosting hints visible from normal browsing and headers, subdomains linked from the app, third-party services embedded (analytics, RPC providers, image hosts, chat widgets).
+- Output: surface map diagram (mermaid), user-journey list, feature inventory table (feature | where | how it works | evidence).
+
+# PHASE 2: SMART CONTRACT REVERSE ENGINEERING (02-contracts/) ★ most important
+Find the contract set from the frontend constants/bundles and from explorer tx history of real launch/buy/sell/graduate/claim txs. Then for EVERY contract:
+- Identity: address, chain, deployer, deploy tx/block, proxy type and implementation, verified or not, license, compiler.
+- Roles: factory, token implementation (clone/minimal-proxy vs full deploy), bonding-curve/market contract, router/quoter, fee splitter/treasury, creator-fee vault/claim, buyback executor, graduation/migrator, LP locker/burner, PONS token, staking/rewards, referral registry, oracle/price helpers, access-control owners/multisigs/timelocks.
+- Interfaces: full ABI (recover from verified source or reconstruct from bytecode/selectors/events), function-by-function behavior, events, custom errors, storage layout where relevant.
+- Math: derive and DOCUMENT the exact bonding-curve formula (constant product with virtual reserves? other?), initial reserves, supply split (curve vs LP vs creator vs fee), price/quote functions, rounding, fee rounding, slippage handling, max buy / anti-whale limits, graduation threshold and how it is checked.
+- Flows (with sequence diagrams + a real traced tx for each): launch (incl. create-and-first-buy), buy, sell, creator-tax configuration, fee accrual/claim, graduation (curve → Uniswap pool: pool creation, liquidity seeding, LP lock/burn, price continuity), post-graduation fee handling, buyback trigger and execution, PONS token fee capture/distribution.
+- Privileges & trust model: what can the owner/admin do (pause, change fees, upgrade, rescue funds)? Upgradeable or immutable? Timelock? This is the centralization map.
+- Security posture: known issues, attack surface, how they handled "early attacks" (graduation front-running / pool pre-creation griefing, sniping, sandwiching, donation attacks, honeypot/malicious token metadata, fee-on-transfer, reentrancy, etc.). Reconstruct each incident's mechanism from public evidence.
+- Gas profile per action. 
+- Method: use Anvil/Foundry fork of the chain to simulate flows locally and check your inferred formulas against real on-chain results (write the fork tests in 02-contracts/verification/; these are allowed throwaway code). A formula is [ONCHAIN]-verified only if it reproduces real tx outputs exactly.
+- Output: contract inventory table, per-contract spec sheets, architecture diagram, formula sheet with worked numeric examples, flow diagrams, trust/centralization map, incident analysis, and a "design lessons" list.
+
+# PHASE 3: WEB APP REVERSE ENGINEERING (03-webapp/)
+Use REA browser observation + web network captures + JS artifact reconstruction workflows.
+- Stack identification: framework, router, state management, styling/design system, component patterns, build tooling, source maps availability.
+- Wallet/chain layer: wallet connection library, chain config, RPC providers and fallback logic, multicall usage, tx simulation, gas estimation, nonce/approval handling, error mapping.
+- Data layer: every API endpoint the app calls (method, params, response schema, pagination, auth), WebSocket/SSE channels and message schemas, polling intervals, caching strategy, indexer/GraphQL if any. Produce an OpenAPI-style spec of what the frontend consumes.
+- Feature internals: create-token flow (fields, validation, image upload pipeline, metadata hosting, IPFS or CDN), token page (chart library + data source, trade panel, holders list, trades feed, comments/chat), discovery (search, sort, trending logic, filters, "king of the hill"-style mechanics if any), profile/portfolio, rewards/referral, leaderboards, notifications, anti-bot/anti-abuse measures, moderation/reporting, feature flags, analytics/telemetry, i18n, mobile/PWA behavior.
+- UX teardown: onboarding friction, number of clicks per core action, loading/empty/error states, mobile layout, trust signals, copy/tone, gamification hooks. Note what feels great and what is weak.
+- Output: stack report, API/WS spec, component inventory, UX flow diagrams, UX strengths/weaknesses list.
+
+# PHASE 4: BACKEND / INDEXER / INFRA INFERENCE (04-backend-infra/)
+From observed behavior ONLY (no probing beyond normal use), infer: indexing approach (own indexer vs subgraph vs third-party), real-time data path, caching/CDN, rate limits seen in normal use, metadata/image pipeline, moderation pipeline, job workers (graduation bot? buyback keeper? fee distributor?), key-management/keeper patterns, and single points of failure. Analyze the infra-provider incident to derive resilience requirements. Output: inferred architecture diagram with confidence per component, and a resilience checklist for us.
+
+# PHASE 5: ECONOMICS, GROWTH & ON-CHAIN BEHAVIOR (05-economics/)
+- Exact fee model (protocol/creator/referrer/buyback shares, in curve phase and after graduation), creator-tax mechanics, buyback economics, PONS token utility and value-capture loop, unit economics per launch and per $1M volume, compared against competitors.
+- On-chain cohort analysis from public data: launches/day, graduation rate, time-to-graduation distribution, creator concentration, repeat creators, bot/sniper share, top trader concentration, rug/dump patterns, holder retention, fee revenue over time. Use Dune/public data where possible; otherwise sample from the chain with sensible limits.
+- Growth mechanics: virality loops, creator incentives, referral, campaigns, partnerships, how they won ~80% share at peak and why momentum shifted afterwards.
+- Output: economic model spreadsheet-ready tables, KPI benchmarks (what "good" looks like for a launchpad), and a "why it won / where it's vulnerable" analysis.
+
+# PHASE 6: COMPETITIVE LANDSCAPE (06-competitors/)
+Study Pools.trade (incl. Crowd Launch), Lemon.fun, NOXA, plus top launchpads on other chains (pump.fun, four.meme, Base/Solana/BNB equivalents, any Korean-market ones). Produce a feature matrix (≥25 features), fee comparison, graduation design comparison, anti-sniper/anti-rug designs, creator-incentive designs, and a list of unsolved user pains (mine social channels, complaints, postmortems).
+
+# PHASE 7: GIWA ENVIRONMENT STUDY (07-giwa-env/)
+- Chain facts: block time, Flashblocks/preconfirmation behavior, finality/bridge delays, gas model (L1 data fee on OP Stack), tx limits, contract size limits, available precompiles, EVM version, faucet situation, explorer type and API availability, RPC rate limits and provider options.
+- Deployed infra inventory on GIWA Sepolia: DEXes (Uniswap or other), WETH, Multicall3, Permit2, CREATE2 deployer, token lists, oracles, bridges, stablecoins. Anything missing that we must deploy ourselves (our own AMM pool for graduation? a Uniswap fork? minimal CPAMM?).
+- Tooling: indexers that actually work on GIWA (Ponder, Subsquid, The Graph, Envio, Goldsky, Nodit Data API/Webhook/Stream), wallet support, viem/wagmi chain definitions.
+- Dojang: what it is, how attestations work, how contracts/apps can read it, how it could power identity/anti-sybil/verified-creator features.
+- Ecosystem & audience: who is building on GIWA, Korean retail behavior toward memecoins, Upbit listing culture, language/community channels (Korean, KakaoTalk, Telegram, Discord, X), regulatory sensitivities for a Korea-adjacent ecosystem. Flag legal/compliance risks clearly (do not give legal advice; list questions for a lawyer).
+- Gap analysis: Robinhood Chain vs GIWA, and what from Pons must be adapted rather than copied.
+- Testnet-specific problem: testnet ETH has no value, so how do we create meaningful trading activity, retention and anti-sybil on testnet? Design a points/quest/season system and a measurement plan.
+- Output: GIWA fact sheet, infra inventory, "build vs reuse" decisions, testnet strategy.
+
+# PHASE 8: DIFFERENTIATION & IDEATION (08-ideation/)
+Goal: a launchpad that is UNIQUE and FRESH, not a clone, even though we learned from Pons.
+1. List every Pons/competitor mechanic and classify: MUST-COPY (table stakes), IMPROVE, DROP, REPLACE.
+2. Collect all user pains and abuse vectors found in phases 2–6.
+3. Generate AT LEAST 40 original ideas across: launch mechanics (fair-launch/sniper-resistant formats, time-boxed or batch auctions, Flashblocks-aware ordering), creator tools, trader tools, anti-rug/trust (verified creators via Dojang, reputation scores, locked-by-default liquidity, creator vesting), community/social (Korean-first UX, squads/guilds, battles/tournaments, seasonal themes, collabs), incentives (points, fee-share to early holders, creator streaks), discovery (narrative/meme-category feeds, AI-assisted tagging/moderation), post-graduation lifecycle (not just "graduate and forget"), and ecosystem tie-ins with GIWA/Upbit-adjacent infra. Seed axes only; go beyond them.
+4. Score each idea 1–5 on: user impact, uniqueness, feasibility on GIWA, build cost, abuse/regulatory risk, testnet-measurability. Shortlist the top 8–12 and justify.
+5. Write a "Differentiation Thesis": one paragraph + 3 pillars on who we serve, why we win, and why GIWA is the right home. Propose 5 candidate names/taglines (placeholders only).
+6. For each shortlisted idea, include a one-page spec: mechanism, contract implications, UX implications, risks, success metric.
+
+# PHASE 9: THE MASTERPLAN (09-masterplan/) ★ final deliverable
+Write a complete, internally consistent plan. Required documents:
+1. EXECUTIVE SUMMARY (EN + Bahasa Indonesia).
+2. PRODUCT REQUIREMENTS (PRD): vision, personas, journeys, feature list with priorities (P0/P1/P2), non-goals, acceptance criteria.
+3. SMART CONTRACT SPEC: architecture, every contract's interface and state, curve/fee/graduation math with worked examples and parameter tables, access control, upgradeability decision + rationale (ADR), emergency controls, deterministic deployment (CREATE2) and config-driven chain parameters for mainnet migration, and a table of how each Pons weakness/attack is mitigated.
+4. SECURITY PLAN: threat model (STRIDE-style + MEV/sequencer/Flashblocks considerations), invariants list, test plan (unit, fuzz, invariant, fork, differential tests), audit strategy, bug bounty plan, monitoring/alerting, incident response runbook, key management, admin multisig/timelock policy.
+5. SYSTEM ARCHITECTURE: frontend, indexer, API, realtime layer, storage, image/metadata pipeline, keepers/bots (graduation, fees, buyback), infra and hosting, observability, resilience (learn from the Pons infra incident), cost estimates, scaling plan. Include diagrams.
+6. FRONTEND/UX SPEC: sitemap, key screens and flows, component list, design-system direction, mobile-first and Korean/English i18n plan, accessibility, performance budgets.
+7. DATA & ANALYTICS: event schema, KPIs dashboard spec, experiment plan for testnet.
+8. TOKENOMICS & INCENTIVES: decide whether we need a platform token at all (argue both sides), fee model, creator incentives, testnet points/season design, sybil resistance, anti-farming rules.
+9. GO-TO-MARKET: testnet phases, community strategy, creator onboarding, partnerships, content, launch-week plan, growth loops, metrics per phase.
+10. LEGAL/COMPLIANCE/RISK REGISTER: content moderation policy, jurisdiction/regulatory questions for counsel, disclaimers/ToS needs, risk register (probability × impact × mitigation × owner).
+11. ROADMAP: phased timeline (e.g. Phase 0 foundations → testnet alpha → closed beta → public testnet → audit → mainnet-ready), week-level milestones, exit criteria per phase, dependencies, critical path, team roles and effort estimates, and a lean-team variant for 1–3 builders.
+12. MAINNET MIGRATION PLAYBOOK for when GIWA mainnet goes live.
+13. DECISION LOG (ADRs) and OPEN QUESTIONS for me.
+14. APPENDIX: full evidence index, glossary, reference table of every Pons contract/endpoint studied.
+
+Every plan decision must trace back to a finding (cite the report/section) or be explicitly marked as a new design choice with rationale.
+
+---
+
+# EXECUTION CONTROL
+- Order: Step 0 → 1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9. You may parallelize independent phases (e.g. 5/6/7) but never skip the evidence discipline.
+- After each phase, self-review: what's still [UNKNOWN]? Can another REA tool, a different capture, or a fork simulation resolve it? Try before moving on.
+- If a REA tool fails or lacks coverage, record it in `_rea-playbook.md` under "Known limits" and use the best alternative.
+- Do not compress or skip phases to save time; the goal is the most complete masterplan possible. If context is running long, write results to files as you go and keep summaries in `_progress.md` so work is resumable.
+
+# DEFINITION OF DONE
+- All 9 phases delivered with evidence tags and facts.json files.
+- Bonding curve + fee + graduation math reproduced on a fork and matched to real txs (or clearly flagged where not possible).
+- ≥40 ideas scored, a Differentiation Thesis, and a shortlisted feature set specced.
+- Masterplan docs 1–14 complete, consistent, and traceable to evidence.
+- `_open-questions.md` and `_findings-private.md` reviewed and surfaced to me in a final message with: top 10 insights, top 10 risks, recommended MVP scope, and the 5 decisions I must make next.

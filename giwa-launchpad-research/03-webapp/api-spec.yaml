@@ -1,0 +1,244 @@
+openapi: 3.0.3
+info:
+  title: ponsfamily.com frontend-consumed API (reconstructed, read-only observation)
+  version: 2026-10-23
+  description: |
+    Reconstructed from Next.js route-handler calls in the production bundles (raw/bundles/js/*.js)
+    and 17 live GET probes captured in raw/captures/ (each with a .headers file).
+    Evidence tags: [OBSERVED] = captured response; [BUNDLE] = route string seen in JS but not exercised.
+    Nothing here is an official API; schemas are what the frontend consumes. POST bodies are inferred
+    from bundle call sites and marked as such.
+servers:
+  - url: https://ponsfamily.com
+  - url: https://balancesapi.ponsfamily.com
+    description: separate balances service behind Cloudflare (root returns {"error":"not found"}) [OBSERVED]
+components:
+  schemas:
+    Quote:
+      type: object
+      properties:
+        address: { type: string, description: "0x0 for native ETH" }
+        assetClass: { type: string, description: "e.g. crypto | equity | stable (observed values)" }
+        decimals: { type: integer }
+        isNative: { type: boolean }
+        symbol: { type: string }
+    Fees:
+      type: object
+      properties:
+        creatorRecipient: { type: string }
+        distributedQuote: { type: string }
+        distributedTokens: { type: string }
+        distributor: { type: string }
+        lastPayoutAt: { type: string, nullable: true }
+        payouts: { type: integer }
+        recipient: { type: string, enum: [creator, holders] }
+    Launch:
+      type: object
+      description: item of /api/launches [OBSERVED raw/captures/api_launches_limit_2.json]
+      properties:
+        address: { type: string }
+        name: { type: string }
+        symbol: { type: string }
+        protocol: { type: string, enum: [v1, v2], description: "v1 = Gen2 Uniswap-V3 range-order factory; v2 = PonsV2 bonding curve" }
+        stage: { type: string, description: "curve | graduated | (others unobserved)" }
+        artwork: { type: string, description: "ipfs://CID" }
+        description: { type: string }
+        deployer: { type: string }
+        whitelisted: { type: integer, description: "number of snipe-tax-exempt wallets" }
+        createdAt: { type: string, format: date-time }
+        lastTradeAt: { type: string, format: date-time, nullable: true }
+        quote: { $ref: '#/components/schemas/Quote' }
+        progress: { type: number, description: "0..1 graduation progress" }
+        raisedQuote: { type: string }
+        thresholdQuote: { type: string }
+        priceQuote: { type: string }
+        marketCapQuote: { type: string }
+        volumeQuote: { type: string }
+        priceUsd: { type: number }
+        marketCapUsd: { type: number }
+        raisedUsd: { type: number }
+        volumeUsd: { type: number }
+        tradeCount: { type: integer }
+        creatorTaxBps: { type: integer }
+        buybackEnabled: { type: boolean }
+        buybackLockedPct: { type: number }
+        fees: { $ref: '#/components/schemas/Fees' }
+        socials:
+          type: object
+          properties: { discord: {type: string}, farcaster: {type: string}, telegram: {type: string}, twitter: {type: string}, website: {type: string} }
+        explorerAddress: { type: string }
+        factory: { type: string }
+        curve: { type: string, nullable: true }
+        pool: { type: string, nullable: true }
+        poolId: { type: string, nullable: true }
+        launchedBlock: { type: integer }
+        deployedBlock: { type: integer }
+        decimals: { type: integer }
+        totalSupply: { type: string }
+        graduatedAt: { type: string, nullable: true }
+        quoteUsd: { type: number }
+        circulatingSupply: { type: string }
+    Tick:
+      type: object
+      description: curve trade row of /api/launches/ticks [OBSERVED]
+      properties:
+        id: { type: string, description: "txhash:logIndex" }
+        curve: { type: string }
+        trader: { type: string }
+        block: { type: integer }
+        logIndex: { type: integer }
+        at: { type: string, format: date-time }
+        fee: { type: string }
+        tax: { type: string }
+        side: { type: string, enum: [buy, sell] }
+        quote: { type: string }
+        tokens: { type: string }
+    Swap:
+      type: object
+      description: Uniswap v4 pool swap row of /api/launches/ticks [OBSERVED]
+      properties:
+        id: { type: string }
+        pool: { type: string, description: "v4 poolId" }
+        amount0: { type: string }
+        amount1: { type: string }
+        block: { type: integer }
+        logIndex: { type: integer }
+        at: { type: string, format: date-time }
+    Identity:
+      type: object
+      properties:
+        address: { type: string }
+        username: { type: string, nullable: true }
+        displayName: { type: string, nullable: true }
+        avatar: { type: string, nullable: true }
+        banner: { type: string, nullable: true }
+        joinedAt: { type: string, nullable: true }
+paths:
+  /api/launches:
+    get:
+      summary: Paginated launch list [OBSERVED]
+      parameters:
+        - { name: sort, in: query, schema: { type: string }, description: "market cap / new / active / graduation tabs (exact enum in bundle)" }
+        - { name: limit, in: query, schema: { type: integer } }
+        - { name: cursor, in: query, schema: { type: string }, description: "inferred pagination token [BUNDLE]" }
+        - { name: quote, in: query, schema: { type: string }, description: "pair filter [BUNDLE]" }
+      responses:
+        '200':
+          description: cache-control public; served from Vercel edge (x-vercel-cache MISS/HIT)
+          content: { application/json: { schema: { type: object, properties: { items: { type: array, items: { $ref: '#/components/schemas/Launch' } } } } } }
+  /api/launches/trending:
+    get:
+      summary: Trending carousel [OBSERVED]
+      responses:
+        '200': { description: "items[] of {launch: Launch, volumeUsd, trades, traders, change, image}" }
+  /api/launches/pinned:
+    get:
+      summary: Pinned launches (empty at capture) [OBSERVED]
+      parameters: [{ name: addresses, in: query, schema: { type: string } }]
+      responses: { '200': { description: ok } }
+  /api/launches/sparklines:
+    get:
+      summary: Sparkline series per token [OBSERVED]
+      parameters: [{ name: tokens, in: query, schema: { type: string, description: "comma-separated addresses" } }]
+      responses: { '200': { description: ok } }
+  /api/launches/ticks:
+    get:
+      summary: Trades feed for a token (curve ticks + v4 swaps) [OBSERVED]
+      parameters:
+        - { name: token, in: query, required: true, schema: { type: string } }
+        - { name: interval, in: query, schema: { type: string } }
+        - { name: limit, in: query, schema: { type: integer } }
+      responses:
+        '200':
+          description: cache-control public, max-age=0, must-revalidate
+          content: { application/json: { schema: { type: object, properties: { block: {type: integer}, at: {type: string}, ticks: { type: array, items: { $ref: '#/components/schemas/Tick' } }, swaps: { type: array, items: { $ref: '#/components/schemas/Swap' } } } } } }
+  /api/deployers:
+    get:
+      summary: Deployer stats used for the "Serial deployer" badge [OBSERVED]
+      parameters: [{ name: addresses, in: query, schema: { type: string } }]
+      responses: { '200': { description: ok } }
+  /api/identities:
+    get:
+      summary: Identities by address list or search [OBSERVED]
+      parameters:
+        - { name: addresses, in: query, schema: { type: string } }
+        - { name: q, in: query, schema: { type: string }, description: "people search" }
+      responses: { '200': { description: "Identity[]", content: { application/json: { schema: { type: array, items: { $ref: '#/components/schemas/Identity' } } } } } }
+  /api/profile/{address}:
+    get:
+      summary: Profile card or positions [OBSERVED raw/captures/api_profile_*.json]
+      parameters:
+        - { name: address, in: path, required: true, schema: { type: string } }
+        - { name: view, in: query, schema: { type: string, enum: [card, positions] } }
+      responses: { '200': { description: "profile, launches[], stats{launched, live, graduated, marketCap}, positions[], quoteUsd{}" } }
+  /api/profile/nonce:
+    get: { summary: "SIWE nonce [OBSERVED no-store]", responses: { '200': { description: ok } } }
+  /api/session:
+    get: { summary: "Session state {wallet, available} [OBSERVED]", responses: { '200': { description: ok } } }
+    post: { summary: "Establish session from signed SIWE message [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/profile/identity:
+    post: { summary: "Edit display name / avatar / banner / description / X link [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/profile/username:
+    get:
+      summary: Username availability [OBSERVED]
+      parameters: [{ name: username, in: query, schema: { type: string } }, { name: for, in: query, schema: { type: string } }]
+      responses: { '200': { description: ok } }
+  /api/profile/assign:
+    post: { summary: "Assign username [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/profile/verified:
+    get: { summary: "Verification state [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/human:
+    post: { summary: "Cloudflare Turnstile token verification [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/legal/acceptance:
+    get:
+      summary: ToS acceptance for wallet [OBSERVED]
+      parameters: [{ name: wallet, in: query, schema: { type: string } }]
+      responses: { '200': { description: ok } }
+    post: { summary: "Record acceptance [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/notifications:
+    get:
+      summary: Wallet-scoped notifications [OBSERVED "Pass the wallet address."]
+      parameters: [{ name: wallet, in: query, required: true, schema: { type: string } }]
+      responses: { '200': { description: ok }, '400': { description: missing wallet } }
+  /api/push/subscription:
+    post: { summary: "Web Push subscription [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/tokens/verified:
+    get: { summary: "Allow-listed token addresses incl. PONS, WETH, 0x0 [OBSERVED]", responses: { '200': { description: "{tokens: string[]}" } } }
+  /api/tokens/migrations:
+    get: { summary: "Tokens migrated/migrating between protocol generations [OBSERVED 6 addresses]", responses: { '200': { description: "{tokens: string[]}" } } }
+  /api/trade/route:
+    get: { summary: "Trade routing / quote (empty on bare GET) [OBSERVED]", responses: { '200': { description: ok } } }
+    post: { summary: "Quote for buy/sell incl. post-graduation v4 routing [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/rpc:
+    post: { summary: "Same-origin JSON-RPC proxy (no-store) [OBSERVED]", responses: { '200': { description: JSON-RPC } } }
+  /api/artwork:
+    get:
+      summary: Image proxy/resizer for ipfs:// artwork [OBSERVED]
+      parameters: [{ name: src, in: query, schema: { type: string } }]
+      responses: { '200': { description: image } }
+  /api/ipfs/image:
+    get: { summary: "IPFS image fetch [BUNDLE]", responses: { '200': { description: image } } }
+  /api/sponsor/x-resolve:
+    get:
+      summary: Resolve an X handle for sponsored launches [BUNDLE]
+      parameters: [{ name: handle, in: query, schema: { type: string } }]
+      responses: { '200': { description: ok } }
+  /api/x/callback:
+    get: { summary: "X OAuth callback [BUNDLE]", responses: { '302': { description: redirect } } }
+  /api/turnkey/delegated-public-key:
+    get: { summary: "Turnkey delegated signing public key [BUNDLE]", responses: { '200': { description: ok } } }
+  /api/client-errors/wallet:
+    post: { summary: "Client wallet-error telemetry [BUNDLE]", responses: { '204': { description: ok } } }
+  /api/glossary/Errors:
+    get: { summary: "Custom-error → human copy map (44 KB) [OBSERVED raw/captures/api_glossary_Errors.json]", responses: { '200': { description: ok } } }
+x-realtime:
+  provider: Ably (JS SDK in 5 chunks) [OBSERVED]
+  events: [token.created, token.updated]
+  usage: invalidate TanStack Query caches (staleTime 8 s) and prepend new launches in the feed
+x-polling:
+  tanstack_staleTime_ms: 8000
+  refetchOnWindowFocus: true
+x-not-observed:
+  - GraphQL / subgraph endpoints (none)
+  - WebSocket/SSE from ponsfamily.com origin (none; realtime is Ably's edge)
+  - Source maps (none)

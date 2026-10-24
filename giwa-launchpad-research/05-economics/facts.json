@@ -1,0 +1,49 @@
+{
+  "phase": "05-economics",
+  "chain": {"name": "Robinhood Chain", "chainId": 4663, "scan_to_block": 96275278, "scan_date": "2026-10-23"},
+  "sources": ["raw/traces/events_gen1_launches.json", "raw/traces/events_gen2_launches.json", "raw/traces/events_v2_launches.json", "raw/traces/events_v2_graduations.json", "raw/traces/curve_sample.json", "05-economics/cohort-stats.json", "05-economics/volume-estimate.json"],
+  "fee_model_v2": {
+    "launch_fee_eth": 0.0005,
+    "curve_fee_bps": 100, "hook_fee_bps": 100, "lp_fee_bps_post_graduation": 0,
+    "protocol_share_bps": 3000, "creator_share_bps": 7000,
+    "creator_tax_max_bps": 1000, "buyback_share_of_creator_bucket_bps": 5000, "buyback_lock_years": 5,
+    "snipe_tax_start_bps": 9900, "snipe_tax_window_s": 3, "snipe_exempt_max": 32,
+    "per_1m_usd_volume": {"total_fee_usd": 10000, "protocol_usd": 3000, "creator_usd": 7000, "creator_tax_effective_pct_observed": 0.67},
+    "evidence": "[ONCHAIN] Phase 2 formula sheet"
+  },
+  "cohorts": {
+    "gen1": {"launches": 1895, "creators": 508, "window": ["2026-07-13", "2026-08-12"]},
+    "gen2": {"launches": 266221, "creators": 90862, "window": ["2026-07-13", "2026-08-12"], "top10_creator_share": 0.3122},
+    "v2": {
+      "launches": 709489, "creators": 419622, "graduations": 10427, "graduation_rate": 0.0147,
+      "window": ["2026-08-03", "2026-10-23"],
+      "peak_day_launches": {"day": "2026-09-08", "n": 36449}, "peak_day_graduations": {"day": "2026-09-05", "n": 722},
+      "last14d_launches_per_day_range": [1080, 2329], "last14d_graduations_per_day_range": [3, 34],
+      "monthly": {"2026-08": {"launches": 136528, "rate": 0.01225}, "2026-09": {"launches": 512172, "rate": 0.01603}, "2026-10": {"launches": 60789, "rate": 0.00893}},
+      "pair_tokens": [
+        {"symbol": "ETH", "address": "0x0000000000000000000000000000000000000000", "launches": 431814, "graduations": 5177, "threshold": "4.2 ETH", "into_pools": "21743.4 ETH"},
+        {"symbol": "USDG", "address": "0x5fc5360d0400a0fd4f2af552add042d716f1d168", "decimals": 6, "launches": 71966, "graduations": 1829, "threshold": "8090 USDG"},
+        {"symbol": "NVDA", "address": "0xd0601ce157db5bdc3162bbac2a2c8af5320d9eec", "launches": 62043, "graduations": 518, "threshold": "41.6 NVDA"},
+        {"symbol": "SPCX", "address": "0x4a0e65a3eccec6dbe60ae065f2e7bb85fae35eea", "launches": 22840, "graduations": 286, "threshold": "72.2 SPCX"},
+        {"symbol": "SPY", "address": "0x117cc2133c37b721f49de2a7a74833232b3b4c0c", "launches": 10281, "graduations": 296}
+      ],
+      "time_to_graduation_s": {"p10": 6.4, "p25": 37.3, "median": 250.0, "p75": 1547.6, "p90": 13264.9, "p99": 518169.3, "share_under_60s": 0.3127, "share_under_10min": 0.6244, "share_under_1h": 0.8321, "share_over_1d": 0.039},
+      "creator_concentration": {"single_launch_creators_share": 0.8857, "creators_over_1000_launches": 25, "launches_from_creators_over_20": 0.2483, "top1_creator_launches": 13791, "multicall3_as_deployer_launches": 5080, "top10_graduating_creators_share": 0.0928},
+      "graduation_rate_by_creator_bucket": {"1": 0.01617, "2-5": 0.0146, "6-20": 0.01044, "21-100": 0.01132, "101-1000": 0.01518, ">1000": 0.01215},
+      "same_block_launch_share": 0.0289
+    },
+    "evidence": "[ONCHAIN]"
+  },
+  "curve_sample": {
+    "seed": 20261024, "n_non_graduated": 180, "n_graduated": 60, "pair": "ETH",
+    "non_graduated": {"median_buy_volume_eth": 0.0545, "mean_buy_volume_eth": 0.9474, "median_traders": 3.5, "zero_buy_share": 0.139, "le5_buyers_share": 0.667, "sell_back_ratio": 0.96, "first_buy_in_launch_tx_share": 0.744, "deployer_sold_share": 0.478, "creator_tax_enabled_share": 0.494},
+    "graduated": {"median_buy_volume_eth": 10.26, "mean_buy_volume_eth": 11.73, "median_traders": 38, "median_buys": 268.5, "sell_back_ratio": 0.55, "first_buy_in_launch_tx_share": 1.0, "deployer_sold_share": 0.067, "creator_tax_enabled_share": 0.667},
+    "caveat": "CurveBuy.buyer for the launch-time buy is the forwarder contract, so deployer-bought undercounts; first_buy_in_launch_tx is the bundling signal",
+    "evidence": "[ONCHAIN] raw/traces/curve_sample.json"
+  },
+  "extrapolation_eth_pairs": {"curve_volume_eth_point": 891399, "curve_fees_eth_point": 9579, "protocol_eth_point": 2874, "creators_eth_point": 6705, "creator_tax_eth_point": 5964, "launch_fees_eth_exact": 354.7, "ci_note": "see volume-estimate.json; heavy-tailed"},
+  "why_it_won": ["first mover on Robinhood Chain launch wave", "stock/stable pair tokens", "one-tx launch with configurable creator economics", "70% creator fee share", "fast chain + simulation + realtime"],
+  "vulnerabilities": ["graduation is a bundled bot event (median 250 s, 100% bundled in sample)", "creator-controlled invisible snipe exemptions", "no post-graduation lifecycle", "keeper-dependent payouts, no timelock", "weak discovery trust signals", "single-chain dependence"],
+  "kpi_benchmarks": {"graduation_rate": "2-4% with >=25 unique buyers", "median_ttg": "> 30 min", "bundled_graduations": "< 30%", "unique_traders_per_graduation": ">= 60", "zero_buy_launches": "< 10%", "serial_deployer_share": "< 15%", "sell_back_ratio": "< 0.8", "deployer_sells": "< 25%", "protocol_take": "0.3-0.5% of volume"},
+  "open_questions": ["OQ-5.1", "OQ-5.2", "OQ-5.3", "OQ-5.4"]
+}

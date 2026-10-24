@@ -1,0 +1,141 @@
+Robinhood Chain launchpad analytics | Pons
+Pons
+/
+Create a token
+Launches
+PLP
+Analytics
+Theme
+Sign in
+# Analytics
+## Launchpad
+Create a token
+Launches
+PLP
+Analytics
+Profile
+## Resources
+Docs
+Support
+Builders
+Explorer
+PONS token
+Updates on X
+GitHub
+## Legal
+Terms of Use
+Privacy Policy
+MiCA Whitepaper
+Takedown Requests
+Law Enforcement Requests
+© 2026 Pons Labs, LLC. All rights reserved.
+Pons is a noncustodial software interface operated by Pons Labs, LLC. Pons does not hold your assets or keys, does not execute or reverse transactions, and is not a bank, broker, exchange, custodian, or investment adviser. Nothing on this site is financial, legal, or tax advice. Tokens are issued by their creators, not by Pons. They are highly volatile, may lose all value, and may have no liquidity. Listing or ranking a token is not an endorsement. You are responsible for your decisions, your wallet, and compliance with local law. Not available in restricted regions. Pons is not affiliated with Robinhood Markets, Inc.
+# Analytics
+24h7d30dAll
+TodayCounted to 6:19 PM ET
+Volume$28.41M$2288.4411M
+Trades358.7K335588.77K
+Launches1.3K11.33K
+Stock token volume$1.78M$11.7788M
+Fees$374.90K$337744.9900K
+$275.89M$227755.8899MVolume
+11.3K1111.33KLaunches
+$3.19M$33.1199MFees
+$459.83K$445599.8833KProtocol revenue
+$13.92BVolume, 56 days
+VolumeLaunchesFeesRevenueStock tokensStock launchesBuybacksBurned
+Nothing to chart yet.
+## Trading, last 7 days
+2.5M22.55MTrades
+11.3K1111.33KLaunches
+$108.24$110088.2244Average trade
+Volume by pair, across every pool trading Pons coins
+ETH$138.85M (50%)
+Stocks and ETFs$16.65M (6%)
+Stablecoins$110.93M (40%)
+Other$9.46M (3%)
+Launches, by what they are paired with
+ETH and others10.6K (93%)
+Stocks and ETFs762 (7%)
+## Top coins, last 30 days
+AllStocks
+ | | # | Coin | Paired with | Volume | Trades
+ | 1 | PONSPons | ETH | $723.28M | 1.9M
+ | 2 | ORBIOOrbio.so | NVDA | $119.95M | 687.6K
+ | 3 | VRAXCommander Vrax | USDG | $79.46M | 449.8K
+ | 4 | UBIKubik | GLD | $30.92M | 89.1K
+ | 5 | BUNBundle Cat | ETH | $29.82M | 106.2K
+ | 6 | PRIORSPriors Agents | USDG | $28.45M | 135.9K
+ | 7 | SHROOMMUSHROOM | MU | $25.37M | 242K
+ | 8 | DELTADelta | ETH | $23.77M | 112.9K
+ | 9 | ZZZZZZ | ETH | $23.49M | 126.6K
+ | 10 | NOVAAINovaAI | ETH | $21.60M | 28.5K
+## Tokenized stocks, last 7 days
+$16.65M$1166.6655MStock token volume
+6.04%66.0044%Of total volume
+2.63%22.6633%Of stock trading
+Pons coins paired with each stock, all timeNVDA35.4K
+SPCX17.7K
+SPY8.1K
+DJT7.8K
+GME6.2K
+TSLA4.3K
+Pons coins' share of each stock's trading | | Stock | Pons share | 30 days | Traded
+ | NVDA | 16.8% | 6.7% | $3.19B
+ | SPY | 10.3% | 1.7% | $2.56B
+ | SPCX | 16.7% | 4.2% | $1.78B
+ | GME | 23.8% | 12.7% | $707.81M
+ | AMC | 3.1% | 2.6% | $661.54M
+ | GLD | 21.2% | 10.7% | $576.80M
+ | META | 12.6% | 13.1% | $574.18M
+ | AAPL | 10.8% | 3.3% | $566.38M
+## Fees and revenue
+Where the fees wentAllAugSepOct
+Paid onWent to
+Pool trades$147.98M 73%
+Curve trades$53.66M 26%
+Launches$1.14M <1%
+Creators$150.92M 74%
+Uniswap$3.20M 2%
+Buybacks$11.74M 6%
+Protocol$36.92M 18%
+The protocol kept $36.92M of $202.78M in fees, 18%.
+ | | Month | Fees | Creators | Buybacks | Uniswap | Protocol
+ | Oct 2026 | $14.16M | $11.17M | $849.33K | $77.71K | $2.07M
+ | Sep 2026 | $140.17M | $106.02M | $9.44M | $815.81K | $23.90M
+ | Aug 2026 | $32.96M | $23.28M | $1.45M | $1.66M | $6.58M
+ | Jul 2026 | $15.48M | $10.46M | $1.57K | $645.41K | $4.37M
+Counted the way DefiLlama counts Pons fees: 0.0005 ETH a launch, 1% of V1 pool volume, curve fees and creator taxes as traded, and graduated pool fees as swept. Paid out so far: $152.36M to creators and $30.42M to the protocol.
+## Buyback and burn
+0PONS burned
+$0Value at today's price
+0.00%Of supply
+0Of which buybacks
+0Other burns
+$0Spent on buybacks, at the time
+Fees received
+Reading
+Sold for PONS
+Reading
+## All time
+$17.09B$1177.0099BVolume
+$202.78M$220022.7788MFees
+$36.92M$3366.9922MProtocol revenue
+Fees paid out so far
+Creators$152.36M (83%)
+Protocol$30.42M (17%)
+131133 days to $1B
+373377 days to $2.5B
+515511 days to $5B
+585588 days to $10B
+757755 days to $15B
+979.8K997799.88K tokens launched
+508.6K550088.66K creators
+783.5K778833.55K fee claims
+279.7K227799.77K locked positions
+## Buyback pipeline
+In the buyback splitter$0Reading
+Unclaimed in escrow$0Reading
+Waiting at the intake$0Reading
+Balances are read from the splitter, the fee intake and the v2 fee escrow. Pair assets are marked to their reference price, or to the splitter's own oracle when no reference exists. Fees still inside v1 lockers are not included.
+Last updated at 6:19 PM ET, Oct 23

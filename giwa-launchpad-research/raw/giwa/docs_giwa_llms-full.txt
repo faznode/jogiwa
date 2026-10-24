@@ -1,0 +1,4623 @@
+# Agent Instructions
+This documentation is published with GitBook. GitBook is the documentation platform designed so that both humans and AI agents can read, navigate, and reason over technical content effectively. Learn more at gitbook.com.
+
+## Querying This Documentation
+This site has an agentic ask interface you may use to query the documentation dynamically by asking a question.
+
+Perform an HTTP GET request on the following URL with the `ask` and `goal` query parameters:
+
+```
+GET https://docs.giwa.io/index.md?ask=<question>&goal=<user_goal>
+```
+
+`ask` is the immediate question: it should be specific, self-contained, and written in natural language.
+`goal` is what the user is ultimately trying to achieve, the reason they need the answer. Sharing it helps GitBook give you a better, more relevant answer. A goal is most helpful when it describes the outcome the user wants rather than restating the question. For example, with `ask=how do I create an API token`, a goal like `automate deployments from our CI pipeline` lets GitBook tailor the answer to that use case.
+
+The response will contain a direct answer to the question and relevant excerpts and sources from the documentation.
+
+---
+
+# GIWA 체인 소개
+
+Global Infrastructure for Web3 Access
+
+GIWA 체인은 OP 스택(OP Stack) 기반 이더리움(Ethereum) 레이어 2(Layer 2) 블록체인이에요. GIWA 체인은 어렵게 느껴지던 웹3(Web3)의 장벽을 허물고, 누구나 쉽고 재밌게 사용할 수 있는 웹3 인프라를 제공하고자 합니다.
+
+{% hint style="info" %}
+레이어 2가 무엇인가요?
+
+이더리움은 안전하고 탈중앙화되어 있지만, 비교적 처리 속도가 느리고 수수료가 높다는 단점이 있어요. 이 문제를 해결하기 위해 레이어 2는 이더리움 위에 별도의 블록체인을 구성하면서도 이더리움의 보안성을 상속받는 구조를 가지고 있습니다. 별도의 체인에서 자체적으로 트랜잭션(Transaction)을 빠르게 처리한 뒤, 데이터와 결과만 이더리움에 기록하기 때문에 빠르고 저렴하게 동작해요.
+
+더 궁금한 내용이 있나요? [ethereum.org](https://ethereum.org) 문서를 확인해보세요.
+{% endhint %}
+
+## GIWA 체인은 어떤 레이어 2인가요?
+
+* **빠른 블록 타임(Block Time)**: GIWA 체인은 1초마다 블록이 생성돼요. 빠른 속도로 실시간에 가까운 사용자 경험을 제공합니다.
+* **EVM 호환**: 이더리움의 개발 언어인 솔리디티(Solidity)로 작성되어 있는 기존 스마트 컨트랙트를 그대로 사용할 수 있어요. 자주 사용하던 개발 도구가 있나요? GIWA 체인에서도 그대로 사용할 수 있어요.
+* **OP 스택 기반 레이어 2**: GIWA 체인은 옵티미즘(Optimism) 재단에서 관리하는 OP 스택을 기반으로 하고 있어요.\
+  OP 스택은 오픈소스로서 지속적으로 발전하고 있기 때문에, GIWA 체인도 최신 업그레이드를 공유하고 필요에 따라 유연하게 커스터마이징할 수 있어요.
+
+## 왜 GIWA 체인인가요?
+
+### 이름에 담긴 철학 – "기와(GIWA)"
+
+기와는 한국 전통 건축의 핵심 요소로, 하나로는 작지만 모이면 강력한 구조를 이뤄내는 확장성과 연대성의 상징이에요. GIWA 체인은 이런 기와처럼 수많은 빌더와 아이디어들이 모여 견고한 웹3 생태계를 이루는 기반이 되기를 바랍니다.
+
+### 글로벌로 나아가는 레이어 2
+
+GIWA 체인은 특정 주체에 귀속되지 않은, **누구에게나 열려 있는 개방형 레이어 2** 에요. **세계 어디서나 쓰일 수 있는 웹3 인프라**로 자리매김하고자 합니다.
+
+이 방향성은 단순한 기술 구현을 넘어, **더 많은 빌더와 사용자가 함께 확장할 수 있는 기반을 마련하는 것**이에요. 그래서 GIWA 체인은 국내 개발자에게는 더 넓은 기회를,  글로벌 생태계에는 함께 성장할 수 있는 레이어 2가 되고자 합니다.
+
+### 빌더에 의한, 빌더를 위한 레이어 2
+
+GIWA 체인은 **빌더 친화적인 레이어 2** 에요.
+
+이더리움과 호환되기 때문에, 기존에 사용하던 **솔리디티 스마트 컨트랙트와 개발 도구**를 그대로 활용할 수 있어요. 또한 개발자를 위해 영어는 물론 **한국어 문서와 가이드**를 제공해요. **글로벌 서비스에서는 보기 드문 한국어 문서 덕분에, 국내 개발자도 쉽게 웹3 개발을 시작할 수 있어요.**
+
+온보딩도 간단해요. 1초 블록타임과 OP 스택 기반의 확장성 덕분에, **복잡한 서버나 인프라 없이 바로 GIWA 체인 위에서 서비스를 실행할 수 있어요.**
+
+### Powered by 업비트(UPbit)
+
+GIWA 체인은 **업비트와 함께하는 레이어 2** 에요. 단순한 블록체인이 아니라, **가장 신뢰받는 디지털자산 거래소 업비트와 연결되어 생태계를 만들어가요.**
+
+업비트는 다년간 쌓아온 거래 경험과 안정적인 인프라를 가지고 있어요. 이 경험이 GIWA 체인과 이어져, **사용자와 빌더 모두 안심하고 웹3를 시작할 수 있는 환경**을 만들어줘요.
+
+GIWA 체인은 업비트와 함께 성장하면서, **더 많은 이용자와 데이터 그리고 풍부한 유동성을 웹3 생태계에 연결하는 다리**가 될 것입니다.
+
+
+# GIWA, 이렇게 사용해보세요
+
+신뢰할 수 있고 확장성 있는 편리한 블록체인 경험을 추구하는 GIWA는 블록체인 생태계 참여자와 개발자 모두가 즐길 수 있는 환경을 제공합니다.
+
+## 블록체인 생태계 참여에 관심이 있으신가요?
+
+#### 쉬운 시작
+
+웹3에 입문하려는 초심자들에게 가장 큰 장벽은 이해하기 어렵고 복잡한 지갑 생성, 시드 문구 관리, 그리고 익숙하지 않은 용어들입니다. GIWA는 이러한 과정을 크게 단순화합니다. GIWA 월렛은 따로 **시드 문구를 관리하지 않아도 안전하게 온체인 자산을 보관하고 사용할 수 있어** 누구나 별도의 기술 지식 없이 블록체인 세계에 들어올 수 있도록 지원합니다. 또, **다양한 체인의 자산을 하나의 앱에서 관리**할 수 있도록하고, **웹3 자산뿐만이 아니라 거래소 자산까지 한눈에 확인**할 수 있도록 하여 통합 앱으로서 작동합니다.
+
+#### 직관적이고 편한 UX/UI
+
+GIWA는 사용자의 경험을 최우선으로 고려합니다. 서비스 전반을 **한국어 및 영어를 기본 언어**로 제공하여 한국인과 외국인 모두 쉽게 이해할 수 있도록 합니다. 나아가 직관적인 UX/UI로 체인·토큰·가스비 같은 낯선 개념을 몰라도 쉽게 사용할 수 있도록 하는 것을 목표로 합니다. 예를 들어, 사용자는 단순히 원화 스테이블코인 잔액만 보유하고 있으면 가스비가 자동으로 처리될 수 있도록하는 페이마스터(Paymaster) 기능을 추가할 예정입니다. 이를 통해 사용자들은 다른 수수료 지불을 위하여 여타 가상자산을 보유하지 않아도 스테이블코인 기반으로 수수료를 지불할 수 있도록 하여 복잡한 네트워크 설정을 이해할 필요가 없습니다. 즉, **직관적이고 익숙한 인터페이스**를 제공하여, 블록체인 초심자도 거부감 없이 사용할 수 있습니다.
+
+***
+
+## 개발에 관심이 있으신가요?
+
+#### 블록체인 개발 입문자
+
+블록체인 개발에 입문하려는 사람들에게는 언어 장벽과 복잡한 학습 곡선이 큰 부담이 됩니다. GIWA는 이 문제를 해결하기 위해 **스텝 바이 스텝 개발 가이드**를 제공하며, 특히 **한국어로 된 개발 문서와 자료**를 지원합니다. 이는 국내 개발자들이 글로벌 블록체인 생태계에 합류하는 진입 장벽을 크게 낮춥니다. 입문자들은 자신이 직접 스마트 컨트랙트를 배포하고 간단한 애플리케이션을 만들어보면서, 자연스럽게 온체인 생태계의 원리를 이해할 수 있습니다.
+
+#### 기존 블록체인 개발자
+
+이미 블록체인 경험이 있는 개발자에게도 GIWA의 강점은 분명합니다. GIWA는 **EVM 호환 환경**을 제공하여 이더리움 기반 개발자가 별도의 학습 없이도 곧바로 자신의 프로젝트를 배포할 수 있습니다. 뿐만 아니라 GIWA는 업비트와 같은 기관들과의 온체인 KYC 연동 서비스인 온체인 베리파이와 데이터 오라클 서비스 등의 기관 연동 서비스를 지원하여 **압도적으로 넓은 사용자 풀**과 연결되어 있습니다. 나아가 이를 기반으로 한 다양한 파생 서비스들을 구상할 수 있는 환경도 제공하여 타 블록체인 생태계에서는 구현하지 못하는 특별한 서비스를 만들 수 있습니다.&#x20;
+
+
+# 자주 물어보는 질문
+
+## 일반
+
+### GIWA는 무슨 뜻인가요?
+
+GIWA는 Global Infrastructure for Web3 Access라는 기술적 의미를 담고 있어요. 우리는 GIWA를 통해 ‘누구나 쓸 수 있는 쉽고 가까운 웹3 인프라’를 제공하고자 해요.
+
+### GIWA 체인이란 무엇인가요?
+
+Opensource (OP Stack) 를 사용하여 구축한 이더리움 레이어2에요. 기존 EVM 지갑들과 개발 도구를 그대로 활용할 수 있어서, 사용자와 개발자 모두 진입 장벽이 낮고, 별도의 네이티브 토큰 없이 레이어1의 ETH를 그대로 사용해요. 수수료도 기본적으로 ETH로 지불하는데, 추후 페이마스터 기능을 통하여 스테이블코인 등과 같은 다른 자산으로 수수료를 지불할 수 있도록 지원할 예정이에요.&#x20;
+
+### GIWA가 가진 차별성은 무엇인가요?
+
+규제 친화적이고 신뢰할 수 있는 환경에서 혁신을 추구하는 GIWA는 웹3와 실생활의 연결을 통해 한국에서 시작하여 글로벌로 나아가는 것을 목표로 해요. 이를 이루기 위해서 GIWA는 빠르고 안전한 블록체인 인프라 GIWA 체인을 개발하고, 이를 가장 편하게 사용할 수 있는 GIWA 월렛을 제공할 예정이에요. 뿐만 아니라, 업비트와 같은 기관들과 다양한 연동 서비스를 선보이며 GIWA 개발자들이 일상 속에 스며들 수 있는 서비스 개발을 할 수 있도록 기반을 다져요. 나아가 원화 및 글로벌 스테이블코인 허브로의 기반을 다지며 사용성 개선과 금융 혁신을 위해 노력해요.
+
+### GIWA 토큰도 발행되나요?
+
+GIWA 체인은 자체 토큰을 발행하지 않을 계획이에요. GIWA의 기본적인 네이티브 토큰은 레이어1(이더리움)의 ETH예요. 그래서 새로운 토큰 발행이 필요하지 않아요.
+
+### GIWA의 수수료는 어떤 토큰으로 지불하나요?
+
+수수료(트랜잭션 가스)는 ETH를 사용하고, 추후 각종 스테이블코인으로도 지불할 수 있도록 지원할 예정이에요. 레이어1 대비 훨씬 저렴해서, 소액 전송/빈번한 호출에도 부담이 적고, 변동성이 적은 스테이블코인을 수수료로 취급하여 유저들에게 편의성을 제공해요.
+
+***
+
+## 서비스
+
+### 온체인 베리파이란 무엇인가요?
+
+GIWA 체인에서 공인된 기관이 고객확인을 진행하고, 그 결과를 온체인에 기록하는 기능이에요.  이를 통해 사용자는 여러 서비스에서 추가 과정 없이 동일한 인증을 그대로 활용할 수 있어요.
+
+
+# GIWA 체인에 연결하기
+
+GIWA 체인에 연결해 보세요. 아래 기본 정보를 통해 GIWA 체인과 상호작용할 수 있어요.
+
+## GIWA 메인넷(Mainnet)
+
+> 🚧 GIWA 메인넷은 현재 개발 중이에요. 곧 만나요 👋
+
+## GIWA 테스트넷(Testnet)
+
+{% hint style="info" %}
+테스트넷은 메인넷에 배포하기 전에 스마트 컨트랙트(Smart Contract), 트랜잭션(Transaction), 지갑 연동 등을 안전하게 테스트해 볼 수 있는 블록체인 환경이에요. 테스트넷에서는 실제 자산을 사용하지 않으며, 무료로 지급받은 테스트 ETH를 이용해 기능을 실험해볼 수 있어요.
+
+세폴리아(Sepolia)는 이더리움 테스트넷의 별칭이에요. GIWA 테스트넷은 레이어 2로서 [이더리움 세폴리아](https://ethereum.org/ko/developers/docs/networks/#sepolia)와 연결되어있으며, 때문에 GIWA 테스트넷도 GIWA 세폴리아라는 별칭을 가지고 있어요.
+{% endhint %}
+
+| 체인 이름                    | GIWA 세폴리아(Sepolia)                                                                                                                                                                                |
+| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 체인 ID                    | 91342                                                                                                                                                                                             |
+| RPC endpoint             | <p><a href="https://sepolia-rpc.giwa.io/"><https://sepolia-rpc.giwa.io></a><br><sup><mark style="color:$info;">rate limit이 걸려있어 production 사용에는 적합하지 않아요</mark></sup></p>                         |
+| Flashblocks RPC endpoint | <p><a href="https://sepolia-rpc-flashblocks.giwa.io/"><https://sepolia-rpc-flashblocks.giwa.io></a><br><sup><mark style="color:$info;">rate limit이 걸려있어 production 사용에는 적합하지 않아요</mark></sup></p> |
+| Currency Symbol          | ETH                                                                                                                                                                                               |
+| 익스플로러                    | [https://sepolia-explorer.giwa.io](https://sepolia-explorer.giwa.io/)                                                                                                                             |
+
+## 지갑으로 연결하기
+
+### GIWA 월렛
+
+> 🚧 GIWA 월렛은 현재 개발 중이에요. 곧 만나요 👋
+
+### Metamask
+
+#### 버튼으로 간단하게 연결하기
+
+[익스플로러](https://sepolia-explorer.giwa.io) 사이트 하단에서 아래 버튼을 클릭하면 간편하게 GIWA 체인에 연결할 수 있어요.
+
+<div align="center"><figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FITWgFEMnSwojKfEFnh4S%2FScreenshot%202025-08-28%20at%202.40.38%E2%80%AFPM.png?alt=media&amp;token=4bca735c-3c03-4940-b058-449da10dcbee" alt="" width="208"><figcaption></figcaption></figure></div>
+
+
+# 테스트용 ETH 받기
+
+아래 문서를 통해 GIWA 테스트넷(Testnet)에서 사용할 테스트용 ETH를 얻을 수 있어요.
+
+GIWA 테스트넷에 연결하셨나요? 테스트넷에서 사용할 ETH를 받아보세요. 테스트넷 ETH를 받아 트랜잭션(Transaction) 전송, 컨트랙트(Contract) 배포 및 테스트를 해볼 수 있어요.
+
+## [GIWA Faucet](https://faucet.giwa.io/)
+
+GIWA 세폴리아(Sepolia)에서 무료 테스트넷 ETH를 제공해요. `24시간`마다 최대 `0.005 ETH` 씩 클레임할 수 있어요.
+
+## [Nodit Faucet](https://faucet.lambda256.io/giwa-sepolia)
+
+GIWA 세폴리아에서 무료 테스트넷 ETH를 제공해요. `24시간`마다 `0.01 ETH` 씩 클레임할 수 있어요.
+
+
+# 스마트 컨트랙트
+
+스마트 컨트랙트(Smart Contract)는 블록체인(Blockchain) 위에서 동작하는 일종의 프로그램이에요. 스마트 컨트랙트는 블록체인 상에서 전자 계약서 형태로 구현되며, 계약 당사자들끼리 합의한 조건이 충족되면 자동으로 실행(Self-Execution)되도록 설계되어 있어요.
+
+GIWA를 포함해 이더리움(Ethereum) 계열 블록체인에서는 이 스마트 컨트랙트를 솔리디티(Solidity)라는 언어로 작성해요. 디앱(Decentralized Application, 이하 DApp)도 솔리디티로 구현된 스마트 컨트랙트를 기반으로 만들어졌죠.
+
+블록체인 위에서 자신만의 애플리케이션(App)을 만들고 싶으신가요? 아래 문서와 함께 시작해 보세요.
+
+{% content-ref url="/pages/OZRyqot34hq5qF30YjXc" %}
+[스마트 컨트랙트 개발하기](/get-started/smart-contract/develop)
+{% endcontent-ref %}
+
+{% content-ref url="/pages/p2Up8ffGb4MinFyn3Jxp" %}
+[토큰 컨트랙트 발행하기](/get-started/smart-contract/issue-a-token)
+{% endcontent-ref %}
+
+{% content-ref url="/pages/TN1PBxAUsUiQzRlwajkt" %}
+[OnchainVerifiable 컨트랙트 개발하기](/get-started/smart-contract/onchainverifiable)
+{% endcontent-ref %}
+
+
+# 스마트 컨트랙트 개발하기
+
+GIWA에서 스마트 컨트랙트를 개발하고 싶으신가요?
+
+아래 가이드를 따라 스마트 컨트랙트 개발 환경을 구축하고, GIWA 세폴리아(Sepolia) 테스트넷에서 직접 컨트랙트를 개발하고 배포하는 방법을 배울 수 있어요.
+
+***
+
+## 스마트 컨트랙트 개발
+
+GIWA 체인은 Ethereum과 동일하게 EVM(Ethereum Virtual Machine) 위에서 스마트 컨트랙트를 실행해요. 이 EVM은 일반적인 컴퓨터와 동일하게 Opcode라고 불리는 명령어들을 수행할 수 있어요.&#x20;
+
+스마트 컨트랙트를 개발한다는 건, 우리가 원하는 프로그램을 EVM에서 실행할 수 있게 Opcode들의 묶음을 만들고, 이를 Bytes로 변환해서 바이트코드(Bytecode)를 체인 상에 저장하고 실행하는 것을 의미해요.
+
+하지만, 이런 저수준의 Opcode는 사용하기 어렵기 때문에, 스마트 컨트랙트를 개발할 땐 [Solidity](https://soliditylang.org/) [Vyper](https://vyperlang.org/) 같은 고수준 언어를 주로 사용해요. Solidity는 JavaScript/TypeScript와 유사한 문법 체계를 가지고 있고 대부분의 Ethereum 개발자들이 사용하고 있는 언어이고, Vyper는 Python과 유사한 문법 체계를 가지고 있다는 특징이 있어요.
+
+이번 예제들에서는 개발자들이 주로 사용하는 Solidity를 통해서 스마트 컨트랙트를 만들어볼 거예요.
+
+***
+
+## 개발 환경 구축하기
+
+Solidity 언어를 통해 스마트 컨트랙트를 개발하려면 개발 환경과 개발 툴(Tool)이 필요해요.
+
+다음과 같은 툴을 사용해 개발할 수 있어요.
+
+* Foundry
+* Hardhat
+* Remix IDE
+
+아래 문서를 통해 각 툴을 활용한 개발 방법을 확인할 수 있어요.
+
+{% content-ref url="/pages/gI5IXP07auKJry5orsZS" %}
+[Foundry로 개발하기](/get-started/smart-contract/develop/foundry)
+{% endcontent-ref %}
+
+{% content-ref url="/pages/N4xpugcqLPvG5GxoqZrC" %}
+[Hardhat으로 개발하기](/get-started/smart-contract/develop/hardhat)
+{% endcontent-ref %}
+
+{% content-ref url="/pages/rmCmC3J1P0NPbdX0czZ9" %}
+[Remix IDE로 개발하기](/get-started/smart-contract/develop/remix-ide)
+{% endcontent-ref %}
+
+
+# Foundry로 개발하기
+
+GIWA에서 Foundry를 사용해 스마트 컨트랙트를 개발하고 배포해요.
+
+[Foundry](https://getfoundry.sh/)는 Ethereum Application을 개발할 때 유용하게 사용할 수 있는 Toolkit 이에요. 빠르고 모듈러 구조를 가지고 있는 것이 특징이에요.  Foundry를 설치하면 아래와 같은  네 가지의 개발 핵심 도구를 사용할 수 있어요.
+
+* `forge`: 스마트 컨트랙트 개발, 테스트, 배포 및 검증
+* `anvil`: 네트워크 Forking이 가능한 로컬 Ethereum 개발 노드 실행
+* `cast`: 컨트랙트 상호작용, 트랜잭션 전송 및 체인 데이터 조회
+* `chisel`: 빠른 프로토타이핑과 디버깅을 위한 Solidity REPL
+
+***
+
+## 개발 환경 세팅
+
+Foundry를 먼저 설치해요.
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+Foundry 툴킷이 모두 설치되었다면, `forge` 툴을 이용해서 Solidity Project를 생성할 수 있어요.
+
+```bash
+forge init giwa_project
+cd giwa_project
+```
+
+생성된 `giwa_project` 는 아래와 같은 구조를 가져요.
+
+```
+giwa_project/
+├── foundry.toml    # 프로젝트 설정이 담겨있는 파일
+├── lib             # 프로젝트에서 사용하는 외부 라이브러리
+├── script          # 배포, 시뮬레이션 등을 위한 스크립트
+├── src             # 프로젝트 소스 코드 디렉토리
+└── test            # 작성한 컨트랙트 테스트를 위한 디렉토리
+```
+
+***
+
+## 컨트랙트 작성하기
+
+아주 간단한 컨트랙트부터 작성해볼까요?
+
+{% code title="src/Giwa.sol" lineNumbers="true" fullWidth="false" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+contract Giwa {
+    event HelloGiwa();
+
+    function helloGiwa() public {
+        emit HelloGiwa();
+    }
+}
+
+```
+
+{% endcode %}
+
+위 스마트 컨트랙트 코드는 `Giwa` 라는 이름의 컨트랙트이고, `helloGiwa` 라는 함수와 `HelloGiwa`라는 이벤트를 가진 컨트랙트예요.&#x20;
+
+앞서 [소개](/get-started/smart-contract/develop)했듯, 고수준의 Solidity 코드를 저수준의 바이트코드로 컴파일되어야 EVM 위에서 실행할 수 있어요. 아래 명령어를 통해 컴파일을 할 수 있어요.
+
+```
+forge build
+```
+
+### 테스트 코드 작성하기
+
+작성한 이 컨트랙트가 의도한대로 동작하는지 확인하기 위해 테스트 코드를 작성힐 수 있어요. `forge`는 Solidity 코드 형태로 테스트 코드를 작성할 수 있어요.
+
+{% code title="test/Giwa.t.sol" lineNumbers="true" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+import {Test} from "forge-std/Test.sol";
+import {Giwa} from "../src/Giwa.sol";
+
+contract GiwaTest is Test {
+    Giwa public giwa;
+
+    function setUp() public {
+        giwa = new Giwa();
+    }
+
+    function test_helloGiwa() public {
+        vm.expectEmit(true, true, true, true);
+        emit Giwa.HelloGiwa();
+
+        giwa.helloGiwa();
+    }
+}
+
+```
+
+{% endcode %}
+
+결과를 확인하려면 아래와 같이 입력하면 돼요.
+
+```
+forge test
+```
+
+아래와 같이 결과가 나왔다면, 우리가 작성한 테스트가 통과했다는 뜻이예요.
+
+{% code overflow="wrap" %}
+
+```bash
+Ran 1 test for test/Giwa.t.sol:GiwaTest
+[PASS] test_helloGiwa() (gas: 10198)
+Suite result: ok. 1 passed; 0 failed; 0 skipped; finished in 349.71µs (67.58µs CPU time)
+
+Ran 1 test suite in 118.78ms (349.71µs CPU time): 1 tests passed, 0 failed, 0 skipped (1 total tests)
+```
+
+{% endcode %}
+
+***
+
+## 컨트랙트 배포하기
+
+`forge`는 체인과 상호작용하거나 컨트랙트를 배포할 때 Solidity 형태로 스크립트 작성할 수 있어요.&#x20;
+
+{% code title="script/Deploy.s.sol" lineNumbers="true" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+import {Script} from "forge-std/Script.sol";
+import {Giwa} from "../src/Giwa.sol";
+
+contract GiwaScript is Script {
+    Giwa public giwa;
+
+    function setUp() public {}
+
+    function run() public {
+        vm.startBroadcast();
+        giwa = new Giwa();
+        vm.stopBroadcast();
+    }
+}
+
+```
+
+{% endcode %}
+
+{% hint style="info" %}
+별도 배포스크립트를 작성하지 않고 `forge create` 명령어를 통해 바로 배포할 수도 있어요.
+
+한번에 여러 컨트랙트를 배포하거나 복잡한 배포 로직을 가지는 경우 위처럼 배포스크립트를 작성해서 관리하는 것이 좋아요.
+{% endhint %}
+
+체인에 배포하기 위해서, 아래와 같이 환경변수 설정을 해야해요.
+
+{% code title=".env" %}
+
+```
+GIWA_SEPOLIA_RPC_URL=https://sepolia-rpc.giwa.io
+BLOCKSCOUT_API_URL=https://sepolia-explorer.giwa.io/api
+```
+
+{% endcode %}
+
+그리고 배포에 사용할 지갑을 `cast`를 통해 Import 할 수 있어요.
+
+```bash
+cast wallet import deployer --interactive
+```
+
+배포는 위에 작성한 스크립트를 실행해서 진행할 수 있어요. 아래와 같이 입력해서 스크립트를 실행해요.
+
+{% hint style="info" %}
+가스비가 부족한가요? [테스트 ETH](/get-started/faucets)를 클레임하세요.
+{% endhint %}
+
+```bash
+source .env
+
+forge script \
+    script/Deploy.s.sol \
+    --account deployer \
+    --rpc-url $GIWA_SEPOLIA_RPC_URL \
+    --broadcast \
+    --verify \
+    --verifier blockscout \
+    --verifier-url $BLOCKSCOUT_API_URL
+```
+
+잘 수행되었다면 아래와 같은 결과가 출력될 거예요.
+
+```
+Script ran successfully.
+
+## Setting up 1 EVM.
+
+==========================
+
+Chain 91342
+
+Estimated gas price: 0.000000505 gwei
+
+Estimated total gas used for script: 111632
+
+Estimated amount required: 0.00000000005637416 ETH
+
+==========================
+
+##### 91342
+✅  [Success] Hash: <tx-hash>
+Contract Address: <your-contract-address>
+Block: 19449984
+Paid: 0.000000000021725363 ETH (85871 gas * 0.000000253 gwei)
+
+✅ Sequence #1 on 91342 | Total Paid: 0.000000000021725363 ETH (85871 gas * avg 0.000000253 gwei)
+
+
+==========================
+
+ONCHAIN EXECUTION COMPLETE & SUCCESSFUL.
+##
+Start verification for (1) contracts
+Start verifying contract `<your-contract-address>` deployed on 91342
+EVM version: prague
+Compiler version: 0.8.28
+
+Submitting verification for [src/Giwa.sol:Giwa] <your-contract-address>.
+Submitted contract for verification:
+	Response: `OK`
+	GUID: ``
+	URL: https://sepolia-explorer.giwa.io/address/<your-contract-address>
+Contract verification status:
+Response: `OK`
+Details: `Pass - Verified`
+Contract successfully verified
+All (1) contracts were verified!
+```
+
+위와 출력에서 컨트랙트 주소를 확인하고, 익스플로러를 통해 컨트랙트가 잘 배포되었는지 확인할 수 있어요. 컨트랙트 배포와 검증이 잘 이루어졌으면 익스플로러 UI 를 통해서 컨트랙트와 바로 상호작용할 수 있어요.
+
+<div data-full-width="false"><figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FcCKFr84SDoOBbw1AJrcl%2FScreenshot%202025-08-26%20at%204.28.04%E2%80%AFPM.png?alt=media&amp;token=2d9fe096-975b-4eed-a451-1d64504963cb" alt=""><figcaption></figcaption></figure></div>
+
+***
+
+## 더 알아보기
+
+[Foundry Book](https://getfoundry.sh/) 을 통해 더 많은 가이드를 읽어보세요.
+
+
+# Hardhat으로 개발하기
+
+이 튜토리얼에서는 GIWA 체인에서 스마트 컨트랙트를 개발·테스트·배포·검증하는 전 과정을 다룹니다.
+
+{% hint style="info" %}
+Hardhat은 Ethereum Application을 개발할 때 유용하게 사용할 수 있는 Node.js 기반 Toolkit 이에요. 유연하고 확장 가능하다는 특징을 가지고 있어요.
+{% endhint %}
+
+## 요구사항
+
+### Node v22+
+
+이 튜토리얼은 Node 버전 22 이상이 설치되어 있어야 해요.
+
+* [Node v22+](https://nodejs.org/en/download) 다운로드
+
+`nvm`으로 Node 버전을 관리하는 경우 `nvm install 22` 명령어를 실행하면 돼요.
+
+***
+
+## 개발 환경 세팅
+
+&#x20;[Hardhat](https://hardhat.org/)을 설치하고 프로젝트를 생성해요.
+
+```bash
+mkdir giwa-project
+cd giwa-project
+
+npx hardhat --init
+npm install --save-dev @nomicfoundation/hardhat-verify
+```
+
+생성된 프로젝트 구조는 아래와 같아요.
+
+```
+giwa_project/
+├── hardhat.config.ts # 프로젝트 설정 파일
+├── contracts         # 프로젝트 소스 코드 디렉토리
+├── test              # 작성한 컨트랙트 테스트 디렉토리
+├── ignition          # Hardhat Ignition 배포 스크립트
+└── scripts           # 배포/시뮬레이션용 스크립트
+```
+
+***
+
+## Hardhat을 GIWA 체인에 연결하기
+
+GIWA 체인에 스마트 컨트랙트를 배포하려면 `hardhat.config.ts` 파일에 GIWA 체인을 추가해야 해요.
+
+```typescript
+import type { HardhatUserConfig } from "hardhat/config";
+
+import hardhatToolboxViemPlugin from "@nomicfoundation/hardhat-toolbox-viem";
+import hardhatVerify from "@nomicfoundation/hardhat-verify";
+import 'dotenv/config'
+
+const config: HardhatUserConfig = {
+  plugins: [hardhatToolboxViemPlugin, hardhatVerify],
+  solidity: {
+    profiles: {
+      default: {
+        version: "0.8.28",
+      },
+      production: {
+        version: "0.8.28",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+    },
+  },
+  networks: {
+    giwaSepolia: {
+      type: "http",
+      chainType: "op",
+      url: "https://sepolia-rpc.giwa.io",
+      accounts: [process.env.PRIVATE_KEY as string]
+    },
+  },
+  chainDescriptors: {
+    91342: {
+      name: "Giwa Sepolia",
+      blockExplorers: {
+        blockscout: {
+          name: "Giwa Sepolia Explorer",
+          url: "https://sepolia-explorer.giwa.io",
+          apiUrl: "https://sepolia-explorer.giwa.io/api",
+        },
+      },
+    },
+  },
+};
+
+export default config;
+```
+
+### 환경 변수 불러오기 <a href="#loading-environment-variables" id="loading-environment-variables"></a>
+
+위 설정은 [dotenv](https://www.npmjs.com/package/dotenv)를 사용해서 `.env` 파일의 `PRIVATE_KEY` 환경 변수를 읽어와요. 절대 소스 코드에 개인 키를 하드코딩하지 마세요.
+
+`dotenv`를 설치하려면 아래처럼 입력해요:
+
+```
+npm install --save dotenv
+```
+
+`dotenv`가 설치되었다면, `.env` 파일을 만들고 아래와 같이 채워넣어요.
+
+```
+PRIVATE_KEY=<YOUR_PRIVATE_KEY>
+```
+
+`<YOUR_PRIVATE_KEY>` 는 배포에 사용할 지갑의 개인키(Private Key)로 교체하세요.
+
+{% hint style="warning" %}
+`PRIVATE_KEY`는 컨트랙트를 배포할 때 사용할 지갑의 개인키(Private Key)예요.
+{% endhint %}
+
+***
+
+## 컨트랙트 작성하기
+
+아주 간단한 컨트랙트부터 작성해볼까요? 먼저, 프로젝트 생성 시에 같이 생성된 `contracts/` 폴더 안의 `Counter.sol`, `Counter.t.sol` 파일과 `test/` 폴더 안에 `Counter.ts` 파일, 그리고 `ignition/modules/Counter.ts`을 지워주고, 아래처럼 새로운 컨트랙트를 작성해요.
+
+{% code title="contracts/Giwa.sol" lineNumbers="true" fullWidth="false" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+contract Giwa {
+    event HelloGiwa();
+
+    function helloGiwa() public {
+        emit HelloGiwa();
+    }
+}
+```
+
+{% endcode %}
+
+위 스마트 컨트랙트 코드는 `Giwa` 라는 이름의 컨트랙트이고, `helloGiwa` 라는 함수와 `HelloGiwa`라는 이벤트를 가진 컨트랙트예요.&#x20;
+
+Hardhat을 통해 컴파일하려면 아래와 같이 입력하면 돼요.
+
+```bash
+npx hardhat compile
+```
+
+### 테스트 코드 작성하기
+
+작성한 컨트랙트가 의도한대로 동작하는지 확인하기 위해 테스트 코드를 작성해요. Hardhat은 [viem](https://viem.sh/)을 사용해서 TypeScript/JavaScript 형태로 테스트 코드를 작성할 수도 있고, Solidity로도 유닛 테스트 코드를 작성할 수 있어요. 이번 예제에서는 viem을 사용해서 작성해볼게요.
+
+{% code title="test/Giwa.ts" lineNumbers="true" %}
+
+```typescript
+import { describe, it } from "node:test";
+
+import { network } from "hardhat";
+
+describe("Giwa", async function () {
+  const { viem } = await network.connect();
+
+  it("Should emit the HelloGiwa event when calling the helloGiwa() function", async function () {
+    const giwa = await viem.deployContract("Giwa");
+
+    await viem.assertions.emit(
+      giwa.write.helloGiwa(),
+      giwa,
+      "HelloGiwa"
+    );
+  });
+});
+
+```
+
+{% endcode %}
+
+결과를 확인하려면 아래와 같이 입력하면 돼요.
+
+```bash
+npx hardhat test
+```
+
+***
+
+## 컨트랙트 배포하기
+
+스마트 컨트랙트가 성공적으로 컴파일되면, 해당 컨트랙트를 GIWA Sepolia 테스트 네트워크에 배포할 수 있어요.
+
+Hardhat을 통해서 컨트랙트를 배포하는 방법 중에 하나는 Hardhat Ignition 이라는 툴을 활용하는 거예요. 아래와 같이 코드를 작성해서 시작할 수 있어요.
+
+{% code title="ignition/modules/Giwa.ts" lineNumbers="true" %}
+
+```typescript
+import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
+
+export default buildModule("GiwaModule", (m) => {
+  const giwa = m.contract("Giwa");
+
+  m.call(giwa, "helloGiwa", []);
+
+  return { giwa };
+});
+
+```
+
+{% endcode %}
+
+작성이 완료되었다면, 아래와 같이 입력해서 GIWA Sepolia 테스트 네트워크에 배포할 수 있어요.
+
+```
+npx hardhat ignition deploy ignition/modules/Giwa.ts --network giwaSepolia
+```
+
+{% hint style="info" %}
+가스비가 부족한가요? [테스트 ETH](/get-started/faucets)를 클레임하세요.
+{% endhint %}
+
+아래와 같이 결과가 나왔다면, 블록체인 세상에 여러분의 스마트 컨트랙트가 배포되어 누구든지 상호작용할 수 있게 된 거예요.
+
+```
+Hardhat Ignition 🚀
+
+Resuming existing deployment from ./ignition/deployments/chain-91342
+
+Deploying [ GiwaModule ]
+
+Batch #1
+  Executed GiwaModule#Giwa
+
+Batch #2
+  Executed GiwaModule#Giwa.helloGiwa
+
+[ GiwaModule ] successfully deployed 🚀
+
+Deployed Addresses
+
+GiwaModule#Giwa - 0x여러분이_배포한_컨트랙트의_주소
+
+```
+
+***
+
+## 컨트랙트 검증하고 익스플로러에서 상호작용하기
+
+블록 익스플로러에서 컨트랙트와 상호작용하려면, 여러분이나 다른 누군가가 먼저 이를 검증해야 해요.&#x20;
+
+위에서 배포된 컨트랙트 주소를 확인하고, 아래와 같이 입력해요.
+
+```
+npx hardhat verify --network giwaSepolia <배포된-컨트랙트-주소>
+```
+
+아래처럼 응답이 나왔다면 블록 익스플로러에 들어가서 여러분이 작성한 코드와 상호작용할 수 있어요.
+
+```
+=== Blockscout ===
+
+📤 Submitted source code for verification on Giwa Sepolia Explorer:
+
+  contracts/Giwa.sol:Giwa
+  Address: <배포된-컨트랙트-주소>
+
+⏳ Waiting for verification result...
+
+
+✅ Contract verified successfully on Giwa Sepolia Explorer!
+
+  contracts/Giwa.sol:Giwa
+```
+
+<div data-full-width="false"><figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FcCKFr84SDoOBbw1AJrcl%2FScreenshot%202025-08-26%20at%204.28.04%E2%80%AFPM.png?alt=media&amp;token=2d9fe096-975b-4eed-a451-1d64504963cb" alt=""><figcaption></figcaption></figure></div>
+
+
+# Remix IDE로 개발하기
+
+[Remix](https://remix.ethereum.org/)는 온라인 통합 개발 환경(IDE)으로 스마트 컨트랙트를 신속하게 개발하고 배포할 수 있는 환경을 제공해요. 스마트 컨트랙트 개발이 처음이라면, 로컬 환경에 환경 구성이 필요 없이 바로 시작할 수 있는 훌륭한 도구예요.
+
+Remix에는 계약을 신속하게 배포하고 테스트할 수 있는 블록체인 시뮬레이션도 포함되어 있어요. 이 시뮬레이션은 브라우저 내에서만 존재하므로 다른 사람과 공유하거나 외부 도구나 프론트엔드를 통해 상호작용할 수 없어요. 하지만 Remix 내에서 다양한 테스트넷에 배포할 수도 있어요. 이렇게 하면 컨트랙트를 공개하면서 다른 사람과 공유할 수 있게 돼요.
+
+***
+
+## Remix 개발 환경
+
+브라우저 창을 열고 [remix.ethereum.org](https://remix.ethereum.org)로 이동하세요. 여러 팁들을 확인하면서 클릭한 후에, 편집기를 살펴보세요. 익숙한 모습이 눈에 보일 거예요.
+
+### 편집기 창
+
+처음에는 Remix의 Home 화면이 로드돼요. 여기에는 Remix의 뉴스, 유용한 링크 등에 대한 내용이 담겨있어요. 홈 탭을 닫은 후, `default_workspace` 폴더 내 `contracts` 폴더에 위치한 `1_Storage.sol` 파일을 눌러 편집기 화면으로 넘어갈 수 있어요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FzC8MQDGqBlnx03jpHMMT%2Fimage.png?alt=media&amp;token=8542863b-2888-496b-b45d-5cb646a47cc6" alt=""><figcaption></figcaption></figure>
+
+이렇게 편집기 창에서 코드를 수정할 수 있어요. 구문 및 오류 강조 표시 등 예상하는 대부분의 기능도 지원해요. 오류가 있다면 밑줄로도 표시되고, 오류가 발생한 줄 번호 왼쪽에 ❗가 표시되기도 해요.
+
+상단에는 `Compile` 버튼이 있어요. 이 버튼을 통해 Solidity 코드를 컴파일 할 수 있어요. 다만, 실행되지는 않아요. 먼저 코드를 블록체인에 배포해야 실행할 수 있기 때문이에요.
+
+### 왼쪽 패널
+
+화면의 가장 왼쪽 패널에는 다른 많은 편집기와 마찬가지로, 다양한 도구와 기능 간의 전환을 가능하게 하는 수직 탭이 있어요. 현재 작업 공간의 파일을 탐색할 수도 있고, 작업 공간을 생성하거나 전환할 수 있어요. 그리고 코드를 검색하거나, 다양한 플러그인에 접근할 수도 있어요
+
+***
+
+## 플러그인
+
+Remix의 대부분의 기능은 플러그인으로 구성되며, 자주 사용할 플러그인들은 기본적으로 활성화되어 있어요. 화면 왼쪽 하단의 플러그인 버튼을 클릭해서, 내가 원하는 플러그인을 추가하거나 관리할 수 있어요.
+
+### Solidity Compiler
+
+검색 버튼 다음으로 기본으로 제공되는 플러그인이에요. 컴파일할 Solidity의 컴파일러의 버전을 선택할 수 있고 최적화 옵션들을 선택할 수 있어요. `Compile` 버튼을 통해 코드를 컴파일하거나, `Compile and Run script` 버튼을 통해 스크립트를 실행하게 할 수 있어요.
+
+그리고 오류가 있을 경우 오류의 전체 텍스트가 표시돼요. `1_Storage.sol`에 일부러 오타를 넣어서 테스트 해보세요.
+
+### Deploy & Run transactions
+
+Deploy & run transactions 플러그인은 스마트 컨트랙트를 배포하고 상호작용하는 데 사용돼요. 사용할 VM을 선택하고 테스트 이더로 테스트용 지갑을 생성하고, 배포 및 테스트할 수 있는 메뉴가 있어요.
+
+`1_Storage.sol`에 오타를 넣었다면 오류를 수정하고 주황색 `Deploy` 버튼을 클릭하세요. `Deployed Contracts` 탭에 배포한 컨트랙트가 `STORAGE AT <주소>`로 표시되는 걸 확인할 수 있어요.
+
+***
+
+## GIWA 테스트넷에 배포해보기
+
+Remix에서 컨트랙트를 배포하기 위해서는 MetaMask와 같은 지갑이 브라우저에 설치되어 있어야 해요.&#x20;
+
+{% hint style="info" %}
+MetaMask 같은 브라우저 지갑이 설치되어 있지 않거나, Giwa Sepolia 테스트넷이 설정되어 있지 않나요? 그렇다면 [GIWA 체인에 연결하기](/get-started/connect-to-giwa#metamask) 여기 링크에서 세팅하는 법을 확인하실 수 있어요.&#x20;
+{% endhint %}
+
+{% hint style="info" %}
+Testnet Ether가 없다면 [테스트용 ETH 받기](/get-started/faucets)여기 문서를 참고해서 테스트 이더를 받을 수 있어요.
+{% endhint %}
+
+모든 준비가 완료되었다면, 이제 `Storage` 컨트랙트를 배포해볼 수 있어요!
+
+### 환경 선택하기
+
+`Deploy & Run Transaction` 탭을 열어주세요. `Environment` 에서 `Injected Provider`를 선택해주세요. MetaMask나 다른 활성화된 지갑이 보일거예요.&#x20;
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FeANvgopz36I0PnFPTqPg%2Fimage.png?alt=media&amp;token=e358db9b-a95e-4aa9-a7b2-a581ebeb7603" alt="" width="270"><figcaption></figcaption></figure>
+
+처음 이 작업을 수행할 때, 지갑에서 이 dApp(Remix)을 지갑에 연결할 것인지 확인을 요청할 거예요. 연결이 완료되면 환경 드롭다운 메뉴 아래에 네트워크 이름이 표시돼요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FOEIRHs5OoFAamvg2E6Jz%2Fimage.png?alt=media&amp;token=e80c4d6d-59e7-4c45-8077-a8d2a99603a8" alt="" width="264"><figcaption></figcaption></figure>
+
+GIWA Sepolia 테스트넷에 연결되었다면, `Custom (91342) network` 라고 표시되어야해요. 다른 값이 보인다면 지갑에서 활성 네트워크를 변경해주세요.
+
+### 컨트랙트 배포하기
+
+주황색의 `Deploy` 버튼을 누르면, 배포하는 데 가스 비용이 발생하니 거래를 검토하고 확인하라는 요청을 받게 돼요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FrjTy38MXr3VWOEFd1mlS%2Fimage.png?alt=media&amp;token=91160131-1c96-44ff-8df3-893674795dea" alt="" width="375"><figcaption></figcaption></figure>
+
+{% hint style="danger" %}
+모든 트랜잭션에 대해서 항상 꼼꼼히 검토하여 거래 비용, 전송되는 자산, 네트워크를 확인하세요!
+
+항상 트랜잭션를 신중히 검토하고 '확인'을 클릭하는 습관이 드는 것이 중요해요.
+{% endhint %}
+
+컨펌 버튼을 클릭한 후 Remix로 돌아가 배포될 때까지 기다리세요. 배포가 완료되었다면, 아래 표시되는 address가 여러분이 배포한 컨트랙트의 주소예요.
+
+<https://sepolia-explorer.giwa.io/> 로 접속해서 해당 주소에 컨트랙트가 잘 배포되었는지 확인할 수 있어요.
+
+***
+
+## 컨트랙트 코드 검증하기
+
+리믹스(Remix)를 통해 배포된 계약과 상호작용할 수 있고, 또한 이전 가이드와 마찬가지로 Explorer 통해서도 상호작용이 가능해요. 위에서 배포한 컨트랙트 주소를 붙여넣어 스마트 컨트랙트를 찾아보세요.
+
+이 페이지에서는 잔액, 컨트랙트 정보 및 해당 컨트랙트와 관련된 모든 트랜잭션 내역을 확인할 수 있어요.&#x20;
+
+메인 패널의 '계약(Contract)' 탭을 클릭하세요. 검증되지 않은 컨트랙트는 `Verify & Publish`라는 버튼이 보일거에요.&#x20;
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2F5PHxHdasN5Mv0h28tG2L%2Fimage.png?alt=media&amp;token=1cf672ea-ff1c-46d7-bbf1-f167aaa5d75a" alt=""><figcaption></figcaption></figure>
+
+컨트랙트 검증은 함수 및 변수 이름을 컴파일된 바이트 코드에 매핑하여 사람이 읽을 수 있는 인터페이스를 만들어줘요. 이를 통해 컨트랙트와 상호작용할 수 있게 해요.&#x20;
+
+`Contract License (오픈 소스 라이선스 유형)` 선택란에서는 SPDX-License-Identifier로 계약서에 선택한 라이선스와 일치하는 항목을 선택하세요. Solidity 권장 관행인 UNLICENSED를 사용한 경우 '`None`'을 선택하세요.
+
+`Verification method (검증 방식)` 선택란에서 `Solidity (Single File)`을 선택하세요.
+
+`Compler (컴파일러 버전)` 선택란에서는 소스 파일 상단의  pragma 와 일치하는 버전을 선택하세요. 현재 예제는 `v0.8.30+commit.73712a01`를 사용 중이에요. 또 현재 예제에서는 Optimizer 사용은 기본적으로 꺼져있으므로 `Optimization enabled` 체크 해제해주세요.
+
+그리고 마지막으로 여러분이 배포했던 컨트랙트 코드를 모두 복사해서 붙여넣으세요.
+
+모두 입력되었다면, `Verify & Publish` 버튼을 클릭하세요. 성공 메시지가 나왔다면, 다시 컨트랙트 주소 페이지로 넘어가면, 여러분이 작성한 코드 뿐만 아니라, 상호작용할 수 있는 인터페이스(`Read/Write Contract`)까지 나타난 것을 확인할 수 있어요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FDOFGLZOVbF2HrstPp6q2%2Fimage.png?alt=media&amp;token=272c8361-c369-439f-902d-7e36fc31d6ef" alt=""><figcaption></figcaption></figure>
+
+
+# 토큰 컨트랙트 발행하기
+
+GIWA에서 토큰 컨트랙트를 개발하고 배포하는 방법을 알아보세요.
+
+## ERC20이란?
+
+ERC20은 Ethereum의 토큰 표준이며, ERC20 스마트 컨트랙트는 **대체 가능한 토큰(Fungible Token)**&#xC744; 관리해요. 대체 가능한 토큰이란, 모든 토큰이 동일하고 어떤 토큰이라도 특별한 권한이나 동작을 가지지 않는 토큰을 의미해요. 즉, 누군가 소유한 1개의 토큰은 여러분이 가진 토큰 1개와 동일한 가치를 가지고 있어요. 이러한 특성 덕분에 ERC20 토큰은 교환 수단, 투표권, 스테이킹 등에 유용하게 활용될 수 있어요.
+
+ERC20 표준은 스마트 컨트랙트가 구현해야 하는 6개의 필수 기능과 3개의 선택적 기능을 정의하고 있어요.
+
+필수 기능은 아래와 같아요.
+
+* `totalSupply`: 토큰의 총 공급량을 정의하는 메서드예요.
+* `balanceOf`: 지갑 주소가 보유한 토큰 수를 반환하는 메서드예요.
+* `transfer`: 호출하는 사람으로부터 특정 양의 토큰을 다른 사용자에게 전달하는 메서드예요.
+* `transferFrom`: 사용자 간 토큰 전송에 사용되는 또 다른 유형의 전송 메서드예요. 이 메소드를 사용하면 토큰을 전송하려는 쪽에서 직접 호출하지 않아도 돼요. 하지만, 토큰을 받으려는 쪽은 토큰을 제공할 지갑 주소에서 `allowance` 범위 안에서만 전송 받을 수 있어요.
+* `approve`: 특정 사용자에게 일정량의 토큰을 사용할 수 있도록 미리 허락해두는 메서드예요.
+* `allowance`: 한 사용자가 다른 사용자에게 얼마만큼의 토큰을 전송하도록 허락해두었는지 확인할 수 있는 메소드예요.
+
+위에 나열된 필수 기능 외에도 선택적 기능이 있으며, 이는 토큰의 사용성을 향상시켜요.
+
+* `name`: 토큰의 이름을 반환하는 메서드예요.
+* `symbol`: 토큰의 심볼을 반환하는 메서드예요.
+* `decimals`: 토큰이 사용하는 소수점 자릿수를 반환하는 메서드예요. 토큰의 최소 단위를 정의하는 데 사용돼요. 예를 들어, ERC20 토큰의 decimals 값이 6이라면, 이 토큰은 소수점 이하 6자리까지 나눌 수 있다는 걸 의미해요.&#x20;
+
+토큰을 ERC20 토큰으로 만들려면 ERC20 인터페이스를 구현해야 하고, 이는 반드시 이 6가지 메서드를 구현하도록 하고 있어요.
+
+***
+
+## ERC20 컨트랙트 개발하기
+
+Ethereum을 포함한 여러 블록체인에는 이미 다양한 그룹이 개발한 수많은 ERC20 호환 토큰이 운영 중이에요. 이러한 구현 방식은 가스 비용 절감에 중점을 두는 경우도 있고, 보안 강화에 우선순위를 두는 경우도 있어 다양해요.
+
+견고하고 안전한 구현을 위해 많은 개발자들은 [OpenZeppelin](https://www.openzeppelin.com/)이나 [Solady](https://vectorized.github.io/solady/#/)와 같은 스마트 컨트랙트 라이브러리를 사용해요. 이러한 라이브러리는 커뮤니티의 보안 감사를 거친 검증된 스마트 컨트랙트 라이브러리를 제공하고 있고, ERC20 토큰도 포함되어 있어 토큰 개발 시에 선호되는 선택지예요.
+
+이번 예제에서는 OpenZepplin 라이브러리를 사용해서 ERC20 토큰 컨트랙트를 개발해볼까요?
+
+***
+
+## 개발 환경 세팅
+
+1. [Foundry](https://getfoundry.sh/) 를 설치해요.
+
+```bash
+curl -L https://foundry.paradigm.xyz | bash
+foundryup
+```
+
+2. Solidity Project 생성
+
+```bash
+forge init sample-token
+cd sample-token
+```
+
+3. OpenZepplin 라이브러리 설치
+
+```
+forge install OpenZeppelin/openzeppelin-contracts
+```
+
+***
+
+## 컨트랙트 및 테스트 작성
+
+{% code title="src/SampleToken.sol" lineNumbers="true" fullWidth="false" %}
+
+```solidity
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.28;
+
+import {ERC20} from "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+contract SampleToken is ERC20 {
+    uint256 public constant INITIAL_BALANCE = 1e24;
+
+    constructor() ERC20("Sample", "SMP") {
+        _mint(msg.sender, INITIAL_BALANCE);
+    }
+}
+```
+
+{% endcode %}
+
+컨트랙트가 작성되었다면, 테스트 코드를 작성해서 의도한대로 컨트랙트가 작동하는지 확인할 수 있어요.
+
+{% code title="test/SampleToken.t.sol" lineNumbers="true" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+import {Test} from "forge-std/Test.sol";
+import {SampleToken} from "src/SampleToken.sol";
+
+contract SampleTokenTest is Test {
+    SampleToken public token;
+
+    function setUp() public {
+        token = new SampleToken();
+    }
+
+    function test_initialBalance() public view {
+        assertEq(token.balanceOf(address(this)), token.INITIAL_BALANCE());
+    }
+
+    function test_nameAndSymbol() public view {
+        assertEq(token.name(), "Sample");
+        assertEq(token.symbol(), "SMP");
+    }
+}
+
+```
+
+{% endcode %}
+
+아래 명령어를 통해 컨트랙트를 빌드하고 테스트 할 수 있어요.
+
+```bash
+forge build
+forge test
+```
+
+***
+
+## 토큰 배포하기
+
+배포 스크립트를 아래처럼 작성할 수 있어요.
+
+{% code title="script/Deploy.s.sol" lineNumbers="true" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+import {Script} from "forge-std/Script.sol";
+import {SampleToken} from "src/SampleToken.sol";
+
+contract DeploySampleToken is Script {
+    function run() public {
+        vm.startBroadcast();
+        SampleToken token = new SampleToken();
+        vm.stopBroadcast();
+    }
+}
+
+```
+
+{% endcode %}
+
+{% hint style="info" %}
+배포 스크립트를 실행하고, Giwa Sepolia 테스트넷에서 실제로 스마트 컨트랙트를 배포하는 방법에 대해서는 [여기](/get-started/smart-contract/develop/foundry#undefined-3)에서 볼 수 있어요.
+{% endhint %}
+
+
+# OnchainVerifiable 컨트랙트 개발하기
+
+OnchainVerifier 컨트랙트는 이미 배포돼 있어요. 누구나 GIWA 에서 스마트컨트랙트를 작성할 때 바로 쓸 수 있어요.
+
+## isVerified
+
+```solidity
+function isVerified(address addr, DojangAttesterId attesterId) external view returns (bool);
+```
+
+특정 지갑이 검증(Verified)됐는지 바로 확인할 수 있는 뷰 함수에요. DeFi 프로토콜, 지갑, 게이트키핑이 필요할 때 “검증된 사용자만 이용 가능” 같은 정책을 쉽게 붙일 수 있어요.
+
+### 배포 된 OnchainVerifiable 컨트랙트
+
+<table><thead><tr><th width="103.91796875">Network</th><th width="286.11328125">OnchainVerifier contract Address</th><th>Verfier ID</th></tr></thead><tbody><tr><td>Testnet</td><td><a href="https://sepolia-explorer.giwa.io/address/0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9?tab=contract">0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9</a></td><td>0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034</td></tr></tbody></table>
+
+## Example
+
+### Verified ERC20
+
+이 예제는 OpenZeppelin ERC20 표준을 그대로 사용하면서, 토큰 전송 시 OnchainVerifiable 컨트랙트의 isVerified 함수를 호출하여 전송을 허용/차단하는 방법을 보여줍니다.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
+
+type DojangAttesterId is bytes32;
+
+interface IVerifier {
+    function isVerified(address primaryAddress, DojangAttesterId attesterId) external view returns (bool);
+}
+
+contract VerifiedERC20 is ERC20 {
+    IVerifier public immutable verifier;
+    DojangAttesterId public immutable attesterId;
+    error NotVerified(address addr);
+
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        address verifier_,
+        DojangAttesterId attesterId_,
+        uint256 initialSupply
+    ) ERC20(name_, symbol_) {
+        require(verifier_ != address(0), "verifier is zero");
+        verifier = IVerifier(verifier_);
+        attesterId = attesterId_;
+        _mint(msg.sender, initialSupply);
+    }
+
+    // OZ v5 단일 훅: 모든 이동(mint/burn/transfer)이 이 경로를 탑니다.
+    function _update(address from, address to, uint256 value) internal override {
+        // 일반 transfer(= 양쪽 모두 비제로)에서만 검증
+        if (from != address(0) && to != address(0)) {
+            // 토큰 보유자(from)가 검증되어야 함
+            if (!verifier.isVerified(from, attesterId)) revert NotVerified(from);
+
+            // 필요 시 호출자(transferFrom의 spender)도 검증
+            if (!verifier.isVerified(_msgSender(), attesterId)) revert NotVerified(_msgSender());
+
+            // 필요 시 수신자(to)도 검증
+            if (!verifier.isVerified(to, attesterId)) revert NotVerified(to);
+        }
+
+        super._update(from, to, value);
+    }
+}
+
+```
+
+### Verified ERC721
+
+이 예제는 OpenZeppelin ERC721 표준을 그대로 사용하면서, NFT 전송 시 외부 검증 컨트랙트의 isVerified 함수를 호출하여 전송을 허용/차단하는 방법을 보여줍니다.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+
+type DojangAttesterId is bytes32;
+
+interface IVerifier {
+    function isVerified(address addr, DojangAttesterId attesterId) external view returns (bool);
+}
+
+contract VerifiedERC721 is ERC721, Ownable {
+    IVerifier public immutable verifier;
+
+    DojangAttesterId public constant UPBIT_KOREA =
+        DojangAttesterId.wrap(0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034);
+
+    error NotVerified(address account);
+
+    constructor(
+        string memory name_,
+        string memory symbol_,
+        address verifier_
+    ) ERC721(name_, symbol_) Ownable(msg.sender) {
+        require(verifier_ != address(0), "verifier is zero");
+        verifier = IVerifier(verifier_);
+    }
+
+    function mint(address to, uint256 tokenId) external onlyOwner {
+        if (!verifier.isVerified(to, UPBIT_KOREA)) revert NotVerified(to);
+        _mint(to, tokenId);
+    }
+ 
+    // OpenZeppelin v5 단일 훅: 민트/번/전송 모두 이 경로를 탑니다.
+    function _update(address to, uint256 tokenId, address auth)
+        internal
+        override
+        returns (address from)
+    {
+        // 상태 변경 전에 "기존 소유자" 파악 (민트면 address(0))
+        address prevOwner = _ownerOf(tokenId);
+
+        // 일반 전송에서만 검증 (민트/번 제외)
+        if (prevOwner != address(0) && to != address(0)) {
+            if (!verifier.isVerified(prevOwner, UPBIT_KOREA)) revert NotVerified(prevOwner);
+            if (!verifier.isVerified(_msgSender(), UPBIT_KOREA)) revert NotVerified(_msgSender());
+            if (!verifier.isVerified(to, UPBIT_KOREA)) revert NotVerified(to);
+        }
+
+        // 실제 상태 업데이트 (from 반환값은 이전 소유자)
+        return super._update(to, tokenId, auth);
+    }
+}
+
+```
+
+
+# 브릿징
+
+GIWA 체인과 이더리움(Ethereum) 간에 자산 또는 데이터를 이동시키고 싶나요? 브릿징(bridging)에 대해 알아보세요.
+
+GIWA는 이더리움과 연결되어있는 레이어 2(Layer 2)에요. 하지만 별도의 블록체인이기 때문에 이들 네트워크 간에 자산(ETH, ERC-20 토큰)이나 데이터를 이동시키기 위해서는 특별한 과정이 필요합니다. 이러한 과정을 **브릿징(bridging)**&#xC774;라고 해요.
+
+쉽게 말해 브릿징을 통해 이더리움에 있는 여러분의 자산을 GIWA로 옮길 수도 있고, 반대로 GIWA에서 이더리움으로도 옮길 수 있어요.
+
+브릿징을 활용한 앱을 만들고 싶으신가요? 아래 문서와 함께 시작해보세요.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-cover data-type="image">Cover image</th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><i class="fa-ethereum">:ethereum:</i></td><td>ETH 브릿징하기</td><td></td><td><a href="/get-started/bridging/eth">ETH 브릿징하기</a></td></tr><tr><td><i class="fa-coin-blank">:coin-blank:</i></td><td>ERC-20 토큰 브릿징하기</td><td></td><td><a href="/get-started/bridging/erc-20">ERC-20 토큰 브릿징하기</a></td></tr></tbody></table>
+
+## 브릿지 서비스
+
+일반 사용자들도 쉽고 빠르게 자산을 이동시킬 수 있도록 다양한 브릿지 서비스가 존재합니다. 자세한 내용은 [브릿지](/tools/bridges) 페이지를 참고하세요.
+
+
+# ETH 브릿징하기
+
+이더리움에서 GIWA로, GIWA에서 이더리움으로 ETH를 브릿징해요.
+
+### 요구사항
+
+아래 항목들이 설치되어 있어야해요.
+
+* [node](https://nodejs.org/ko)
+* [pnpm](https://pnpm.io/)
+
+### 개발 환경 세팅
+
+이 튜토리얼에서는 viem을 사용해요. [Viem](https://viem.sh/)은 Node.js 라이브러리이기 때문에 Node.js 프로젝트로 생성합니다.
+
+{% stepper %}
+{% step %}
+
+#### 프로젝트 폴더 생성
+
+```bash
+mkdir giwa-bridging-eth
+cd giwa-bridging-eth
+```
+
+{% endstep %}
+
+{% step %}
+
+#### 프로젝트 초기화
+
+```bash
+pnpm init
+```
+
+{% endstep %}
+
+{% step %}
+
+#### Dependencies 설치
+
+```bash
+pnpm add -D tsx @types/node
+pnpm add viem@^2.38.0
+```
+
+{% endstep %}
+{% endstepper %}
+
+### 지갑 준비
+
+ETH 브릿징을 위해 지갑이 필요해요.
+
+{% stepper %}
+{% step %}
+
+#### 세폴리아 ETH 준비
+
+Deposit (Ethereum -> GIWA) 을 위해 이더리움 세폴리아 네트워크에서 ETH가 필요해요. [해당 faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)에서 세폴리아 ETH를 받을 수 있습니다.
+
+{% hint style="info" %}
+아직 지갑이 없나요? [cast](https://getfoundry.sh/introduction/installation/) 커맨드로 지갑을 생성하세요.
+{% endhint %}
+{% endstep %}
+
+{% step %}
+
+#### Private Key 환경변수 세팅
+
+이 튜토리얼에서는 여러 번의 트랜잭션 서명이 필요해요. 이를 위해 지갑 private key 환경변수를 세팅해야합니다.
+
+```bash
+export TEST_PRIVATE_KEY=0x...
+```
+
+{% endstep %}
+{% endstepper %}
+
+### Chain Client 설정
+
+ETH 브릿징을 위해 chain client를 설정합니다.
+
+{% code title="src/config.ts" lineNumbers="true" %}
+
+```typescript
+import {defineChain, createPublicClient, http, createWalletClient} from "viem";
+import {privateKeyToAccount} from "viem/accounts";
+import {publicActionsL1, publicActionsL2, walletActionsL1, walletActionsL2} from "viem/op-stack";
+import {sepolia, giwaSepolia} from "viem/chains";
+
+// 지갑 준비
+export const PRIVATE_KEY = process.env.TEST_PRIVATE_KEY as `0x${string}`;
+export const account = privateKeyToAccount(PRIVATE_KEY);
+
+// 이더리움 세폴리아 체인 데이터를 읽기 위한 client
+export const publicClientL1 = createPublicClient({
+  chain: sepolia,
+  transport: http(),
+}).extend(publicActionsL1())
+
+// 이더리움 세폴리아 체인에 트랜잭션을 전송하기 위한 client
+export const walletClientL1 = createWalletClient({
+  account,
+  chain: sepolia,
+  transport: http(),
+}).extend(walletActionsL1());
+
+// GIWA 세폴리아 체인 데이터를 읽기 위한 client
+export const publicClientL2 = createPublicClient({
+  chain: giwaSepolia,
+  transport: http(),
+}).extend(publicActionsL2());
+
+// GIWA 세폴리아 체인에 트랜잭션을 전송하기 위한 client
+export const walletClientL2 = createWalletClient({
+  account,
+  chain: giwaSepolia,
+  transport: http(),
+}).extend(walletActionsL2());
+
+```
+
+{% endcode %}
+
+### Deposit ETH (이더리움 -> GIWA)
+
+이제 이더리움에서 GIWA로 ETH를 브릿징 해볼까요?&#x20;
+
+아래 코드를 실행하면 이더리움에 있던 여러분의 ETH가 실제로는 [OptimismPortal](/network-information/contracts#l1-contracts) 컨트랙트로 전송되고, 전송한 수량만큼 여러분의 GIWA 지갑으로 전송되는 것을 확인할 수 있어요. 이러한 방식을 **Lock-and-Mint** 라고 해요.
+
+{% stepper %}
+{% step %}
+
+#### 구성
+
+1. 레이어 1에서 deposit 트랜잭션 전송
+2. 이에 대응되는 레이어 2 deposit 트랜잭션이 sequencer에 의해 생성
+3. Deposit 완료
+   {% endstep %}
+
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/deposit\_eth.ts" lineNumbers="true" %}
+
+```typescript
+import {publicClientL1, publicClientL2, account, walletClientL1} from './config';
+import {formatEther, parseEther} from "viem";
+import {getL2TransactionHashes} from "viem/op-stack";
+
+async function main() {
+  // GIWA로 브릿징 하기 전, 여러분의 레이어 1 지갑에서 ETH 잔고를 확인해요.
+  const l1Balance = await publicClientL1.getBalance({ address: account.address });
+  console.log(`L1 Balance: ${formatEther(l1Balance)} ETH`);
+
+  // 레이어 1에서 deposit 트랜잭션을 전송하기 위해 파라미터를 build 합니다.
+  const depositArgs = await publicClientL2.buildDepositTransaction({
+    mint: parseEther("0.001"),
+    to: account.address,
+  });
+
+  // 레이어 1에서 deposit 트랜잭션을 전송해요.
+  // 이 과정에서 여러분의 ETH가 OptimismPortal 컨트랙트로 전송됩니다.
+  const depositHash = await walletClientL1.depositTransaction(depositArgs);
+  console.log(`Deposit transaction hash on L1: ${depositHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const depositReceipt = await publicClientL1.waitForTransactionReceipt({ hash: depositHash });
+  console.log('L1 transaction confirmed:', depositReceipt);
+
+  // 레이어 1 트랜잭션의 결과인 receipt를 통해 레이어 2에서 발생할 deposit 트랜잭션의 hash를 미리 계산해요.
+  const [l2Hash] = getL2TransactionHashes(depositReceipt);
+  console.log(`Corresponding L2 transaction hash: ${l2Hash}`);
+
+  // 위에서 계산한 레이어 2 deposit 트랜잭션이 처리될때까지 기다려요.
+  // 이 과정은 대략 1~3분정도 소요됩니다.
+  const l2Receipt = await publicClientL2.waitForTransactionReceipt({
+    hash: l2Hash,
+  });
+  console.log('L2 transaction confirmed:', l2Receipt);
+  console.log('Deposit completed successfully!');
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/deposit_eth.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+{% hint style="info" %}
+왜 레이어 1 deposit 트랜잭션을 전송하고, 레이어 2 지갑 잔고에 반영되기까지 수 분이 소요되나요?
+
+여러분이 레이어 1 deposit 트랜잭션을 전송하면, 레이어 2 sequencer가 이를 확인하고 레이어 2 deposit 트랜잭션을 생성해요. 이 과정에서 레이어 1 체인이 reorg가 발생할 수 있기 때문에 시스템 안정성을 위해 레이어 2 sequencer는 레이어 1 deposit 트랜잭션이 발생하고 대략 N 블록 이후에 이를 처리하는 형태입니다.
+{% endhint %}
+
+### Withdraw ETH (GIWA -> 이더리움)
+
+이더리움에서 GIWA로 ETH가 잘 전송되었나요? 이제 반대로 GIWA에서 이더리움으로 ETH를 브릿징해요.
+
+아래 코드를 실행하면 GIWA에 있던 여러분의 ETH가 실제로는 [L2ToL1MessagePasser](/network-information/contracts#l2-contracts) 컨트랙트로 전송되고, 전송한 수량만큼 여러분의 이더리움 지갑으로 전송되는 것을 확인할 수 있어요. 이때는 Deposit에 의해 [OptimismPortal](/network-information/contracts#l1-contracts) 컨트랙트에 Lock되어있던 ETH가 다시 Unlock되는 형태에요. 이러한 방식을 **Burn-and-Unlock** 이라고 합니다.
+
+{% hint style="info" %}
+L2ToL1MessagePasser 컨트랙트로 전송된 ETH는 사실상 소각(burn)되었다고 볼 수 있어요. Balance를 조회하면 남아있지만 언제든 해당 컨트랙트의 `burn()` 함수를 호출하면 모든 balance가 소각되는 구조에요.
+{% endhint %}
+
+{% stepper %}
+{% step %}
+
+#### 구성
+
+1. 레이어 2에서 withdrawal 개시 트랜잭션 전송
+2. 레이어 1에서 withdrawal 증명 트랜잭션 전송
+3. 레이어 1에서 withdrawal 완료 트랜잭션 전송
+4. Withdrawal 완료
+   {% endstep %}
+
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/withdraw\_eth.ts" lineNumbers="true" %}
+
+```typescript
+import {publicClientL1, publicClientL2, account, walletClientL1, walletClientL2} from './config';
+import {formatEther, parseEther} from "viem";
+
+async function main() {
+  // 이더리움으로 브릿징하기 전, 여러분의 레이어 2 지갑에서 ETH 잔고를 확인해요.
+  const l2Balance = await publicClientL2.getBalance({ address: account.address });
+  console.log(`L2 Balance: ${formatEther(l2Balance)} ETH`);
+
+  // 레이어 2에서 withdrawal을 개시하는 트랜잭션을 전송하기 위해 파라미터를 build 합니다.
+  const withdrawalArgs = await publicClientL1.buildInitiateWithdrawal({
+    to: account.address,
+    value: parseEther("0.00005"),
+  });
+
+  // 레이어 2에서 withdrawal을 개시해요.
+  // 이 과정에서 여러분의 ETH가 L2ToL1MessagePasser 컨트랙트로 전송됩니다.
+  const withdrawalHash = await walletClientL2.initiateWithdrawal(withdrawalArgs);
+  console.log(`Withdrawal transaction hash on L2: ${withdrawalHash}`);
+
+  // 위에서 전송한 레이어 2 트랜잭션이 완전히 처리될때까지 기다려요.
+  const withdrawalReceipt = await publicClientL2.waitForTransactionReceipt({ hash: withdrawalHash });
+  console.log('L2 transaction confirmed:', withdrawalReceipt);
+
+  // 레이어 2 withdrawawl transaction을 레이어 1에서 증명할 수 있을때까지 기다려요.
+  // 이 과정은 최대 2시간이 소요될 수 있습니다.
+  const { output, withdrawal } = await publicClientL1.waitToProve({
+    receipt: withdrawalReceipt,
+    targetChain: walletClientL2.chain
+  });
+
+  // 레이어 1에서 withdrawal을 증명하는 트랜잭션을 전송하기 위해 파라미터를 build 합니다.
+  const proveArgs = await publicClientL2.buildProveWithdrawal({
+    output,
+    withdrawal,
+  });
+
+  // 레이어 1에서 withdrawal을 증명해요.
+  const proveHash = await walletClientL1.proveWithdrawal(proveArgs);
+  console.log(`Prove transaction hash on L1: ${proveHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const proveReceipt = await publicClientL1.waitForTransactionReceipt({ hash: proveHash });
+  console.log('Prove transaction confirmed:', proveReceipt);
+
+  // Withdrawal을 finalize할 수 있을때까지 기다려요.
+  // 이 기간을 challenge period라고 부르며 대략 7일이 소요됩니다.
+  await publicClientL1.waitToFinalize({
+    targetChain: walletClientL2.chain,
+    withdrawalHash: withdrawal.withdrawalHash,
+  });
+
+  // 레이어 1에서 withdrawal 과정을 마무리해요.
+  const finalizeHash = await walletClientL1.finalizeWithdrawal({
+    targetChain: walletClientL2.chain,
+    withdrawal,
+  });
+  console.log(`Finalize transaction hash on L1: ${finalizeHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const finalizeReceipt = await publicClientL1.waitForTransactionReceipt({
+    hash: finalizeHash
+  });
+  console.log('Finalize transaction confirmed:', finalizeReceipt);
+
+  // Withdrawal 상태를 레이어 1에서 읽어옵니다.
+  // Withdrawal은 완료되기까지 많은 시간이 소요되기 때문에 필요한 경우 해당 함수로 withdrawal 상태를 조회할 수 있어요.
+  const status = await publicClientL1.getWithdrawalStatus({
+    receipt: withdrawalReceipt,
+    targetChain: walletClientL2.chain,
+  });
+  console.log('Withdrawal completed successfully!');
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/withdraw_eth.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+{% hint style="warning" %}
+Withdrawal은 왜 이렇게 오래걸리나요?
+
+* Prove 대기시간: 레이어 2에서 발생한 withdrawal 트랜잭션을 레이어 1에서 증명하기 위해서는 해당 레이어 2 트랜잭션이 포함된 dispute game이 레이어 1에서 개시되어야해요. 현재 GIWA는 최대 2시간마다 dispute game을 개시하기 때문에, withdrawal을 prove할 수 있을 때까지 최대 2시간이 소요될 수 있습니다.
+* Challenge Period: GIWA는 Optimistic Rollup 방식을 채택한 OP 스택(OP Stack) 을 기반으로 한 레이어 2에요. 이에 따라 dispute game, 즉 레이어 2의 특정 시점의 상태가 올바르다는 것을 확정 지을 수 있기까지 대략 7일이 소요됩니다. 때문에 withdrawal을 finalize할 수 있을 때까지 대략 7일이 소요될 수 있습니다.
+  {% endhint %}
+
+## 더 알아보기
+
+[viem 문서](https://viem.sh/op-stack)를 통해 더 많은 가이드를 읽어보세요.
+
+
+# ERC-20 토큰 브릿징하기
+
+이더리움에서 GIWA로, GIWA에서 이더리움으로 ERC-20 토큰(Token)을 브릿징해요.
+
+### 요구사항
+
+아래 항목들이 설치되어 있어야해요.
+
+* [node](https://nodejs.org/ko)
+* [pnpm](https://pnpm.io/)
+
+### 개발 환경 세팅
+
+이 튜토리얼에서는 viem을 사용해요. [Viem](https://viem.sh/)은 Node.js 라이브러리이기 때문에 Node.js 프로젝트로 생성합니다.
+
+{% stepper %}
+{% step %}
+
+#### 프로젝트 폴더 생성
+
+```bash
+mkdir giwa-bridging-erc20
+cd giwa-bridging-erc20
+```
+
+{% endstep %}
+
+{% step %}
+
+#### 프로젝트 초기화
+
+```bash
+pnpm init
+```
+
+{% endstep %}
+
+{% step %}
+
+#### Dependencies 설치
+
+```bash
+pnpm add -D tsx @types/node
+pnpm add viem@^2.38.0
+```
+
+{% endstep %}
+{% endstepper %}
+
+### 지갑 준비
+
+ERC-20 토큰 브릿징을 위해 지갑이 필요해요.
+
+{% stepper %}
+{% step %}
+
+#### 세폴리아 ETH 준비
+
+토큰 브릿징을 위해 이더리움 세폴리아 네트워크 및 GIWA 세폴리아 네트워크에서 ETH가 필요해요.&#x20;
+
+* [Ethereum Sepolia Faucet](https://cloud.google.com/application/web3/faucet/ethereum/sepolia)
+* [GIWA Sepolia Faucet](https://faucet.giwa.io/)
+
+{% hint style="info" %}
+아직 지갑이 없나요? [cast](https://getfoundry.sh/introduction/installation/) 커맨드로 지갑을 생성하세요.
+{% endhint %}
+{% endstep %}
+
+{% step %}
+
+#### Private Key 환경변수 세팅
+
+이 튜토리얼에서는 여러 번의 트랜잭션 서명이 필요해요. 이를 위해 지갑 private key 환경변수를 세팅해야합니다.
+
+```bash
+export TEST_PRIVATE_KEY=0x...
+```
+
+{% endstep %}
+{% endstepper %}
+
+### Chain Client 설정
+
+ERC-20 토큰 브릿징을 위해 chain client를 설정합니다.
+
+{% code title="src/config.ts" lineNumbers="true" %}
+
+```typescript
+import {defineChain, createPublicClient, http, createWalletClient} from "viem";
+import {privateKeyToAccount} from "viem/accounts";
+import {publicActionsL1, publicActionsL2, walletActionsL1, walletActionsL2} from "viem/op-stack";
+import {sepolia, giwaSepolia} from "viem/chains";
+
+// 지갑 준비
+export const PRIVATE_KEY = process.env.TEST_PRIVATE_KEY as `0x${string}`;
+export const account = privateKeyToAccount(PRIVATE_KEY);
+
+// 이더리움 세폴리아 체인 데이터를 읽기 위한 client
+export const publicClientL1 = createPublicClient({
+  chain: sepolia,
+  transport: http(),
+}).extend(publicActionsL1())
+
+// 이더리움 세폴리아 체인에 트랜잭션을 전송하기 위한 client
+export const walletClientL1 = createWalletClient({
+  account,
+  chain: sepolia,
+  transport: http(),
+}).extend(walletActionsL1());
+
+// GIWA 세폴리아 체인 데이터를 읽기 위한 client
+export const publicClientL2 = createPublicClient({
+  chain: giwaSepolia,
+  transport: http(),
+}).extend(publicActionsL2());
+
+// GIWA 세폴리아 체인에 트랜잭션을 전송하기 위한 client
+export const walletClientL2 = createWalletClient({
+  account,
+  chain: giwaSepolia,
+  transport: http(),
+}).extend(walletActionsL2());
+
+```
+
+{% endcode %}
+
+### 컨트랙트 주소 및 ABI 설정
+
+토큰 브릿징을 바로 테스트할 수 있도록 이더리움과 GIWA에 테스트용 ERC-20 토큰을 배포해두었어요. 아래에 정의된 레이어 2 토큰은 레이어 1 토큰의 브릿지된 버전이에요.
+
+* [L1 Token](https://eth-sepolia.blockscout.com/address/0x50B1eF6e0fe05a32F3E63F02f3c0151BD9004C7c)
+* [L2 Token ](https://sepolia-explorer.giwa.io/address/0xB11E5c9070a57C0c33Df102436C440a2c73a4c38)
+
+ERC-20 토큰 브릿징은 [L1StandardBridge](/network-information/contracts#l1-contracts) 컨트랙트를 통해 이루어져요. 이를 위해 필요한 함수 ABI들도 같이 정의해요.
+
+{% hint style="info" %}
+ABI가 뭔가요?
+
+ABI(Application Binary Interface)는 스마트 컨트랙트와 상호작용할 때 필요한 인터페이스에요. 특정 스마트 컨트랙트의 함수 이름, 파라미터, 반환값 등이 포함되어 있어요. Client나 SDK 등에서 컨트랙트를 호출할 때 ABI를 사용해 정확한 호출을 수행할 수 있습니다.
+{% endhint %}
+
+{% code title="src/contract.ts" lineNumbers="true" %}
+
+```typescript
+import {giwaSepolia} from "./config";
+import {erc20Abi, parseAbi} from "viem";
+import {sepolia} from "viem/chains";
+
+// ERC-20 토큰 브릿징에 필요한 컨트랙트 주소 정의
+export const l1TokenAddress = '0x50B1eF6e0fe05a32F3E63F02f3c0151BD9004C7c';
+export const l2TokenAddress = '0xB11E5c9070a57C0c33Df102436C440a2c73a4c38';
+export const l1StandardBridgeAddress = giwaSepolia.contracts.l1StandardBridge[sepolia.id].address;
+export const l2StandardBridgeAddress = giwaSepolia.contracts.l2StandardBridge.address;
+
+// ERC-20 토큰, L1StandardBridge 및 L2StandardBridge ABI(함수 인터페이스) 정의
+export const testTokenAbi = [
+  ...erc20Abi,
+  ...parseAbi([
+    'function claimFaucet() external'
+  ]),
+];
+export const l1StandardBridgeAbi = parseAbi([
+  'function depositERC20To(address _l1Token, address _l2Token, address _to, uint256 _amount, uint32 _minGasLimit, bytes calldata _extraData) external'
+]);
+export const l2StandardBridgeAbi = parseAbi([
+  'function withdrawTo(address _l2Token, address _to, uint256 _amount, uint32 _minGasLimit, bytes calldata _extraData) external'
+])
+
+```
+
+{% endcode %}
+
+### L1 faucet 토큰 받기
+
+Deposit (이더리움 -> GIWA) 을 위해 이더리움 세폴리아 네트워크에서 faucet 토큰이 필요해요. 위에서 정의한 레이어 1 토큰에는 `claimFaucet` 함수가 구현되어있어요. 아래 코드를 실행해서 `claimFaucet` 을 실행하고 레이어 1 facuet 토큰을 받으세요.
+
+{% stepper %}
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/get\_l1\_token.ts" lineNumbers="true" %}
+
+```typescript
+import {walletClientL1, account} from "./config";
+import {l1TokenAddress, testTokenAbi } from "./contract";
+
+async function main() {
+  console.log('Getting tokens from faucet...');
+  const claimHash = await walletClientL1.writeContract({
+    address: l1TokenAddress,
+    abi: testTokenAbi,
+    functionName: 'claimFaucet',
+    account,
+  });
+  console.log(`Claim Faucet transaction hash on L1: ${claimHash}`);
+  
+  const claimReceipt = await publicClientL1.waitForTransactionReceipt({ hash: claimHash });
+  console.log('L1 transaction confirmed:', claimReceipt);
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/get_l1_token.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+### Deposit ERC-20 Token (이더리움 -> GIWA)
+
+이제 이더리움에서 GIWA로 위에서 받은 Faucet 토큰을 브릿징 해볼까요?
+
+아래 코드를 실행하면 이더리움에 있던 여러분의 Faucet 토큰이 실제로는 [L1StandardBridge](/network-information/contracts#l1-contracts) 컨트랙트로 전송되고, 전송한 수량만큼 여러분의 GIWA 지갑으로 전송되는 것을 확인할 수 있어요. 이러한 방식을 **Lock-and-Mint** 라고 해요.
+
+{% stepper %}
+{% step %}
+
+#### 구성
+
+1. [L1StandardBridge](/network-information/contracts#l1-contracts) 컨트랙트가 ERC-20 토큰을 전송할 수 있도록 권한 부여
+2. 레이어 1에서 deposit 트랜잭션 전송
+3. 이에 대응되는 레이어 2 deposit 트랜잭션이 sequencer에 의해 생성
+4. Deposit 완료
+   {% endstep %}
+
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/deposit\_erc20.ts" lineNumbers="true" %}
+
+```typescript
+import {
+  account,
+  publicClientL1,
+  walletClientL1
+} from "./config";
+import {
+  l1StandardBridgeAbi,
+  l1StandardBridgeAddress,
+  l1TokenAddress, l2TokenAddress,
+  testTokenAbi
+} from "./contract";
+import {formatEther, parseUnits} from "viem";
+import {getL2TransactionHashes} from "viem/op-stack";
+
+async function main() {
+  // GIWA로 브릿징 하기 전, 여러분의 레이어 1 지갑에서 ERC-20 토큰 잔고를 확인해요.
+  const l1TokenBalance = await publicClientL1.readContract({
+    address: l1TokenAddress,
+    abi: testTokenAbi,
+    functionName: 'balanceOf',
+    args: [account.address],
+  });
+  console.log(`L1 Token Balance: ${formatUnits(l1TokenBalance, 18)} FAUCET`);
+
+  // 브릿징할때 여러분의 ERC-20 토큰이 L1StandardBridge 컨트랙트로 전송되어야해요.
+  // 다만 여러분이 직접 전송하는 형태가 아닌, L1StandardBridge 컨트랙트 함수가 실행될 때 내부적으로 전송되어야합니다.
+  // 이를 위해 approve 함수를 먼저 호출하여 L1StandardBridge 컨트랙트에 전송 권한을 부여합니다.
+  const approveHash = await walletClientL1.writeContract({
+    address: l1TokenAddress,
+    abi: testTokenAbi,
+    functionName: 'approve',
+    args: [l1StandardBridgeAddress, parseUnits('1', 18)],
+  });
+  console.log(`Approve transaction hash on L1: ${approveHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const approveReceipt = await publicClientL1.waitForTransactionReceipt({ hash: approveHash });
+  console.log('L1 transaction confirmed:', approveReceipt);
+
+  // 레이어 1에서 deposit 트랜잭션을 전송해요.
+  // 이 과정에서 여러분의 ETH가 L1StandardBridge 컨트랙트로 전송됩니다.
+  const depositHash = await walletClientL1.writeContract({
+    address: l1StandardBridgeAddress,
+    abi: l1StandardBridgeAbi,
+    functionName: 'depositERC20To',
+    args: [
+      l1TokenAddress,
+      l2TokenAddress,
+      account.address,
+      parseUnits('1', 18),
+      200000,
+      '0x',
+    ],
+  });
+  console.log(`Deposit transaction hash on L1: ${depositHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const depositReceipt = await publicClientL1.waitForTransactionReceipt({ hash: depositHash });
+  console.log('L1 transaction confirmed:', depositReceipt);
+
+  // 레이어 1 트랜잭션의 결과인 receipt를 통해 레이어 2에서 발생할 deposit 트랜잭션의 hash를 미리 계산해요.
+  const [l2Hash] = getL2TransactionHashes(depositReceipt);
+  console.log(`Corresponding L2 transaction hash: ${l2Hash}`);
+  
+  // 위에서 계산한 레이어 2 deposit 트랜잭션이 처리될때까지 기다려요.
+  // 이 과정은 대략 1~3분정도 소요됩니다.
+  const l2Receipt = await publicClientL2.waitForTransactionReceipt({
+    hash: l2Hash,
+  });
+  console.log('L2 transaction confirmed:', l2Receipt);
+  console.log('Deposit completed successfully!');
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/deposit_erc20.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+### Withdraw ERC-20 Token (GIWA -> 이더리움)
+
+이더리움에서 GIWA로 ERC-20 토큰이 잘 전송되었나요? 이제 반대로 GIWA에서 이더리움으로 ERC-20 토큰을 브릿징해요.
+
+아래 코드를 실행하면 GIWA에 있던 여러분의 ERC-20 토큰이 소각(burn)되고, 전송한 수량만큼 여러분의 이더리움 지갑으로 전송되는 것을 확인할 수 있어요. 이때는 Deposit에 의해 [L1StandardBridge](/network-information/contracts#l1-contracts) 컨트랙트에 Lock되어있던 ERC-20 토큰이 다시 Unlock되는 형태에요. 이러한 방식을 **Burn-and-Unlock** 이라고 합니다.
+
+{% stepper %}
+{% step %}
+
+#### 구성
+
+1. 레이어 2에서 withdrawal 개시 트랜잭션 전송
+2. 레이어 1에서 withdrawal 증명 트랜잭션 전송
+3. 레이어 1에서 withdrawal 완료 트랜잭션 전송
+4. Withdrawal 완료
+   {% endstep %}
+
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/withdraw\_erc20.ts" lineNumbers="true" %}
+
+```typescript
+import {account, publicClientL1, walletClientL1, publicClientL2, walletClientL2} from "./config";
+import {l2StandardBridgeAbi, l2StandardBridgeAddress, l2TokenAddress, testTokenAbi} from "./contract";
+import {formatUnits, parseUnits} from "viem";
+
+async function main() {
+  // 이더리움으로 브릿징 하기 전, 여러분의 레이어 2 지갑에서 ERC-20 토큰 잔고를 확인해요.
+  const l2TokenBalance = await publicClientL2.readContract({
+    address: l2TokenAddress,
+    abi: testTokenAbi,
+    functionName: 'balanceOf',
+    args: [account.address],
+  });
+  console.log(`L2 Token Balance: ${formatUnits(l2TokenBalance, 18)} FAUCET`);
+
+  // 레이어 2에서 withdrawal 트랜잭션을 전송해요.
+  // 이 과정에서 여러분의 ERC-20 토큰이 소각(burn)됩니다.
+  const withdrawalHash = await walletClientL2.writeContract({
+    address: l2StandardBridgeAddress,
+    abi: l2StandardBridgeAbi,
+    functionName: 'withdrawTo',
+    args: [
+      l2TokenAddress,
+      account.address,
+      parseUnits('0.5', 18),
+      200000,
+      '0x',
+    ],
+  });
+  console.log(`Withdrawal transaction hash on L2: ${withdrawalHash}`);
+
+  // 위에서 전송한 레이어 2 트랜잭션이 완전히 처리될때까지 기다려요.
+  const withdrawalReceipt = await publicClientL2.waitForTransactionReceipt({ hash: withdrawalHash });
+  console.log('L2 transaction confirmed:', withdrawalReceipt);
+
+  // 레이어 2 withdrawawl transaction을 레이어 1에서 증명할 수 있을때까지 기다려요.
+  // 이 과정은 최대 2시간이 소요될 수 있습니다.
+  const { output, withdrawal } = await publicClientL1.waitToProve({
+    receipt: withdrawalReceipt,
+    targetChain: walletClientL2.chain
+  });
+
+  // 레이어 1에서 withdrawal을 증명하는 트랜잭션을 전송하기 위해 파라미터를 build 합니다.
+  const proveArgs = await publicClientL2.buildProveWithdrawal({
+    output,
+    withdrawal,
+  });
+
+  // 레이어 1에서 withdrawal을 증명해요.
+  const proveHash = await walletClientL1.proveWithdrawal(proveArgs);
+  console.log(`Prove transaction hash on L1: ${proveHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const proveReceipt = await publicClientL1.waitForTransactionReceipt({ hash: proveHash });
+  console.log('Prove transaction confirmed:', proveReceipt);
+
+  // Withdrawal을 finalize할 수 있을때까지 기다려요.
+  // 이 기간을 challenge period라고 부르며 대략 7일이 소요됩니다.
+  await publicClientL1.waitToFinalize({
+    targetChain: walletClientL2.chain,
+    withdrawalHash: withdrawal.withdrawalHash,
+  });
+
+  // 레이어 1에서 withdrawal 과정을 마무리해요.
+  const finalizeHash = await walletClientL1.finalizeWithdrawal({
+    targetChain: walletClientL2.chain,
+    withdrawal,
+  });
+  console.log(`Finalize transaction hash on L1: ${finalizeHash}`);
+
+  // 위에서 전송한 레이어 1 트랜잭션이 완전히 처리될때까지 기다려요.
+  const finalizeReceipt = await publicClientL1.waitForTransactionReceipt({
+    hash: finalizeHash
+  });
+  console.log('Finalize transaction confirmed:', finalizeReceipt);
+
+  // Withdrawal 상태를 레이어 1에서 읽어옵니다.
+  // Withdrawal은 완료되기까지 많은 시간이 소요되기 때문에 필요한 경우 해당 함수로 withdrawal 상태를 조회할 수 있어요.
+  const status = await publicClientL1.getWithdrawalStatus({
+    receipt: withdrawalReceipt,
+    targetChain: walletClientL2.chain,
+  });
+  console.log('Withdrawal completed successfully!');
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/withdraw_erc20.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+## 더 알아보기
+
+ETH, ERC-20 토큰과 같은 자산 외에도 데이터를 브릿징하고 싶나요? [OP 스택 문서](https://docs.optimism.io/app-developers/tutorials/bridging/cross-dom-solidity)를 읽고 여러분이 직접 구현해보세요.
+
+
+# GIWA 플레이그라운드
+
+GIWA 세폴리아 테스트넷의 다양한 기능을 체험해보세요.
+
+## GIWA Playground
+
+### [GIWA Sepolia Playground](https://sepolia-playground.giwa.io/)
+
+플레이그라운드에서 GIWA 생태계의 다양한 기능들을 테스트해보세요.
+
+### 사용 방법
+
+#### 1. 지갑 연결하기
+
+플레이그라운드에 접속하여 지갑을 연결하세요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FPrZHh7MHGx5mAY5y4vi8%2F1-%E1%84%8E%E1%85%A5%E1%84%8B%E1%85%B3%E1%86%B7%E1%84%92%E1%85%AA%E1%84%86%E1%85%A7%E1%86%AB.png?alt=media&amp;token=c9f868e1-2b47-4cfd-8b97-57d481c5f6d4" alt=""><figcaption><p>플레이그라운드 첫 화면</p></figcaption></figure>
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FC8BjcoSBAZ0v3gEXWDM6%2F2-%E1%84%8C%E1%85%B5%E1%84%80%E1%85%A1%E1%86%B8%E1%84%89%E1%85%A5%E1%86%AB%E1%84%90%E1%85%A2%E1%86%A8.png?alt=media&amp;token=3ae1dd4c-717e-4a68-abc8-5fb1c79c8963" alt=""><figcaption><p>지갑 선택</p></figcaption></figure>
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FvyGOJWVP7x1ENzI1ddMm%2F3-%E1%84%80%E1%85%A8%E1%84%8C%E1%85%A5%E1%86%BC%E1%84%8B%E1%85%A7%E1%86%AB%E1%84%80%E1%85%A7%E1%86%AF.png?alt=media&amp;token=6074ccd1-4a50-4851-bc8a-aec2b7204c2f" alt=""><figcaption><p>계정 선택</p></figcaption></figure>
+
+{% hint style="info" %}
+지갑에 GIWA Sepolia 네트워크가 추가되어 있지 않다면, **GiwaSepolia 추가** 버튼을 눌러 네트워크를 추가할 수 있어요. 지갑이 연결되지 않았거나, 다른 네트워크에 연결되어 있을 때 버튼이 표시돼요.
+{% endhint %}
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FfzscxOOYe8WlvD0pgim4%2F%E1%84%82%E1%85%A6%E1%84%90%E1%85%B3%E1%84%8B%E1%85%AF%E1%84%8F%E1%85%B3%E1%84%8E%E1%85%AE%E1%84%80%E1%85%A1KR.png?alt=media&amp;token=0fb88dd9-548f-4dfc-a4a2-f23e2ba717f8" alt=""><figcaption><p>GIWA Sepolia 네트워크 추가</p></figcaption></figure>
+
+#### 2. Dojang, 테스트용 토큰, Upbit Web3 Names 발급받기
+
+{% hint style="info" %}
+**Dojang**은 오프체인 정보를 온체인 attestation 형태로 발급하는 서비스에요. Playground에서 발급되는 Dojang은 **TESTNET FAUCET** attester를 사용해요. Attester ID와 관련 컨트랙트 정보는 [Dojang 컨트랙트](/giwa-ecosystem/dojang/contracts)에서 확인할 수 있어요. 발급받은 Dojang은 Dojang 취소 버튼을 눌러 해지할 수도 있어요. 자세한 내용은 [Dojang](/giwa-ecosystem/dojang) 문서를 참고하세요.
+
+**테스트용 토큰**은 24시간마다 클레임할 수 있어요.
+
+**Upbit Web3 Names**는 Testnet 환경에서 Dojang을 활용할 수 있도록 하는 예시 네이밍 서비스예요. `0x1234..` 같은 지갑 주소 대신 `username.up.id` 형태로 사용할 수 있어요.
+
+테스트용 토큰의 컨트랙트 주소는 [GIWA 컨트랙트](/network-information/contracts)에서 확인할 수 있어요.
+{% endhint %}
+
+지갑 연결 후 순서대로 **Dojang 발급** → **VerifiedToken 클레임** → **UP ID 발급** 버튼을 눌러 각각 발급받으세요. 각 단계마다 트랜잭션을 전송해야 하며, 가스비가 소모돼요. 테스트 ETH가 없다면 [테스트용 ETH 받기](/get-started/faucets)에서 받을 수 있어요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2Frbk0z1FQ5qH4CJexwpNG%2F2.%E1%84%90%E1%85%A9%E1%84%8F%E1%85%B3%E1%86%ABUPID%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B3%E1%86%B8.png?alt=media&amp;token=be3c475b-05f2-4745-a30d-f659fa00b3ca" alt=""><figcaption><p>VerifiedToken 클레임 그리고 UP ID 발급</p></figcaption></figure>
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FYAqnMw4axx4QMglLtA6b%2F5-Dojang%E1%84%87%E1%85%A1%E1%86%AF%E1%84%80%E1%85%B3%E1%86%B8%E1%84%90%E1%85%B3%E1%84%85%E1%85%A2%E1%86%AB%E1%84%8C%E1%85%A2%E1%86%A8%E1%84%89%E1%85%A7%E1%86%AB%E1%84%8B%E1%85%AD%E1%84%8E%E1%85%A5%E1%86%BC.png?alt=media&amp;token=c12d0b1b-351c-4949-a41b-3facb528cacc" alt=""><figcaption><p>트랜잭션 전송 요청</p></figcaption></figure>
+
+#### 3. 토큰 보내기
+
+토큰 보내기 탭에서 받는 사람의 UP ID를 입력하고 조회를 누르세요. 표시된 주소를 확인한 뒤 토큰 수량을 입력하고 전송을 누르세요.
+
+<figure><img src="https://783684250-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FyF9U2zMg6tHCwlFYIiB4%2Fuploads%2FJkqLaYi5VRp3O5t98tiV%2F3.%E1%84%90%E1%85%A9%E1%84%8F%E1%85%B3%E1%86%AB%E1%84%87%E1%85%A9%E1%84%82%E1%85%A2%E1%84%80%E1%85%B5.png?alt=media&amp;token=8022eb6b-60eb-4375-a064-7b9ea940142a" alt=""><figcaption><p>토큰 보내기</p></figcaption></figure>
+
+
+# GIWA 컨트랙트
+
+GIWA 메인넷(Mainnet)과 테스트넷(Testnet)의 중요한 컨트랙트(Contract) 주소들을 확인할 수 있어요.
+
+## &#x20;메인넷 컨트랙트
+
+> 🚧 GIWA Mainnet 은 현재 개발 중이에요. 곧 만나요 👋
+
+## 테스트넷(세폴리아) 컨트랙트
+
+### 레이어 2(L2) 컨트랙트
+
+#### Pre Installs
+
+{% hint style="info" %}
+Pre Installs 컨트랙트는 유저 및 개발자들이 이더리움 생태계에서 많이 사용하는 컨트랙트로, GIWA chain이 시작(genesis)할 때부터 사전에 설치된 스마트 컨트랙트들이에요.
+{% endhint %}
+
+<table><thead><tr><th width="278.23828125">Name</th><th>Address</th></tr></thead><tbody><tr><td>Safe</td><td><a href="https://sepolia-explorer.giwa.io/address/0x69f4D1788e39c87893C980c06EdF4b7f686e2938"><kbd>0x69f4D1788e39c87893C980c06EdF4b7f686e2938</kbd></a></td></tr><tr><td>SafeL2</td><td><a href="https://sepolia-explorer.giwa.io/address/0xfb1bffC9d739B8D520DaF37dF666da4C687191EA"><kbd>0xfb1bffC9d739B8D520DaF37dF666da4C687191EA</kbd></a></td></tr><tr><td>MultiSend</td><td><a href="https://sepolia-explorer.giwa.io/address/0x998739BFdAAdde7C933B942a68053933098f9EDa"><kbd>0x998739BFdAAdde7C933B942a68053933098f9EDa</kbd></a></td></tr><tr><td>MultiSendCallOnly</td><td><a href="https://sepolia-explorer.giwa.io/address/0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B"><kbd>0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B</kbd></a></td></tr><tr><td>SafeSingletonFactory</td><td><a href="https://sepolia-explorer.giwa.io/address/0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7"><kbd>0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7</kbd></a></td></tr><tr><td>Multicall3</td><td><a href="https://sepolia-explorer.giwa.io/address/0xcA11bde05977b3631167028862bE2a173976CA11"><kbd>0xcA11bde05977b3631167028862bE2a173976CA11</kbd></a></td></tr><tr><td>Create2Deployer</td><td><a href="https://sepolia-explorer.giwa.io/address/0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2"><kbd>0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2</kbd></a></td></tr><tr><td>CreateX</td><td><a href="https://sepolia-explorer.giwa.io/address/0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed"><kbd>0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed</kbd></a></td></tr><tr><td>Arachnid's Deterministic Deployment Proxy</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4e59b44847b379578588920cA78FbF26c0B4956C"><kbd>0x4e59b44847b379578588920cA78FbF26c0B4956C</kbd></a></td></tr><tr><td>Permit2</td><td><a href="https://sepolia-explorer.giwa.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3"><kbd>0x000000000022D473030F116dDEE9F6B43aC78BA3</kbd></a></td></tr><tr><td>ERC-4337 v0.6.0 EntryPoint</td><td><a href="https://sepolia-explorer.giwa.io/address/0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789"><kbd>0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789</kbd></a></td></tr><tr><td>ERC-4337 v0.6.0 SenderCreator</td><td><a href="https://sepolia-explorer.giwa.io/address/0x7fc98430eaedbb6070b35b39d798725049088348"><kbd>0x7fc98430eaedbb6070b35b39d798725049088348</kbd></a></td></tr><tr><td>ERC-4337 v0.7.0 EntryPoint</td><td><a href="https://sepolia-explorer.giwa.io/address/0x0000000071727De22E5E9d8BAf0edAc6f37da032"><kbd>0x0000000071727De22E5E9d8BAf0edAc6f37da032</kbd></a></td></tr><tr><td>ERC-4337 v0.7.0 SenderCreator</td><td><a href="https://sepolia-explorer.giwa.io/address/0xEFC2c1444eBCC4Db75e7613d20C6a62fF67A167C"><kbd>0xEFC2c1444eBCC4Db75e7613d20C6a62fF67A167C</kbd></a></td></tr></tbody></table>
+
+#### System
+
+<table><thead><tr><th width="278.40625">Name</th><th>Address</th></tr></thead><tbody><tr><td>WETH9</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000006"><kbd>0x4200000000000000000000000000000000000006</kbd></a></td></tr><tr><td>L2CrossDomainMessenger</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000007"><kbd>0x4200000000000000000000000000000000000007</kbd></a></td></tr><tr><td>L2StandardBridge</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000010"><kbd>0x4200000000000000000000000000000000000010</kbd></a></td></tr><tr><td>SequencerFeeVault</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000011"><kbd>0x4200000000000000000000000000000000000011</kbd></a></td></tr><tr><td>OptimismMintableERC20Factory</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000012"><kbd>0x4200000000000000000000000000000000000012</kbd></a></td></tr><tr><td>GasPriceOracle</td><td><a href="https://sepolia-explorer.giwa.io/address/0x420000000000000000000000000000000000000F"><kbd>0x420000000000000000000000000000000000000F</kbd></a></td></tr><tr><td>L1Block</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000015"><kbd>0x4200000000000000000000000000000000000015</kbd></a></td></tr><tr><td>L2ToL1MessagePasser</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000016"><kbd>0x4200000000000000000000000000000000000016</kbd></a></td></tr><tr><td>L2ERC721Bridge</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000014"><kbd>0x4200000000000000000000000000000000000014</kbd></a></td></tr><tr><td>OptimismMintableERC721Factory</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000017"><kbd>0x4200000000000000000000000000000000000017</kbd></a></td></tr><tr><td>ProxyAdmin</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000018"><kbd>0x4200000000000000000000000000000000000018</kbd></a></td></tr><tr><td>BaseFeeVault</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000019"><kbd>0x4200000000000000000000000000000000000019</kbd></a></td></tr><tr><td>L1FeeVault</td><td><a href="https://sepolia-explorer.giwa.io/address/0x420000000000000000000000000000000000001a"><kbd>0x420000000000000000000000000000000000001a</kbd></a></td></tr><tr><td>EASSchemaRegistry</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000020"><kbd>0x4200000000000000000000000000000000000020</kbd></a></td></tr><tr><td>EAS</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000021"><kbd>0x4200000000000000000000000000000000000021</kbd></a></td></tr></tbody></table>
+
+### 레이어 1(L1) 컨트랙트
+
+<table><thead><tr><th width="278.2882080078125">Name</th><th>Address</th></tr></thead><tbody><tr><td>AddressManager</td><td><a href="https://sepolia.etherscan.io/address/0xfb81df377572C9907119Ee087dDcb1Fae3fD752C"><kbd>0xfb81df377572C9907119Ee087dDcb1Fae3fD752C</kbd></a></td></tr><tr><td>AnchorStateRegistry</td><td><a href="https://sepolia.etherscan.io/address/0x6dab826f3cf6932fb8614d00442612834873d61d"><kbd>0x6DaB826f3cF6932FB8614D00442612834873d61d</kbd></a></td></tr><tr><td>DelayedWETH (PDG)</td><td><a href="https://sepolia.etherscan.io/address/0xc0f78cb75f50685f7ded019483687133b24c8e82"><kbd>0xc0F78cB75F50685F7Ded019483687133b24C8e82</kbd></a></td></tr><tr><td>DisputeGameFactory</td><td><a href="https://sepolia.etherscan.io/address/0x37347cab2afaa49b776372279143d71ad1f354f6"><kbd>0x37347caB2afaa49B776372279143D71ad1f354F6</kbd></a></td></tr><tr><td>L1CrossDomainMessenger</td><td><a href="https://sepolia.etherscan.io/address/0x23ce19ED800fbbC964B9350b01B9113a8508D3F1"><kbd>0x23ce19ED800fbbC964B9350b01B9113a8508D3F1</kbd></a></td></tr><tr><td>L1ERC721Bridge</td><td><a href="https://sepolia.etherscan.io/address/0xa52f4047e0f45E3073B5303ddbA47686c7433E37"><kbd>0xa52f4047e0f45E3073B5303ddbA47686c7433E37</kbd></a></td></tr><tr><td>L1StandardBridge</td><td><a href="https://sepolia.etherscan.io/address/0x77b2ffc0F57598cAe1DB76cb398059cF5d10A7E7"><kbd>0x77b2ffc0F57598cAe1DB76cb398059cF5d10A7E7</kbd></a></td></tr><tr><td>MIPS</td><td><a href="https://sepolia.etherscan.io/address/0xF027F4A985560fb13324e943edf55ad6F1d15Dc1"><kbd>0xF027F4A985560fb13324e943edf55ad6F1d15Dc1</kbd></a></td></tr><tr><td>OptimismMintableERC20Factory</td><td><a href="https://sepolia.etherscan.io/address/0xED13D9c184D6a4073D6F402B33c70e0F3Ec94e8c"><kbd>0xED13D9c184D6a4073D6F402B33c70e0F3Ec94e8c</kbd></a></td></tr><tr><td>OptimismPortal</td><td><a href="https://sepolia.etherscan.io/address/0x956962C34687A954e611A83619ABaA37Ce6bC78A"><kbd>0x956962C34687A954e611A83619ABaA37Ce6bC78A</kbd></a></td></tr><tr><td>PermissionedDisputeGame</td><td><a href="https://sepolia.etherscan.io/address/0xe844bd2d917a9b34c279d300b3fe5692326c5299"><kbd>0xE844Bd2d917a9B34C279D300B3fe5692326c5299</kbd></a></td></tr><tr><td>PreimageOracle</td><td><a href="https://sepolia.etherscan.io/address/0x1fb8cdFc6831fc866Ed9C51aF8817Da5c287aDD3"><kbd>0x1fb8cdFc6831fc866Ed9C51aF8817Da5c287aDD3</kbd></a></td></tr><tr><td>ProxyAdmin</td><td><a href="https://sepolia.etherscan.io/address/0x6AdB900DC56F7028D5E7943638897C8103cf0da5"><kbd>0x6AdB900DC56F7028D5E7943638897C8103cf0da5</kbd></a></td></tr><tr><td>SystemConfig</td><td><a href="https://sepolia.etherscan.io/address/0x8352825bA56C32d816Dd906Ad4A392B5BC9eC984"><kbd>0x8352825bA56C32d816Dd906Ad4A392B5BC9eC984</kbd></a></td></tr></tbody></table>
+
+### Admin 주소
+
+<table><thead><tr><th width="277.6068115234375">Name</th><th>Address</th></tr></thead><tbody><tr><td>Batcher</td><td><a href="https://sepolia.etherscan.io/address/0x1cAaaA58002A7e8B4c6F427AC2c943767b4d6cd7"><kbd>0x1cAaaA58002A7e8B4c6F427AC2c943767b4d6cd7</kbd></a></td></tr><tr><td>Batch Inbox</td><td><a href="https://sepolia.etherscan.io/address/0x00Ef2e3B7754f2a65F1e897a27A3306D9B52F544"><kbd>0x00Ef2e3B7754f2a65F1e897a27A3306D9B52F544</kbd></a></td></tr><tr><td>Proposer</td><td><a href="https://sepolia.etherscan.io/address/0x032D5bd4401047e3A3d9f5e18226bF4E1699097c"><kbd>0x032D5bd4401047e3A3d9f5e18226bF4E1699097c</kbd></a></td></tr><tr><td>Challenger</td><td><a href="https://sepolia.etherscan.io/address/0x4160344aa39B6237D44A4e3F2e57A211f0fBeBFF"><kbd>0x4160344aa39B6237D44A4e3F2e57A211f0fBeBFF</kbd></a></td></tr><tr><td>ProxyAdminOwner</td><td><a href="https://sepolia.etherscan.io/address/0x0B266965c88C78f17e1F9f59784249bf8Da1CB9E"><kbd>0x0B266965c88C78f17e1F9f59784249bf8Da1CB9E</kbd></a></td></tr><tr><td>SystemConfigOwner</td><td><a href="https://sepolia.etherscan.io/address/0x3d58888b6903B87bD030b93F6FD37cb843b92DB7"><kbd>0x3d58888b6903B87bD030b93F6FD37cb843b92DB7</kbd></a></td></tr><tr><td>Guardian</td><td><a href="https://sepolia.etherscan.io/address/0xb033baF85ad00af475154a15c35FC00eda6f98A0"><kbd>0xb033baF85ad00af475154a15c35FC00eda6f98A0</kbd></a></td></tr></tbody></table>
+
+### 플레이그라운드 <a href="#playground" id="playground"></a>
+
+{% hint style="info" %}
+[GIWA 플레이그라운드](/get-started/giwa-playground)에서 사용되는 컨트랙트들이에요.
+{% endhint %}
+
+<table><thead><tr><th width="277.6068115234375">Name</th><th>Address</th></tr></thead><tbody><tr><td>VerifiedToken</td><td><a href="https://sepolia-explorer.giwa.io/address/0xBCdB22f56642DE57624CfC2fBb9eE398cF3CA268"><kbd>0xBCdB22f56642DE57624CfC2fBb9eE398cF3CA268</kbd></a></td></tr><tr><td>VerifiedTokenFaucet</td><td><a href="https://sepolia-explorer.giwa.io/address/0xfe4b4F5f2f8843dC9Ca75E563f2f7eB0f44Ae83e"><kbd>0xfe4b4F5f2f8843dC9Ca75E563f2f7eB0f44Ae83e</kbd></a></td></tr><tr><td>UPNameRegistry</td><td><a href="https://sepolia-explorer.giwa.io/address/0x091D00004f21eb2Fc30964A8a4995692d9b49628"><kbd>0x091D00004f21eb2Fc30964A8a4995692d9b49628</kbd></a></td></tr></tbody></table>
+
+
+# 트랜잭션 수수료
+
+GIWA 체인에서 취급하는 수수료의 종류와 트랜잭션 비용을 부과하는 방식이 궁금하신가요?
+
+## 취급하는 수수료 종류
+
+트랜잭션 수수료로는 기본적으로 ETH를 사용해요. 다만 추후 페이마스터 기능을 활용하여 다양한 스테이블코인을 기반으로 수수료를 지불할 수 있도록 지원할 예정이에요.&#x20;
+
+#### 페이마스터란?
+
+페이마스터는 이더리움에서 **계정추상화(Account Abstraction)** 개념에 기반해 등장한 시스템입니다. 쉽게 말하면, 사용자가 트랜잭션을 실행할 때 **가스비(Gas fee)를 꼭 ETH로 낼 필요가 없게 해주는 역할**을 해요.
+
+#### 왜 페이마스터를 도입하나요?
+
+* 기존 이더리움에서는 모든 사용자가 트랜잭션 실행 시 가스비 지불을 위하여 **ETH를 반드시 보유**하고 있어야 해요.
+* 그러나 Web3 초심자에게는 “가스비가 뭔지, ETH를 먼저 사야 한다는 것” 자체가 큰 진입 장벽이 됩니다.
+* 페이마스터는 **대신 가스비를 내주거나, 다른 토큰(예: 스테이블코인)으로 가스비를 내도록 허용하여** 이 문제를 해결합니다.
+
+## 수수료 구성 요소
+
+GIWA 체인에서 발생하는 트랜잭션(Transaction) 수수료는 크게 두 가지 구성요소가 있어요.
+
+#### 트랜잭션 실행 수수료 (Execution Fee)
+
+트랜잭션을 레이어 2(GIWA)에서 실행하고 처리하는데 필요한 비용이에요. 이더리움(Ethereum)에서 지불하는 트랜잭션 수수료와 동일한 방식이에요. 수수료는 `(사용한 gas 양) x (해당 시점의 gas 가격)` 과 같아요. 이더리움과 마찬가지로 GIWA 체인은 [EIP-1559](https://eips.ethereum.org/EIPS/eip-1559) 매커니즘을 사용하여 트랜잭션의 경제적 효율을 높일 수 있습니다.
+
+#### 보안 수수료 (Security Fee)
+
+보안 수수료는 GIWA 에서 처리한 트랜잭션 데이터를 레이어 1인 이더리움에 publish할 때 발생하는 비용이에요. 이 역시 트랜잭션이기 때문에 레이어 1 트랜잭션 비용이 부과되는 형태에요.
+
+{% hint style="info" %}
+왜 레이어 2(GIWA) 에서 발생한 트랜잭션 데이터를 레이어 1에 publish 하나요?
+
+GIWA 체인이 올바르게 나아가고 있는지 확인하기 위해서 누구나 기존 레이어 2 트랜잭션 데이터를 이용할 수 있는 [Data Availability](https://ethereum.org/en/developers/docs/data-availability/) 가 중요합니다. 과거의 트랜잭션 데이터를 다운받아 직접 실행하고 검증할 수 있는 특성이죠. 레이어 2 Data Availability 에는 많은 선택지가 있지만 레이어 1인 이더리움에 publish 하는게 가장 보안성이 높다고 알려져있습니다. GIWA 도 이더리움의 높은 보안성을 상속받기 위해 이더리움에 직접 publish 하고 있어요.
+{% endhint %}
+
+일반적으로 트랜잭션 실행 수수료가 보안 수수료보다 높아요.  트랜잭션 실행 수수료는 레이어 2(GIWA) 네트워크 혼잡도에 따라 달라지며, 보안 수수료는 레이어 1(이더리움) 네트워크 혼잡도에 따라 달라져요.
+
+## 더 알아보기
+
+[OP 스택(OP Stack) 개발자 문서](https://docs.optimism.io/stack/transactions/fees)를 확인해보세요.
+
+
+# 이더리움과 GIWA의 차이
+
+GIWA 체인은 OP 스택을 기반으로 하고 있어요. OP 스택은 EVM(Ethereum Virtual Machine) equivalent 하기 때문에 이더리움과 거의 동일한 환경을 제공해요.
+
+하지만 레이어 2인 GIWA와 레이어 1인 이더리움 사이에는 몇가지 작은 차이가 존재합니다. 여러분이 GIWA 체인에서 앱을 개발할 때 이러한 차이를 인지하고 있으면 예상치 못한 이슈를 줄일 수 있습니다.
+
+### 블록(Block)
+
+<table><thead><tr><th>항목</th><th width="249">이더리움</th><th>GIWA</th></tr></thead><tbody><tr><td>블록 생성 주기</td><td>12 초</td><td>1 초</td></tr><tr><td>블록 gas limit</td><td>45,000,000</td><td>60,000,000</td></tr><tr><td>블록 생성 방식</td><td>제안자 + 검증자 구조</td><td>시퀀서</td></tr></tbody></table>
+
+### 브릿징
+
+GIWA는 이더리움 위에 구축된 레이어 2이기 때문에 브릿지를 통해 자산을 양방향(이더리움 <-> GIWA)으로 보낼 수 있어요.
+
+#### Deposit 트랜잭션
+
+Deposit 트랜잭션은 레이어 1인 이더리움에 트랜잭션을 전송함으로써 레이어 2인 GIWA의 상태를 바꾸는 것을 의미해요. 이를 통해 레이어 1에 있는 ETH 및 토큰들을 GIWA로 이동시킬 수 있어요. 이외에도 레이어 1 트랜잭션을 통해 GIWA에 있는 컨트랙트 호출 등이 가능합니다.
+
+#### Withdrawal 트랜잭션
+
+Withdrawal 트랜잭션은 레이어 2 트랜잭션을 통해 레이어 2에 있는 자산을 레이어 1으로 이동시키는 방식이에요. 이때 withdrawal을 위해 레이어 1에 레이어 2 상태에 대한 증명을 제출해야해요. 증명이 잘못되었을 수도 있기 때문에 증명을 검증하는 fault proof 기간이 추가됩니다.
+
+### Address Aliasing
+
+Deposit 트랜잭션을 스마트 컨트랙트(Smart Contract)가 트리거하는 경우, 레이어 2에서 기록되는 해당 트랜잭션의 sender 주소는 `레이어 1 스마트컨트랙트 주소 + 0x1111000000000000000000000000000000001111` 형태로 aliasing이 이루어져요. 여러분이 크로스체인 앱을 개발하는 경우 반드시 고려해야 합니다.
+
+{% hint style="info" %}
+Address Aliasing이 왜 필요한가요?
+
+`CREATE` opcode 동작에 의하면 레이어 1과 레이어 2에서 배포되는 컨트랙트의 코드가 달라도 동일한 컨트랙트 주소를 가질 수 있어요. 이렇게 주소가 충돌할 수 있기 때문에 브릿징 등을 고려했을 때 문제가 발생할 수 있습니다. 이 때문에 레이어 1 컨트랙트가 보낸 트랜잭션의 sender는 alias 처리된 주소로 바뀌어야해요.
+{% endhint %}
+
+### Mempool
+
+이더리움에서는 트랜잭션을 전송하면 네트워크 내 노드들이 트랜잭션을 서로 전파하는 과정이 이루어져요. 이렇게 전파된 트랜잭션들은 블록에 포함되기 전까지 mempool에 존재하죠. 이더리움에는 public mempool이 있어 누구든 mempool 내 트랜잭션 내용을 확인할 수 있습니다.
+
+레이어 2인 GIWA에서는 public mempool 이 존재하지 않아요. 블록을 생성하는 시퀀서만 mempool을 볼 수 있죠. 현재 GIWA 시퀀서는 높은 fee 순서대로 트랜잭션을 실행하고 있습니다.
+
+### Finality
+
+이더리움과 다르게 레이어 2인 GIWA에서는 블록이 unsafe, safe, finalized 이렇게 3가지 상태를 가질 수 있어요.
+
+* unsafe: GIWA 시퀀서가 생성하고나서 아직 레이어 1인 이더리움에는 publish 되지 않은 경우
+* safe: 이더리움에 publish까지 이루어진 경우
+* finalized: 이더리움에 publish 까지 한 후, 해당 레이어 1 블록이 finalized 상태를 가지는 경우
+
+여러분이 GIWA 앱을 개발할 때 레이어 2 블록의 상태를 고려해야할 수 있습니다.
+
+## 더 알아보기
+
+* [Bridging](https://docs.optimism.io/stack/differences#bridging)
+* [Opcodes](https://docs.optimism.io/stack/differences#opcodes)
+* [Transactions](https://docs.optimism.io/stack/differences#transactions)
+* [Chain Finality](https://docs.optimism.io/stack/differences#chain-finality)
+
+
+# Flashblocks
+
+Flashblocks는 트랜잭션 확정(confirmation) 정보를 블록이 생성될 때까지 기다리지 않고, 빠르게 받아볼 수 있는 기능이에요. 이를 통해 실시간성이 중요한 앱에서 활용할 수 있습니다.
+
+## Flashblocks란?
+
+일반적으로 트랜잭션을 전송한 뒤에는 해당 트랜잭션이 블록에 포함될 때까지 기다려야해요. GIWA의 블록 생성주기에 따라 이 시간은 최대 1초가 될 수 있습니다. (단, 네트워크 혼잡 시 더 길어질 수 있어요.)
+
+Flashblocks는 이 과정에서 블록이 완전히 생성될 때까지 기다리지 않고, preconfirmation 이라는 즉각적인 피드백 (최대 200ms)을 줌으로써 사용자가 트랜잭션을 보낸 직후 아주 짧은 시간 안에 결과를 확인할 수 있도록 도와줘요.
+
+즉, 블록 자체를 더 빨리 만드는 기능이 아니라 블록 생성 전에 트랜잭션 상태를 더 빨리 알려주는 기능입니다.
+
+이러한 특성 때문에 다음과 같은 앱에서 활용할 수 있어요.
+
+* 트랜잭션 전송 및 반영을 즉각적으로 보여주고 싶은 지갑 및 웹서비스
+* 빠른 결제 경험을 제공해주고 싶은 페이먼트 서비스
+* 반응성이 중요한 게임 및 실시간 서비스
+
+## Flashblocks 사용하기
+
+Flashblocks RPC는 일반적인 Ethereum JSON-RPC 인터페이스와 동일하게 동작해요. Flashblocks RPC를 사용하기 위해서는 해당 RPC 노드가 Flashblocks mode를 지원해야하며, 이를 Flashblocks-aware RPC 라고 합니다.
+
+### Flashblocks-aware RPC
+
+GIWA에서는 개발 및 테스트 용도를 위해 무료로 제공하는 Flashblocks-aware RPC가 있어요.
+
+<table><thead><tr><th width="240.471435546875">Network</th><th>Endpoint</th></tr></thead><tbody><tr><td>GIWA Testnet (Sepolia)</td><td><a href="https://sepolia-rpc-flashblocks.giwa.io/">https://sepolia-rpc-flashblocks.giwa.io</a></td></tr><tr><td>GIWA Mainnet</td><td>🚧 GIWA Mainnet 은 현재 준비 중이에요.</td></tr></tbody></table>
+
+{% hint style="warning" %}
+위에서 제공하는 RPC는 개발 및 테스트 목적으로 제공되며 rate limit이 걸려있습니다. 실서비스용 앱에는 외부 노드 서비스 사용을 권장합니다. 또는 여러분이 [직접 Flashblocks-aware RPC 노드](https://github.com/giwa-io/node#flashblocks-optional)를 운영할 수 있습니다.
+{% endhint %}
+
+### 지원하는 RPC Methods
+
+#### `eth_call`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 스마트 컨트랙트 호출을 실행해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_call",
+    "params": [{"to": "0x...", "data": "0x..."}, "pending"],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x0000000000000000000000000000000000000000000000000000000000000001"
+}
+```
+
+#### `eth_estimateGas`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 가스 사용량을 추정해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_estimateGas",
+    "params": [{"to": "0x...", "data": "0x..."},"pending"],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x9425"
+}
+```
+
+#### `eth_getBalance`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 잔고를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getBalance",
+    "params": ["0x...", "pending"],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x1234"
+}
+```
+
+#### `eth_getBlockByNumber`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 블록 정보를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getBlockByNumber",
+    "params": ["pending", true],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": {
+    "number": "0x1234",
+    "hash": "0x..",        // 같은 블록이어도 preconfirmed 트랜잭션 목록이 바뀌는 경우 매번 변경됨
+    "transactions": [...], // 모든 preconfirmed 트랜잭션 목록
+    "stateRoot": "0x...",
+    "gasUsed": "0x...",
+    "timestamp": "0x..."
+  }
+}
+```
+
+#### `eth_getLogs`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 로그를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getLogs",
+    "params": [{"fromBlock": "latest", "toBlock": "pending", "address": "0x...", "topics": ["0x..."]}],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": [
+    {
+      "address": "0x...",
+      "topics": ["0x..."],
+      "data": "0x...",
+      "blockNumber": "0x1234",
+      "transactionHash": "0x...",
+      "transactionIndex": "0x0",
+      "blockHash": "0x...",
+      "logIndex": "0x0",
+      "removed": false
+    }
+  ]
+}
+```
+
+#### `eth_getTransactionCount`
+
+`pending` 태그를 통해, 최신 flashblock 상태를 기준으로 해당 주소의 nonce를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionCount",
+    "params": ["0x...", "pending"],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "result": "0x12"
+}
+```
+
+#### `eth_getTransactionByHash`
+
+Flashblock에 포함된 특정 해시의 트랜잭션 정보를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionByHash",
+    "params": ["0x..."],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+	"jsonrpc": "2.0",
+	"result": {
+		"blockHash": "0x...",
+		"blockNumber": "0x1234",
+		"chainId": "0x164ce",
+		"nonce": "0x23",
+		"transactionIndex": "0x3",
+		"type": "0x2",
+	},
+	"id": 1
+}
+```
+
+#### `eth_getTransactionReceipt`
+
+Flashblock에 포함된 트랜잭션 receipt 정보를 반환해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_getTransactionReceipt",
+    "params": ["0x..."],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "transactionHash": "0x...",
+    "blockNumber": "0x1234",
+    "status": "0x1"
+  },
+  "id": 1
+}
+```
+
+#### `eth_simulateV1`
+
+최신 flashblock 상태를 기준으로 트랜잭션을 시뮬레이션해요.
+
+**Request**
+
+```bash
+curl https://sepolia-rpc-flashblocks.giwa.io \
+  -X POST \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "jsonrpc": "2.0",
+    "method": "eth_simulateV1",
+    "params": [{"blockStateCalls": [{"calls": [{"to": "0x...", "data": "0x..."}], "stateOverrides":{}}], "traceTransfers":true, "validation":true}, "pending"],
+    "id": 1
+  }'
+```
+
+**Response**
+
+```json
+{
+  "jsonrpc": "2.0",
+  "result": [
+    {
+      "calls": [
+        {
+          "status": "0x1",
+          "gasUsed": "0x1234",
+          "returnData": "0x"
+        }
+      ]
+    }
+  ],
+  "id": 1
+}
+```
+
+## 더 알아보기
+
+[OP 스택 개발자 문서](https://docs.optimism.io/op-stack/features/flashblocks)를 확인해보세요.
+
+
+# Dojang
+
+신뢰할 수 있는 오프체인(Offchain) 정보를, 온체인(Onchain)에서 검증 가능한 형태로 발급해요.
+
+Dojang(도장)은 블록체인 외부에 있는 오프체인 정보를, GIWA 체인에 온체인 attestation 형태로 발급하는 서비스에요. 온체인 지갑 주소와 오프체인 정보를 연결해주는 중요한 역할을 하고 있어요. 이를 통해 유저는 자신의 지갑에 개인 식별 정보(Personally Identifiable Information, 이하 PII)를 노출시키지 않고도 온체인에서 identity를 가질 수 있습니다.
+
+Dojang은 [Ethereum Attestation Service (EAS)](https://attest.org/) 를 기반으로 구축되어 있으며, 고객확인 여부 및 향후 제공될 다양한 attestation 타입들을 통해 **GIWA 생태계의 신뢰 계층**을 형성합니다.&#x20;
+
+### 발급 데이터
+
+* **Verified Address**: 발행자로부터 고객확인을 받은 지갑 주소를 의미합니다. 오프체인 신원을 온체인 주소에 연결할 수 있어요.
+* **Balance** **Root**: 특정 시점의 전체 사용자 잔고 데이터를 merkle tree 형태로 요약한 정보입니다. Verified Balance 도장을 검증하기 위한 기준 데이터로 사용됩니다.
+* **Verified Balance**: 발행자로부터 특정 시점의 잔고를 검증받았음을 의미합니다.  오프체인 잔고를 온체인 주소에 연결할 수 있어요.
+* **Verified Code**: 발행자가 사용자에게 오프체인에서 전송한 인증번호를 온체인에서 검증할 수 있도록 합니다.
+
+### 발행자
+
+* **업비트(UPbit) Korea**
+
+{% hint style="info" %}
+Dojang 서비스 발행자로 참여하고 싶은가요? <buidl@giwa.io> 로 문의해주세요.
+{% endhint %}
+
+### 유즈케이스(Use case)
+
+* **온체인 베리파이**: GIWA 월렛을 통해 발급받을 수 있어요. 이를 통해 유저는 온체인에서 웹3 금융 서비스를 더욱 더 안전하게 이용할 수 있습니다.
+
+검증 가능한 오프체인 데이터를 활용하는 온체인 앱을 만들고 싶은가요? 아래 문서와 함께 시작해보세요.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><i class="fa-at">:at:</i></td><td>Verified Address</td><td><a href="/giwa-ecosystem/dojang/verified-address">Verified Address</a></td></tr></tbody></table>
+
+
+# Verified Address
+
+Verified Address는 특정 지갑 주소가 신뢰할 수 있는 발행자로부터 고객확인을 받았다는 사실을 나타내는 데이터에요. 이를 통해 웹3 금융 서비스를 더욱 더 안전하게 이용할 수 있습니다.
+
+이 문서에서는 여러분이 온체인 앱을 만들 때 참고할 수 있도록 verified address를 조회하고 활용하는 방법을 소개합니다.
+
+## Verified Address 조회하기
+
+### 요구사항
+
+아래 항목들이 설치되어 있어야해요.
+
+* [node](https://nodejs.org/ko)
+* [pnpm](https://pnpm.io/)
+
+### 개발 환경 세팅
+
+이 문서에서는 viem을 사용해요. [Viem](https://viem.sh/)은 Node.js 라이브러리이기 때문에 Node.js 프로젝트로 생성합니다.
+
+{% stepper %}
+{% step %}
+
+#### 프로젝트 폴더 생성
+
+```bash
+mkdir giwa-verified-address-tutorial
+cd giwa-verified-address-tutorial
+```
+
+{% endstep %}
+
+{% step %}
+
+#### 프로젝트 초기화
+
+```bash
+pnpm init
+```
+
+{% endstep %}
+
+{% step %}
+
+#### Dependencies 설치
+
+```bash
+pnpm add -D tsx @types/node
+pnpm add viem@^2.38.0
+```
+
+{% endstep %}
+{% endstepper %}
+
+### Chain Client 설정
+
+Verified Address 조회를 위해 chain client를 설정합니다.
+
+{% code title="src/config.ts" lineNumbers="true" %}
+
+```typescript
+import {createPublicClient, defineChain, http} from "viem";
+import {sepolia, giwaSepolia} from "viem/chains";
+
+// GIWA 세폴리아 체인 데이터를 읽기 위한 client
+export const publicClient = createPublicClient({
+  chain: giwaSepolia,
+  transport: http(),
+});
+
+```
+
+{% endcode %}
+
+### 컨트랙트 주소 및 ABI 설정
+
+Verified Address는 [DojangScroll](/giwa-ecosystem/dojang/contracts#contracts) 컨트랙트와 [EAS](/giwa-ecosystem/dojang/contracts#contracts) 컨트랙트를 통해 조회해요. 이를 위해 사전에 컨트랙트 주소와 ABI를 정의합니다.
+
+{% code title="src/contract.ts" lineNumbers="true" %}
+
+```typescript
+import {parseAbi} from "viem";
+
+// Verified Addres 조회를 위해 필요한 컨트랙트 주소 정의
+export const dojangScrollAddress = '0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9';
+export const easAddress = '0x4200000000000000000000000000000000000021';
+
+// Dojang 발행자 ID 정의
+export const dojangAttesterIds = {
+  // keccak256("dojang.dojangattesterids.upbitkorea")
+  UPBIT_KOREA:
+    '0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034' as const
+}
+
+// DojangScroll ABI 정의
+export const dojangScrollAbi = parseAbi([
+  'function isVerified(address, bytes32) external view returns (bool)',
+  'function getVerifiedAddressAttestationUid(address, bytes32) external view returns (bytes32)'
+]);
+
+// EAS ABI 정의
+// 참고: https://github.com/ethereum-attestation-service/eas-contracts/blob/master/deployments/optimism-sepolia/EAS.json
+export const easAbi = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"AccessDenied","type":"error"},{"inputs":[],"name":"AlreadyRevoked","type":"error"},{"inputs":[],"name":"AlreadyRevokedOffchain","type":"error"},{"inputs":[],"name":"AlreadyTimestamped","type":"error"},{"inputs":[],"name":"InsufficientValue","type":"error"},{"inputs":[],"name":"InvalidAttestation","type":"error"},{"inputs":[],"name":"InvalidAttestations","type":"error"},{"inputs":[],"name":"InvalidExpirationTime","type":"error"},{"inputs":[],"name":"InvalidLength","type":"error"},{"inputs":[],"name":"InvalidOffset","type":"error"},{"inputs":[],"name":"InvalidRegistry","type":"error"},{"inputs":[],"name":"InvalidRevocation","type":"error"},{"inputs":[],"name":"InvalidRevocations","type":"error"},{"inputs":[],"name":"InvalidSchema","type":"error"},{"inputs":[],"name":"InvalidSignature","type":"error"},{"inputs":[],"name":"InvalidVerifier","type":"error"},{"inputs":[],"name":"Irrevocable","type":"error"},{"inputs":[],"name":"NotFound","type":"error"},{"inputs":[],"name":"NotPayable","type":"error"},{"inputs":[],"name":"WrongSchema","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"recipient","type":"address"},{"indexed":true,"internalType":"address","name":"attester","type":"address"},{"indexed":false,"internalType":"bytes32","name":"uid","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"schema","type":"bytes32"}],"name":"Attested","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"recipient","type":"address"},{"indexed":true,"internalType":"address","name":"attester","type":"address"},{"indexed":false,"internalType":"bytes32","name":"uid","type":"bytes32"},{"indexed":true,"internalType":"bytes32","name":"schema","type":"bytes32"}],"name":"Revoked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"revoker","type":"address"},{"indexed":true,"internalType":"bytes32","name":"data","type":"bytes32"},{"indexed":true,"internalType":"uint64","name":"timestamp","type":"uint64"}],"name":"RevokedOffchain","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"data","type":"bytes32"},{"indexed":true,"internalType":"uint64","name":"timestamp","type":"uint64"}],"name":"Timestamped","type":"event"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint64","name":"expirationTime","type":"uint64"},{"internalType":"bool","name":"revocable","type":"bool"},{"internalType":"bytes32","name":"refUID","type":"bytes32"},{"internalType":"bytes","name":"data","type":"bytes"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structAttestationRequestData","name":"data","type":"tuple"}],"internalType":"structAttestationRequest","name":"request","type":"tuple"}],"name":"attest","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"payable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint64","name":"expirationTime","type":"uint64"},{"internalType":"bool","name":"revocable","type":"bool"},{"internalType":"bytes32","name":"refUID","type":"bytes32"},{"internalType":"bytes","name":"data","type":"bytes"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structAttestationRequestData","name":"data","type":"tuple"},{"components":[{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"internalType":"structEIP712Signature","name":"signature","type":"tuple"},{"internalType":"address","name":"attester","type":"address"}],"internalType":"structDelegatedAttestationRequest","name":"delegatedRequest","type":"tuple"}],"name":"attestByDelegation","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"getAttestTypeHash","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"pure","type":"function"},{"inputs":[{"internalType":"bytes32","name":"uid","type":"bytes32"}],"name":"getAttestation","outputs":[{"components":[{"internalType":"bytes32","name":"uid","type":"bytes32"},{"internalType":"bytes32","name":"schema","type":"bytes32"},{"internalType":"uint64","name":"time","type":"uint64"},{"internalType":"uint64","name":"expirationTime","type":"uint64"},{"internalType":"uint64","name":"revocationTime","type":"uint64"},{"internalType":"bytes32","name":"refUID","type":"bytes32"},{"internalType":"address","name":"recipient","type":"address"},{"internalType":"address","name":"attester","type":"address"},{"internalType":"bool","name":"revocable","type":"bool"},{"internalType":"bytes","name":"data","type":"bytes"}],"internalType":"structAttestation","name":"","type":"tuple"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getDomainSeparator","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getName","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"account","type":"address"}],"name":"getNonce","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"revoker","type":"address"},{"internalType":"bytes32","name":"data","type":"bytes32"}],"name":"getRevokeOffchain","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getRevokeTypeHash","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"pure","type":"function"},{"inputs":[],"name":"getSchemaRegistry","outputs":[{"internalType":"contractISchemaRegistry","name":"","type":"address"}],"stateMutability":"pure","type":"function"},{"inputs":[{"internalType":"bytes32","name":"data","type":"bytes32"}],"name":"getTimestamp","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"uid","type":"bytes32"}],"name":"isAttestationValid","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint64","name":"expirationTime","type":"uint64"},{"internalType":"bool","name":"revocable","type":"bool"},{"internalType":"bytes32","name":"refUID","type":"bytes32"},{"internalType":"bytes","name":"data","type":"bytes"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structAttestationRequestData[]","name":"data","type":"tuple[]"}],"internalType":"structMultiAttestationRequest[]","name":"multiRequests","type":"tuple[]"}],"name":"multiAttest","outputs":[{"internalType":"bytes32[]","name":"","type":"bytes32[]"}],"stateMutability":"payable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"address","name":"recipient","type":"address"},{"internalType":"uint64","name":"expirationTime","type":"uint64"},{"internalType":"bool","name":"revocable","type":"bool"},{"internalType":"bytes32","name":"refUID","type":"bytes32"},{"internalType":"bytes","name":"data","type":"bytes"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structAttestationRequestData[]","name":"data","type":"tuple[]"},{"components":[{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"internalType":"structEIP712Signature[]","name":"signatures","type":"tuple[]"},{"internalType":"address","name":"attester","type":"address"}],"internalType":"structMultiDelegatedAttestationRequest[]","name":"multiDelegatedRequests","type":"tuple[]"}],"name":"multiAttestByDelegation","outputs":[{"internalType":"bytes32[]","name":"","type":"bytes32[]"}],"stateMutability":"payable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"bytes32","name":"uid","type":"bytes32"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structRevocationRequestData[]","name":"data","type":"tuple[]"}],"internalType":"structMultiRevocationRequest[]","name":"multiRequests","type":"tuple[]"}],"name":"multiRevoke","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"bytes32","name":"uid","type":"bytes32"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structRevocationRequestData[]","name":"data","type":"tuple[]"},{"components":[{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"internalType":"structEIP712Signature[]","name":"signatures","type":"tuple[]"},{"internalType":"address","name":"revoker","type":"address"}],"internalType":"structMultiDelegatedRevocationRequest[]","name":"multiDelegatedRequests","type":"tuple[]"}],"name":"multiRevokeByDelegation","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"bytes32[]","name":"data","type":"bytes32[]"}],"name":"multiRevokeOffchain","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32[]","name":"data","type":"bytes32[]"}],"name":"multiTimestamp","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"bytes32","name":"uid","type":"bytes32"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structRevocationRequestData","name":"data","type":"tuple"}],"internalType":"structRevocationRequest","name":"request","type":"tuple"}],"name":"revoke","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"components":[{"internalType":"bytes32","name":"schema","type":"bytes32"},{"components":[{"internalType":"bytes32","name":"uid","type":"bytes32"},{"internalType":"uint256","name":"value","type":"uint256"}],"internalType":"structRevocationRequestData","name":"data","type":"tuple"},{"components":[{"internalType":"uint8","name":"v","type":"uint8"},{"internalType":"bytes32","name":"r","type":"bytes32"},{"internalType":"bytes32","name":"s","type":"bytes32"}],"internalType":"structEIP712Signature","name":"signature","type":"tuple"},{"internalType":"address","name":"revoker","type":"address"}],"internalType":"structDelegatedRevocationRequest","name":"delegatedRequest","type":"tuple"}],"name":"revokeByDelegation","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"data","type":"bytes32"}],"name":"revokeOffchain","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"data","type":"bytes32"}],"name":"timestamp","outputs":[{"internalType":"uint64","name":"","type":"uint64"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"version","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}];
+
+```
+
+{% endcode %}
+
+### Verified Address 조회하기
+
+이제 Verified Address를 조회해볼까요?
+
+Verified Address 여부는 Dojang 서비스의 편의성 컨트랙트인 [DojangScroll](/giwa-ecosystem/dojang/contracts#contracts) 컨트랙트 함수를 통해 바로 조회할 수 있어요.
+
+추가로 만료시점 등의 메타데이터가 필요한 경우, [EAS](/giwa-ecosystem/dojang/contracts#contracts) 컨트랙트를 통해 직접 **Attestation** 데이터를 조회해야해요.
+
+{% stepper %}
+{% step %}
+
+#### 코드 작성하기
+
+{% code title="src/index.ts" lineNumbers="true" %}
+
+```typescript
+import {Address} from "viem";
+import {publicClient} from "./config";
+import {dojangAttesterIds, dojangScrollAddress, easAddress, dojangScrollAbi, easAbi} from "./contract";
+
+async function isVerified(address: Address) {
+  // DojangScroll 컨트랙트로 verified 여부를 조회해요.
+  return await publicClient.readContract({
+    address: dojangScrollAddress,
+    abi: dojangScrollAbi,
+    functionName: 'isVerified',
+    // 두번째 인자는 발행자 ID 에요.
+    args: [address, dojangAttesterIds.UPBIT_KOREA],
+  });
+}
+
+async function getVerifiedAddressAttestation(address: Address) {
+  // DojangScroll 컨트랙트로 attestation uid를 조회해요.
+  const attestationUid = await publicClient.readContract({
+    address: dojangScrollAddress,
+    abi: dojangScrollAbi,
+    functionName: 'getVerifiedAddressAttestationUid',
+    args: [address, dojangAttesterIds.UPBIT_KOREA],
+  });
+
+  // EAS 컨트랙트로 attestation 데이터를 조회해요.
+  return await publicClient.readContract({
+    address: easAddress,
+    abi: easAbi,
+    functionName: 'getAttestation',
+    args: [attestationUid],
+  })
+}
+
+async function main() {
+  // ⚠️ 조회할 지갑 주소를 입력하세요.
+  const addressToCheck = "0x...";
+
+  const verified = await isVerified(addressToCheck);
+  console.log(`${addressToCheck} is ${verified ? "Verified" : "Not verified"}\n`);
+
+  if (verified) {
+    const attestation = await getVerifiedAddressAttestation(addressToCheck);
+    console.log(attestation);
+  }
+}
+
+main().then();
+
+```
+
+{% endcode %}
+{% endstep %}
+
+{% step %}
+
+#### 실행하기
+
+```bash
+node --import=tsx src/index.ts
+```
+
+{% endstep %}
+{% endstepper %}
+
+## Verified Address 활용하기
+
+아래 예시처럼 특정 컨트랙트 함수를 verified address인 지갑들만 실행할 수 있게 제약할 수 있어요.
+
+{% code lineNumbers="true" %}
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.28;
+
+interface IDojangScroll {
+    function isVerified(address addr, bytes32 attesterId) external view returns (bool);
+}
+
+// 아래 abstract 컨트랙트에 포함된 modifier를 사용해 접근통제가 가능해요.
+abstract contract VerifiedAddressAccessControl {
+    address internal constant DOJANG_SCROLL = 0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9;
+
+    // keccak256("dojang.dojangattesterids.upbitkorea")
+    bytes32 internal constant ATTESTER_ID = 0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034;
+
+    error NotVerified();
+
+    // 위 attester로부터 verified address를 발급받았는지 확인하는 modifier
+    modifier onlyVerified() {
+        if (!IDojangScroll(DOJANG_SCROLL).isVerified(msg.sender, ATTESTER_ID)) {
+            revert NotVerified();
+        }
+        _;
+    }
+}
+
+// 위에서 작성한 abstract 컨트랙트를 상속받아요.
+contract VerifiedGiwa is VerifiedAddressAccessControl {
+    // ℹ️ 아래 함수는 verified address인 지갑들만 실행할 수 있어요.
+    function verifiedAddressFunction() public onlyVerified {
+        // ⚠️ 함수를 구현하세요.
+    }
+}
+
+```
+
+{% endcode %}
+
+
+# Dojang 컨트랙트
+
+Dojang 서비스를 구성하는 컨트랙트 주소들을 확인할 수 있어요.
+
+## Testnet (GIWA Sepolia)
+
+### Attesters
+
+| Attester Name  | Attester ID                                                          | Attester Address                                                                                                                    |
+| -------------- | -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| UPBIT KOREA    | `0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034` | [`0x09B170CA2A006081042992bCE7379B85a02149C6`](https://sepolia-explorer.giwa.io/address/0x09B170CA2A006081042992bCE7379B85a02149C6) |
+| TESTNET FAUCET | `0xaa92f8c143657dde575de430aecaea6ca91f2e6072339b16932d426895d8d678` | [`0x63CCe2b569A7bC35895ee24306c1512fefc06121`](https://sepolia-explorer.giwa.io/address/0x63CCe2b569A7bC35895ee24306c1512fefc06121) |
+
+### Schemas
+
+<table data-full-width="false"><thead><tr><th>Schema Name</th><th>Description</th><th>Schema Content</th><th>Schema ID</th><th>Schema UID</th></tr></thead><tbody><tr><td>Verified Address</td><td>발행자로부터 고객확인을 받은 지갑 주소</td><td><code>bool isVerified</code></td><td><code>0x568eb581cdf80b03d3bdfa414f3203bfdcc4bba4e66355612bd0e879da812f06</code></td><td><code>0x072d75e18b2be4f89a13a7147240477481c4b526d5795802acba59046b426e08</code></td></tr><tr><td>Balance Root</td><td>특정 시점의 전체 사용자 잔고 데이터를 merkle tree 형태로 요약한 정보</td><td><code>uint256 coinType,uint64 snapshotAt,uint192 leafCount,uint256 totalAmount,bytes32 root</code></td><td><code>0xf09c1384d860519bb4ea5bb2a45ab64b00a8d900d47fb79203663be6da21e06c</code></td><td><code>0x369faa9c2cd261c45be3db5e230b585f5f1abecf8e12be575bb543e917e6db52</code></td></tr><tr><td>Verified Balance</td><td>발행자로부터 검증받은 특정 시점의 잔고</td><td><code>uint256 balance,bytes32 salt,bytes32[] proofs</code></td><td><code>0x06c3bd846f5ea60b0b6f5a835ef85fd8253b53f67917d6c690be628d032f841b</code></td><td><code>0x77bf88ca262cc63e1b185dccd870aacc5320b8987ef6c7169920f265fe6ab5e9</code></td></tr><tr><td>Verified Code</td><td>발행자가 사용자에게 오프체인에서 전송한 인증번호</td><td><code>bytes32 codeHash,string domain</code></td><td><code>0x68053e055c01ce9b3577f3162b36324bb195ebcb574c48e823480d205f06af9b</code></td><td><code>0x55ac1369dac97522d062b89ffdc4e752b48fbeba86915fdb956c7c2d0501d280</code></td></tr></tbody></table>
+
+### 컨트랙트
+
+{% hint style="info" %}
+Dojang 데이터를 조회하고 싶나요? 아래 컨트랙트들 중 `DojangScroll` 컨트랙트를 살펴보세요.
+{% endhint %}
+
+<table><thead><tr><th>Name</th><th width="249.0869140625">Description</th><th>Address</th></tr></thead><tbody><tr><td>SchemaRegistry</td><td>Schema 조회 및 등록하는 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000020"><code>0x4200000000000000000000000000000000000020</code></a></td></tr><tr><td>EAS</td><td>Attestation 조회, 발행, 취소 등을 하는 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x4200000000000000000000000000000000000021"><code>0x4200000000000000000000000000000000000021</code></a></td></tr><tr><td>SchemaBook</td><td>Schema 목록을 관리하는 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x78cBb3413FBb6aF05EF1D21e646440e56baE3AD6"><code>0x78cBb3413FBb6aF05EF1D21e646440e56baE3AD6</code></a></td></tr><tr><td>DojangAttesterBook</td><td>Attester 목록을 관리하는 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0xDA282E89244424E297Ce8e78089B54D043FB28B6"><code>0xDA282E89244424E297Ce8e78089B54D043FB28B6</code></a></td></tr><tr><td>AttestationIndexer</td><td>모든 Dojang attestation들을 인덱싱하고 있는 컨트랙트. 쿼리할 때 해당 컨트랙트를 사용해야함.</td><td><a href="https://sepolia-explorer.giwa.io/address/0x9C9Bf29880448aB39795a11b669e22A0f1d790ec"><code>0x9C9Bf29880448aB39795a11b669e22A0f1d790ec</code></a></td></tr><tr><td>AddressDojangResolver</td><td>Verified Address attestation 발행, 취소시 트리거되는 hook 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x692009FE206C3F897867F6BF7B5B45506B747F9e"><code>0x692009FE206C3F897867F6BF7B5B45506B747F9e</code></a></td></tr><tr><td>BalanceRootDojangResolver</td><td>Balance Root attestation 발행, 취소시 트리거되는 hook 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0xD90a964aB65bc02397De1E7fcBd230803bC1bEd0"><code>0xD90a964aB65bc02397De1E7fcBd230803bC1bEd</code></a></td></tr><tr><td>BalanceDojangResolver</td><td>Verified Balance attestation 발행, 취소시 트리거되는 hook 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x6FFa7ABc1E380Bb967C78D5E648EF804e1fE6dAd"><code>0x6FFa7ABc1E380Bb967C78D5E648EF804e1fE6dA</code></a></td></tr><tr><td>VerifyCodeDojangResolver</td><td>Verified Code attestation 발행, 취소시 트리거되는 hook 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0x843fF433f7657901118fF3E2Eca915abb9BC12Df"><code>0x843fF433f7657901118fF3E2Eca915abb9BC12D</code></a></td></tr><tr><td>DojangScroll</td><td>Dojang 데이터를 간편하게 조회할 수 있는 컨트랙트</td><td><a href="https://sepolia-explorer.giwa.io/address/0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9"><code>0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9</code></a></td></tr></tbody></table>
+
+## 더 알아보기
+
+Dojang 컨트랙트 코드는 <i class="fa-github">:github:</i> [**giwa-io/dojang**](https://github.com/giwa-io/dojang) 에서 확인할 수 있어요.
+
+
+# Upbit Web3 Names (up.id)
+
+Web3에서 더욱 편리하게 자금을 전송할 수 있는 Upbit Web3 Names 서비스를 소개해요.
+
+Upbit Web3 Names는 지갑 주소를 개인화할 수 있는 안전하고 편리한 웹3(Web 3) 사용자 이름(ID) 서비스예요.  `0x1234..` 와 같은 외우기 어려운 지갑 주소 대신, `username.up.id` 형태의 닉네임을 통해 지갑을 찾고 기억하고 자금을 전송할 수 있게 돼요.
+
+Upbit Web3 Names는 [Verified Address](/giwa-ecosystem/dojang/verified-address)을 통해 고객확인된 지갑에 무료로 제공되고, 한 번 등록하면 변경이나 양도할 수 없어요. 즉, 타인에게 자금을 전송할 때 `username.up.id` 형태의 ID를 사용해 전송하면, 더 편리할 뿐만 아니라 거래 상대방은 고객인증이 완료된 지갑임을 알 수 있어요.&#x20;
+
+Upbit Web3 Names의 사용자 이름(`username.up.id`)는 [Ethereum Name Service](https://ens.domains/)(ENS) 프로토콜 위에 등록된 Upbit Web3 Names 도메인(`up.id`)에 서브도메인(subdomain) 형태로 제공해요. 따라서, GIWA 체인이 아니더라도 이더리움 위에서도 같은 사용자 이름을 사용할 수 있고, ENS를 지원하는 모든 라이브러리와 툴들은 Upbit Web3 Names를 자동으로 지원해요. 즉, Upbit Web3 Names를 사용하기 위해 별도로 개발을 할 필요가 없어요.
+
+{% hint style="info" %}
+ENS를 포함해 Upbit Web3 Names를 dApp에 통합하고 싶다면 [ENS 개발 문서](https://docs.ens.domains/web/quickstart)를 통해서 알아볼 수 있어요.
+{% endhint %}
+
+***
+
+### Verified Address와 Upbit Web3 Names <a href="#verified-address-giwa-id" id="verified-address-giwa-id"></a>
+
+Upbit Web3 Names는 컨트랙트 레벨에서 Verified Address에게만 발행이 가능하고 유효하도록 설계되었어요. 또한, 거래를 할 수 없는 NFT인 Soul-Bond Token(SBT) 형태로 각 유저에게 제공하여 양도가 불가능하고, 지갑마다 한 개만 소유할 수 있도록 제한되어 있어요.
+
+고객인증 만료 등으로 인해 Verified Address가 유효하지 않게 되면, 보유한 Upbit Web3 Names의 소유권을 잃게 되고 더 이상 지갑 주소와 연결되지 않아요.
+
+Upbit Web3 Names를 보유한 지갑의 Verified Address가 무효화되더라도, **Grace Period**로 설정된 **30일** 동안은 타인이 해당 Upbit Web3 Names를 취득할 수 없어요. 즉, Verified Address가 무효화된지 **30일 이내**에 다시 Verified Address가 유효한 상태로 변경된다면 자동으로 기존 Upbit Web3 Names의 소유권이 복구되고 계속 사용 가능해요. 또한, 91일 이상 경과된 이후에 Verified Address가 유효한 상태가 되었으나, 기존 Upbit Web3 Names를 타인이 취득하지 않았다면 동일하게 해당 Upbit Web3 Names의 소유권이 복구돼요.
+
+
+# Bojagi
+
+민감한 거래 정보를 보호하면서도 거래의 유효성을 검증할 수 있는 GIWA의 프라이버시 프로토콜이에요.
+
+Bojagi(보자기)는 GIWA 생태계에서 디지털 자산을 프라이빗하게 전송할 수 있도록 설계된 EVM 스마트 컨트랙트 기반의 프라이버시 프로토콜이에요.
+
+퍼블릭 블록체인에서는 지갑 주소, 자산 잔액, 전송 금액, 거래 상대방과 거래 이력이 공개될 수 있어요. 이러한 정보가 서로 연결되면 개인의 금융 활동뿐 아니라 기업의 정산 내역, 급여 지급 내역, 파트너와의 거래 관계까지 드러날 수 있어요.
+
+***
+
+#### 검증 가능한 프라이버시
+
+Bojagi에서는 자산을 예치한 뒤, 프로토콜 안에서 해당 자산의 소유권을 이전하는 방식으로 거래해요. 이때 영지식 증명(Zero-Knowledge Proof)을 활용해 보내는 사람과 받는 사람의 정보, 전송 금액 등 민감한 거래 정보를 공개하지 않고도 거래의 유효성을 증명해요.
+
+스마트 컨트랙트는 이 증명을 검증해 보내는 사람이 해당 자산을 사용할 권한이 있는지 등을 확인해요. 또한 같은 자산이 이미 사용되지는 않았는지 확인해 중복 사용을 방지해요.
+
+Bojagi는 프라이버시와 컴플라이언스를 함께 고려해 설계돼 있어요. 거래의 검증 가능성과 무결성을 유지하면서, 거래 내역의 조회 권한과 자산 사용 권한을 구분해 관리할 수 있어요. 개인과 기업이 금융 활동과 거래 관계에 관한 민감한 정보를 공개하지 않고도 디지털 자산을 전송할 수 있는 환경을 제공해요.
+
+
+# Upbit 오라클
+
+
+# Giwa Toolkit
+
+
+# 시작하기
+
+아래 문서를 통해 GIWA 체인 노드(Node)를 직접 운영할 수 있어요.
+
+블록체인 데이터가 필요하거나 트랜잭션 전송을 해야하는 경우에 블록체인 노드가 필요해요.  이때 외부 [노드 서비스](/tools/node-providers)를 사용하거나 또는 여러분이 직접 GIWA 체인 노드를 운영할 수도 있어요.&#x20;
+
+{% hint style="warning" %}
+잠깐! 블록체인 노드를 직접 운영하는 것은 시간과 자원이 많이 소모되는 작업이에요. RPC를 사용하는 것만으로 충분하다면 꼭 직접 운영할 필요는 없어요.
+
+테스트 목적으로 RPC가 필요하신가요? GIWA에서 제공하는 아래 무료 endpoint를 사용해보세요.
+
+* 테스트넷 (세폴리아): <https://sepolia-rpc.giwa.io>
+
+무료 endpoint는 rate-limit이 걸려있어요. 실서비스용 앱에는 외부 [노드 서비스](/tools/node-providers) 사용을 권장해요.
+{% endhint %}
+
+## 사전준비
+
+### 하드웨어
+
+| Resource | Minimum       | Recommended |
+| -------- | ------------- | ----------- |
+| CPU      | 4 cores       | 8+ cores    |
+| RAM      | 8 GB          | 16+ GB      |
+| Disk     | 500 GB (NVMe) | 1+ TB       |
+
+### 레이어 1 (이더리움) RPC
+
+GIWA 체인은 이더리움 레이어 2 블록체인이기 때문에 GIWA 노드가 올바르게 동작하기 위해서는 레이어 1 (이더리움) RPC 가 필요해요. 이더리움 노드도 외부 노드 서비스를 사용하거나 또는 여러분이 직접 운영할 수도 있어요.
+
+## 노드 띄우기
+
+<i class="fa-github">:github:</i> [giwa-io/node](https://github.com/giwa-io/node) 깃헙 레포지토리를 clone하고 README 가이드를 따르세요.
+
+노드가 뜨고나서 최신 GIWA 체인 tip 까지 따라잡는 과정을 싱크(sync)라고 해요. 이 싱크 과정은 많은 시간이 걸릴 수 있어요. 아래 명령어를 통해 노드의 싱크 상태를 확인해볼 수 있습니다.
+
+```bash
+curl http://localhost:8545 \
+  -X POST \
+  -H "Content-Type: application/json" \
+  --data '{"jsonrpc":"2.0","method":"eth_syncing","params":[],"id":0}'
+```
+
+{% hint style="info" %}
+GIWA 노드를 빠르게 구성하고 싶으신가요? [스냅샷](/node-operators/snapshots) 사용을 고려해보세요.
+{% endhint %}
+
+## 트러블 슈팅
+
+노드 운영 중에 문제가 발생했나요?
+
+* <i class="fa-envelope">:envelope:</i>: <contact@giwa.io>
+* <i class="fa-github">:github:</i>: <https://github.com/giwa-io/node/issues> 에서 비슷한 이슈가 있을 수 있어요. 새로운 버그인 경우 직접 이슈를 올려보세요.
+
+
+# 스냅샷
+
+스냅샷(Snapshot)을 사용해 GIWA 노드를 빠르게 구성할 수 있어요.
+
+GIWA 노드 스냅샷은 최신 노드 데이터를 압축해둔 파일로, 스냅샷 부터 동기화하면 비교적 빠르게 노드를 구성할 수 있어요.
+
+스냅샷 데이터는 일주일에 한번씩 업데이트 됩니다.
+
+{% hint style="info" %}
+스냅샷은 체인의 tip (latest block) 상태를 담고있지 않아요.
+
+스냅샷을 통해 노드를 구성한 뒤에는 스냅샷 시점 이후의 블록을 추가로 동기화하여 최신 tip까지 따라잡는 캐치업 과정이 필요합니다.
+{% endhint %}
+
+### 스냅샷으로 노드 구성하기
+
+아래 가이드는 [giwa-io/node](https://github.com/giwa-io/node) 레포지토리 기반 Docker 구성을 사용하는 것을 전제로 합니다.
+
+#### 1. 기존 리소스 정리
+
+기존 노드를 멈추고 노드 데이터를 비우거나 별도로 백업해주세요.
+
+Geth:
+
+```zsh
+docker compose down && rm -rf ./geth_data
+```
+
+Reth:
+
+```zsh
+docker compose down && rm -rf ./reth_data
+```
+
+#### 2. 노드 데이터 디렉토리 준비
+
+Geth:
+
+```zsh
+mkdir ./geth_data
+```
+
+Reth:
+
+```zsh
+mkdir ./reth_data
+```
+
+#### 3. 스냅샷 다운로드
+
+운영하고자 하는 노드 클라이언트 및 프루닝(pruning)모드에 따라 아래 명령어 중 하나를 실행해주세요.
+
+{% hint style="warning" %}
+아래 명령어 실행 전에 디스크 공간이 충분한지 확인해야해요.
+{% endhint %}
+
+<table><thead><tr><th width="145.967041015625">네트워크</th><th width="112.8428955078125">클라이언트</th><th width="104.3818359375">프루닝</th><th>명령어</th></tr></thead><tbody><tr><td>GIWA Sepolia</td><td>Geth</td><td>Full</td><td><pre class="language-zsh"><code class="lang-zsh">curl -sL https://sepolia-snapshot.giwa.io/download.sh | sh -s -- -c geth -p full -o ./geth_data
+</code></pre></td></tr><tr><td>GIWA Sepolia</td><td>Geth</td><td>Archive</td><td><pre class="language-zsh"><code class="lang-zsh">curl -sL https://sepolia-snapshot.giwa.io/download.sh | sh -s -- -c geth -p archive -o ./geth_data
+</code></pre></td></tr><tr><td>GIWA Sepolia</td><td>Reth</td><td>Full</td><td><pre class="language-zsh"><code class="lang-zsh">curl -sL https://sepolia-snapshot.giwa.io/download.sh | sh -s -- -c reth -p full -o ./reth_data
+</code></pre></td></tr><tr><td>GIWA Sepolia</td><td>Reth</td><td>Archive</td><td><pre class="language-zsh"><code class="lang-zsh">curl -sL https://sepolia-snapshot.giwa.io/download.sh | sh -s -- -c reth -p archive -o ./reth_data
+</code></pre></td></tr></tbody></table>
+
+#### 4. 스냅샷 압축해제
+
+다운로드 받은 스냅샷 파일을 아래 명령어를 통해 압축해제합니다.
+
+Geth:
+
+```zsh
+tar --zstd -xf <snapshot-file.tar.zst> -C ./geth_data
+```
+
+Reth:
+
+```zsh
+tar --zstd -xf <snapshot-file.tar.zst> -C ./reth_data
+```
+
+#### 5. GIWA 노드 실행
+
+[giwa-io/node](https://github.com/giwa-io/node) 레포지토리에 나와있는 가이드를 참고해 `docker compose` 명령어를 사용하여 노드를 실행하세요.
+
+
+# 노드 서비스
+
+GIWA 체인의 다양한 노드 서비스를 살펴보고 도입해보세요.
+
+## Nodit
+
+노딧은 높은 가용성을 가진 [노드 서비스](https://nodit.io/products/nodit-nodes)와 인덱싱된 [블록체인 데이터 API](https://developer.nodit.io/reference/giwa-quickstart#web3-data-api) 등 다양한 서비스를 제공하고 있어요. [무료인 starter 플랜을 포함해 다양한 유료 플랜](https://nodit.io/pricing)이 있어요.
+
+#### 지원 네트워크
+
+* GIWA Sepolia
+
+## Quicknode
+
+Quicknode는 전 세계에 분산된 인프라를 통해 빠르고 안정적인 [RPC와 블록체인 데이터 API](https://www.quicknode.com/docs/giwa)를 제공해요. \
+여러 블록체인 네트워크를 지원해 개발자가 앱을 쉽게 구축하고 운영할 수 있어요.
+
+#### 지원 네트워크
+
+* GIWA Sepolia
+
+
+# 블록 익스플로러
+
+GIWA 체인의 다양한 블록 익스플로러(Block Explorer)를 확인할 수 있어요.
+
+## Blockscout
+
+Blockscout는 다양한 EVM(Ethereum Virtual Machine) 계열 체인들에 대한 블록(Block), 트랜잭션(Transaction), 스마트 컨트랙트(Smart Contract) 등 다양한 정보를 제공하는 오픈소스 블록 익스플로러에요. 자세한 내용은 [Blockscout 문서](https://docs.blockscout.com/)를 살펴보세요.
+
+#### 지원 네트워크
+
+* [GIWA Sepolia](https://sepolia-explorer.giwa.io)
+
+> 더 다양한 블록 익스플로러를 준비 중이에요. :construction\_worker:
+
+
+# 브릿지
+
+GIWA 체인의 다양한 브릿지 서비스를 확인할 수 있어요.
+
+이더리움에서 GIWA 체인으로 또는 GIWA 체인에서 이더리움으로 자산을 이동시키기 위해 브릿지 서비스를 사용할 수 있어요.
+
+## Superbridge
+
+Superbridge는 이더리움과 GIWA 체인간 자산을 옮길 수 있도록 native 브릿지를 제공하고 있습니다. 자세한 내용은 [Superbridge 문서](https://superbridge.app/get#native)를 살펴보세요.
+
+{% hint style="info" %}
+Native 브릿지란?
+
+**Native 브릿지**는 GIWA 체인에서 제공하는 시스템을 활용하여 구현한 브릿지를 의미해요. 외부 서비스에 대한 의존도가 낮고, 프로토콜 레벨에서 안전성이 보장된다는 장점이 있어요.
+
+다만 레이어 2 특성상 **Withdrawal 트랜잭션에는 챌린지 기간(Challenge Period)**&#xC774; 적용되기 때문에, 이더리움으로 출금할 때 **평균 약 7일 정도의 대기 시간**이 발생한다는 특징이 있습니다.
+{% endhint %}
+
+#### 지원 네트워크
+
+* [GIWA Sepolia](https://sepolia-bridge.giwa.io/)
+
+
+# 오라클
+
+GIWA에서 사용할 수 있는 오라클 옵션을 확인해보세요.
+
+## 오라클이란?
+
+블록체인 오라클(Blockchain Oracle)은 **온체인 스마트 컨트랙트가 외부 세계의 데이터를 사용할 수 있도록 연결해주는 시스템**이에요.
+
+블록체인은 폐쇄된 환경이라 블록체인 외부의 정보(가격, 날씨, 환율, API 데이터 등)를 직접 가져올 수 없어요. 그래서 스마트 컨트랙트가 실제 세계 정보를 기반으로 실행되기 위해서는 **오라클이 데이터를 전달해주는 구조**가 필요해요.
+
+즉, 오라클은 **온체인과 오프체인 데이터**를 이어주는 *데이터 브릿지*라고 볼 수 있어요.
+
+***
+
+## GIWA 세폴리아에서 사용 가능한 오라클 서비스
+
+{% hint style="warning" %}
+
+## **아래 내용은 각 서비스 운영주체**로부터 제공받거나 제3자가 작성한 원문을 참고하여 작성 당시의 당사의 신뢰할 수 있는 내용 및 정보를 바탕으로 작성되었으나, 오차가 있을 수 있고 상이한 정보가 포함되어 있을 수 있습니다. 보다 자세한 사항 및 최신 변경내용은 반드시 서비스 제공사의 공식 홈페이지를 참고해 주시기 바랍니다.
+
+{% endhint %}
+
+### **레드스톤 오라클(RedStone Oracles)**
+
+[레드스톤](https://www.redstone.finance/)은 온체인에서 **약 100억 달러 규모의 가치를 보호**하는 모듈형 블록체인 오라클로, 디파이 내에서 활용되는 보상 지급 자산에 특화되어 있어요.&#x20;
+
+스파크(Spark), 펜들(Pendle), 몰포(Morpho), 에테나(Ethena), 컴파운드(Compound), 오일러(Euler) 등 주요 블루칩 DeFi 프로토콜 및 기관 파트너들이 신뢰하는 오라클이며, 블랙록(BlackRock) BUIDL, 벤아크(VanEck) VBILL, 아폴로(Apollo) ACRED와 같은 자산에 대한 가격 피드를 제공하는 시큐리타이즈(Securitize)의 공식 오라클 파트너이기도 해요.
+
+레드스톤은 GIWA에서 푸쉬(Push) 모델과 풀(Pull) 모델을 모두 제공하며, 신뢰성 있고 정확한 데이터 피드를 제공해요.
+
+#### 푸쉬 모델
+
+푸쉬 모델은 아베(Aave), 컴파운드, 몰포 등 블루칩 프로토콜에서 채택하고 있는 방식이에요.
+
+레드스톤은 추가 인프라 없이도 사용할 수 있는 엔드-투-엔드(end-to-end) 푸쉬 모델 솔루션을 제공합니다. 가격 피드는 가격 피드 스마트 컨트랙트에 지속적으로 업데이트되며, 온체인에서 직접 쿼리할 수 있어요.
+
+푸쉬 모델은 통합 절차가 간단하여 대부분의 사용 사례에 있어 가장 적합한 선택이에요. 사용을 시작하는 방법에 대한 자세한 내용은 [이 가이드](https://docs.redstone.finance/docs/dapps/redstone-push/)에서 확인할 수 있어요.
+
+GIWA 세폴리아에서 지원되는 자산 목록은 [레드스톤 웹앱(WebApp)](https://app.redstone.finance/app/feeds/?page=1\&sortBy=popularity\&sortDesc=false\&perPage=32\&networks=91342)에서 확인할 수 있어요.
+
+GIWA 빌더는 레드스톤을 무료로 사용할 수 있으며, 추가 자산 지원이 필요하다면 [레드스톤 디스코드(Discord)](https://discord.com/invite/redstonedefi)의 전용 채널을 통해 레드스톤 팀에 요청할 수 있어요.
+
+#### 풀 모델
+
+풀 모델은 더 다양한 자산과 낮은 레이턴시(Latency)를 제공해요.
+
+이 모델에서는 사용자가 트랜잭션과 함께 데이터 피드를 온체인으로 전달해요.
+
+GIWA 빌더는 레드스톤 풀 모델을 통해 RWA, USDC, USDT, USDe  등 300개 이상의 데이터 피드를 활용할 수 있어요.
+
+풀 모델 통합 방법은 [레드스톤 공식 독스 내 아래 가이드](https://docs.redstone.finance/docs/dapps/redstone-pull/)를 참고하고, 전체 지원 자산은 [레드스톤 웹앱](https://app.redstone.finance/app/pull-model/redstone-primary-prod/?page=1\&perPage=32)에서 확인하세요.
+
+***
+
+### **피스 네트워크(Pyth Network)**
+
+[피스 네트워크](https://pyth.network/)는 [다양한 체인에 실시간 데이터를 제공](https://docs.pyth.network/price-feeds/contract-addresses)하는 **온체인의 가격 레이어(price layer)** 이에요.
+
+피스 네트워크는 [수많은 체인들](https://docs.pyth.network/price-feeds/contract-addresses)로 가격 정보를 전송하며, 글로벌 상위권 거래소, 마켓메이커, 금융 서비스 업체들이 참여해 데이터를 온체인으로 게시하고 이를 집계해 스마트 컨트랙트 애플리케이션에 전달해요.
+
+자세한 퍼블리셔 목록은 [여기](https://pyth.network/publishers)에서 확인할 수 있어요.
+
+#### GIWA에서 피스 네트워크 사용
+
+피스 네트워크는 낮은 레이턴시 기반의 [차별성 있는 푸쉬와 풀 오라클 서비스](https://docs.pyth.network/price-feeds/core)를 제공해요.
+
+사용자는 필요할 때 온체인에서 가격 업데이트를 호출할 수 있으며, 이는 온체인 환경에서 효율적으로 최신 데이터를 접근할 수 있도록 설계된 방식이에요.
+
+피스 네트워크는 **400ms 주기**로 가격을 업데이트하며, 이는 온체인 오라클 중 빠른 수준이에요.
+
+GIWA 개발자는 별도의 허가 없이 [피스 네트워크의 가격 피드](https://insights.pyth.network/price-feeds)를 사용할 수 있으며, 주식, ETF, 원자재, 외환(FX) 페어, 가상자산 등 다양한 자산군을 조회할 수 있어요.
+
+GIWA 개발자는 GIWA 메인넷/테스트넷용 [피스 네트워크 컨트랙트 주](https://docs.pyth.network/price-feeds/core/contract-addresses/evm)를 통하고 원하는 [가격 피드 ID](https://docs.pyth.network/price-feeds/core/price-feeds/price-feed-ids)를 사용하여 가장 최신 정보를 받아올 수 있어요.
+
+{% hint style="info" %}
+GIWA에서 피스 네트워크 스마트 컨트랙트 주소는 아래와 같아요:
+
+* **GIWA 테스트넷:** [0x2880ab155794e7179c9ee2e38200202908c17b43](https://sepolia-explorer.giwa.io/address/0x2880aB155794e7179c9eE2e38200202908C17B43)
+
+Pyth가 제공하는 전체 가격 피드 ID는 [여기](https://pyth.network/developers/price-feed-ids)에서 확인할 수 있어요.
+{% endhint %}
+
+피스 네트워크의 데이터를 사용할 때는 [베스트 프랙티스](https://docs.pyth.network/documentation/pythnet-price-feeds/best-practices)를 따르는 것을 권장하고, 자세한 사항은 [피스 네트워크의 공식 독](https://docs.pyth.network/price-feeds)를 참고하세요. 피스 네트워크 스마트 컨트랙트와 상호작용하는 함수 전체 목록은 [API 레퍼런스](https://api-reference.pyth.network/price-feeds/evm/getPrice)에서 확인할 수 있어요.
+
+#### 피스 네트워크를 푸시 오라클로 활용
+
+피스 네트워크 오라클은 백엔드에서 가격을 자동으로 업데이트하는 스케줄러를 실행하여 **푸쉬 오라클처럼 동작**하게 만들 수 있어요. 이를 활용하면 디앱(dApp)이 설정한 구성에 따라 최신 가격으로 자동 업데이트되요.
+
+이러한 스케줄러는 오픈소스인 [Price Pusher](https://github.com/pyth-network/pyth-crosschain/tree/main/apps/price_pusher) 앱을 사용해 쉽게 구성할 수 있어요.
+
+#### 개발자와 커뮤니티
+
+피스 네트워크는 [트레이딩뷰(TradingView) 차트 구성](https://docs.pyth.network/price-feeds/core/create-tradingview-charts)과 [젤라또(Gelato)를 활용하여 가격 업데이트 예약하기](https://docs.pyth.network/price-feeds/core/schedule-price-updates/using-gelato) 등 개발자들을 위한 다양한 도구도 제공해요.
+
+
+# 크로스 체인
+
+
+# Security Council
+
+
+# Bug Bounty 프로그램
+
+
+# 테스트넷 이용약관
+
+### 제1조(목적)
+
+본 약관은 이용자가 두나무 주식회사(이하 “회사”)가 제공하는 GIWA 레이어 2 테스트넷 서비스(이하 “본 서비스”)를 이용함에 있어, 회사와 이용자간 권리·의무 및 책임, 서비스 조건 등을 정함을 목적으로 합니다.
+
+### 제2조(정의)
+
+1. “테스트넷”이란 메인 네트워크와 유사한 구조를 가지나, 경제적 가치 없는 테스트용 토큰을 사용하여 블록체인 서비스 및 기능을 검증·실험하기 위하여 운영되는 테스트 네트워크를 말합니다.
+2. “테스트 토큰”이란 테스트넷에서만 사용되는 토큰으로, 실제 경제적 가치를 가지지 않으며 외부 네트워크로 이전하거나 거래할 수 없는 것을 말합니다.
+3. “Faucet(퍼싯)”이란 테스트넷 이용 편의를 위하여 테스트 토큰을 자동 또는 반자동 방식으로 무상 배포하는 시스템을 말합니다.
+
+### 제3조(자격)
+
+이용자는 본 약관 및 관련 법령을 준수하여야 합니다.
+
+### 제4조(본 서비스의 성격)
+
+1. 본 서비스는 시험·개발·검증 목적의 테스트 환경이고, 지연·오류·장애 또는 사전에 예고 없는 체인 재구성, 데이터 초기화(리셋) 등이 발생할 수 있습니다.
+2. 본 서비스는 업비트와 독립된 별도 서비스로, 가상자산 거래(매매, 교환, 보관·관리, 이전 등)와 무관하며, 가상자산거래소(CEX), 탈중앙거래소(DEX) 등과 연계되지 않으며, 앞으로도 연계될 것을 보장하지 않습니다.
+
+### 제5조(테스트 토큰 및 Faucet)
+
+1. 본 서비스에서 지급되는 모든 테스트 토큰~~은~~ 전적으로 테스트 개발 등 편의를 위한 것이며, 원칙적으로 그 지급의 반대급부로 어떠한 대가도 요구되지 않습니다.
+2. 테스트 토큰은 회사 또는 회사의 특수관계인이 발행한 것이 아니며, 경제적 가치가 보장되지 않고, 어떠한 자산으로도 교환·환급·현금화되지 않습니다.
+3. 테스트 토큰은 회사가 제공하는 Faucet(<https://faucet.giwa.io>)을 통해 무상 지급되며, 회사는 지급 한도·주기 등을 정할 수 있습니다.
+
+### 제6조(본 서비스의 제공·변경·중단 및 데이터 초기화)
+
+1. 회사는 사전 고지 없이 언제든지 본 서비스의 일부 또는 전부를 변경·일시중단·종료할 수 있습니다.
+2. 테스트넷 특성상 블록체인 장애·리셋·롤백(roll-back ; 잘못된 거래내역이 포함되거나 네트워크에 문제가 발생하는 등의 사정으로 인해 과거의 특정 시점으로 블록체인 상태를 되돌리는 것) 등이 발생할 수 있으며, 이에 따라 잔액·거래내역·컨트랙트 상태 등 데이터가 소실될 수 있습니다.
+3. 테스트넷은 지속적인 운영이 보장되지 않으며, 테스트넷의 장애·변경·일시중단·종료 또는 재가동으로 인한 손실에 대해 회사는 책임을 부담하지 않습니다.
+
+### 제7조(금지행위 및 제한)
+
+다음 각 호의 행위는 금지됩니다.
+
+1. Faucet 남용, 우회, 자동화 대량청구 등 남용 행위
+2. 관련 법령 및 본 약관 위반, 제3자 권리 침해, 사기·자금세탁·제재회피 목적 사용
+3. 본 서비스를 통해 지급받은 테스트 토큰에 대한 유상 판매·매매 행위 및 테스크 토큰에 경제적 가치를 결부시켜 활용하는 행위
+4. 테스트 토큰 또는 본 서비스와 관련하여 투자수익 보장 등 오해 소지가 있는 표현 사용
+5. 회사의 승인이 없는 테스트 토큰 또는 본 서비스를 이용한 홍보 기타 영리활동
+
+### 제8조(위험 고지 및 이용자 책임)
+
+1. 이용자는 테스트넷 상에 기록된 거래내역을 임의로 초기화 또는 변경할 수 없습니다.
+2. 이용자의 부주의로 암호키(개인키 및 시드구문) 분실, 오전송, 스마트 컨트랙트 호출 오류 등이 발생할 수 있습니다.
+3. 테스트 토큰·개인지갑·트랜잭션 기록은 공개 원장에 기록될 수 있습니다.
+
+### 제9조(개인정보)
+
+1. 회사는 본 서비스의 운영·남용 방지·고객지원 목적에서 로그, 지갑 주소, IP 등을 수집·처리할 수 있습니다. 개인정보의 보호 및 이용에 대해서는 관련 법령 및 회사의 개인정보처리방침이 적용됩니다.
+2. 테스트넷 온체인에 기록되는 데이터는 블록체인 특성상 공개·영구 보존될 수 있으며, 임의 삭제가 불가합니다.
+3. 이용자는 온체인에 개인정보·기밀정보 등 민감 정보를 입력해서는 안 됩니다. 그럼에도 불구하고 온체인에 민감 정보를 입력하는 경우 임의 삭제가 불가하므로 특히 유의하시기 바랍니다.
+4. 회사는 온체인에 기록된 데이터의 삭제에 대해 어떠한 의무도 부담하지 않습니다.
+
+### 제10조(약관의 변경)
+
+회사는 필요 시 본 약관을 변경할 수 있으며, 이용자가 변경 공지일 이후 계속 본 서비스를 이용하는 경우 변경에 동의한 것으로 간주합니다.
+
+### 제11조(준거법 및 분쟁해결)
+
+본 약관은 대한민국 법률을 준거법으로 하며, 분쟁은 서울중앙지방법원을 전속 관할로 합니다.
+
+
+# 두나무 주식회사 GIWA 레이어2 테스트넷 서비스 개인정보 처리방침
+
+두나무㈜(이하 ‘회사’)는 이용자의 개인정보 보호를 매우 중요하게 생각하며, 회사의 GIWA 레이어2 테스트넷 서비스(이하 “서비스”)를 이용하기 위해 회사에 제공한 개인정보 보호에 최선을 다하고 있습니다. 회사는 "개인정보 보호법" 및 개인정보 보호와 관련된 법령에 따라 이용자의 개인정보를 적법하게 처리하고, 안전하게 관리합니다. 이에 “개인정보 보호법” 제30조에 따라 이용자에게 개인정보의 처리와 보호에 관한 절차 및 기준을 안내하고, 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 개인정보처리방침을 수립・공개합니다.
+
+\
+회사는 본 개인정보처리방침을 사이트 첫 화면에 지속적으로 공개함으로써 이용자가 언제든지 개인정보의 처리 절차 및 기준에 대해 쉽게 확인할 수 있도록 하고 있습니다.
+
+본 개인정보처리방침은 관계 법령 및 회사의 내부 방침에 따라 변경될 수 있으며, 개정 시 버전 관리를 통하여 개정사항을 쉽게 확인할 수 있도록 하고 있습니다.
+
+### **목차**
+
+[제1조(개인정보의 처리목적)](#id-1)
+
+[제2조(처리하는 개인정보의 항목)](#id-2)
+
+[제3조(개인정보의 처리 및 보유기간)](#id-3)
+
+[제4조 (개인정보의 파기)](#id-4)
+
+[제5조(개인정보의 제3자 제공)](#id-5-3)
+
+[제6조(추가적인 이용 또는 제공의 기준)](#id-6)
+
+[제7조(개인정보처리의 위탁)](#id-7)
+
+[제8조(개인정보의 국외이전)](#id-8)
+
+[제9조(개인정보의 안전성 확보 조치)](#id-9)
+
+[제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)](#id-10)
+
+[제11조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)](#id-11)
+
+[제12조(개인정보 보호 책임자 및 담당 부서)](#id-12)
+
+[제13조(개인정보 열람 등 담당 부서)](#id-13)
+
+[제14조(권익침해 구제방법)](#id-14)
+
+[제15조(링크 사이트에 대한 책임)](#id-15)
+
+[제16조(개인정보처리방침 변경)](#id-16)
+
+***
+
+### 제1조(개인정보의 처리목적)
+
+회사는 다음의 목적을 위해 이용자 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+
+1. 재화 또는 서비스 제공
+   * 서비스 제공, 부정 이용 방지 및 안전한 서비스 제공
+2. &#x20;고충처리
+   * 서비스 관련 문의 처리
+
+### 제2조(처리하는 개인정보의 항목)
+
+회사는 서비스 제공을 위하여 필요한 최소한의 범위에서 개인정보를 수집 및 이용합니다.
+
+1. **이용자의 동의를 받아 처리하는 개인정보 항목**
+
+회사는 개인정보 보호법 제15조 제1항 제1호에 따라 이용자의 동의를 받아 이용자가 요청한 서비스의 제공을 위하여 다음과 같이 최소한의 개인정보를 수집 및 이용하고 있습니다. 개인정보 보호법 제15조 제1항 제4호에 따라 서비스의 제공 목적으로 개인정보를 처리하는 경우에도, 이용자에게 개인정보 처리에 대하여 상세히 알리기 위하여 사전에 동의를 받는 절차를 운영하고 있습니다.
+
+<table data-header-hidden><thead><tr><th valign="top"></th><th valign="top"></th><th valign="top"></th></tr></thead><tbody><tr><td valign="top">구분</td><td valign="top">법적근거</td><td valign="top">수집 및 이용항목</td></tr><tr><td valign="top">GASOK 프로그램 등록</td><td valign="top">개인정보 보호법 제15조 제1항 제1호(정보주체의 동의), 제4호(계약이행)</td><td valign="top">이메일 주소, 프로그램 등록을 위한 팀 정보 및 프로젝트 정보, 신청 프로그램 정보</td></tr><tr><td valign="top">GIWA WALLET 서비스안내</td><td valign="top">개인정보 보호법 제15조 제1항 제1호(정보주체의 동의), 제4호(계약이행)</td><td valign="top">이메일 주소</td></tr></tbody></table>
+
+2. **이용자의 동의를 받지 않고 처리하는 개인정보 항목**
+
+회사는 개인정보 보호법 제15조 제1항 제2호 내지 제7호 각 호에 해당하는 경우에는 개인정보를 수집할 수 있으며, 그 수집 목적의 범위에서 이용할 수 있습니다.
+
+| **구분**                  | **법적근거**                    | **수집 및 이용항목** |
+| ----------------------- | --------------------------- | ------------- |
+| 재화 또는 서비스 제공            | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 지갑주소          |
+| 고충처리                    | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 이메일           |
+| 서비스 이용과정에서 생성 및 처리되는 항목 | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 접속지 IP주소      |
+
+### 제3조(개인정보의 처리 및 보유기간)
+
+① 회사는 법령에 따른 개인정보 처리·보유기간 또는 이용자로부터 개인정보의 수집 시에 동의받거나 고지한 개인정보 처리·보유기간 내에서 개인정보를 처리·보유합니다.
+
+1. 재화 또는 서비스 제공 : 등록 후 30일 경과 시 파기
+2. 고충처리 : 문의 처리 완료 후 30일 경과 시 파기
+3. GASOK 프로그램 등록 : 최종 선발자의 경우 프로그램 종료 후 4개월 경과 시 파기. 단, 미선정자 정보는 탈락 확정 후 1개월 뒤 파기
+4. GIWA WALLET 서비스 안내 : 안내 후 5일 내 파기
+
+② 회사는 법령상 의무 이행을 위하여 다음 각 호의 경우에는 해당사유의 종료 시 까지 개인정보를 처리 및 보유합니다.&#x20;
+
+1. 다음 관계 법령에서 정한 사유에 해당하는 경우 해당 기간 종료시까지&#x20;
+
+| **구분**   | **관련법률**       | **보유기간** |
+| -------- | -------------- | -------- |
+| 서비스 방문기록 | 통신비밀보호법 제15조의2 | 3개월 이상   |
+
+2. 관계 법령 위반에 따른 수사∙조사 등이 진행 중인 경우에는 해당 수사∙조사 종료 시까지
+3. 서비스 이용에 따른 채권∙채무관계 잔존시에는 해당 채권∙채무 정산 시까지&#x20;
+4. 이용자와 회사 사이에 소송 등 법적인 분쟁 절차가 계속 중인 경우에는 해당 절차의 종료가 확정될 때까지
+
+### 제4조(개인정보의 파기)
+
+① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때는 지체없이 해당 개인정보를 파기합니다.
+
+② 이용자로부터 동의받은 개인정보 보유 기간이 지나거나 처리목적이 달성되었음에도 불구하고 관계 법령에 따라 계속 보존하여야 할 의무가 있는 개인정보의 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다. 관계 법령에 따라 보존하는 개인정보의 상세 내용은 제3조(개인정보의 처리 및 보유기간)에서 확인 가능합니다.&#x20;
+
+③ 개인정보 파기 절차는 개인정보 보유 기간의 경과, 처리목적 달성 등 파기 사유가 발생한 개인정보를 선정하고 시스템 자동 삭제 또는 개인정보보호 책임자 등의 승인을 받아 개인정보를 파기합니다.&#x20;
+
+④ 개인정보 파기 방법은 다음과 같습니다.
+
+1. 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없도록 영구 삭제
+2. 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각
+
+### 제5조(개인정보의 제3자 제공)
+
+① 회사는 이용자의 개인정보를 개인정보처리방침 제1조(개인정보의 처리목적)에서 명시한 범위 내에서만 처리하며, 이용자의 동의, 법률의 특별한 규정이 있거나 법령상 의무를 준수하기 위해 불가피한 경우 등 개인정보 보호법 제17조(개인정보 제공) 및 제18조(개인정보의 목적 외 이용ㆍ제공 제한)에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.&#x20;
+
+② 회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.&#x20;
+
+### 제6조(추가적인 이용 또는 제공의 기준)
+
+① 회사는 서비스를 제공하는 과정에서 개인정보 보호법 제15조 제3항 또는 제17조 제4항에 따라 이용자의 동의 없이 개인정보를 이용 또는 제공할 수 있습니다.&#x20;
+
+② 회사가 제1항에 따라 이용자 동의 없이 개인정보를 이용 또는 제공할 때에는 다음 각호의 기준을 고려하여 처리합니다. &#x20;
+
+1. 당초 수집 목적과 관련성이 있는지 여부
+2. 개인정보를 수집한 정황 또는 처리 관행에 비추어 볼 때 개인정보의 추가적인 이용 또는 제공에 대한 예측 가능성이 있는지 여부&#x20;
+3. 이용자의 이익을 부당하게 침해하는지 여부
+4. 가명처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부&#x20;
+
+### 제7조(개인정보처리의 위탁)
+
+① 회사는 서비스 제공에 있어 필요한 업무 중 일부를 외부 업체에 위탁하고 있으며, 위탁받은 업체가 업무를 수행하면서 개인정보처리를 하는 경우 개인정보 보호법 제26조에 따라 개인정보가 안전하게 처리되도록 관리·감독하고 있습니다.
+
+② 회사는 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+
+| **수탁업체**                  | **위탁내용**                   |
+| ------------------------- | -------------------------- |
+| Amazon Web Services, Inc. | 서비스 제공을 위한 데이터 저장 및 서비스 운영 |
+| 주식회사 오픈서베이                | 설문조사 서비스 플랫폼 이용            |
+
+### 제8조(개인정보의 국외이전)
+
+회사는 개인정보를 국외에 이전하지 않습니다.&#x20;
+
+### 제9조(개인정보의 안전성 확보 조치)
+
+회사는 개인정보보호법 제29조에 따라 다음 각 호와 같이 안전성 확보에 필요한 관리적∙기술적∙물리적 조치를 하고 있습니다.
+
+1. **관리적 조치**
+   * 내부관리계획 수립 : 회사는 회사가 처리하는 개인정보의 안전한 관리를 위하여 내부관리계획을 수립하여 시행하고 있습니다.
+   * 개인정보취급자의 최소화 및 교육 : 회사는 개인정보 취급자를 업무 수행에 필요한 최소한으로 제한하며, 개인정보 취급자에 대한 교육 등 관리적 조치를 통해 개인정보보호의 중요성을 인식시키고 있습니다.
+   * 개인정보 보호 전담 조직 운영 : 회사는 개인정보 보호 전담조직 운영을 통해 개인정보처리시스템에 대한 개인정보 안전성 확보조치 이행여부 점검 업무를 상시 수행하고 있습니다.
+2. **기술적 조치**
+   * 개인정보처리시스템 접근권한 관리 : 개인정보처리시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근 통제를 위하여 필요한 조치를 하고 있습니다. 또한  침입차단시스템을 이용하여 개인정보처리시스템에 대한 외부로부터의 무단 접근을 통제하고 있습니다.&#x20;
+   * 개인정보의 암호화 : 회사는 이용자의 고유식별정보, 은행 계좌번호 등 개인정보 보호법 상 암호화 대상 개인정보를 안전한 암호알고리즘에 의해 암호화하여 저장 및 관리하고 있습니다.&#x20;
+   * 해킹 등에 대비한 기술적 대책 : 회사는 해킹이나 컴퓨터 바이러스 등에 의해 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 최선을 다하고 있습니다. 개인정보의 훼손에 대비해서 자료를 백업하고 있고, 최신 백신 프로그램을 이용하여 이용자들의 개인정보나 자료가 누출되거나 손상되지 않도록 방지하고 있으며, 암호화 통신 등을 통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다.&#x20;
+3. **물리적 조치** \
+   회사는 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 외부로부터 접근이 통제된 구역에 개인정보처리시스템을 설치하고 있으며, 출입통제 절차를 수립∙운영하고 있습니다.
+
+### 제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)
+
+① 회사는 이용자의 서비스 편의를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다. 쿠키는 웹사이트가 고객의 컴퓨터 및 모바일에 전송하는 소량의 정보입니다.
+
+② 회사는 이용자가 선호하는 설정 등을 저장하여 이용자에게 더욱 빠른 웹 환경을 지원하기 위하여 쿠키를 사용합니다.
+
+③ 회사는 이용자를 식별하지 않고 자동 수집 장치를 활용하여 쿠키 등 행태정보를 처리하고 있습니다. 회사는 행태정보 처리를 통해 서비스 개발 및 분석, 이용 행태에 따른 최적의 서비스를 제공합니다.
+
+<table data-header-hidden><thead><tr><th>수탁업체</th><th>위탁내용</th><th width="187"></th><th></th></tr></thead><tbody><tr><td><strong>수집 항목</strong></td><td><strong>수집 방법</strong></td><td><strong>수집 목적</strong></td><td><strong>보유 및 이용기간</strong></td></tr><tr><td>웹/앱 서비스 방문기록, 검색/클릭 등 사용기록, 기기정보, IP주소와 같은 이용자 활동정보</td><td>서비스 이용 시 로그 정보 분석 툴(Google Analytics)을 통해 자동 생성되어 저장</td><td>서비스 기능 개선, 상품 및 서비스 개발, 서비스 관련 통계, 행태정보 기반 서비스 제공</td><td>수집일로부터 최대 26개월</td></tr></tbody></table>
+
+④ 이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 아래의 방법을 통해 쿠키 거부 등의 설정을 할 수 있습니다.&#x20;
+
+* 웹브라우저(예시) :&#x20;
+  * Microsoft Edge : 웹브라우저 오른쪽 상단 ‘・・・’ 표시 선택 > 새 InPrivate 창
+  * Chrome : 웹브라우저 오른쪽 상단 ‘⋮’ 표시 선택 > 새 시크릿 창
+* 스마트폰(예시 / OS 버전에 따라 메뉴 및 방법이 다소 상이할 수 있습니다.)
+  * 안드로이드폰 : 설정 > 보안 및 개인정보보호 > 개인정보보호 > 기타 개인정보 설정 > 광고 > 광고 ID 재설정/광고 ID 삭제
+  * 아이폰 : 설정 >개인정보보호 및 보안 > 추적 > 앱이 추적을 요청하도록 허용 또는 해제
+* [Google Analytics 설정해제 안내](https://tools.google.com/dlpage/gaoptout)
+
+⑤ 이용자는 행태정보와 관련하여 궁금한 사항과 거부권 행사 등 기타 문의 사항이 있는 경우 아래의 연락처를 통해 문의할 수 있습니다.
+
+* 이메일 : <support@giwa.io>
+
+### 제11조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)
+
+① 이용자는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 또는 개인정보 처리에 대한 동의 철회 등의 권리를 행사할 수 있습니다. 다만, 개인정보 보호법 제35조 제4항, 제36조 제1항 단서, 제37조 제2항 단서 및 제3항 단서 등 관계 법령에서 정하는 바에 따라 이용자의 개인정보 열람·정정·삭제·처리정지 요구·동의 철회 등의 권리 행사가 제한될 수 있습니다.
+
+② 이용자의 권리 행사는 개인정보 보호법 시행령 제41조 제1항에 따라 서면, 전자우편, FAX 등을 통하여서 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.
+
+③ 이용자는 열람·정정·삭제·처리정지 요구 또는 동의 철회 등에 대한 회사의 조치에  불복하는 경우 조치일로부터 10일 이내 제2항의 방법으로 이의신청을 제기할 수 있습니다.
+
+④ 제1항에 따른 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통하여서 하실 수 있습니다. 이 경우 “개인정보 처리 방법에 관한 고시” 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.
+
+⑤ 개인정보의 정정 또는 삭제 요구 시 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.
+
+⑥ 회사는 이용자 이용 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 또는 동의철회  시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
+
+⑦ 이용자는 제13조(개인정보 열람 등 처리부서)를 통해 본 조의 권리를 행사 할 수 있습니다. 회사는 이용자의 권리행사가 신속하게 처리되도록 노력하겠습니다.
+
+### 제12조(개인정보 보호 책임자 및 담당 부서)
+
+① 회사는 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보 보호 책임자를 지정하고 있습니다.
+
+▶ 개인정보 보호 책임자
+
+* 이름 : 정재용
+* 직책 : 개인정보 보호 책임자
+* 이메일 : <support@giwa.io>
+* 담당부서 : 개인정보보호팀
+
+▶ 개인정보 보호 담당자
+
+* 이름 : 최지혜
+* 직책 : 개인정보 보호 담당자
+* 이메일 : <support@giwa.io>
+* 담당부서 : 개인정보보호팀
+
+② 이용자가 회사의 서비스를 이용하며 발생하는 모든 개인정보보호 관련 민원은 개인정보 보호 책임자 및 담당 부서로 문의하실 수 있습니다. 회사는 이용자의 문의 사항에 대해 답변 및 처리해드릴 것입니다.
+
+### 제13조(개인정보 열람 등 담당 부서)
+
+▶ 개인정보 열람 등 청구 접수∙처리 부서
+
+* 담당부서 : GIWA 서비스 운영팀
+* 이메일 : <support@giwa.io>
+
+### 제14조(권익침해 구제방법)
+
+개인정보 침해에 대한 피해구제, 상담 등이 필요할 경우 다음 기관에 문의하실 수 있습니다.
+
+▶ 개인정보침해 신고센터 (한국인터넷진흥원 운영)
+
+* 홈페이지 : privacy.kisa.or.kr
+* 전화 : (국번 없이) 118
+
+▶ 개인정보 분쟁조정위원회
+
+* 홈페이지 : [www.kopico.go.kr](http://www.kopico.go.kr)
+* 전화 : (국번 없이) 1833-6972
+
+▶ 대검찰청
+
+* 홈페이지 : [www.spo.go.kr](http://www.spo.go.kr)
+* 전화 : (국번 없이) 1301
+
+▶ 경찰청 사이버 수사국
+
+* 홈페이지 : [ecrm.police.go.kr](https://ecrm.police.go.kr)
+* 전화 : (국번 없이) 182
+
+### 제15조(링크 사이트에 대한 책임)
+
+회사는 이용자에게 다른 외부사이트로 연결되는 링크를 제공할 수 있습니다. 이 경우 회사는 외부사이트에 대한 통제권이 없으므로 이용자가 외부사이트로부터 제공받는 서비스나 자료의 유용성, 진실성, 적법성에 대해 책임 및 보증할 수 없으며, 링크된 외부사이트의 개인정보처리방침은 회사와 무관하므로 해당 외부사이트의 정책을 확인하시기 바랍니다.
+
+### 제16조(개인정보처리방침 변경)
+
+회사가 개인정보 처리방침을 변경하는 경우에는 변경 및 시행의 시기, 변경된 내용을 지속적으로 공개하며, 변경된 내용은 이용자가 쉽게 확인할 수 있도록 변경 전·후를 비교하여 공개합니다.
+
+### <부칙>
+
+본 개인정보처리방침 V1.3 는 2026년 09월 29일부터 적용됩니다.
+
+* 개인정보처리방침 V1.2 (2026. 05. 11. \~ 2026. 09. 28.) [바로가기](/terms-and-policies/privacy-policy-v1.2) >
+* 개인정보처리방침 V1.1 (2025. 09. 24. \~ 2026. 05. 10.) [바로가기](/terms-and-policies/privacy-policy-v1.1) >
+* 개인정보처리방침 V1.0 (2025. 09. 09. \~ 2025. 09. 23.) [바로가기](/terms-and-policies/privacy-policy-v1.0) >
+
+<br>
+
+
+# 오픈 소스 라이선스
+
+GIWA에서 사용하는 오픈 소스 라이선스입니다.
+
+## 폰트
+
+### Pretendard
+
+Copyright (c) 2021, Kil Hyung-jin (<https://github.com/orioncactus/pretendard>), with Reserved Font Name 'Pretendard'.\
+This Font Software is licensed under the SIL Open Font License, Version 1.1.\
+This license is copied below, and is also available with a FAQ at: [https://openfontlicense.org](https://openfontlicense.org/)SIL OPEN&#x20;
+
+#### FONT LICENSE
+
+Version 1.1 - 26 February 2007
+
+#### PREAMBLE
+
+The goals of the Open Font License (OFL) are to stimulate worldwide development of collaborative font projects, to support the font creation efforts of academic and linguistic communities, and to provide a free and open framework in which fonts may be shared and improved in partnership with others.\
+The OFL allows the licensed fonts to be used, studied, modified and redistributed freely as long as they are not sold by themselves. The fonts, including any derivative works, can be bundled, embedded, redistributed and/or sold with any software provided that any reserved names are not used by derivative works. The fonts and derivatives, however, cannot be released under any other type of license. The requirement for fonts to remain under this license does not apply to any document created using the fonts or their derivatives.
+
+#### DEFINITIONS
+
+* "Font Software" refers to the set of files released by the Copyright Holder(s) under this license and clearly marked as such. This may include source files, build scripts and documentation.
+* "Reserved Font Name" refers to any names specified as such after thecopyright statement(s).
+* "Original Version" refers to the collection of Font Software components as distributed by the Copyright Holder(s).
+* "Modified Version" refers to any derivative made by adding to, deleting, or substituting -- in part or in whole -- any of the components of the Original Version, by changing formats or by porting the Font Software to a new environment.
+* "Author" refers to any designer, engineer, programmer, technical writer or other person who contributed to the Font Software.
+
+#### PERMISSION & CONDITIONS
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of the Font Software, to use, study, copy, merge, embed, modify, redistribute, and sell modified and unmodified copies of the Font Software, subject to the following conditions:
+
+* Neither the Font Software nor any of its individual components, in Original or Modified Versions, may be sold by itself.
+* Original or Modified Versions of the Font Software may be bundled, redistributed and/or sold with any software, provided that each copy contains the above copyright notice and this license. These can be included either as stand-alone text files, human-readable headers or in the appropriate machine-readable metadata fields within text or binary files as long as those fields can be easily viewed by the user.
+* No Modified Version of the Font Software may use the Reserved Font Name(s) unless explicit written permission is granted by the corresponding Copyright Holder. This restriction only applies to the primary font name as presented to the users.
+* The name(s) of the Copyright Holder(s) or the Author(s) of the Font Software shall not be used to promote, endorse or advertise any Modified Version, except to acknowledge the contribution(s) of the Copyright Holder(s) and the Author(s) or with their explicit written permission.
+* The Font Software, modified or unmodified, in part or in whole, must be distributed entirely under this license, and must not be distributed under any other license. The requirement for fonts to remain under this license does not apply to any document created using the Font Software.
+
+#### TERMINATION
+
+This license becomes null and void if any of the above conditions are not met.
+
+#### DISCLAIMER
+
+THE FONT SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT OF COPYRIGHT, PATENT, TRADEMARK, OR OTHER RIGHT. IN NO EVENT SHALL THE COPYRIGHT HOLDER BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, INCLUDING ANY GENERAL, SPECIAL, INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF THE USE OR INABILITY TO USE THE FONT SOFTWARE OR FROM OTHER DEALINGS IN THE FONT SOFTWARE.
+
+
+# (v1.2)개인정보 처리방침
+
+두나무㈜(이하 ‘회사’)는 이용자의 개인정보 보호를 매우 중요하게 생각하며, 회사의 GIWA 레이어2 테스트넷 서비스(이하 “서비스”)를 이용하기 위해 회사에 제공한 개인정보 보호에 최선을 다하고 있습니다. 회사는 "개인정보 보호법" 및 개인정보 보호와 관련된 법령에 따라 이용자의 개인정보를 적법하게 처리하고, 안전하게 관리합니다. 이에 “개인정보 보호법” 제30조에 따라 이용자에게 개인정보의 처리와 보호에 관한 절차 및 기준을 안내하고, 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 개인정보처리방침을 수립・공개합니다.
+
+\
+회사는 본 개인정보처리방침을 사이트 첫 화면에 지속적으로 공개함으로써 이용자가 언제든지 개인정보의 처리 절차 및 기준에 대해  쉽게 확인할 수 있도록 하고 있습니다.\
+\
+본 개인정보처리방침은 관계 법령 및 회사의 내부 방침에 따라 변경될 수 있으며, 개정 시 버전 관리를 통하여 개정사항을 쉽게 확인할 수 있도록 하고 있습니다.
+
+### **목차**
+
+[제1조(개인정보의 처리목적)](#id-1)
+
+[제2조(처리하는 개인정보의 항목)](#id-2)
+
+[제3조(개인정보의 처리 및 보유기간)](#id-3)
+
+[제4조 (개인정보의 파기)](#id-4)
+
+[제5조(개인정보의 제3자 제공)](#id-5-3)
+
+[제6조(추가적인 이용 또는 제공의 기준)](#id-6)
+
+[제7조(개인정보처리의 위탁)](#id-7)
+
+[제8조(개인정보의 국외이전)](#id-8)
+
+[제9조(개인정보의 안전성 확보 조치)](#id-9)
+
+[제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)](#id-10)
+
+[제11조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)](#id-11)
+
+[제12조(개인정보 보호 책임자 및 담당 부서)](#id-12)
+
+[제13조(개인정보 열람 등 담당 부서)](#id-13)
+
+[제14조(권익침해 구제방법)](#id-14)
+
+[제15조(링크 사이트에 대한 책임)](#id-15)
+
+[제16조(개인정보처리방침 변경)](#id-16)
+
+***
+
+### 제1조(개인정보의 처리목적)
+
+회사는 다음의 목적을 위해 이용자 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+
+1. 재화 또는 서비스 제공
+   * 서비스 제공, 부정 이용 방지 및 안전한 서비스 제공
+2. &#x20;고충처리
+   * 서비스 관련 문의 처리
+
+### 제2조(처리하는 개인정보의 항목)
+
+회사는 서비스 제공을 위하여 필요한 최소한의 범위에서 개인정보를 수집 및 이용합니다.&#x20;
+
+1. **이용자의 동의를 받아 처리하는 개인정보 항목**
+
+회사는 개인정보 보호법 제15조 제1항 제1호에 따라 이용자의 동의를 받아 이용자가 요청한 서비스의 제공을 위하여 다음과 같이 최소한의 개인정보를 수집 및 이용하고 있습니다. 개인정보 보호법 제15조 제1항 제4호에 따라 서비스의 제공 목적으로 개인정보를 처리하는 경우에도, 이용자에게 개인정보 처리에 대하여 상세히 알리기 위하여 사전에 동의를 받는 절차를 운영하고 있습니다.
+
+| **구분**        | **법적근거**                                   | **수집 및 이용항목**                                  |
+| ------------- | ------------------------------------------ | ---------------------------------------------- |
+| GASOK 프로그램 등록 | 개인정보 보호법 제15조 제1항 제1호(정보주체의 동의), 제4호(계약이행) | 이메일 주소, 프로그램 등록을 위한 팀 정보 및 프로젝트 정보, 신청 프로그램 정보 |
+
+2. **이용자의 동의를 받지 않고 처리하는 개인정보 항목**
+
+회사는 개인정보 보호법 제15조 제1항 제2호 내지 제7호 각 호에 해당하는 경우에는 개인정보를 수집할 수 있으며, 그 수집 목적의 범위에서 이용할 수 있습니다.
+
+| **구분**                  | **법적근거**                    | **수집 및 이용항목** |
+| ----------------------- | --------------------------- | ------------- |
+| 재화 또는 서비스 제공            | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 지갑주소          |
+| 고충처리                    | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 이메일           |
+| 서비스 이용과정에서 생성 및 처리되는 항목 | 개인정보 보호법 제15조 제1항 제4호(계약이행) | 접속지 IP주소      |
+
+### 제3조(개인정보의 처리 및 보유기간)
+
+① 회사는 법령에 따른 개인정보 처리·보유기간 또는 이용자로부터 개인정보의 수집 시에 동의받거나 고지한 개인정보 처리·보유기간 내에서 개인정보를 처리·보유합니다.
+
+1. 재화 또는 서비스 제공 : 등록 후 30일 경과 시 파기
+2. 고충처리 : 문의 처리 완료 후 30일 경과 시 파기
+3. GASOK 프로그램 등록 : 최종 선발자의 경우 프로그램 종료 후 4개월 경과 시 파기. 단, 미선정자 정보는 탈락 확정 후 1개월 뒤 파기
+
+② 회사는 법령상 의무 이행을 위하여 다음 각 호의 경우에는 해당사유의 종료 시 까지 개인정보를 처리 및 보유합니다.&#x20;
+
+1. 다음 관계 법령에서 정한 사유에 해당하는 경우 해당 기간 종료시까지&#x20;
+
+| **구분**   | **관련법률**       | **보유기간** |
+| -------- | -------------- | -------- |
+| 서비스 방문기록 | 통신비밀보호법 제15조의2 | 3개월 이상   |
+
+2. 관계 법령 위반에 따른 수사∙조사 등이 진행 중인 경우에는 해당 수사∙조사 종료 시까지
+3. 서비스 이용에 따른 채권∙채무관계 잔존시에는 해당 채권∙채무 정산 시까지&#x20;
+4. 이용자와 회사 사이에 소송 등 법적인 분쟁 절차가 계속 중인 경우에는 해당 절차의 종료가 확정될 때까지
+
+### 제4조(개인정보의 파기)
+
+① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때는 지체없이 해당 개인정보를 파기합니다.
+
+② 이용자로부터 동의받은 개인정보 보유 기간이 지나거나 처리목적이 달성되었음에도 불구하고 관계 법령에 따라 계속 보존하여야 할 의무가 있는 개인정보의 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다. 관계 법령에 따라 보존하는 개인정보의 상세 내용은 제3조(개인정보의 처리 및 보유기간)에서 확인 가능합니다.&#x20;
+
+③ 개인정보 파기 절차는 개인정보 보유 기간의 경과, 처리목적 달성 등 파기 사유가 발생한 개인정보를 선정하고 시스템 자동 삭제 또는 개인정보보호 책임자 등의 승인을 받아 개인정보를 파기합니다.&#x20;
+
+④ 개인정보 파기 방법은 다음과 같습니다.
+
+1. 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없도록 영구 삭제
+2. 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각
+
+### 제5조(개인정보의 제3자 제공)
+
+① 회사는 이용자의 개인정보를 개인정보처리방침 제1조(개인정보의 처리목적)에서 명시한 범위 내에서만 처리하며, 이용자의 동의, 법률의 특별한 규정이 있거나 법령상 의무를 준수하기 위해 불가피한 경우 등 개인정보 보호법 제17조(개인정보 제공) 및 제18조(개인정보의 목적 외 이용ㆍ제공 제한)에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.&#x20;
+
+② 회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.&#x20;
+
+### 제6조(추가적인 이용 또는 제공의 기준)
+
+① 회사는 서비스를 제공하는 과정에서 개인정보 보호법 제15조 제3항 또는 제17조 제4항에 따라 이용자의 동의 없이 개인정보를 이용 또는 제공할 수 있습니다.&#x20;
+
+② 회사가 제1항에 따라 이용자 동의 없이 개인정보를 이용 또는 제공할 때에는 다음 각호의 기준을 고려하여 처리합니다. &#x20;
+
+1. 당초 수집 목적과 관련성이 있는지 여부
+2. 개인정보를 수집한 정황 또는 처리 관행에 비추어 볼 때 개인정보의 추가적인 이용 또는 제공에 대한 예측 가능성이 있는지 여부&#x20;
+3. 이용자의 이익을 부당하게 침해하는지 여부
+4. 가명처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부&#x20;
+
+### 제7조(개인정보처리의 위탁)
+
+① 회사는 서비스 제공에 있어 필요한 업무 중 일부를 외부 업체에 위탁하고 있으며, 위탁받은 업체가 업무를 수행하면서 개인정보처리를 하는 경우 개인정보 보호법 제26조에 따라 개인정보가 안전하게 처리되도록 관리·감독하고 있습니다.
+
+② 회사는 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+
+| **수탁업체**                  | **위탁내용**                   |
+| ------------------------- | -------------------------- |
+| Amazon Web Services, Inc. | 서비스 제공을 위한 데이터 저장 및 서비스 운영 |
+| 주식회사 오픈서베이                | 설문조사 서비스 플랫폼 이용            |
+
+### 제8조(개인정보의 국외이전)
+
+회사는 개인정보를 국외에 이전하지 않습니다.&#x20;
+
+### 제9조(개인정보의 안전성 확보 조치)
+
+회사는 개인정보보호법 제29조에 따라 다음 각 호와 같이 안전성 확보에 필요한 관리적∙기술적∙물리적 조치를 하고 있습니다.
+
+1. **관리적 조치**
+   * 내부관리계획 수립 : 회사는 회사가 처리하는 개인정보의 안전한 관리를 위하여 내부관리계획을 수립하여 시행하고 있습니다.
+   * 개인정보취급자의 최소화 및 교육 : 회사는 개인정보 취급자를 업무 수행에 필요한 최소한으로 제한하며, 개인정보 취급자에 대한 교육 등 관리적 조치를 통해 개인정보보호의 중요성을 인식시키고 있습니다.
+   * 개인정보 보호 전담 조직 운영 : 회사는 개인정보 보호 전담조직 운영을 통해 개인정보처리시스템에 대한 개인정보 안전성 확보조치 이행여부 점검 업무를 상시 수행하고 있습니다.
+2. **기술적 조치**
+   * 개인정보처리시스템 접근권한 관리 : 개인정보처리시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근 통제를 위하여 필요한 조치를 하고 있습니다. 또한  침입차단시스템을 이용하여 개인정보처리시스템에 대한 외부로부터의 무단 접근을 통제하고 있습니다.&#x20;
+   * 개인정보의 암호화 : 회사는 이용자의 고유식별정보, 은행 계좌번호 등 개인정보 보호법 상 암호화 대상 개인정보를 안전한 암호알고리즘에 의해 암호화하여 저장 및 관리하고 있습니다.&#x20;
+   * 해킹 등에 대비한 기술적 대책 : 회사는 해킹이나 컴퓨터 바이러스 등에 의해 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 최선을 다하고 있습니다. 개인정보의 훼손에 대비해서 자료를 백업하고 있고, 최신 백신 프로그램을 이용하여 이용자들의 개인정보나 자료가 누출되거나 손상되지 않도록 방지하고 있으며, 암호화 통신 등을 통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다.&#x20;
+3. **물리적 조치** \
+   회사는 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 외부로부터 접근이 통제된 구역에 개인정보처리시스템을 설치하고 있으며, 출입통제 절차를 수립∙운영하고 있습니다.
+
+### 제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)
+
+① 회사는 이용자의 서비스 편의를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다. 쿠키는 웹사이트가 고객의 컴퓨터 및 모바일에 전송하는 소량의 정보입니다.
+
+② 회사는 이용자가 선호하는 설정 등을 저장하여 이용자에게 더욱 빠른 웹 환경을 지원하기 위하여 쿠키를 사용합니다.
+
+③ 회사는 이용자를 식별하지 않고 자동 수집 장치를 활용하여 쿠키 등 행태정보를 처리하고 있습니다. 회사는 행태정보 처리를 통해 서비스 개발 및 분석, 이용 행태에 따른 최적의 서비스를 제공합니다.
+
+<table data-header-hidden><thead><tr><th>수탁업체</th><th>위탁내용</th><th width="187"></th><th></th></tr></thead><tbody><tr><td><strong>수집 항목</strong></td><td><strong>수집 방법</strong></td><td><strong>수집 목적</strong></td><td><strong>보유 및 이용기간</strong></td></tr><tr><td>웹/앱 서비스 방문기록, 검색/클릭 등 사용기록, 기기정보, IP주소와 같은 이용자 활동정보</td><td>서비스 이용 시 로그 정보 분석 툴(Google Analytics)을 통해 자동 생성되어 저장</td><td>서비스 기능 개선, 상품 및 서비스 개발, 서비스 관련 통계, 행태정보 기반 서비스 제공</td><td>수집일로부터 최대 26개월</td></tr></tbody></table>
+
+④ 이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 아래의 방법을 통해 쿠키 거부 등의 설정을 할 수 있습니다.&#x20;
+
+* 웹브라우저(예시) :&#x20;
+  * Microsoft Edge : 웹브라우저 오른쪽 상단 ‘・・・’ 표시 선택 > 새 InPrivate 창
+  * Chrome : 웹브라우저 오른쪽 상단 ‘⋮’ 표시 선택 > 새 시크릿 창
+* 스마트폰(예시 / OS 버전에 따라 메뉴 및 방법이 다소 상이할 수 있습니다.)
+  * 안드로이드폰 : 설정 > 보안 및 개인정보보호 > 개인정보보호 > 기타 개인정보 설정 > 광고 > 광고 ID 재설정/광고 ID 삭제
+  * 아이폰 : 설정 >개인정보보호 및 보안 > 추적 > 앱이 추적을 요청하도록 허용 또는 해제
+* [Google Analytics 설정해제 안내](https://tools.google.com/dlpage/gaoptout)
+
+⑤ 이용자는 행태정보와 관련하여 궁금한 사항과 거부권 행사 등 기타 문의 사항이 있는 경우 아래의 연락처를 통해 문의할 수 있습니다.
+
+* 이메일 : <support@giwa.io>
+
+### 제11조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)
+
+① 이용자는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 또는 개인정보 처리에 대한 동의 철회 등의 권리를 행사할 수 있습니다. 다만, 개인정보 보호법 제35조 제4항, 제36조 제1항 단서, 제37조 제2항 단서 및 제3항 단서 등 관계 법령에서 정하는 바에 따라 이용자의 개인정보 열람·정정·삭제·처리정지 요구·동의 철회 등의 권리 행사가 제한될 수 있습니다.
+
+② 이용자의 권리 행사는 개인정보 보호법 시행령 제41조 제1항에 따라 서면, 전자우편, FAX 등을 통하여서 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.
+
+③ 이용자는 열람·정정·삭제·처리정지 요구 또는 동의 철회 등에 대한 회사의 조치에  불복하는 경우 조치일로부터 10일 이내 제2항의 방법으로 이의신청을 제기할 수 있습니다.
+
+④ 제1항에 따른 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통하여서 하실 수 있습니다. 이 경우 “개인정보 처리 방법에 관한 고시” 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.
+
+⑤ 개인정보의 정정 또는 삭제 요구 시 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.
+
+⑥ 회사는 이용자 이용 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 또는 동의철회  시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
+
+⑦ 이용자는 제13조(개인정보 열람 등 처리부서)를 통해 본 조의 권리를 행사 할 수 있습니다. 회사는 이용자의 권리행사가 신속하게 처리되도록 노력하겠습니다.
+
+### 제12조(개인정보 보호 책임자 및 담당 부서)
+
+① 회사는 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보 보호 책임자를 지정하고 있습니다.
+
+▶ 개인정보 보호 책임자
+
+* 이름 : 정재용
+* 직책 : 개인정보 보호 책임자
+* 이메일 : <support@giwa.io>
+* 담당부서 : 개인정보보호팀
+
+▶ 개인정보 보호 담당자
+
+* 이름 : 최지혜
+* 직책 : 개인정보 보호 담당자
+* 이메일 : <support@giwa.io>
+* 담당부서 : 개인정보보호팀
+
+② 이용자가 회사의 서비스를 이용하며 발생하는 모든 개인정보보호 관련 민원은 개인정보 보호 책임자 및 담당 부서로 문의하실 수 있습니다. 회사는 이용자의 문의 사항에 대해 답변 및 처리해드릴 것입니다.
+
+### 제13조(개인정보 열람 등 담당 부서)
+
+▶ 개인정보 열람 등 청구 접수∙처리 부서
+
+* 담당부서 : GIWA 서비스 운영팀
+* 이메일 : <support@giwa.io>
+
+### 제14조(권익침해 구제방법)
+
+개인정보 침해에 대한 피해구제, 상담 등이 필요할 경우 다음 기관에 문의하실 수 있습니다.
+
+▶ 개인정보침해 신고센터 (한국인터넷진흥원 운영)
+
+* 홈페이지 : privacy.kisa.or.kr
+* 전화 : (국번 없이) 118
+
+▶ 개인정보 분쟁조정위원회
+
+* 홈페이지 : [www.kopico.go.kr](http://www.kopico.go.kr)
+* 전화 : (국번 없이) 1833-6972
+
+▶ 대검찰청
+
+* 홈페이지 : [www.spo.go.kr](http://www.spo.go.kr)
+* 전화 : (국번 없이) 1301
+
+▶ 경찰청 사이버 수사국
+
+* 홈페이지 : [ecrm.police.go.kr](https://ecrm.police.go.kr)
+* 전화 : (국번 없이) 182
+
+### 제15조(링크 사이트에 대한 책임)
+
+회사는 이용자에게 다른 외부사이트로 연결되는 링크를 제공할 수 있습니다. 이 경우 회사는 외부사이트에 대한 통제권이 없으므로 이용자가 외부사이트로부터 제공받는 서비스나 자료의 유용성, 진실성, 적법성에 대해 책임 및 보증할 수 없으며, 링크된 외부사이트의 개인정보처리방침은 회사와 무관하므로 해당 외부사이트의 정책을 확인하시기 바랍니다.
+
+### 제16조(개인정보처리방침 변경)
+
+회사가 개인정보 처리방침을 변경하는 경우에는 변경 및 시행의 시기, 변경된 내용을 지속적으로 공개하며, 변경된 내용은 이용자가 쉽게 확인할 수 있도록 변경 전·후를 비교하여 공개합니다.
+
+### <부칙>
+
+본 개인정보처리방침 V1.2 는 2026년 05월 11일부터 적용됩니다.
+
+* 개인정보처리방침 V1.1 (2025. 09. 24. \~ 2026. 05. 10.) [바로가기](/terms-and-policies/privacy-policy-v1.1) >
+* 개인정보처리방침 V1.0 (2025. 09. 09. \~ 2025. 09. 23.) [바로가기](/terms-and-policies/privacy-policy-v1.0) >
+
+<br>
+
+
+# (V1.1)개인정보 처리방침
+
+두나무㈜(이하 ‘회사’)는 이용자의 개인정보 보호를 매우 중요하게 생각하며, 회사의 GIWA 레이어2 테스트넷 서비스(이하 “서비스”)를 이용하기 위해 회사에 제공한 개인정보 보호에 최선을 다하고 있습니다. 회사는 "개인정보 보호법" 및 개인정보 보호와 관련된 법령에 따라 이용자의 개인정보를 적법하게 처리하고, 안전하게 관리합니다.
+
+\
+회사는 본 개인정보처리방침을 사이트 첫 화면에 지속적으로 공개함으로써 이용자가 언제든지 개인정보의 처리 절차 및 기준에 대해  쉽게 확인할 수 있도록 하고 있습니다.\
+\
+본 개인정보처리방침은 관계 법령 및 회사의 내부 방침에 따라 변경될 수 있으며, 개정 시 버전 관리를 통하여 개정사항을 쉽게 확인할 수 있도록 하고 있습니다.
+
+### **목차**
+
+[제1조(개인정보의 처리목적)](#id-1)
+
+[제2조(처리하는 개인정보의 항목)](#id-2)
+
+[제3조(개인정보의 처리 및 보유기간)](#id-3)
+
+[제4조 (개인정보의 파기)](#id-4)
+
+[제5조(개인정보의 제3자 제공)](#id-5-3)
+
+[제6조(추가적인 이용 또는 제공의 기준)](#id-6)
+
+[제7조(개인정보처리의 위탁)](#id-7)
+
+[제8조(개인정보의 국외이전)](#id-8)
+
+[제9조(개인정보의 안전성 확보 조치)](#id-9)
+
+[제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)](#id-10)
+
+[제11조(행태정보의 관리)](#id-11)
+
+[제12조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)](#id-12)
+
+[제13조(개인정보 보호 책임자 및 담당 부서)](#id-13)
+
+[제14조(개인정보 열람 등 담당 부서)](#id-14)
+
+[제15조(권익침해 구제방법)](#id-15)
+
+[제16조(링크 사이트에 대한 책임)](#id-16)
+
+[제17조(개인정보처리방침 변경)](#id-17)
+
+***
+
+### 제1조(개인정보의 처리목적)
+
+회사는 다음의 목적을 위해 이용자 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+
+1. 재화 또는 서비스 제공
+   * 서비스 제공, 부정 이용 방지 및 안전한 서비스 제공
+2. &#x20;고충처리
+   * 서비스 관련 문의 처리
+
+### 제2조(처리하는 개인정보의 항목)
+
+① 회사는 개인정보 보호법 제15조 제1항 제4호에 따라 이용자와 체결한 계약을 이행하거나 계약을 체결하는 과정에서 이용자의 요청에 따른 조치를 이행하기 위하여 다음과 같이 최소한의 개인정보를 수집 및 이용하고 있습니다.&#x20;
+
+| **구분**                  | **수집 및 이용항목** |
+| ----------------------- | ------------- |
+| 재화 또는 서비스 제공            | 지갑주소          |
+| 고충처리                    | 이메일           |
+| 서비스 이용과정에서 생성 및 처리되는 항목 | 접속지 IP주소      |
+
+② 회사는 개인정보 보호법 제15조(개인정보의 수집ㆍ이용)에 따라 다음 각 호 중 어느 하나에 해당하는 경우에는 개인정보를 수집할 수 있으며, 그 수집 목적의 범위에서 이용할 수 있습니다.
+
+1. 이용자의 동의를 받은 경우&#x20;
+2. 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우&#x20;
+3. 이용자와 체결한 계약을 이행하거나 계약을 체결하는 과정에서 이용자 요청에 따른 조치를 이행하기 위하여 필요한 경우
+4. 명백히 이용자 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우&#x20;
+5. 회사의 정당한 이익을 달성하기 위하여 필요한 경우로서 명백하게 이용자의 권리보다 우선하는 경우. 이 경우 개인정보처리자의 정당한 이익과 상당한 관련이 있고 합리적인 범위를 초과하지 아니하는 경우에 한함
+6. 공중위생 등 공공의 안전과 안녕을 위하여 긴급히 필요한 경우
+
+### 제3조(개인정보의 처리 및 보유기간)
+
+① 회사는 법령에 따른 개인정보 처리·보유기간 또는 이용자로부터 개인정보의 수집 시에 동의받은 개인정보 처리·보유기간 내에서 개인정보를 처리·보유합니다.
+
+② 회사는 법령상 의무 이행을 위하여 다음 각 호의 경우에는 해당사유의 종료 시 까지 개인정보를 처리 및 보유합니다.&#x20;
+
+1. 다음 관계 법령에서 정한 사유에 해당하는 경우 해당 기간 종료시까지&#x20;
+
+| **구분**   | **관련법률**       | **보유기간** |
+| -------- | -------------- | -------- |
+| 서비스 방문기록 | 통신비밀보호법 제15조의2 | 3개월 이상   |
+
+2. 관계 법령 위반에 따른 수사∙조사 등이 진행 중인 경우에는 해당 수사∙조사 종료 시까지
+3. 서비스 이용에 따른 채권∙채무관계 잔존시에는 해당 채권∙채무 정산 시까지&#x20;
+4. 이용자와 회사 사이에 소송 등 법적인 분쟁 절차가 계속 중인 경우에는 해당 절차의 종료가 확정될 때까지
+
+### 제4조(개인정보의 파기)
+
+① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때는 지체없이 해당 개인정보를 파기합니다.
+
+② 이용자로부터 동의받은 개인정보 보유 기간이 지나거나 처리목적이 달성되었음에도 불구하고 관계 법령에 따라 계속 보존하여야 할 의무가 있는 개인정보의 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다. 관계 법령에 따라 보존하는 개인정보의 상세 내용은 제3조(개인정보의 처리 및 보유기간)에서 확인 가능합니다.&#x20;
+
+③ 개인정보 파기 절차는 개인정보 보유 기간의 경과, 처리목적 달성 등 파기 사유가 발생한 개인정보를 선정하고 시스템 자동 삭제 또는 개인정보보호 책임자 등의 승인을 받아 개인정보를 파기합니다.&#x20;
+
+④ 개인정보 파기 방법은 다음과 같습니다.
+
+1. 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없도록 영구 삭제
+2. 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각
+
+### 제5조(개인정보의 제3자 제공)
+
+① 회사는 이용자의 개인정보를 개인정보처리방침 제1조(개인정보의 처리목적)에서 명시한 범위 내에서만 처리하며, 이용자의 동의, 법률의 특별한 규정이 있거나 법령상 의무를 준수하기 위해 불가피한 경우 등 개인정보 보호법 제17조(개인정보 제공) 및 제18조(개인정보의 목적 외 이용ㆍ제공 제한)에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.&#x20;
+
+② 회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.&#x20;
+
+### 제6조(추가적인 이용 또는 제공의 기준)
+
+① 회사는 서비스를 제공하는 과정에서 개인정보 보호법 제15조 제3항 또는 제17조 제4항에 따라 이용자의 동의 없이 개인정보를 이용 또는 제공할 수 있습니다.&#x20;
+
+② 회사가 제1항에 따라 이용자 동의 없이 개인정보를 이용 또는 제공할 때에는 다음 각호의 기준을 고려하여 처리합니다. &#x20;
+
+1. 당초 수집 목적과 관련성이 있는지 여부
+2. 개인정보를 수집한 정황 또는 처리 관행에 비추어 볼 때 개인정보의 추가적인 이용 또는 제공에 대한 예측 가능성이 있는지 여부&#x20;
+3. 이용자의 이익을 부당하게 침해하는지 여부
+4. 가명처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부&#x20;
+
+### 제7조(개인정보처리의 위탁)
+
+① 회사는 서비스 제공에 있어 필요한 업무 중 일부를 외부 업체에 위탁하고 있으며, 위탁받은 업체가 업무를 수행하면서 개인정보처리를 하는 경우 개인정보 보호법 제26조에 따라 개인정보가 안전하게 처리되도록 관리·감독하고 있습니다.
+
+② 회사는 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+
+| **수탁업체**                  | **위탁내용**                   |
+| ------------------------- | -------------------------- |
+| Amazon Web Services, Inc. | 서비스 제공을 위한 데이터 저장 및 서비스 운영 |
+
+### 제8조(개인정보의 국외이전)
+
+회사는 개인정보를 국외에 이전하지 않습니다.&#x20;
+
+### 제9조(개인정보의 안전성 확보 조치)
+
+회사는 개인정보보호법 제29조에 따라 다음 각 호와 같이 안전성 확보에 필요한 관리적∙기술적∙물리적 조치를 하고 있습니다.
+
+1. **관리적 조치**
+   * 내부관리계획 수립 : 회사는 회사가 처리하는 개인정보의 안전한 관리를 위하여 내부관리계획을 수립하여 시행하고 있습니다.
+   * 개인정보취급자의 최소화 및 교육 : 회사는 개인정보 취급자를 업무 수행에 필요한 최소한으로 제한하며, 개인정보 취급자에 대한 교육 등 관리적 조치를 통해 개인정보보호의 중요성을 인식시키고 있습니다.
+   * 개인정보 보호 전담 조직 운영 : 회사는 개인정보 보호 전담조직 운영을 통해 개인정보처리시스템에 대한 개인정보 안전성 확보조치 이행여부 점검 업무를 상시 수행하고 있습니다.
+2. **기술적 조치**
+   * 개인정보처리시스템 접근권한 관리 : 개인정보처리시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근 통제를 위하여 필요한 조치를 하고 있습니다. 또한  침입차단시스템을 이용하여 개인정보처리시스템에 대한 외부로부터의 무단 접근을 통제하고 있습니다.&#x20;
+   * 개인정보의 암호화 : 회사는 이용자의 고유식별정보, 은행 계좌번호 등 개인정보 보호법 상 암호화 대상 개인정보를 안전한 암호알고리즘에 의해 암호화하여 저장 및 관리하고 있습니다.&#x20;
+   * 해킹 등에 대비한 기술적 대책 : 회사는 해킹이나 컴퓨터 바이러스 등에 의해 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 최선을 다하고 있습니다. 개인정보의 훼손에 대비해서 자료를 백업하고 있고, 최신 백신 프로그램을 이용하여 이용자들의 개인정보나 자료가 누출되거나 손상되지 않도록 방지하고 있으며, 암호화 통신 등을 통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다.&#x20;
+3. **물리적 조치** \
+   회사는 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 외부로부터 접근이 통제된 구역에 개인정보처리시스템을 설치하고 있으며, 출입통제 절차를 수립∙운영하고 있습니다.
+
+### 제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)
+
+① 회사는 이용자의 서비스 편의를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.
+
+② 쿠키는 웹사이트가 고객의 컴퓨터 브라우저에 전송하는 소량의 정보입니다.
+
+1. **쿠키의 사용 목적**\
+   쿠키를 통해 이용자가 선호하는 설정 등을 저장하여 이용자에게 더욱 빠른 웹 환경을 지원하며, 편리한 이용을 위해 서비스 개선에 활용합니다. 이를 통해 이용자는 더욱 손쉽게 서비스를 이용할 수 있게 됩니다.
+2. **쿠키의 설치∙운영 및 거부**\
+   이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 이러한 쿠키의 저장을 거부하거나 삭제할 수 있습니다.
+3. **쿠키 설정 거부 방법**\
+   이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 쿠키의 저장을 거부하거나 삭제할 수 있습니다.
+   * Microsoft Edge : 설정 > 쿠키 및 사이트 권한 > 쿠키 수준 설정
+   * Chrome : 설정 메뉴 선택 > 개인정보 보호 및 보안 > 인터넷 사용기록 삭제 / 서드 파티 쿠키 > 쿠키 수준 설정
+   * Safari : 설정 메뉴 선택 > 고급 탭 선택 > 개인정보 보호 섹션 내 모든 쿠키 차단  설정
+
+### 제11조(행태정보의 관리)
+
+① 행태정보란 웹사이트 방문 이력, 구매 및 검색 이력 등 이용자의 관심, 흥미, 기호 및 성향 등을 파악하고 분석할 수 있는 온라인상의 이용자 활동정보를 말합니다.
+
+② 회사는 상품, 서비스 개발 및 고객분석, 이용 행태에 따른  서비스 제공 등을 위해 행태정보를 처리하고 있습니다.
+
+1. **수집하는 행태정보 항목**\
+   웹/앱 서비스 방문기록, 서비스 이용 시간 관련 기록,  접속지 기록 등 이용자 활동정보를 수집합니다.
+2. **수집 방법**\
+   이용자가 서비스 이용 시 로그 정보 분석 툴을 통해 자동 생성되어 저장됩니다.
+3. **수집 목적**\
+   상품 및 서비스 개발, 통계 및 서비스 사용성 분석, 서비스 속도 및 상태 개선, 이용자 행태정보 기반 서비스 제공 목적으로 처리합니다.
+4. **보유 및 이용기간**\
+   수집일로부터 최대 26개월간 보유되며, 보유기간 경과 시 지체없이 삭제합니다.
+5. **이용자 통제권 행사방법**\
+   고객이 브라우저 설정을 조정하여 쿠키 저장 거부 등을 통해 이용을 거부할 수 있습니다.
+   * 웹브라우저(예시) :
+     * Microsoft Edge : 설정 > 개인정보, 검색 및 서비스 > 추적방지 > 추적방지 여부 및 수준선택, InPrivate 검색 시 항상 “엄격” 추적 방지 사용 여부 선택
+     * Chrome : 설정 > 개인정보 보호 및 보안 > 인터넷 사용기록 삭제 / 서드 파티 쿠키 > 서드 파티 쿠키 차단 여부 선택
+   * 스마트폰(예시 / OS 버전에 따라 메뉴 및 방법이 다소 상이할 수 있습니다.)
+     * 안드로이드폰 : 설정 > 보안 및 개인정보보호 > 개인정보보호 > 기타 개인정보 설정 > 광고 > 광고 ID 재설정/광고 ID 삭제
+     * 아이폰 : 설정 >개인정보보호 및 보안 > 추적 > 앱이 추적을 요청하도록 허용 또는 해제
+   * [Google Analytics 설정해제 안내](https://tools.google.com/dlpage/gaoptout)
+6. **이용자 피해구제 접수방법**\
+   이메일 : <support@giwa.io>
+
+### 제12조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)
+
+① 이용자는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 또는 개인정보 처리에 대한 동의 철회 등의 권리를 행사할 수 있습니다. 다만, 개인정보 보호법 제35조 제4항, 제36조 제1항 단서, 제37조 제2항 단서 및 제3항 단서 등 관계 법령에서 정하는 바에 따라 이용자의 개인정보 열람·정정·삭제·처리정지 요구·동의 철회 등의 권리 행사가 제한될 수 있습니다.
+
+② 이용자의 권리 행사는 개인정보 보호법 시행령 제41조 제1항에 따라 서면, 전자우편, FAX 등을 통하여서 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.
+
+③ 이용자는 열람·정정·삭제·처리정지 요구 또는 동의 철회 등에 대한 회사의 조치에  불복하는 경우 조치일로부터 10일 이내 제2항의 방법으로 이의신청을 제기할 수 있습니다.
+
+④ 제1항에 따른 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통하여서 하실 수 있습니다. 이 경우 “개인정보 처리 방법에 관한 고시” 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.
+
+⑤ 개인정보의 정정 또는 삭제 요구 시 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.
+
+⑥ 회사는 이용자 이용 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 또는 동의철회  시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
+
+⑦ 이용자는 제14조(개인정보 열람 등 처리부서)를 통해 본 조의 권리를 행사 할 수 있습니다. 회사는 이용자의 권리행사가 신속하게 처리되도록 노력하겠습니다.
+
+### 제13조(개인정보 보호 책임자 및 담당 부서)
+
+① 회사는 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보 보호 책임자를 지정하고 있습니다.
+
+▶ 개인정보 보호 책임자
+
+* 이름 : 정재용
+* 직책 : 개인정보 보호 책임자
+* 이메일 : <support@giwa.io>
+* 담당 부서 : 개인정보보호팀
+
+▶ 개인정보 보호 담당자
+
+* 이름 : 박태성
+* 직책 : 개인정보 보호 담당자
+* 이메일 : <support@giwa.io>
+* 담당 부서 : 개인정보보호팀
+
+② 이용자가 회사의 서비스를 이용하며 발생하는 모든 개인정보보호 관련 민원은 개인정보 보호 책임자 및 담당 부서로 문의하실 수 있습니다. 회사는 이용자의 문의 사항에 대해 답변 및 처리해드릴 것입니다.
+
+### 제14조(개인정보 열람 등 담당 부서)
+
+▶ 개인정보 열람 등 청구 접수∙처리 부서
+
+* 담당부서 : GIWA 서비스 운영팀
+* 이메일 : <support@giwa.io>
+
+### 제15조(권익침해 구제방법)
+
+개인정보 침해에 대한 피해구제, 상담 등이 필요할 경우 다음 기관에 문의하실 수 있습니다.
+
+▶ 개인정보침해 신고센터 (한국인터넷진흥원 운영)
+
+* 홈페이지 : privacy.kisa.or.kr
+* 전화 : (국번 없이) 118
+
+▶ 개인정보 분쟁조정위원회
+
+* 홈페이지 : [www.kopico.go.kr](http://www.kopico.go.kr)
+* 전화 : (국번 없이) 1833-6972
+
+▶ 대검찰청
+
+* 홈페이지 : [www.spo.go.kr](http://www.spo.go.kr)
+* 전화 : (국번 없이) 1301
+
+▶ 경찰청 사이버 수사국
+
+* 홈페이지 : [ecrm.cyber.go.kr](https://ecrm.cyber.go.kr/)
+* 전화 : (국번 없이) 182
+
+### 제16조(링크 사이트에 대한 책임)
+
+회사는 이용자에게 다른 외부사이트로 연결되는 링크를 제공할 수 있습니다. 이 경우 회사는 외부사이트에 대한 통제권이 없으므로 이용자가 외부사이트로부터 제공받는 서비스나 자료의 유용성, 진실성, 적법성에 대해 책임 및 보증할 수 없으며, 링크된 외부사이트의 개인정보처리방침은 회사와 무관하므로 해당 외부사이트의 정책을 확인하시기 바랍니다.
+
+### 제17조(개인정보처리방침 변경)
+
+회사가 개인정보 처리방침을 변경하는 경우에는 변경 및 시행의 시기, 변경된 내용을 지속적으로 공개하며, 변경된 내용은 이용자가 쉽게 확인할 수 있도록 변경 전·후를 비교하여 공개합니다.
+
+### <부칙>
+
+본 개인정보처리방침 V1.1 는 2025년 09월 24일부터 적용됩니다.
+
+* 개인정보처리방침 V1.0 (2025. 09. 09. \~ 2025. 09. 23.) [바로가기](/terms-and-policies/privacy-policy-v1.0) >
+
+<br>
+
+
+# (V1.0)개인정보 처리방침
+
+두나무㈜(이하 ‘회사’)는 이용자의 개인정보 보호를 매우 중요하게 생각하며, 회사의 GIWA 레이어2 테스트넷 서비스(이하 “서비스”)를 이용하기 위해 회사에 제공한 개인정보 보호에 최선을 다하고 있습니다. 회사는 "개인정보 보호법" 및 개인정보 보호와 관련된 법령에 따라 이용자의 개인정보를 적법하게 처리하고, 안전하게 관리합니다.
+
+\
+회사는 본 개인정보처리방침을 사이트 첫 화면에 지속적으로 공개함으로써 이용자가 언제든지 개인정보의 처리 절차 및 기준에 대해  쉽게 확인할 수 있도록 하고 있습니다.\
+\
+본 개인정보처리방침은 관계 법령 및 회사의 내부 방침에 따라 변경될 수 있으며, 개정 시 버전 관리를 통하여 개정사항을 쉽게 확인할 수 있도록 하고 있습니다.
+
+### **목차**
+
+[제1조(개인정보의 처리목적)](#id-1)
+
+[제2조(처리하는 개인정보의 항목)](#id-2)
+
+[제3조(개인정보의 처리 및 보유기간)](#id-3)
+
+[제4조 (개인정보의 파기)](#id-4)
+
+[제5조(개인정보의 제3자 제공)](#id-5-3)
+
+[제6조(추가적인 이용 또는 제공의 기준)](#id-6)
+
+[제7조(개인정보처리의 위탁)](#id-7)
+
+[제8조(개인정보의 국외이전)](#id-8)
+
+[제9조(개인정보의 안전성 확보 조치)](#id-9)
+
+[제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)](#id-10)
+
+[제11조(행태정보의 관리)](#id-11)
+
+[제12조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)](#id-12)
+
+[제13조(개인정보 보호 책임자 및 담당 부서)](#id-13)
+
+[제14조(개인정보 열람 등 담당 부서)](#id-14)
+
+[제15조(권익침해 구제방법)](#id-15)
+
+[제16조(링크 사이트에 대한 책임)](#id-16)
+
+[제17조(개인정보처리방침 변경)](#id-17)
+
+***
+
+### 제1조(개인정보의 처리목적)
+
+회사는 다음의 목적을 위해 이용자 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 개인정보 보호법 제18조에 따라 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.
+
+1. 재화 또는 서비스 제공
+   * 서비스 제공, 부정 이용 방지 및 안전한 서비스 제공
+2. &#x20;고충처리
+   * 서비스 관련 문의 처리
+
+### 제2조(처리하는 개인정보의 항목)
+
+① 회사는 개인정보 보호법 제15조 제1항 제4호에 따라 이용자와 체결한 계약을 이행하거나 계약을 체결하는 과정에서 이용자의 요청에 따른 조치를 이행하기 위하여 다음과 같이 최소한의 개인정보를 수집 및 이용하고 있습니다.&#x20;
+
+| **구분**                  | **수집 및 이용항목** |
+| ----------------------- | ------------- |
+| 재화 또는 서비스 제공            | 지갑주소          |
+| 고충처리                    | 이메일           |
+| 서비스 이용과정에서 생성 및 처리되는 항목 | 접속지 IP주소      |
+
+② 회사는 개인정보 보호법 제15조(개인정보의 수집ㆍ이용)에 따라 다음 각 호 중 어느 하나에 해당하는 경우에는 개인정보를 수집할 수 있으며, 그 수집 목적의 범위에서 이용할 수 있습니다.
+
+1. 이용자의 동의를 받은 경우&#x20;
+2. 법률에 특별한 규정이 있거나 법령상 의무를 준수하기 위하여 불가피한 경우&#x20;
+3. 이용자와 체결한 계약을 이행하거나 계약을 체결하는 과정에서 이용자 요청에 따른 조치를 이행하기 위하여 필요한 경우
+4. 명백히 이용자 또는 제3자의 급박한 생명, 신체, 재산의 이익을 위하여 필요하다고 인정되는 경우&#x20;
+5. 회사의 정당한 이익을 달성하기 위하여 필요한 경우로서 명백하게 이용자의 권리보다 우선하는 경우. 이 경우 개인정보처리자의 정당한 이익과 상당한 관련이 있고 합리적인 범위를 초과하지 아니하는 경우에 한함
+6. 공중위생 등 공공의 안전과 안녕을 위하여 긴급히 필요한 경우
+
+### 제3조(개인정보의 처리 및 보유기간)
+
+① 회사는 법령에 따른 개인정보 처리·보유기간 또는 이용자로부터 개인정보의 수집 시에 동의받은 개인정보 처리·보유기간 내에서 개인정보를 처리·보유합니다.
+
+② 회사는 법령상 의무 이행을 위하여 다음 각 호의 경우에는 해당사유의 종료 시 까지 개인정보를 처리 및 보유합니다.&#x20;
+
+1. 다음 관계 법령에서 정한 사유에 해당하는 경우 해당 기간 종료시까지&#x20;
+
+| **구분**   | **관련법률**       | **보유기간** |
+| -------- | -------------- | -------- |
+| 서비스 방문기록 | 통신비밀보호법 제15조의2 | 3개월 이상   |
+
+2. 관계 법령 위반에 따른 수사∙조사 등이 진행 중인 경우에는 해당 수사∙조사 종료 시까지
+3. 서비스 이용에 따른 채권∙채무관계 잔존시에는 해당 채권∙채무 정산 시까지&#x20;
+4. 이용자와 회사 사이에 소송 등 법적인 분쟁 절차가 계속 중인 경우에는 해당 절차의 종료가 확정될 때까지
+
+### 제4조(개인정보의 파기)
+
+① 회사는 개인정보 보유 기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때는 지체없이 해당 개인정보를 파기합니다.
+
+② 이용자로부터 동의받은 개인정보 보유 기간이 지나거나 처리목적이 달성되었음에도 불구하고 관계 법령에 따라 계속 보존하여야 할 의무가 있는 개인정보의 경우에는, 해당 개인정보를 별도의 데이터베이스(DB)로 옮기거나 보관장소를 달리하여 보존합니다. 관계 법령에 따라 보존하는 개인정보의 상세 내용은 제3조(개인정보의 처리 및 보유기간)에서 확인 가능합니다.&#x20;
+
+③ 개인정보 파기 절차는 개인정보 보유 기간의 경과, 처리목적 달성 등 파기 사유가 발생한 개인정보를 선정하고 시스템 자동 삭제 또는 개인정보보호 책임자 등의 승인을 받아 개인정보를 파기합니다.&#x20;
+
+④ 개인정보 파기 방법은 다음과 같습니다.
+
+1. 전자적 파일 형태로 저장된 개인정보는 기록을 재생할 수 없도록 영구 삭제
+2. 종이 문서에 기록·저장된 개인정보는 분쇄기로 분쇄하거나 소각
+
+### 제5조(개인정보의 제3자 제공)
+
+① 회사는 이용자의 개인정보를 개인정보처리방침 제1조(개인정보의 처리목적)에서 명시한 범위 내에서만 처리하며, 이용자의 동의, 법률의 특별한 규정이 있거나 법령상 의무를 준수하기 위해 불가피한 경우 등 개인정보 보호법 제17조(개인정보 제공) 및 제18조(개인정보의 목적 외 이용ㆍ제공 제한)에 해당하는 경우에만 개인정보를 제3자에게 제공합니다.&#x20;
+
+② 회사는 이용자의 개인정보를 제3자에게 제공하지 않습니다.&#x20;
+
+### 제6조(추가적인 이용 또는 제공의 기준)
+
+① 회사는 서비스를 제공하는 과정에서 개인정보 보호법 제15조 제3항 또는 제17조 제4항에 따라 이용자의 동의 없이 개인정보를 이용 또는 제공할 수 있습니다.&#x20;
+
+② 회사가 제1항에 따라 이용자 동의 없이 개인정보를 이용 또는 제공할 때에는 다음 각호의 기준을 고려하여 처리합니다. &#x20;
+
+1. 당초 수집 목적과 관련성이 있는지 여부
+2. 개인정보를 수집한 정황 또는 처리 관행에 비추어 볼 때 개인정보의 추가적인 이용 또는 제공에 대한 예측 가능성이 있는지 여부&#x20;
+3. 이용자의 이익을 부당하게 침해하는지 여부
+4. 가명처리 또는 암호화 등 안전성 확보에 필요한 조치를 하였는지 여부&#x20;
+
+### 제7조(개인정보처리의 위탁)
+
+① 회사는 서비스 제공에 있어 필요한 업무 중 일부를 외부 업체에 위탁하고 있으며, 위탁받은 업체가 업무를 수행하면서 개인정보처리를 하는 경우 개인정보 보호법 제26조에 따라 개인정보가 안전하게 처리되도록 관리·감독하고 있습니다.
+
+② 회사는 다음과 같이 개인정보 처리업무를 위탁하고 있습니다.
+
+| **수탁업체**                  | **위탁내용**                   |
+| ------------------------- | -------------------------- |
+| Amazon Web Services, Inc. | 서비스 제공을 위한 데이터 저장 및 서비스 운영 |
+
+### 제8조(개인정보의 국외이전)
+
+회사는 개인정보를 국외에 이전하지 않습니다.&#x20;
+
+### 제9조(개인정보의 안전성 확보 조치)
+
+회사는 개인정보보호법 제29조에 따라 다음 각 호와 같이 안전성 확보에 필요한 관리적∙기술적∙물리적 조치를 하고 있습니다.
+
+1. **관리적 조치**
+   * 내부관리계획 수립 : 회사는 회사가 처리하는 개인정보의 안전한 관리를 위하여 내부관리계획을 수립하여 시행하고 있습니다.
+   * 개인정보취급자의 최소화 및 교육 : 회사는 개인정보 취급자를 업무 수행에 필요한 최소한으로 제한하며, 개인정보 취급자에 대한 교육 등 관리적 조치를 통해 개인정보보호의 중요성을 인식시키고 있습니다.
+   * 개인정보 보호 전담 조직 운영 : 회사는 개인정보 보호 전담조직 운영을 통해 개인정보처리시스템에 대한 개인정보 안전성 확보조치 이행여부 점검 업무를 상시 수행하고 있습니다.
+2. **기술적 조치**
+   * 개인정보처리시스템 접근권한 관리 : 개인정보처리시스템에 대한 접근권한의 부여, 변경, 말소를 통하여 개인정보에 대한 접근 통제를 위하여 필요한 조치를 하고 있습니다. 또한  침입차단시스템을 이용하여 개인정보처리시스템에 대한 외부로부터의 무단 접근을 통제하고 있습니다.&#x20;
+   * 개인정보의 암호화 : 회사는 이용자의 고유식별정보, 은행 계좌번호 등 개인정보 보호법 상 암호화 대상 개인정보를 안전한 암호알고리즘에 의해 암호화하여 저장 및 관리하고 있습니다.&#x20;
+   * 해킹 등에 대비한 기술적 대책 : 회사는 해킹이나 컴퓨터 바이러스 등에 의해 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 최선을 다하고 있습니다. 개인정보의 훼손에 대비해서 자료를 백업하고 있고, 최신 백신 프로그램을 이용하여 이용자들의 개인정보나 자료가 누출되거나 손상되지 않도록 방지하고 있으며, 암호화 통신 등을 통하여 네트워크상에서 개인정보를 안전하게 전송할 수 있도록 하고 있습니다.&#x20;
+3. **물리적 조치** \
+   회사는 이용자의 개인정보가 유출되거나 훼손되는 것을 막기 위해 외부로부터 접근이 통제된 구역에 개인정보처리시스템을 설치하고 있으며, 출입통제 절차를 수립∙운영하고 있습니다.
+
+### 제10조(개인정보 자동수집 장치의 설치·운영 및 그 거부에 관한 사항)
+
+① 회사는 이용자의 서비스 편의를 제공하기 위해 이용정보를 저장하고 수시로 불러오는 ‘쿠키(cookie)’를 사용합니다.
+
+② 쿠키는 웹사이트가 고객의 컴퓨터 브라우저에 전송하는 소량의 정보입니다.
+
+1. **쿠키의 사용 목적**\
+   쿠키를 통해 이용자가 선호하는 설정 등을 저장하여 이용자에게 더욱 빠른 웹 환경을 지원하며, 편리한 이용을 위해 서비스 개선에 활용합니다. 이를 통해 이용자는 더욱 손쉽게 서비스를 이용할 수 있게 됩니다.
+2. **쿠키의 설치∙운영 및 거부**\
+   이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 이러한 쿠키의 저장을 거부하거나 삭제할 수 있습니다.
+3. **쿠키 설정 거부 방법**\
+   이용자는 쿠키 설치에 대한 선택권을 가지고 있으며, 언제든지 쿠키의 저장을 거부하거나 삭제할 수 있습니다.
+   * Microsoft Edge : 설정 > 쿠키 및 사이트 권한 > 쿠키 수준 설정
+   * Chrome : 설정 메뉴 선택 > 개인정보 보호 및 보안 > 인터넷 사용기록 삭제 / 서드 파티 쿠키 > 쿠키 수준 설정
+   * Safari : 설정 메뉴 선택 > 고급 탭 선택 > 개인정보 보호 섹션 내 모든 쿠키 차단  설정
+
+### 제11조(행태정보의 관리)
+
+① 행태정보란 웹사이트 방문 이력, 구매 및 검색 이력 등 이용자의 관심, 흥미, 기호 및 성향 등을 파악하고 분석할 수 있는 온라인상의 이용자 활동정보를 말합니다.
+
+② 회사는 이용자의 행태정보를 처리하지 않습니다.
+
+### 제12조(이용자 및 법정대리인의 권리ㆍ의무와 행사방법)
+
+① 이용자는 회사에 대해 언제든지 개인정보 열람·정정·삭제·처리정지 요구 또는 개인정보 처리에 대한 동의 철회 등의 권리를 행사할 수 있습니다. 다만, 개인정보 보호법 제35조 제4항, 제36조 제1항 단서, 제37조 제2항 단서 및 제3항 단서 등 관계 법령에서 정하는 바에 따라 이용자의 개인정보 열람·정정·삭제·처리정지 요구·동의 철회 등의 권리 행사가 제한될 수 있습니다.
+
+② 이용자의 권리 행사는 개인정보 보호법 시행령 제41조 제1항에 따라 서면, 전자우편, FAX 등을 통하여서 하실 수 있으며, 회사는 이에 대해 지체 없이 조치하겠습니다.
+
+③ 이용자는 열람·정정·삭제·처리정지 요구 또는 동의 철회 등에 대한 회사의 조치에  불복하는 경우 조치일로부터 10일 이내 제2항의 방법으로 이의신청을 제기할 수 있습니다.
+
+④ 제1항에 따른 권리 행사는 이용자의 법정대리인이나 위임을 받은 자 등 대리인을 통하여서 하실 수 있습니다. 이 경우 “개인정보 처리 방법에 관한 고시” 별지 제11호 서식에 따른 위임장을 제출하여야 합니다.
+
+⑤ 개인정보의 정정 또는 삭제 요구 시 다른 법령에서 그 개인정보가 수집 대상으로 명시되어 있는 경우에는 그 삭제를 요구할 수 없습니다.
+
+⑥ 회사는 이용자 이용 권리에 따른 열람의 요구, 정정·삭제의 요구, 처리정지의 요구 또는 동의철회  시 열람 등 요구를 한 자가 본인이거나 정당한 대리인인지를 확인합니다.
+
+⑦ 이용자는 제14조(개인정보 열람 등 처리부서)를 통해 본 조의 권리를 행사 할 수 있습니다. 회사는 이용자의 권리행사가 신속하게 처리되도록 노력하겠습니다.
+
+### 제13조(개인정보 보호 책임자 및 담당 부서)
+
+① 회사는 이용자의 개인정보를 보호하고 개인정보와 관련한 불만을 처리하기 위하여 아래와 같이 관련 부서 및 개인정보 보호 책임자를 지정하고 있습니다.
+
+▶ 개인정보 보호 책임자
+
+* 이름 : 정재용
+* 직책 : 개인정보 보호 책임자
+* 이메일 : <support@giwa.io>
+* 담당 부서 : 개인정보보호팀
+
+▶ 개인정보 보호 담당자
+
+* 이름 : 박태성
+* 직책 : 개인정보 보호 담당자
+* 이메일 : <support@giwa.io>
+* 담당 부서 : 개인정보보호팀
+
+② 이용자가 회사의 서비스를 이용하며 발생하는 모든 개인정보보호 관련 민원은 개인정보 보호 책임자 및 담당 부서로 문의하실 수 있습니다. 회사는 이용자의 문의 사항에 대해 답변 및 처리해드릴 것입니다.
+
+### 제14조(개인정보 열람 등 담당 부서)
+
+▶ 개인정보 열람 등 청구 접수∙처리 부서
+
+* 담당부서 : GIWA 서비스 운영팀
+* 이메일 : <support@giwa.io>
+
+### 제15조(권익침해 구제방법)
+
+개인정보 침해에 대한 피해구제, 상담 등이 필요할 경우 다음 기관에 문의하실 수 있습니다.
+
+▶ 개인정보침해 신고센터 (한국인터넷진흥원 운영)
+
+* 홈페이지 : privacy.kisa.or.kr
+* 전화 : (국번 없이) 118
+
+▶ 개인정보 분쟁조정위원회
+
+* 홈페이지 : [www.kopico.go.kr](http://www.kopico.go.kr)
+* 전화 : (국번 없이) 1833-6972
+
+▶ 대검찰청
+
+* 홈페이지 : [www.spo.go.kr](http://www.spo.go.kr)
+* 전화 : (국번 없이) 1301
+
+▶ 경찰청 사이버 수사국
+
+* 홈페이지 : [ecrm.cyber.go.kr](https://ecrm.cyber.go.kr/)
+* 전화 : (국번 없이) 182
+
+### 제16조(링크 사이트에 대한 책임)
+
+회사는 이용자에게 다른 외부사이트로 연결되는 링크를 제공할 수 있습니다. 이 경우 회사는 외부사이트에 대한 통제권이 없으므로 이용자가 외부사이트로부터 제공받는 서비스나 자료의 유용성, 진실성, 적법성에 대해 책임 및 보증할 수 없으며, 링크된 외부사이트의 개인정보처리방침은 회사와 무관하므로 해당 외부사이트의 정책을 확인하시기 바랍니다.
+
+### 제17조(개인정보처리방침 변경)
+
+회사가 개인정보 처리방침을 변경하는 경우에는 변경 및 시행의 시기, 변경된 내용을 지속적으로 공개하며, 변경된 내용은 이용자가 쉽게 확인할 수 있도록 변경 전·후를 비교하여 공개합니다.
+
+### <부칙>
+
+본 개인정보처리방침 V1.0 는 2025년 09월 09일부터 적용됩니다.
+
+<br>
+
+
+# Upgrade 19 Karst 하드포크
+
+> 공지일자: 2026년 7월 2일
+>
+> 적용 네트워크: GIWA 테스트넷 (Sepolia)
+
+## 개요
+
+GIWA Chain은 OP Stack의 Karst 하드포크(Upgrade 19 프로토콜 업데이트)를 적용합니다. 이번 업그레이드는 L2 실행 환경 업데이트(Osaka EVM 기능), Fault Proof 시스템 개선, L2 컨트랙트 관리 구조(L2CM) 도입 등 네트워크 기능 확장과 보안 강화를 위한 변경이 포함되어 있어요.
+
+{% hint style="warning" %}
+이번 업그레이드는 하드포크이기 때문에 네트워크 프로토콜 수준의 변경이 포함되어 있어 노드 운영자는 반드시 최신 버전으로 업데이트해야 합니다.
+{% endhint %}
+
+{% hint style="info" %}
+Karst 하드포크부터 실행 클라이언트는 op-reth, Fault Proof 프로그램은 kona-client만 지원됩니다. op-geth와 op-program은 Karst를 지원하지 않아요. 자세한 내용은 op-geth 지원 종료 및 op-reth 전환 공지를 참고해 주세요.
+{% endhint %}
+
+## 일정
+
+* 테스트넷 (Sepolia): *2026년 7월 6일 오후 3시 00분 00초 KST (Unix timestamp: `1783317600`)*
+
+{% hint style="info" %}
+체인의 상태나 블록 타이밍에 따라 실제 적용 시점은 다소 변동될 수 있습니다.
+{% endhint %}
+
+## 주요 변경사항
+
+* **Osaka EVM 적용**: L2 실행 환경에 이더리움 Osaka 기능이 도입돼요. 트랜잭션 가스 한도 상한 도입, 일부 precompile(`P256VERIFY`, `MODEXP`)의 가스 비용 조정, 신규 opcode 추가 등이 포함됩니다.
+* **Fault Proof — 정식 게임 타입 변경**: Dispute Game의 정식(respected) 타입이 기존 `CANNON`에서 `CANNON_KONA`(타입 8)로 변경돼요. GIWA는 현재 permissioned 방식으로 Fault Proof를 운영하고 있어, 이 변경은 운영 레벨에서 반영되며 일반 사용자나 개발자가 직접 조치할 사항은 없어요.
+* **BN256 페어링 입력 상한 축소**: `ecPairing`(`0x08`) precompile의 입력이 최대 300 pairs로 축소돼요(기존 427). 향후 Glamsterdam(EIP-7904)에 대비한 선제적 조정입니다.
+* **L2CM(L2 Contract Manager) 도입**: 네트워크 업그레이드 시 L2 predeploy 컨트랙트를 업그레이드할 수 있는 메커니즘으로, 향후 interop을 위한 선결 조건이에요.
+* **OPCMv2 적용**: 재설계된 OP Contracts Manager가 처음 적용됩니다.
+
+## 개발자 영향
+
+* **precompile 가스 비용 변경**: `P256VERIFY`, `MODEXP` 등 precompile의 가스 비용이 상향돼요. 이 값들을 하드코딩해 사용하는 컨트랙트나 앱이 있다면 점검이 필요합니다. 특히 secp256r1(P-256) 기반 서명 검증(모바일 보안칩 기반 AA 등)을 사용하는 경우 가스 상향(6,900 gas) 영향을 확인해 주세요.
+* **트랜잭션 가스 한도**: 단일 트랜잭션의 가스 한도가 16,777,216으로 제한돼요. 이보다 큰 가스를 요구하는 트랜잭션은 실패할 수 있습니다. (Deposit 트랜잭션은 예외)
+* **BN256 페어링**: `ecPairing`(`0x08`)을 300 pairs를 초과해 호출하는 앱은 실패할 수 있어요. 일반적인 Groth16 증명 검증에는 영향이 없습니다.
+
+## 노드 운영자 영향
+
+* 예정된 Karst 하드포크 시간 전에 반드시 노드를 최신 버전으로 업데이트해야 합니다.
+* **op-geth는 Karst를 지원하지 않습니다.** 아직 op-reth로 전환하지 않았다면 하드포크 이전에 반드시 op-reth로 전환해 주세요. Fault Proof 프로그램도 op-program에서 kona-client로 전환됩니다.
+* op-reth 기반 노드 구성과 최신 릴리즈는 [giwa-io/node](https://github.com/giwa-io/node/releases) 저장소를 참고해 주세요.
+
+## 더 알아보기
+
+Upgrade 19 (Karst)에 대해 더 알아보고 싶나요? [OP Stack 문서](https://docs.optimism.io/notices/upgrade-19)를 확인해보세요.
+
+
+# op-geth 지원 종료 및 op-reth 전환
+
+> 공지일자: 2026년 4월 16일
+
+## 개요
+
+GIWA Chain의 실행 클라이언트(Execution Client)가 기존 op-geth에서 **op-reth**로 전환됩니다. 이번 전환은 OP Stack 생태계 전반의 실행 클라이언트 전환 방침에 따른 것으로, op-geth의 공식 지원이 <mark style="background-color:$danger;">**2026년 5월 31일**</mark>에 종료됩니다.
+
+## 배경
+
+OP Stack 생태계에서 실행 클라이언트가 op-geth(Go 기반)에서 **op-reth**(Rust 기반)로 전환되고 있어요. 이에 따라 op-geth는 2026년 5월 31일 이후 보안 패치 및 버그 수정이 중단되며, 다음 하드포크인 **Karst**를 포함한 신규 기능 개발은 op-reth에서만 진행됩니다.
+
+또한 Fault Proof 프로그램도 기존 op-program에서 **kona-client**(cannon-kona)로 전환이 진행되고 있어요.
+
+{% hint style="warning" %}
+op-geth는 L1 Glamsterdam 하드포크를 지원하지 않습니다. Glamsterdam 활성화 이후에는 op-geth로 canonical chain을 따라갈 수 없게 됩니다.
+{% endhint %}
+
+## 주요 변경사항
+
+| 항목               | 기존         | 전환 후            | 비고                 |
+| ---------------- | ---------- | --------------- | ------------------ |
+| 실행 클라이언트         | op-geth    | **op-reth**     | 2026년 5월 31일 지원 종료 |
+| Fault Proof 프로그램 | op-program | **kona-client** | Karst 하드포크 시점 전환   |
+
+## 노드 운영자 영향
+
+GIWA Chain의 자체 노드를 운영하고 계신다면 **2026년 5월 31일 이전에 op-reth로 전환**이 필요합니다.
+
+1. 기존 op-geth 노드와 병렬로 op-reth 노드 싱크를 시작하세요.
+2. block hash, state root, RPC 출력을 비교하여 싱크 정확성을 검증하세요.
+3. 검증이 완료되면 프로덕션 트래픽을 op-reth로 전환하세요.
+
+op-reth 기반 노드 구성은 [giwa-io/node](https://github.com/giwa-io/node) 저장소를 참고해 주세요. `CLIENT=reth` 옵션으로 간편하게 op-reth 노드를 실행할 수 있어요.
+
+{% hint style="info" %}
+[스냅샷](https://docs.giwa.io/node-operators/snapshots)을 활용하면 처음부터 싱크하지 않고 빠르게 op-reth 노드를 구성할 수 있어요.
+{% endhint %}
+
+## 개발자 영향
+
+일반적인 DApp 개발에는 영향이 없어요. 다만 노드 RPC에 직접 연결하여 실행 클라이언트 특화 API를 사용하고 있다면 op-reth와의 호환성을 확인해 주세요.
+
+## 더 알아보기
+
+실행 클라이언트 전환에 대해 더 알아보고 싶나요? [OP Stack 공식 공지](https://docs.optimism.io/notices/op-geth-deprecation)를 확인해보세요.
+
+
+# Flashblocks 기능 지원
+
+> 공지일자: 2025년 12월 9일
+>
+> 적용 네트워크: GIWA 테스트넷 (Sepolia)
+
+GIWA Chain에 Flashblocks 기능이 새롭게 도입되었어요.
+
+Flashblocks는 블록이 생성될 때까지 기다리지 않고, 트랜잭션에 대한 preconfirmation 신호를 빠르게 받을 수 있는 기능입니다. 이를 통해 트랜잭션 전송 후 수백 밀리초 (최대 약 200ms) 내에 빠른 피드백을 받을 수 있어 지갑, 결제 서비스, 게임 등 실시간성이 중요한 앱에서 더욱 증진된 사용자 경험을 제공할 수 있습니다.
+
+<figure><img src="https://2809230851-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FmcpGH1jMST7uOXUOe6EC%2Fuploads%2FiBOWNAHECXvFsaDONzaH%2Fflashblocks_blockscout.gif?alt=media&amp;token=81e6f93f-06cc-4ddf-b467-e50852073dc1" alt=""><figcaption></figcaption></figure>
+
+## 더 알아보기
+
+Flashlbocks 기능에 대해 더 알아보고 싶나요? [Flashblocks 페이지](https://docs.giwa.io/network-information/flashblocks)를 확인해보세요.
+
+
+# 이전 공지
+
+
+# Upgrade 18 프로토콜 업그레이드
+
+> 공지일자: 2026년 3월 11일
+>
+> 적용 네트워크: GIWA 테스트넷 (Sepolia)
+
+## 개요
+
+GIWA Chain은 OP Stack의 Upgrade 18 프로토콜 업데이트를 적용합니다. 이번 업그레이드는 Fault Proof 시스템의 보안 다중화와 내부 컨트랙트 구조 개선을 위한 작업이 포함되어있어요.
+
+{% hint style="info" %}
+이번 업그레이드는 하드포크가 아닌 L1 스마트 컨트랙트 수준의 업데이트입니다.
+{% endhint %}
+
+## 일정
+
+* 테스트넷 (Sepolia): *2026년 3월 13일*
+
+{% hint style="info" %}
+체인의 상태나 블록 타이밍에 따라 실제 적용 시점은 다소 변동될 수 있습니다.
+{% endhint %}
+
+## 주요 변경사항
+
+* **Fault Proof 이중화**: 기존 Cannon 기반 Fault Proof에 더해 Kona(Rust 기반) 구현이 추가되어, Fault Proof 시스템의 안정성과 보안이 강화돼요.
+* **Dispute Game 구조 개선**: 내부 컨트랙트 구조가 개선되어 Dispute Game 관련 가스 비용이 절감됩니다.
+
+## 개발자 영향
+
+* Fault Proof 관련 온체인 데이터를 직접 조회하는 앱이 있다면, 새로운 Dispute Game 타입(`CANNON_KONA`)이 추가된 점을 참고해 주세요.
+
+## 더 알아보기
+
+Upgrade 18에 대해 더 알아보고 싶나요? [OP Stack 문서](https://docs.optimism.io/notices/archive/upgrade-18)를 확인해보세요.
+
+
+# Upgrade 17 Jovian 하드포크
+
+> 공지일자: 2025년 12월 19일
+>
+> 적용 네트워크: GIWA 테스트넷 (Sepolia)
+
+## 개요
+
+GIWA Chain은 OP Stack의 Jovian 하드포크(Upgrade 17 프로토콜 업데이트)를 적용합니다. 이번 업그레이드는 트랜잭션 수수료 관련 변경, 블록 헤더 변경 등 네트워크 안정성과 운영 효율을 높이기 위한 변경이 포함되어 있어요.
+
+{% hint style="warning" %}
+이번 업그레이드는 하드포크이기 때문에 네트워크 프로토콜 수준의 변경이 포함되어 있어 노드 운영자는 반드시 최신 버전으로 업데이트해야 합니다.
+{% endhint %}
+
+## 일정
+
+* 테스트넷 (Sepolia): *2025년 12월 30일 오후 2시 00분 00초 KST (Unix timestamp: `1767070800`*)
+
+## 개발자 영향
+
+* 트랜잭션 수수료 계산 방식과 block header 일부 필드(extraData, blobGasUsed)가 업데이트 되어 노드나 인덱서가 해당 필드에 의존하는 경우 호환성 점검이 필요할 수 있어요.
+
+## 노드 운영자 영향
+
+* 예정된 Jovian 하드포크 시간 전에 반드시 노드를 최신 버전으로 업데이트해야 합니다.
+* 더 자세한 내용은 [giwa-io/node 릴리즈 노트](https://github.com/giwa-io/node/releases/tag/v0.3.1)를 참고하세요.
+
+## 더 알아보기
+
+Upgrade 17 에 대해 더 알아보고 싶나요? [OP Stack 문서](https://docs.optimism.io/notices/upgrade-17)를 확인해보세요.
+
+
+# Upgrade 16a 프로토콜 업그레이드
+
+> 공지일자: 2025년 11월 10일
+>
+> 적용 네트워크: GIWA 테스트넷 (Sepolia)
+
+## 개요
+
+GIWA Chain은 OP Stack의 Upgrade 16a 프로토콜 업데이트를 적용합니다. 이번 업그레이드는 유지보수 성격의 업데이트로, 내부 시스템 안정성을 강화하기 위한 변경이 포함되어 있어요.
+
+{% hint style="warning" %}
+해당 업그레이드 이전에 finalize 되지 않은 Withdrawal 건들은 업그레이드 이후 재증명(reprove)이 필요해요.
+{% endhint %}
+
+## 일정
+
+* 테스트넷 (Sepolia): *2025년 11월 12일*
+
+{% hint style="info" %}
+체인의 상태나 블록 타이밍에 따라 실제 적용 시점은 다소 변동될 수 있습니다.
+{% endhint %}
+
+## 사용자 영향
+
+* 업그레이드 실행 시점 이전에 L1 으로의 Withdrawal이 완료되지 않은 상태라면, 해당 Withdrawal Proof는 무효화(invalidated) 됩니다. 이 경우, 업그레이드 완료 이후 Withdrawal Proof를 다시 제출해야 해요.
+* 이미 finalized된 Withdrawal은 영향을 받지 않아요.
+* 모든 자산(ETH 및 토큰)은 안전하며, 손실 위험은 없습니다.
+
+## 개발자 영향
+
+* 브릿지 Withdrawal과 관련된 앱(예: Withdrawal 상태 추적기, 브릿지 UI 등)은 업그레이드 시점에 일시적인 Withdrawal Proof 무효화 가능성을 고려해야해요.
+* L1에서 Withdrawal Proof를 모니터링하는 로직이 있다면, 무효화된 Proof를 감지하고 재시도하는 처리가 필요할 수 있습니다.
+* GIWA 네트워크에 배포된 스마트 컨트랙트는 별도의 수정이 필요없어요.
+
+## 더 알아보기
+
+Upgrade 16a 에 대해 더 알아보고 싶나요? [OP Stack 문서](https://docs.optimism.io/notices/archive/upgrade-16a#impact-summary)를 확인해보세요.<br>
+
+
+# GIWA 개인정보처리방침 개정 안내 (09/29 적용 예정)
+
+안녕하세요. GIWA입니다.
+
+항상 GIWA를 이용해 주셔서 감사드리며, GIWA 개인정보처리방침의 변경에 관하여 안내드리고자 합니다. 본 개정에 따른 GIWA 개인정보처리방침은 2026년 09월 29일부로 적용됩니다.
+
+구체적인 변경 내용은 아래 내용을 참고 부탁드립니다.
+
+* 참고 : [GIWA 개인정보처리방침 바로가기](/terms-and-policies/privacy-policy)
+
+***
+
+#### ■ 변경 내용
+
+\*신규 조항 삽입 및 삭제에 따라 조항번호만 수정된 경우는 생략함
+
+**① 제2조(처리하는 개인정보의 항목) - 1. 이용자의 동의를 받아 처리하는 개인정보 항목 표**
+
+* 개정 전 : <신설>
+* 개정 후
+
+{% hint style="info" %}
+
+* 구분 : GIWA WALLET 서비스안내
+* 법적근거 : 개인정보 보호법 제15조 제1항 제1호(정보주체의 동의), 제4호(계약이행)
+* 수집 및 이용항목 : 이메일 주소
+  {% endhint %}
+
+**② 제3조(개인정보의 처리 및 보유기간)제1항**
+
+* 개정 전 : <신설>
+* 개정 후
+
+{% hint style="info" %}
+
+* GIWA WALLET 서비스 안내 : 안내 후 5일 내 파기
+  {% endhint %}
+
+***
+
+감사합니다.
+
+

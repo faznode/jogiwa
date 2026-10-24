@@ -1,0 +1,311 @@
+{
+  "phase": "02-contracts",
+  "status": "closed",
+  "generated_at": "2026-10-24",
+  "chain": {
+    "name": "Robinhood Chain",
+    "chain_id": 4663,
+    "stack": "Arbitrum Orbit (Nitro)",
+    "block_time_seconds": 0.105,
+    "rpc": "https://rpc.mainnet.chain.robinhood.com",
+    "rpc_notes": [
+      "non-archival (historical state pruned within hours)",
+      "HTTP 429 under load",
+      "WAF blocks python-urllib UA"
+    ],
+    "explorer": "https://robinhoodchain.blockscout.com",
+    "verification_source": "https://sourcify.dev (chain 4663 supported)",
+    "evidence": "[ONCHAIN]"
+  },
+  "generations": [
+    {
+      "id": "gen1",
+      "deployed_block": 8600612,
+      "deployed_date": "2026-07-13",
+      "model": "uniswap-v3-one-sided-range-order",
+      "verified": false,
+      "live": false,
+      "factory": "0x0c37a24F5D23A486FA692d1500881d698B1F77a4",
+      "locker": "0x31ca5E101941A93A7DD6d0497928700625CF54B5",
+      "locker_protocol_fee_share_pct": 10,
+      "notes": "24 unique selectors recovered by REA, identical ABI to gen2; PONS token 0x39dBED3a2bd333467115dE45665cC57F813C4571 launched via gen1",
+      "evidence": "[ONCHAIN]"
+    },
+    {
+      "id": "gen2",
+      "deployed_block": 8991118,
+      "deployed_date": "2026-07-13",
+      "model": "uniswap-v3-one-sided-range-order",
+      "verified": "sourcify exact_match",
+      "compiler": "0.8.30 viaIR cancun",
+      "live": false,
+      "launch_enabled": false,
+      "factory": "0xA5aAb3F0c6EeadF30Ef1D3Eb997108E976351feB",
+      "locker": "0x736D76699C26D0d966744cAe304C000d471f7F35",
+      "deployer_eoa": "0xda4bCee76B29EFEc9697Fcf663601c2042043968",
+      "launch_fee_eth": 0.0005,
+      "launch_config_0": {
+        "pair_token": "WETH 0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+        "graduation_threshold_eth": 4.2,
+        "initial_tick": -204200,
+        "supply": "1e27",
+        "v3_fee_tier": 10000,
+        "tick_spacing": 200,
+        "approx_initial_fdv_eth": 1.36
+      },
+      "locker_protocol_fee_share_pct": 30,
+      "docs_fee_split": {
+        "before_block_8991118": "90/10 creator/protocol",
+        "after": "70/30"
+      },
+      "evidence": "[ONCHAIN],[DOCS]"
+    },
+    {
+      "id": "v2",
+      "deployed_block": 26841846,
+      "deployed_date": "2026-08-03",
+      "model": "constant-product-bonding-curve-with-virtual-reserve -> uniswap-v4-pool-with-fee-hook",
+      "verified": "sourcify exact_match (factory), match (hook, vault)",
+      "compiler": "0.8.35 viaIR runs200 cancun",
+      "live": true,
+      "launch_enabled": true,
+      "deployer_eoa": "0xFdDE5a1E3cDF791Da71E49F817D70C7ceD72CC36",
+      "contracts": {
+        "factory": "0x7eD598BcEf8bd9Edd8C97A195C6d13f40801EC7e",
+        "meme_hook": "0xE5e702641Ea86F4ae6cC3cDaeD2B886f976Be044",
+        "buyback_vault": "0x42df2a798f82289E177311362e8f5ccC45c1219c",
+        "fee_escrow": "0xd3AFEB2a57f70eF218Aa82451c51B2fb0416Ac9e",
+        "graduation_executor": "0xC7819B64A1dAECD7eC19856d026cb14EfBd89046",
+        "graduation_guard": "0xf5695117b99B6f6401e67d4195BD653628176C6C",
+        "launch_deployer": "0x3711ceA4feaDE896C913C68F01Eda97Cb06D1A42",
+        "launch_forwarder": "0xe33E9E479dF8802cb0866d5d05258bEc4cF62948",
+        "launch_locker": "0x267444D099b10fB5Ed7c3Cc7B7c767AdcA574952 [DOCS v2]",
+        "protocol_fee_recipient": "0x31eA5b453A6Cd60F36203830DE046ff32DeC2CDB (contract)",
+        "fee_sweep_operator": "0xa1018c1D9655292A2dE0F7dEa9a0F848EaA8cA83",
+        "owner_safe": {
+          "address": "0x263ed295dAFaE1d9AAdD6E56c4B6F9f38eE019Dd",
+          "type": "Gnosis Safe 1.4.1",
+          "threshold": 2,
+          "owners": [
+            "0x1320a2b04A9e9fF511c7209C9669EBFE13cC818e",
+            "0x3825E7b3Ff17637b08219e99D78b6c622b73f5b7",
+            "0xfA31fE751c203a623b52FaD26B4063aBc2ffdf50"
+          ],
+          "timelock": false
+        },
+        "uniswap_v4_pool_manager": "0x8366a39CC670B4001A1121B8F6A443A643e40951",
+        "uniswap_v4_position_manager": "0x58daec3116aae6D93017bAAea7749052E8a04fA7",
+        "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3"
+      },
+      "deploy_txs": {
+        "factory": "0x3817f297aa7c2ef78789bffac57491ceedc218fef962d47ed36c272699deddeb",
+        "meme_hook": "0x220a9825bb32374540a6c7f3d6e7c769de64430c7f2155484ad0344d1c955d4b",
+        "buyback_vault": "0x4ceb1e809d55f76045dce2ccd2335e9317b291b07b4d5994aa8b7cdd027af142"
+      },
+      "parameters": {
+        "launch_fee_eth": 0.0005,
+        "supply": "1e27",
+        "curve_fee_bps": 100,
+        "max_creator_tax_bps": 1000,
+        "max_total_trade_fee_bps": 2000,
+        "snipe_tax_start_bps": 9900,
+        "snipe_tax_seconds_live": 3,
+        "snipe_tax_seconds_code_default": 15,
+        "snipe_tax_seconds_max": 60,
+        "max_snipe_tax_exemptions": 32,
+        "protocol_fee_share_bps": 3000,
+        "buyback_burn_bps": 5000,
+        "hook_fee_bps": 100,
+        "max_internal_price_impact_bps": 300,
+        "pool_fee": 0,
+        "tick_spacing": 200,
+        "vesting_duration_days": 1825,
+        "creator_fee_recipient_timelock_days": 3,
+        "creator_fee_recipient_execution_window_days": 3,
+        "graduation_rescue_delay_days": 7,
+        "min_pair_token_decimals": 6,
+        "snipe_tax_seconds_docs_v2": 5
+      },
+      "pair_tokens": [
+        {
+          "symbol": "ETH",
+          "address": "0x0000000000000000000000000000000000000000",
+          "phantom_quote": "1.68",
+          "graduation_threshold": "4.2"
+        },
+        {
+          "symbol": "USDG",
+          "address": "0x5fc5360D0400a0Fd4f2af552ADD042D716F1d168",
+          "phantom_quote": "3236",
+          "graduation_threshold": "8090"
+        },
+        {
+          "symbol": "TAO",
+          "address": "0xf3081494B87e8D5fb7960f066E931D1D0e6E3d67",
+          "phantom_quote": "14.999",
+          "graduation_threshold": "37.4975"
+        },
+        {
+          "symbol": "cbBTC",
+          "address": "0xCEC185eB182c47d1bA1EFc84e6959e18cd620Be4",
+          "phantom_quote": "0.052739",
+          "graduation_threshold": "0.13184752"
+        },
+        {
+          "symbol": "WETH",
+          "address": "0x0Bd7D308f8E1639FAb988df18A8011f41EAcAD73",
+          "approved": false
+        }
+      ],
+      "events": {
+        "TokenLaunched": {
+          "sig": "TokenLaunched(address,address,address,address,uint256,uint256)",
+          "topic0": "0x8d4aad4953d0ca700d468f3753aa14432d1b35b43ec6409f051fb6aa43a89607"
+        },
+        "PoolGraduated": {
+          "sig": "PoolGraduated(address,uint256,uint256,uint256)"
+        },
+        "CurveBuy": {
+          "sig": "CurveBuy(address,address,uint256,uint256,uint256,uint256)"
+        },
+        "CurveSell": {
+          "sig": "CurveSell(address,address,uint256,uint256,uint256,uint256)"
+        }
+      },
+      "evidence": "[ONCHAIN]",
+      "audits": {
+        "status": "three reviews in progress, none closed (docs v2, 2026-10)",
+        "firms": [
+          "SB Security",
+          "Dingbats",
+          "Pashov Audit Group"
+        ],
+        "evidence": "[DOCS v2]"
+      },
+      "docs_vs_chain_discrepancies": [
+        {
+          "item": "snipe window",
+          "docs_v2": "5 s",
+          "onchain": "3 s (factory snipeTaxSeconds)"
+        },
+        {
+          "item": "launch gating",
+          "docs_v2": "public launches closed; whitelist only",
+          "onchain": "launchEnabled=true on 2026-10-23"
+        }
+      ]
+    }
+  ],
+  "curve_math": {
+    "formula": "constant product with virtual quote reserve; fees on quote leg; tokensOut = net*tokenReserve/(quoteReserve+net)",
+    "reserved_tokens_formula": "S*Q0/(Q0+G) = S/3.5",
+    "reserved_tokens_wei": "285714285714285714285714285",
+    "sellable_fraction": 0.7142857,
+    "pool_fraction": 0.2040816,
+    "permanently_locked_fraction": 0.0816327,
+    "pool_tokens": "204081632.65",
+    "locked_excess_tokens": "81632653.06",
+    "launch_price_eth_per_token": 1.68e-09,
+    "graduation_price_eth_per_token": 2.058e-08,
+    "fdv_launch_eth": 1.68,
+    "fdv_graduation_eth": 20.58,
+    "price_multiple": 12.25,
+    "gross_eth_to_graduate_fee_only": 4.2424,
+    "gross_eth_to_graduate_with_2pct_tax": 4.3299,
+    "snipe_tax_decay": "startBps >> floor(elapsed*14/window); 9900 -> 618 (t+1s) -> 19 (t+2s) -> 0 (t>=3s)",
+    "verification": {
+      "python_replay": {
+        "launch_tx": "0x97625bc7aecd155186d2338a9e03f9a07258cbec764cf62304aeab8a4b248acd",
+        "curve": "0xb9c425ff3706e17b061fda39bb9062999be542f9",
+        "token": "0x65b101d4f151f1091874e2668b7f1f80268e9e8e",
+        "buy1_block": 96128863,
+        "buy2_block": 96128869,
+        "matched": [
+          "tokensOut",
+          "fee",
+          "tax",
+          "snipeTax"
+        ]
+      },
+      "forge_live_fork": {
+        "file": "verification/forge/test/PonsV2CurveLiveDifferential.t.sol",
+        "result": "3 passed, 0 failed",
+        "output": "verification/forge/test-output-live.txt"
+      },
+      "forge_pinned_replay": {
+        "file": "verification/forge/test/PonsV2CurveReplay.t.sol",
+        "result": "cannot run: public RPC is non-archival",
+        "output": "verification/forge/test-output.txt"
+      }
+    },
+    "evidence": "[ONCHAIN]"
+  },
+  "fee_model": {
+    "curve_phase": {
+      "base_fee_pct": 1.0,
+      "protocol_share_pct_of_fee": 30,
+      "creator_share_pct_of_fee": 70,
+      "buyback_share_pct_of_creator_bucket_if_enabled": 50,
+      "creator_tax_pct_range": [
+        0,
+        10
+      ],
+      "creator_tax_to_creator_pct": 100
+    },
+    "post_graduation": {
+      "lp_fee_pct": 0,
+      "hook_fee_pct": 1.0,
+      "creator_tax_pct": "same as launch",
+      "split": "same 30/70 (+50% buyback of creator bucket)"
+    },
+    "buyback": {
+      "v1_docs": "protocol treasury TWAP buys and burns PONS with 80% of protocol fees; 20% ops; 'not immutable yet'",
+      "v2_docs_and_code": "per-launch creator-funded buyback of launch token, locked 5y in vault, 70/30 creator/protocol, weighted vesting clock",
+      "divergence": "none between v2 docs and code; v1 docs describe a different, off-chain mechanism"
+    },
+    "payout_mechanism": "pull payments via FeeEscrow",
+    "evidence": "[ONCHAIN],[DOCS]"
+  },
+  "incidents": [
+    {
+      "id": "INC-1",
+      "name": "snipe-tax exemption bundling",
+      "impact": ">= $18.43M across 53 launches (Jul 10 - Sep 21 2026) per analyst Wazz / The Block",
+      "mechanism": "creator exempts <=32 wallets from 99% snipe tax; bundle buys >70% supply in launch second; sells into retail",
+      "evidence": "[ONCHAIN mechanism] [OBSERVED: search summary; URLs unresolved]"
+    },
+    {
+      "id": "INC-2",
+      "name": "Gen1 -> Gen2 same-day redeploy",
+      "impact": "unknown",
+      "mechanism": "unknown; token-level restriction changes and fee split 10->30 shipped",
+      "evidence": "[ONCHAIN] cause [UNKNOWN]"
+    },
+    {
+      "id": "INC-3",
+      "name": "frontend authorization vulnerability (mid-July)",
+      "impact": "patched; stated not to affect V2 Multicall3",
+      "evidence": "[OBSERVED: search summary]"
+    },
+    {
+      "id": "INC-4",
+      "name": "V2 launches paused for sniping fix",
+      "impact": "relaunched after patch + audit",
+      "evidence": "[OBSERVED: search summary]"
+    },
+    {
+      "id": "INC-5",
+      "name": "bot-inflated issuance",
+      "impact": "266,221 gen2 launches in ~102 days",
+      "evidence": "[ONCHAIN scan.log]"
+    }
+  ],
+  "open_questions": [
+    "OQ-2.1 gen1 root cause",
+    "OQ-2.3 stock pair-token addresses/economics",
+    "OQ-2.5 rescue function conditions",
+    "OQ-2.6 gas profile",
+    "OQ-2.7 fee escrow / forwarder / locker verification status",
+    "OQ-2.8 re-read launchEnabled and snipeTaxSeconds to date the docs lag"
+  ]
+}

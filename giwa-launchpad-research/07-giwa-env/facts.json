@@ -1,0 +1,41 @@
+{
+  "phase": "07-giwa-env",
+  "probed_at": "2026-10-24",
+  "chain": {
+    "name": "GIWA Sepolia", "chainId": 91342, "operator": "Dunamu (Upbit)", "stack": "OP Stack", "execution_client": "op-reth (reth/v2.3.0)",
+    "hardfork": "Karst / Upgrade 19 (Osaka EVM) applied 2026-07-06 testnet", "gpo_flags": {"ecotone": true, "fjord": true, "isthmus_getters": false},
+    "block_time_s": 1.0, "block_gas_limit": 60000000, "tx_gas_cap": 16777216, "contract_size_limit": 24576,
+    "observed": {"latest_block": 39450770, "base_fee_wei": 332, "gas_price_wei": 1000333, "priority_fee_wei": 1000000, "l1_base_fee_scalar": 1368, "l1_blob_base_fee_scalar": 801949},
+    "flashblocks": {"preconf_latency_ms": 200, "rpc": "https://sepolia-rpc-flashblocks.giwa.io", "methods_with_pending": ["eth_call", "eth_estimateGas", "eth_getBalance"], "rate_limited": true},
+    "rpc_public": "https://sepolia-rpc.giwa.io", "node_providers": ["Nodit", "QuickNode"],
+    "explorer": {"type": "Blockscout", "url": "https://sepolia-explorer.giwa.io", "api_v2": true, "stats": {"total_blocks": 39450346, "total_transactions": 463953657, "total_addresses": 157923306, "transactions_today": 2818628}},
+    "faucets": [{"url": "https://faucet.giwa.io", "amount_eth": 0.005, "period_h": 24}, {"url": "https://faucet.lambda256.io/giwa-sepolia", "amount_eth": 0.01, "period_h": 24}],
+    "withdrawal_delay_days": 7, "fault_proofs": "permissioned (CANNON_KONA type 8)", "precompiles_note": "P256VERIFY 6900 gas; ecPairing <= 300 pairs",
+    "wallet_support": {"viem_chain": "giwaSepolia (viem >= 2.57, op-stack chainConfig)", "giwa_wallet": "in development", "metamask": "add-network via explorer"},
+    "security_pages": {"security_council": "placeholder", "bug_bounty": "placeholder"},
+    "evidence": "[ONCHAIN] raw/giwa/probe_1.txt; [DOCS] raw/giwa/docs_giwa_llms-full.txt; [OBSERVED] Blockscout API"
+  },
+  "infra": {
+    "weth9": "0x4200000000000000000000000000000000000006", "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11", "permit2": "0x000000000022D473030F116dDEE9F6B43aC78BA3",
+    "create2": {"arachnid": "0x4e59b44847b379578588920cA78FbF26c0B4956C", "createx": "0xba5Ed099633D3B313e4D5F7bdc1305d3c28ba5Ed", "op_create2_deployer": "0x13b0D85CcB8bf860b6b79AF3029fCA081AE9beF2"},
+    "safe_1_4_1": {"singleton_factory": "0x914d7Fec6aaC8cd542e72Bca78B30650d45643d7", "safe": "0x69f4D1788e39c87893C980c06EdF4b7f686e2938", "safe_l2": "0xfb1bffC9d739B8D520DaF37dF666da4C687191EA", "proxy_factory": "0x4e1DCf7AD4e460CfD30791CCC4F9c8a4f820ec67", "multisend": "0x998739BFdAAdde7C933B942a68053933098f9EDa", "multisend_call_only": "0xA1dabEF33b3B82c7814B6D82A79e50F4AC44102B"},
+    "erc4337": {"entrypoint_v06": "0x5FF137D4b0FDCD49DcA30c7CF57E578a026d2789", "entrypoint_v07": "0x0000000071727De22E5E9d8BAf0edAc6f37da032"},
+    "eas": {"schema_registry": "0x4200000000000000000000000000000000000020", "eas": "0x4200000000000000000000000000000000000021"},
+    "dojang": {"scroll": "0xd5077b67dcb56caC8b270C7788FC3E6ee03F17B9", "indexer": "0x9C9Bf29880448aB39795a11b669e22A0f1d790ec", "schema_book": "0x78cBb3413FBb6aF05EF1D21e646440e56baE3AD6", "attester_book": "0xDA282E89244424E297Ce8e78089B54D043FB28B6", "verified_address_resolver": "0x692009FE206C3F897867F6BF7B5B45506B747F9e",
+      "attesters": {"UPBIT_KOREA": {"id": "0xd99b42e778498aa3c9c1f6a012359130252780511687a35982e8e52735453034", "address": "0x09B170CA2A006081042992bCE7379B85a02149C6"}, "TESTNET_FAUCET": {"id": "0xaa92f8c143657dde575de430aecaea6ca91f2e6072339b16932d426895d8d678", "address": "0x63CCe2b569A7bC35895ee24306c1512fefc06121"}},
+      "schemas": {"verified_address": {"content": "bool isVerified", "uid": "0x072d75e18b2be4f89a13a7147240477481c4b526d5795802acba59046b426e08"}, "balance_root": {"content": "uint256 coinType,uint64 snapshotAt,uint192 leafCount,uint256 totalAmount,bytes32 root", "uid": "0x369faa9c2cd261c45be3db5e230b585f5f1abecf8e12be575bb543e917e6db52"}, "verified_balance": {"content": "uint256 balance,bytes32 salt,bytes32[] proofs", "uid": "0x77bf88ca262cc63e1b185dccd870aacc5320b8987ef6c7169920f265fe6ab5e9"}, "verified_code": {"content": "bytes32 codeHash,string domain", "uid": null}}},
+    "up_name_registry": "0x091D00004f21eb2Fc30964A8a4995692d9b49628",
+    "playground": {"url": "https://sepolia-playground.giwa.io", "verified_token": "0xBCdB22f56642DE57624CfC2fBb9eE398cF3CA268", "verified_token_faucet": "0xfe4b4F5f2f8843dC9Ca75E563f2f7eB0f44Ae83e"},
+    "pyth": "0x2880aB155794e7179c9eE2e38200202908C17B43",
+    "l1_sepolia": {"optimism_portal": "0x956962C34687A954e611A83619ABaA37Ce6bC78A", "l1_standard_bridge": "0x77b2ffc0F57598cAe1DB76cb398059cF5d10A7E7", "system_config": "0x8352825bA56C32d816Dd906Ad4A392B5BC9eC984", "dispute_game_factory": "0x37347caB2afaa49B776372279143D71ad1f354F6", "batcher": "0x1cAaaA58002A7e8B4c6F427AC2c943767b4d6cd7", "batch_inbox": "0x00Ef2e3B7754f2a65F1e897a27A3306D9B52F544", "proposer": "0x032D5bd4401047e3A3d9f5e18226bF4E1699097c", "challenger": "0x4160344aa39B6237D44A4e3F2e57A211f0fBeBFF", "proxy_admin_owner": "0x0B266965c88C78f17e1F9f59784249bf8Da1CB9E", "system_config_owner": "0x3d58888b6903B87bD030b93F6FD37cb843b92DB7", "guardian": "0xb033baF85ad00af475154a15c35FC00eda6f98A0"},
+    "dex": {"canonical_uniswap": false, "community_deployments_max_tx": {"UniswapV3Factory": 6, "UniswapV2Factory": 2, "PoolManager": 0, "SwapRouter": 2667, "UniversalRouter": 74}, "decision": "build own locked CPAMM"},
+    "stablecoin_official": false, "token_lists": false,
+    "indexers": {"documented": ["Nodit Web3 Data API"], "assumed_self_hosted": ["Ponder", "Subsquid"], "unknown_hosted": ["Envio", "Goldsky", "The Graph"]},
+    "evidence": "[ONCHAIN]/[DOCS]"
+  },
+  "build_vs_reuse": {"build": ["graduation CPAMM pool", "timelock", "indexer", "points/season contracts"], "reuse": ["Multicall3", "Permit2", "CreateX", "Safe 1.4.1", "EAS/Dojang", "UP ID", "Pyth", "WETH9", "EntryPoint (optional AA)"]},
+  "ecosystem": {"launchpads": ["GIWA.MARKETS", "MemeFab.fun"], "defi": ["XPayr", "XPAD Terminal", "JAKDU", "Gama"], "consumer": ["TILE", "NARU", "HANOK", "Kachi.xyz"], "infra": ["ZKProofport", "UMUL", "JEBI", "ForeDex", "BARO", "Mergit", "Pabal"], "dunamu": ["Dojang", "UP ID", "Bojagi", "Playground"], "evidence": "[DOCS] web search 2026-10-24"},
+  "audience_regulatory": {"icos_prohibited": true, "vaupa_phase1_in_force": true, "digital_asset_basic_act": "stalled as of 2026-04", "retail_behaviour": "CEX-centric, listing pumps, Telegram/influencer communities", "trademark_risk": "GIWA is Dunamu's mark; third-party GIWA.MARKETS/$GIWA exist", "evidence": "[DOCS] web search 2026-10-24"},
+  "testnet_strategy": {"season_length_weeks": 4, "scarce_quote": "soulbound season credit rationed per wallet, weighted by Dojang", "score": ["unique counterparties", "holding duration", "graduations with >=N distinct buyers", "curation accuracy", "creator retention"], "sybil": ["Dojang weights", "credit caps", "cluster detection", "retro-slashing"], "exit_criteria": {"seasons": 3, "bundled_graduation_share_max": 0.30, "graduations_with_25_attested_buyers_min": 0.40}},
+  "open_questions": ["OQ-7.1", "OQ-7.2", "OQ-7.3", "OQ-7.4", "OQ-7.5"]
+}

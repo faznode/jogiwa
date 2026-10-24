@@ -1,0 +1,51 @@
+{
+  "phase": "08-ideation",
+  "status": "closed",
+  "generated_at": "2026-10-24",
+  "inputs": ["01-recon", "02-contracts", "03-webapp", "04-backend-infra", "05-economics", "06-competitors", "07-giwa-env"],
+  "mechanic_classification": {
+    "total": 32,
+    "must_copy": ["M01 cpamm curve w/ virtual reserve", "M02 price continuity at graduation", "M03 fees on quote leg", "M04 one-tx launch+opening order", "M05 permissionless graduate", "M16 screening/restricted jurisdictions", "M18 eth_simulateV1 preview + error glossary", "M19 shape of indexer+realtime (improved)"],
+    "improve": ["M06", "M07 70/30 -> 40/30/30", "M09 creator tax cap 3%", "M14 reputation not count", "M17 wallets", "M19", "M23 batch auction minutes not hours", "M24", "M26", "M28 one default mode", "M32 vesting default"],
+    "drop": ["M10 buyback slice", "M13 multi-pair (until mainnet)", "M25 revenue NFTs", "M27 platform-token burn engines", "M30 comments v1", "M31 livestreams v1"],
+    "replace": ["M08 snipe tax+exemptions -> batch window + manifest", "M11 v4 hook -> locked CPAMM", "M12 quote-only graduation -> people threshold", "M15 admin verified list -> Dojang + objective thresholds", "M20 hot keepers -> permissionless bounties", "M21 Safe w/o timelock -> Safe+48h timelock", "M22 volume trending -> quality ranking", "M29 volume points -> quality points"],
+    "evidence": "report.md §1"
+  },
+  "pains_collected": 16,
+  "ideas": {
+    "count": 44,
+    "file": "ideas.csv",
+    "axes": {"launch": 10, "creator": 7, "trader": 7, "trust": 6, "community": 5, "incentives": 5, "discovery": 2, "ecosystem": 2},
+    "scoring": "six criteria 1-5 (user impact, uniqueness, feasibility on GIWA, build cost [5=cheap], abuse/regulatory risk [5=low], testnet measurability); total max 30",
+    "score_range": [19, 28],
+    "axis_means": {"launch": 24.6, "creator": 25.1, "trader": 23.9, "trust": 23.8, "community": 23.2, "incentives": 26.0, "discovery": 25.0, "ecosystem": 22.0}
+  },
+  "shortlist": [
+    {"id": "S1", "name": "Opening Batch Window", "ideas": ["I01"], "score": 26, "pains": ["P1", "P13", "P14"]},
+    {"id": "S2", "name": "Humans-First Window (Dojang)", "ideas": ["I02"], "score": 28, "pains": ["P1", "P9", "P13"]},
+    {"id": "S3", "name": "People-Threshold Graduation", "ideas": ["I03"], "score": 28, "pains": ["P1", "P13"]},
+    {"id": "S4", "name": "Fairness Card / Launch Manifest", "ideas": ["I04", "I20"], "score": 27, "pains": ["P2", "P16", "P4"]},
+    {"id": "S5", "name": "Creator Vesting by Default", "ideas": ["I11"], "score": 28, "pains": ["P4"]},
+    {"id": "S6", "name": "Streaming Pull-Based Fees", "ideas": ["I12"], "score": 25, "pains": ["P6"]},
+    {"id": "S7", "name": "Creator Reputation + Dojang/UP ID badge", "ideas": ["I13", "I29"], "score": 27, "pains": ["P9", "P4", "P3"]},
+    {"id": "S8", "name": "Quality-Ranked Discovery", "ideas": ["I18", "I19"], "score": 27, "pains": ["P3"]},
+    {"id": "S9", "name": "Holder-Paid Liquidity (locked CPAMM 40/30/30)", "ideas": ["I21", "I25", "I38"], "score": 25, "pains": ["P5"]},
+    {"id": "S10", "name": "Timelocked Admin + In-App Notice", "ideas": ["I26"], "score": 25, "pains": ["P7", "P16"]},
+    {"id": "S11", "name": "Squads with Treasuries", "ideas": ["I31"], "score": 25, "pains": ["P10"]},
+    {"id": "S12", "name": "Season Economy (soulbound credit + quality points + retro slashing)", "ideas": ["I36", "I37", "I39"], "score": 27, "pains": ["P9", "P11"]}
+  ],
+  "default_parameters_testnet": {
+    "obwDuration_s": 120, "obw_ab_variants_s": [90, 120, 180], "humansFirst_min": 10,
+    "cap_tier1_pct_of_G": 2, "cap_tier2_pct_of_G": 5, "creator_allocation_max_bps": 300, "creator_tax_max_bps": 300,
+    "people_threshold_N": 25, "graceFallback_h": 24, "vesting": "cliff at graduation, linear 30 d, expiry 30 d",
+    "fee_bps": 100, "fee_split": {"creator": 40, "holders": 30, "protocol": 30},
+    "season_len_days": 28, "credit_ration_per_day": {"tier0": 0, "tier1": 20, "tier2": 50},
+    "curve": {"S": "1e9 tokens", "Q0": "1000 SC", "G": "2500 SC", "G_over_Q0": 2.5, "supply_split_pct": {"sold_on_curve": 71.43, "pool": 20.41, "burned": 8.16}}
+  },
+  "thesis": {
+    "one_line": "The launchpad where graduation is a community event, not a bot event: fair-priced opens for attested humans, people-threshold graduation, default creator vesting, holder-paid permanent liquidity, Korean-first, measured on a scarce season economy.",
+    "pillars": ["Korean communities, not bots (Dojang identity rails)", "Fairness you can verify, not fairness you are told (contract rules on a Fairness Card)", "GIWA is the right home (free gas + Flashblocks + EAS/Dojang/UP ID + no canonical DEX + quest-farmed testnet as the proving ground)"],
+    "names": ["Madang (placeholder used in masterplan)", "Ondol", "Jangteo", "Haedoji", "Bulkkot"]
+  },
+  "unknowns": ["eth_simulateV1 support on GIWA op-reth", "count of Upbit-attested Dojang wallets on Sepolia", "tolerable batch-window length for Korean traders (A/B)", "embedded wallet provider with KakaoTalk login"]
+}

@@ -1,0 +1,34 @@
+{
+  "phase": "04-backend-infra",
+  "method": "inference from normal-use observation + Phase 2 on-chain role reads",
+  "components": [
+    {"name": "hosting_api", "inference": "Vercel-hosted Next.js route handlers with edge caching", "confidence": "high", "evidence": "[OBSERVED] x-vercel-id, x-vercel-cache, x-matched-path headers"},
+    {"name": "indexer", "inference": "own log-decoding indexer into relational store; no subgraph/GraphQL", "confidence": "high", "evidence": "[OBSERVED] ticks rows keyed txhash:logIndex mixing curve and v4 swap events"},
+    {"name": "realtime", "inference": "indexer -> Ably publish -> client cache invalidation; REST source of truth", "confidence": "high", "evidence": "[OBSERVED] Ably SDK, token.created/token.updated"},
+    {"name": "cache_cdn", "inference": "public lists edge-cached; user endpoints no-store; balances service behind Cloudflare", "confidence": "high", "evidence": "[OBSERVED] .headers files"},
+    {"name": "image_pipeline", "inference": "upload -> IPFS pin -> same-origin /api/artwork resizer", "confidence": "medium-high", "evidence": "[OBSERVED] artwork ipfs:// + route"},
+    {"name": "moderation", "inference": "allow-list + takedown/law-enforcement pages + geo gating + wallet screening; no user report button", "confidence": "medium", "evidence": "[OBSERVED]"},
+    {"name": "keeper_fee_sweep_buyback", "inference": "hot EOA feeSweepOperator triggers sweeps/buybacks", "address": "0xa1018c1D9655292A2dE0F7dEa9a0F848EaA8cA83", "confidence": "high", "evidence": "[ONCHAIN] factory/hook reads 2026-10-23"},
+    {"name": "keeper_graduation", "inference": "permissionless graduate() + auto-attempt in last buy; finisher bot likely", "confidence": "medium", "evidence": "[ONCHAIN] code path; bot UNKNOWN"},
+    {"name": "keeper_holder_payouts", "inference": "scheduled off-chain distributor (payout rounds counter)", "confidence": "medium-high", "evidence": "[OBSERVED] fees.distributor, payouts=1419 on one token"},
+    {"name": "key_management", "inference": "owner Safe 2-of-3 without timelock; hot EOAs for ops", "confidence": "high", "evidence": "[ONCHAIN]"},
+    {"name": "embedded_wallets", "inference": "Turnkey with delegated public key", "confidence": "medium", "evidence": "[OBSERVED] CSP auth.turnkey.com, /api/turnkey/delegated-public-key"},
+    {"name": "rpc_upstream", "inference": "same-origin proxy hides provider", "confidence": "low", "evidence": "[UNKNOWN] OQ-4.2"}
+  ],
+  "single_points_of_failure": ["upstream RPC provider", "indexer lag", "hot EOA keepers", "Ably (graceful)", "Vercel", "IPFS gateway", "2-of-3 Safe without timelock"],
+  "incidents": [
+    {"date": "2026-10-23", "what": "degraded performance / backend upgrade banner on ponsfamily.com", "evidence": "[OBSERVED] raw/docs-snapshots/ponsfamily.com.html"},
+    {"date": "2026-09-04", "what": "reported ~13-14 min Robinhood Chain halt; later analysis: chain kept producing blocks, a block explorer stopped indexing while batch poster was outbid for Ethereum blob space; ~40 min drop in successful tx traffic", "evidence": "[DOCS press, URLs unresolved OQ-4.1]"},
+    {"date": "2026-07", "what": "launch-week sniping/bundling attacks and outages forcing Gen1->Gen2->V2 redeploys", "evidence": "[DOCS v1/v2] + Phase 2"}
+  ],
+  "resilience_requirements": [
+    "indexer from raw RPC logs with >=2 upstreams and failover",
+    "separate chain-health and indexer-health indicators in UI",
+    "trading usable from chain reads alone when indexer lags",
+    "idempotent multi-host keepers; every keeper action permissionless",
+    "monitor L1 blob-fee pressure / batcher lag / sequencer liveness",
+    "status page driven by health checks",
+    "edge caching with stale-while-revalidate"
+  ],
+  "open_questions": ["OQ-4.1", "OQ-4.2", "OQ-4.3", "OQ-4.4", "OQ-4.5"]
+}

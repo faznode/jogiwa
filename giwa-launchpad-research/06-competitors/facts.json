@@ -1,0 +1,24 @@
+{
+  "phase": "06-competitors",
+  "as_of": "2026-10-24",
+  "evidence_note": "Pons = [ONCHAIN]/[OBSERVED] (Phases 2-5). Others = [DOCS] via live web search summaries (URLs unresolved, OQ-6.2) unless marked OBSERVED.",
+  "competitors": [
+    {"name": "Pools.trade", "chain": "Robinhood Chain", "by": "Uniswap Labs", "live_since": "2026-08-05", "modes": ["Instant Launch", "Crowd Launch 4h auction, $10k FDV minimum else refund"], "platform_fee": 0, "lp_fee_pct": 0.25, "autocompound_locked_pct": 0.20, "creator_fee_pct_optional": 0.05, "graduation": "Uniswap v4, permanently locked", "evidence": "[DOCS]"},
+    {"name": "Lemon.fun", "chain": "Robinhood Chain", "model": "curve -> Uniswap V3 / SushiSwap V3, configurable allocations/taxes/caps, LP locked", "evidence": "[DOCS]"},
+    {"name": "NOXA", "chain": "Robinhood Chain", "model": "direct single-sided Uniswap V3 1% pool in one tx, LP permanently locked, no graduation", "fee_split": "50/50 creator/platform", "evidence": "[DOCS]"},
+    {"name": "pump.fun", "chain": "Solana", "curve_fee_pct": 1.25, "creator_fee_pct": 0.30, "protocol_fee_pct": 0.95, "app_fee_pct_since_2026_10_17": 0.45, "migration_fee_sol": 0.015, "graduation": "PumpSwap, creator fee scales with market cap", "evidence": "[DOCS]"},
+    {"name": "four.meme", "chain": "BNB Chain", "curve_fee_pct": 1.0, "creator_share": "unpublished", "graduation": "PancakeSwap at 18 BNB", "evidence": "[DOCS]"},
+    {"name": "LetsBONK.fun", "chain": "Solana", "fee_pct": 1.5, "creator_rewards": "not guaranteed", "token_flywheel": "BONK buy-and-burn", "evidence": "[DOCS]"},
+    {"name": "Zora", "chain": "Base", "fee_pct": 1.0, "split": {"creator": 50, "platform_referral": 20, "trade_referral": 4, "doppler": 1, "protocol": 5, "lp_preservation": 20}, "evidence": "[DOCS]"},
+    {"name": "Clanker", "chain": "Base", "model": "Farcaster-native, full supply single-sided v4, creator-set LP fee, protocol 20% of LP fees", "evidence": "[DOCS]"},
+    {"name": "Flaunch", "chain": "Base", "model": "creator revenue split 0-100% streamed in ETH via Memestream NFT; Progressive Bid Wall buyback hook; launch fee 0.1% of creator-set mcap", "evidence": "[DOCS]"},
+    {"name": "GIWA.MARKETS", "chain": "GIWA Sepolia", "url": "https://giwa.markets", "model": "pump-style curve, graduation at 800M tokens sold (80%), locked pool, five launch modes, EN/KO UI, 70% of protocol fees buy-and-burn $GIWA (token trades on Robinhood Chain, promises 1:1 migration to GIWA mainnet), hosts RWA-style genesis tokens", "evidence": "[OBSERVED] fetched 2026-10-24"},
+    {"name": "MemeFab.fun", "chain": "GIWA Sepolia", "model": "unknown; listed in GIWA ecosystem DeFi", "evidence": "[DOCS] OQ-6.3"}
+  ],
+  "feature_matrix_rows": 32,
+  "graduation_designs": ["quote-threshold curve", "supply-threshold curve", "time-boxed auction with refund", "direct single-sided pool", "direct pool + bid-wall buyback"],
+  "anti_sniper_designs": ["decaying launch tax (Pons)", "auction clearing (Pools Crowd Launch)", "captcha-gated human windows", "multi-wallet neutralisation", "fee-change caps", "permanent LP lock", "creator vesting (rare)", "serial-deployer labels"],
+  "creator_incentives_best_in_class": {"fee_share": "Flaunch 0-100% / Zora 50% per swap", "streaming": "Flaunch Memestream NFT", "buyback": "Flaunch bid wall", "social": "Zora/Clanker Farcaster", "referral": "Zora 20%+4%"},
+  "unsolved_pains": ["bundling decides winners in first second", "invisible insider exemptions", "fake volume / sell-back churn rewarded by volume sorts", "dev dumps, no vesting", "graduate-and-forget", "keeper-dependent creator income", "no timelocked admin", "indexer failure reads as chain down", "no identity/trust layer", "English-only UX for Korean users", "testnet value problem / quest farming", "GIWA namespace confusion by third-party $GIWA token"],
+  "open_questions": ["OQ-6.1", "OQ-6.2", "OQ-6.3", "OQ-6.4"]
+}

@@ -1,0 +1,45 @@
+id,axis,idea,one_liner,user_impact,uniqueness,feasibility_giwa,build_cost_5_is_cheap,abuse_reg_risk_5_is_low,testnet_measurability,total,shortlist,pain_addressed
+I01,launch,Batch-clearing opening window,"Every launch opens with a 90-180 s batch window: all buys clear at one uniform price, pro-rata with per-wallet caps; curve opens after. Kills first-second bundling.",5,4,5,3,4,5,26,Y,bundling/sniping
+I02,launch,Dojang humans-first window,"First N minutes after open: only Dojang-attested wallets may buy, capped per wallet (Upbit attester > faucet attester).",5,5,5,4,4,5,28,Y,bots; identity layer
+I03,launch,People-threshold graduation,"Graduation needs quote threshold AND >= N distinct attested buyers; single-whale instant graduation impossible.",5,5,5,4,4,5,28,Y,bundled graduations
+I04,launch,Public Launch Manifest / Fairness Card,"Immutable on-chain manifest hash (allowlist <= 5 public wallets, creator allocation, fees, vesting) shown before first buy; no hidden exemptions.",5,4,5,4,5,4,27,Y,invisible exemptions
+I05,launch,Per-block uniform pricing on the curve,"All buys within one 1-s block settle at the block-start price with a per-block fill cap; intra-block ordering yields nothing.",4,5,3,2,4,4,22,N,sandwich/ordering
+I06,launch,Flashblocks-native trade UX,"Use pending-tag quotes and 200 ms preconfs for instant fill feedback and accurate slippage; expose flashblock index in trade feed.",3,3,5,4,5,3,23,N,UX latency
+I07,launch,Time-boxed 'Sunrise' launches,"Creator schedules open time (KST prime time); countdown page; pre-registration with Dojang; no trading before T0.",4,3,5,4,4,4,24,N,bots; community
+I08,launch,Launch rate limits by reputation,"Unverified wallets: 1 launch/day; attested: 3/day; high reputation: 10/day; deposit refunded on >= 10 distinct buyers.",4,3,5,5,4,5,26,N,serial deployers
+I09,launch,Refundable launch bond,"Creator posts a small bond returned when the token reaches >= 10 distinct buyers or graduates; forfeited bonds fund holder rewards.",3,3,5,5,4,4,24,N,spam launches
+I10,launch,Multi-mode launches,"Classic curve / Batch-first / Dojang-gated / Squad launch selectable; mode shown as badge; A/B rotate default per week on testnet.",4,3,5,3,4,5,24,N,fit for different creators
+I11,creator,Creator vesting by default,"Creator opening buy goes to a vesting vault: cliff at graduation, linear 30 days after; creator cannot sell on the curve.",5,4,5,4,5,5,28,Y,dev dumps
+I12,creator,Streaming pull-based creator fees,"Fees accrue inside curve/pool and are claimable any time by the creator or pushed by anyone (bounty); no keeper dependency.",4,3,5,4,5,4,25,Y,keeper-dependent income
+I13,creator,Creator Reputation Score,"Score from graduations with distinct buyers, holder retention, no-dump history + Dojang/UP ID; gates limits and featured slots; issued as our own EAS attestation.",5,5,5,3,4,5,27,Y,no trust layer
+I14,creator,Chapters (post-graduation milestones),"Milestones (holders, age, volume quality) unlock vesting tranches, badge upgrades and reward boosts; lifecycle instead of graduate-and-forget.",4,5,4,3,4,4,24,N,graduate-and-forget
+I15,creator,Creator studio with AI meme kit,"Bilingual description/translation, image safety check, auto OG/share cards for KakaoTalk/Telegram/X.",3,3,5,4,4,3,22,N,language; content quality
+I16,creator,Creator streaks,"Consecutive weekly launches that hit quality thresholds earn fee-share boosts; broken by dumps.",3,3,5,5,4,5,25,N,creator retention
+I17,creator,Squad launch (co-creators),"2-5 creators launch together with split fee rights and shared vesting; squad page.",3,4,5,3,4,4,23,N,community
+I18,trader,Quality-ranked discovery,"Trending ranks by distinct attested buyers, holder growth and retention; churn-detected tokens demoted; 'fresh humans' badge.",5,4,5,3,5,5,27,Y,fake volume
+I19,trader,Churn/wash detector labels,"On-chain heuristics (sell-back ratio, same-funder clusters, same-block bursts) label tokens and wallets; shown on cards.",4,4,5,3,5,5,26,N,fake volume
+I20,trader,Pre-trade Fairness Card,"Before buy: shows manifest, creator vesting, top-holder share, attested-buyer count, churn flags; one glance risk read.",5,3,5,4,5,4,26,Y,opacity
+I21,trader,Holder-paid liquidity,"Our locked pool charges 1%; 30% of it streams to holders by time-weighted balance (claimable), 40% creator, 30% protocol.",5,5,4,3,4,4,25,Y,graduate-and-forget
+I22,trader,Exit-slip protection,"Curve sells route through the batch window when a block's sell pressure exceeds X% so dumps clear at uniform price.",3,4,3,2,4,3,19,N,dumps
+I23,trader,Position journal & P&L,"Per-wallet realised/unrealised P&L, holding time, 'you were buyer #12 of 60' narrative.",3,2,5,4,5,4,23,N,UX
+I24,trader,Watchlists + Telegram/Kakao alerts,"Alerts on graduation, chapter unlocks, creator actions; Korean templates.",3,2,5,4,5,4,23,N,retention
+I25,trust,Locked liquidity that is verifiable,"Pool LP is minted to a non-upgradeable burner with public proof page; no admin path.",4,2,5,5,5,3,24,N,liquidity rug
+I26,trust,Timelocked admin + in-app notice,"All parameter changes via Safe + 48 h timelock; pending changes rendered in the app.",4,3,5,5,5,3,25,Y,opaque admin
+I27,trust,Chain-health vs indexer-health banner,"Separate live indicators; trading stays possible from chain reads when indexer lags.",3,3,5,4,5,3,23,N,indexer-as-chain
+I28,trust,Permissionless keepers with bounties,"Graduation, fee pushes, chapter checks callable by anyone for a bounty; our bots are just first in line.",4,3,5,4,5,4,25,N,SPOF keepers
+I29,trust,Verified creator via Dojang + UP ID,"Badge requires Upbit-attested wallet (or faucet attester on testnet) and a UP ID name; shown everywhere.",5,5,5,4,4,4,27,Y,identity
+I30,trust,Whale-proof tiers via Verified Balance,"Later: allocations capped by attested exchange balance tiers (small holders get priority windows).",3,5,3,2,3,3,19,N,whale dominance
+I31,community,Squads / guilds with treasuries,"Form squads; fee-share routed to squad treasury; squad leaderboards by quality score.",4,4,5,3,4,5,25,Y,community
+I32,community,Weekly graduation battles,"Squad vs squad: most graduations with >= 25 attested buyers in a week; prizes in season points.",4,4,5,3,4,5,25,N,engagement
+I33,community,Seasonal themes (K-culture calendar),"4-week seasons with themes (Chuseok, K-pop comebacks, exams) and themed badges.",3,3,5,4,4,4,23,N,retention
+I34,community,Korean-first bilingual UX,"KO default with EN toggle, Korean number formats (만/억), KST times, Kakao share.",4,3,5,4,5,3,24,N,language
+I35,community,Collab launches with creators/streamers,"Verified streamer launches with on-stream batch window; stream embed on token page.",3,3,4,3,3,3,19,N,distribution
+I36,incentives,Soulbound season credit as curve quote,"Rationed non-transferable credit minted daily per wallet (Dojang-weighted) is the only curve quote on testnet; introduces scarcity.",5,5,5,3,4,5,27,Y,testnet value problem
+I37,incentives,Quality-only points,"Points for distinct counterparties, holding time, curation accuracy, creator retention; zero for volume/tx count.",5,4,5,4,4,5,27,Y,quest farming
+I38,incentives,Early-holder fee share,"First 100 attested buyers of a token that graduates share a pool fee slice for 30 days.",4,4,5,4,4,5,26,N,early-holder reward
+I39,incentives,Retro cluster slashing,"Scores finalised 7 days after season end; detected sybil clusters are zeroed; public method.",4,3,5,4,5,5,26,N,sybil
+I40,incentives,Referral with quality gate,"Referral credit only when referee reaches 5 distinct counterparties and 7-day retention.",3,3,5,4,4,5,24,N,referral farming
+I41,discovery,Narrative feeds & tags,"Human/AI tags (animal, K-pop, finance, politics-safe); feed per narrative; Korean tag synonyms.",3,3,5,4,4,4,23,N,discovery
+I42,discovery,'Buyer #' social proof,"Token page shows 'you would be attested buyer #13 of 25 needed to graduate'.",4,4,5,5,5,4,27,N,graduation UX
+I43,ecosystem,Pyth-priced USD/KRW display,"Prices in ETH, USD and KRW (Pyth ETH/USD + KRW/USD).",2,2,5,5,5,2,21,N,locale
+I44,ecosystem,Mainnet migration pass,"Season NFTs (soulbound) carry reputation and badges to mainnet; no token promise.",3,4,5,4,4,3,23,N,continuity

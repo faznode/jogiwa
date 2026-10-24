@@ -1,0 +1,835 @@
+[timestamps] sampled 179 anchors
+[gen1_launches] 2000000/87674666 blocks, logs=260, chunk=2500000, 0s
+[gen1_launches] 4500000/87674666 blocks, logs=629, chunk=3125000, 0s
+[gen1_launches] 7625000/87674666 blocks, logs=957, chunk=3906250, 0s
+[gen1_launches] 11531250/87674666 blocks, logs=1412, chunk=4882812, 1s
+[gen1_launches] 16414062/87674666 blocks, logs=1791, chunk=6103515, 1s
+[gen1_launches] error HTTP Error 429: Too Many Requests -> chunk 3051757
+[gen1_launches] 19465819/87674666 blocks, logs=1824, chunk=3814696, 4s
+[gen1_launches] 23280515/87674666 blocks, logs=1872, chunk=4768370, 4s
+[gen1_launches] 28048885/87674666 blocks, logs=1895, chunk=5960462, 4s
+[gen1_launches] 34009347/87674666 blocks, logs=1895, chunk=7450577, 4s
+[gen1_launches] 41459924/87674666 blocks, logs=1895, chunk=8000000, 4s
+[gen1_launches] 49459924/87674666 blocks, logs=1895, chunk=8000000, 4s
+[gen1_launches] 57459924/87674666 blocks, logs=1895, chunk=8000000, 4s
+[gen1_launches] error HTTP Error 429: Too Many Requests -> chunk 4000000
+[gen1_launches] 61459924/87674666 blocks, logs=1895, chunk=5000000, 8s
+[gen1_launches] 66459924/87674666 blocks, logs=1895, chunk=6250000, 8s
+[gen1_launches] 72709924/87674666 blocks, logs=1895, chunk=7812500, 8s
+[gen1_launches] 80522424/87674666 blocks, logs=1895, chunk=8000000, 8s
+[gen1_launches] 87674667/87674666 blocks, logs=1895, chunk=8000000, 8s
+[gen1_launches] DONE records=1895 in 8s
+[v2_graduations] 2000000/69433432 blocks, logs=10, chunk=2500000, 0s
+[v2_graduations] 4500000/69433432 blocks, logs=40, chunk=3125000, 0s
+[v2_graduations] 7625000/69433432 blocks, logs=80, chunk=3906250, 0s
+[v2_graduations] 11531250/69433432 blocks, logs=180, chunk=4882812, 0s
+[v2_graduations] 16414062/69433432 blocks, logs=268, chunk=6103515, 1s
+[v2_graduations] 22517577/69433432 blocks, logs=825, chunk=7629393, 1s
+[v2_graduations] 30146970/69433432 blocks, logs=5379, chunk=8000000, 1s
+[v2_graduations] 38146970/69433432 blocks, logs=8372, chunk=8000000, 1s
+[v2_graduations] 46146970/69433432 blocks, logs=9482, chunk=8000000, 2s
+[v2_graduations] 54146970/69433432 blocks, logs=10060, chunk=8000000, 2s
+[v2_graduations] 62146970/69433432 blocks, logs=10272, chunk=8000000, 2s
+[v2_graduations] error HTTP Error 429: Too Many Requests -> chunk 4000000
+[v2_graduations] 66146970/69433432 blocks, logs=10343, chunk=5000000, 5s
+[v2_graduations] 69433433/69433432 blocks, logs=10427, chunk=6250000, 5s
+[v2_graduations] DONE records=10427 in 5s
+[v2_launches] 2000000/69433432 blocks, logs=5027, chunk=2500000, 0s
+[v2_launches] 4500000/69433432 blocks, logs=8315, chunk=3125000, 1s
+[v2_launches] 7625000/69433432 blocks, logs=12193, chunk=3906250, 1s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 1953125
+[v2_launches] 9578125/69433432 blocks, logs=18330, chunk=2441406, 3s
+[v2_launches] 12019531/69433432 blocks, logs=23548, chunk=3051757, 3s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 1525878
+[v2_launches] 13545409/69433432 blocks, logs=28120, chunk=1907347, 5s
+[v2_launches] 15452756/69433432 blocks, logs=34799, chunk=2384183, 5s
+[v2_launches] 17836939/69433432 blocks, logs=39847, chunk=2980228, 5s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 1490114
+[v2_launches] 19327053/69433432 blocks, logs=47921, chunk=1862642, 7s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 931321
+[v2_launches] 20258374/69433432 blocks, logs=56997, chunk=1164151, 9s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 582075
+[v2_launches] 20840449/69433432 blocks, logs=65576, chunk=727593, 11s
+[v2_launches] 21568042/69433432 blocks, logs=74045, chunk=909491, 12s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 454745
+[v2_launches] 22022787/69433432 blocks, logs=81713, chunk=568431, 14s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 284215
+[v2_launches] 22307002/69433432 blocks, logs=84198, chunk=355268, 15s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 177634
+[v2_launches] 22484636/69433432 blocks, logs=89600, chunk=222042, 17s
+[v2_launches] 22706678/69433432 blocks, logs=95666, chunk=277552, 17s
+[v2_launches] 22984230/69433432 blocks, logs=101063, chunk=346940, 18s
+[v2_launches] 23331170/69433432 blocks, logs=110138, chunk=433675, 18s
+[v2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 216837
+[v2_launches] 23548007/69433432 blocks, logs=117984, chunk=271046, 20s
+[v2_launches] 23819053/69433432 blocks, logs=121666, chunk=338807, 21s
+[v2_launches] 24157860/69433432 blocks, logs=129024, chunk=423508, 22s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 211754
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 105877
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 52938
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 26469
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 24177860/69433432 blocks, logs=129667, chunk=25000, 272s
+[v2_launches] 24202860/69433432 blocks, logs=130459, chunk=31250, 272s
+[v2_launches] 24234110/69433432 blocks, logs=131390, chunk=39062, 272s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 24254110/69433432 blocks, logs=132111, chunk=25000, 276s
+[v2_launches] 24279110/69433432 blocks, logs=132809, chunk=31250, 276s
+[v2_launches] 24310360/69433432 blocks, logs=133474, chunk=39062, 276s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 24330360/69433432 blocks, logs=133984, chunk=25000, 279s
+[v2_launches] 24355360/69433432 blocks, logs=134698, chunk=31250, 279s
+[v2_launches] 24386610/69433432 blocks, logs=135498, chunk=39062, 279s
+[v2_launches] 24425672/69433432 blocks, logs=136352, chunk=48827, 280s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 24413
+[v2_launches] 24450085/69433432 blocks, logs=136880, chunk=30516, 283s
+[v2_launches] 24480601/69433432 blocks, logs=137333, chunk=38145, 284s
+[v2_launches] 24518746/69433432 blocks, logs=138057, chunk=47681, 284s
+[v2_launches] 24566427/69433432 blocks, logs=138677, chunk=59601, 284s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 29800
+[v2_launches] 24596227/69433432 blocks, logs=139093, chunk=37250, 287s
+[v2_launches] 24633477/69433432 blocks, logs=139434, chunk=46562, 287s
+[v2_launches] 24680039/69433432 blocks, logs=140061, chunk=58202, 287s
+[v2_launches] 24738241/69433432 blocks, logs=140808, chunk=72752, 287s
+[v2_launches] 24810993/69433432 blocks, logs=141975, chunk=90940, 288s
+[v2_launches] 24901933/69433432 blocks, logs=144417, chunk=113675, 289s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 56837
+[v2_launches] 24958770/69433432 blocks, logs=146103, chunk=71046, 292s
+[v2_launches] 25029816/69433432 blocks, logs=148728, chunk=88807, 292s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 44403
+[v2_launches] 25074219/69433432 blocks, logs=150504, chunk=55503, 295s
+[v2_launches] 25129722/69433432 blocks, logs=152630, chunk=69378, 296s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 34689
+[v2_launches] 25164411/69433432 blocks, logs=153863, chunk=43361, 299s
+[v2_launches] 25207772/69433432 blocks, logs=155424, chunk=54201, 299s
+[v2_launches] 25261973/69433432 blocks, logs=156913, chunk=67751, 299s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 33875
+[v2_launches] 25295848/69433432 blocks, logs=157804, chunk=42343, 303s
+[v2_launches] 25338191/69433432 blocks, logs=158534, chunk=52928, 303s
+[v2_launches] 25391119/69433432 blocks, logs=159343, chunk=66160, 304s
+[v2_launches] 25457279/69433432 blocks, logs=160946, chunk=82700, 304s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 41350
+[v2_launches] 25498629/69433432 blocks, logs=162128, chunk=51687, 307s
+[v2_launches] 25550316/69433432 blocks, logs=163375, chunk=64608, 307s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 32304
+[v2_launches] 25582620/69433432 blocks, logs=164092, chunk=40380, 311s
+[v2_launches] 25623000/69433432 blocks, logs=165047, chunk=50475, 311s
+[v2_launches] 25673475/69433432 blocks, logs=166319, chunk=63093, 311s
+[v2_launches] 25736568/69433432 blocks, logs=168507, chunk=78866, 311s
+[v2_launches] 25815434/69433432 blocks, logs=171251, chunk=98582, 311s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 49291
+[v2_launches] 25864725/69433432 blocks, logs=172711, chunk=61613, 315s
+[v2_launches] 25926338/69433432 blocks, logs=175233, chunk=77016, 316s
+[v2_launches] 26003354/69433432 blocks, logs=178594, chunk=96270, 316s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 48135
+[v2_launches] 26051489/69433432 blocks, logs=180373, chunk=60168, 319s
+[v2_launches] 26111657/69433432 blocks, logs=181794, chunk=75210, 320s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 37605
+[v2_launches] 26149262/69433432 blocks, logs=182944, chunk=47006, 323s
+[v2_launches] 26196268/69433432 blocks, logs=184361, chunk=58757, 323s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 29378
+[v2_launches] 26225646/69433432 blocks, logs=185116, chunk=36722, 326s
+[v2_launches] 26262368/69433432 blocks, logs=185969, chunk=45902, 326s
+[v2_launches] 26308270/69433432 blocks, logs=187110, chunk=57377, 327s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 28688
+[v2_launches] 26336958/69433432 blocks, logs=187728, chunk=35860, 330s
+[v2_launches] 26372818/69433432 blocks, logs=188342, chunk=44825, 331s
+[v2_launches] 26417643/69433432 blocks, logs=188990, chunk=56031, 331s
+[v2_launches] 26473674/69433432 blocks, logs=189839, chunk=70038, 331s
+[v2_launches] 26543712/69433432 blocks, logs=190888, chunk=87547, 331s
+[v2_launches] 26631259/69433432 blocks, logs=193562, chunk=109433, 332s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 54716
+[v2_launches] 26685975/69433432 blocks, logs=195841, chunk=68395, 335s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 34197
+[v2_launches] 26720172/69433432 blocks, logs=196998, chunk=42746, 338s
+[v2_launches] 26762918/69433432 blocks, logs=199239, chunk=53432, 338s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 26716
+[v2_launches] 26789634/69433432 blocks, logs=200549, chunk=33395, 342s
+[v2_launches] 26823029/69433432 blocks, logs=201879, chunk=41743, 342s
+[v2_launches] 26864772/69433432 blocks, logs=203196, chunk=52178, 343s
+[v2_launches] 26916950/69433432 blocks, logs=205301, chunk=65222, 343s
+[v2_launches] 26982172/69433432 blocks, logs=207515, chunk=81527, 344s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 40763
+[v2_launches] 27022935/69433432 blocks, logs=208617, chunk=50953, 347s
+[v2_launches] 27073888/69433432 blocks, logs=210121, chunk=63691, 347s
+[v2_launches] 27137579/69433432 blocks, logs=211370, chunk=79613, 347s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 39806
+[v2_launches] 27177385/69433432 blocks, logs=212119, chunk=49757, 351s
+[v2_launches] 27227142/69433432 blocks, logs=212931, chunk=62196, 351s
+[v2_launches] 27289338/69433432 blocks, logs=214580, chunk=77745, 351s
+[v2_launches] 27367083/69433432 blocks, logs=216883, chunk=97181, 351s
+[v2_launches] 27464264/69433432 blocks, logs=219792, chunk=121476, 353s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 60738
+[v2_launches] 27525002/69433432 blocks, logs=221724, chunk=75922, 356s
+[v2_launches] 27600924/69433432 blocks, logs=224229, chunk=94902, 356s
+[v2_launches] 27695826/69433432 blocks, logs=227713, chunk=118627, 357s
+[v2_launches] 27814453/69433432 blocks, logs=232230, chunk=148283, 357s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 74141
+[v2_launches] 27888594/69433432 blocks, logs=233980, chunk=92676, 361s
+[v2_launches] 27981270/69433432 blocks, logs=236169, chunk=115845, 361s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 57922
+[v2_launches] 28039192/69433432 blocks, logs=237606, chunk=72402, 364s
+[v2_launches] 28111594/69433432 blocks, logs=239535, chunk=90502, 364s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 45251
+[v2_launches] 28156845/69433432 blocks, logs=240383, chunk=56563, 368s
+[v2_launches] 28213408/69433432 blocks, logs=241354, chunk=70703, 369s
+[v2_launches] 28284111/69433432 blocks, logs=242795, chunk=88378, 369s
+[v2_launches] 28372489/69433432 blocks, logs=245846, chunk=110472, 369s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 55236
+[v2_launches] 28427725/69433432 blocks, logs=248256, chunk=69045, 373s
+[v2_launches] 28496770/69433432 blocks, logs=251662, chunk=86306, 373s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 43153
+[v2_launches] 28539923/69433432 blocks, logs=253660, chunk=53941, 377s
+[v2_launches] 28593864/69433432 blocks, logs=256755, chunk=67426, 377s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 33713
+[v2_launches] 28627577/69433432 blocks, logs=258619, chunk=42141, 380s
+[v2_launches] 28669718/69433432 blocks, logs=260380, chunk=52676, 381s
+[v2_launches] 28722394/69433432 blocks, logs=261854, chunk=65845, 381s
+[v2_launches] 28788239/69433432 blocks, logs=263247, chunk=82306, 382s
+[v2_launches] 28870545/69433432 blocks, logs=265206, chunk=102882, 382s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 51441
+[v2_launches] 28921986/69433432 blocks, logs=266198, chunk=64301, 386s
+[v2_launches] 28986287/69433432 blocks, logs=267508, chunk=80376, 386s
+[v2_launches] 29066663/69433432 blocks, logs=269354, chunk=100470, 386s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 50235
+[v2_launches] 29116898/69433432 blocks, logs=270733, chunk=62793, 389s
+[v2_launches] 29179691/69433432 blocks, logs=272976, chunk=78491, 389s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 39245
+[v2_launches] 29218936/69433432 blocks, logs=274632, chunk=49056, 393s
+[v2_launches] 29267992/69433432 blocks, logs=277053, chunk=61320, 393s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 30660
+[v2_launches] 29298652/69433432 blocks, logs=277978, chunk=38325, 396s
+[v2_launches] 29336977/69433432 blocks, logs=279426, chunk=47906, 398s
+[v2_launches] 29384883/69433432 blocks, logs=280996, chunk=59882, 398s
+[v2_launches] 29444765/69433432 blocks, logs=283312, chunk=74852, 398s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 37426
+[v2_launches] 29482191/69433432 blocks, logs=284559, chunk=46782, 402s
+[v2_launches] 29528973/69433432 blocks, logs=286170, chunk=58477, 402s
+[v2_launches] 29587450/69433432 blocks, logs=287957, chunk=73096, 402s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 36548
+[v2_launches] 29623998/69433432 blocks, logs=288792, chunk=45685, 405s
+[v2_launches] 29669683/69433432 blocks, logs=289579, chunk=57106, 406s
+[v2_launches] 29726789/69433432 blocks, logs=290282, chunk=71382, 406s
+[v2_launches] 29798171/69433432 blocks, logs=291297, chunk=89227, 406s
+[v2_launches] 29887398/69433432 blocks, logs=292743, chunk=111533, 408s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 55766
+[v2_launches] 29943164/69433432 blocks, logs=294190, chunk=69707, 411s
+[v2_launches] 30012871/69433432 blocks, logs=296781, chunk=87133, 411s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 43566
+[v2_launches] 30056437/69433432 blocks, logs=298915, chunk=54457, 414s
+[v2_launches] 30110894/69433432 blocks, logs=301691, chunk=68071, 415s
+[v2_launches] 30178965/69433432 blocks, logs=305382, chunk=85088, 415s
+[v2_launches] 30264053/69433432 blocks, logs=309336, chunk=106360, 415s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 53180
+[v2_launches] 30317233/69433432 blocks, logs=311407, chunk=66475, 419s
+[v2_launches] 30383708/69433432 blocks, logs=314007, chunk=83093, 419s
+[v2_launches] 30466801/69433432 blocks, logs=316080, chunk=103866, 420s
+[v2_launches] 30570667/69433432 blocks, logs=318295, chunk=129832, 421s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 64916
+[v2_launches] 30635583/69433432 blocks, logs=319282, chunk=81145, 425s
+[v2_launches] 30716728/69433432 blocks, logs=320754, chunk=101431, 425s
+[v2_launches] 30818159/69433432 blocks, logs=323382, chunk=126788, 425s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 63394
+[v2_launches] 30881553/69433432 blocks, logs=326899, chunk=79242, 428s
+[v2_launches] 30960795/69433432 blocks, logs=333241, chunk=99052, 429s
+[v2_launches] 31059847/69433432 blocks, logs=340827, chunk=123815, 430s
+[v2_launches] 31183662/69433432 blocks, logs=348051, chunk=154768, 430s
+[v2_launches] 31338430/69433432 blocks, logs=353375, chunk=193460, 430s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 96730
+[v2_launches] 31435160/69433432 blocks, logs=355420, chunk=120912, 434s
+[v2_launches] 31556072/69433432 blocks, logs=358081, chunk=151140, 436s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 75570
+[v2_launches] 31631642/69433432 blocks, logs=359928, chunk=94462, 440s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 47231
+[v2_launches] 31678873/69433432 blocks, logs=361334, chunk=59038, 443s
+[v2_launches] 31737911/69433432 blocks, logs=363338, chunk=73797, 443s
+[v2_launches] 31811708/69433432 blocks, logs=366125, chunk=92246, 443s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 46123
+[v2_launches] 31857831/69433432 blocks, logs=367846, chunk=57653, 447s
+[v2_launches] 31915484/69433432 blocks, logs=370672, chunk=72066, 447s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 36033
+[v2_launches] 31951517/69433432 blocks, logs=371837, chunk=45041, 450s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 22520
+[v2_launches] 31974037/69433432 blocks, logs=372564, chunk=28150, 453s
+[v2_launches] 32002187/69433432 blocks, logs=373578, chunk=35187, 454s
+[v2_launches] 32037374/69433432 blocks, logs=374474, chunk=43983, 456s
+[v2_launches] 32081357/69433432 blocks, logs=375497, chunk=54978, 456s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 27489
+[v2_launches] 32108846/69433432 blocks, logs=376033, chunk=34361, 459s
+[v2_launches] 32143207/69433432 blocks, logs=376619, chunk=42951, 459s
+[v2_launches] 32186158/69433432 blocks, logs=377266, chunk=53688, 459s
+[v2_launches] 32239846/69433432 blocks, logs=377993, chunk=67110, 459s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 33555
+[v2_launches] 32273401/69433432 blocks, logs=378454, chunk=41943, 463s
+[v2_launches] 32315344/69433432 blocks, logs=378966, chunk=52428, 463s
+[v2_launches] 32367772/69433432 blocks, logs=379578, chunk=65535, 463s
+[v2_launches] 32433307/69433432 blocks, logs=380319, chunk=81918, 463s
+[v2_launches] 32515225/69433432 blocks, logs=381404, chunk=102397, 465s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 51198
+[v2_launches] 32566423/69433432 blocks, logs=382451, chunk=63997, 468s
+[v2_launches] 32630420/69433432 blocks, logs=383897, chunk=79996, 468s
+[v2_launches] 32710416/69433432 blocks, logs=386091, chunk=99995, 469s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 49997
+[v2_launches] 32760413/69433432 blocks, logs=387642, chunk=62496, 472s
+[v2_launches] 32822909/69433432 blocks, logs=389171, chunk=78120, 472s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 39060
+[v2_launches] 32861969/69433432 blocks, logs=390107, chunk=48825, 475s
+[v2_launches] 32910794/69433432 blocks, logs=391501, chunk=61031, 475s
+[v2_launches] 32971825/69433432 blocks, logs=392998, chunk=76288, 476s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 38144
+[v2_launches] 33009969/69433432 blocks, logs=393799, chunk=47680, 479s
+[v2_launches] 33057649/69433432 blocks, logs=394696, chunk=59600, 481s
+[v2_launches] 33117249/69433432 blocks, logs=395594, chunk=74500, 481s
+[v2_launches] 33191749/69433432 blocks, logs=396931, chunk=93125, 481s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 46562
+[v2_launches] 33238311/69433432 blocks, logs=397622, chunk=58202, 485s
+[v2_launches] 33296513/69433432 blocks, logs=398466, chunk=72752, 485s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 36376
+[v2_launches] 33332889/69433432 blocks, logs=399026, chunk=45470, 488s
+[v2_launches] 33378359/69433432 blocks, logs=399750, chunk=56837, 488s
+[v2_launches] 33435196/69433432 blocks, logs=400603, chunk=71046, 488s
+[v2_launches] 33506242/69433432 blocks, logs=402558, chunk=88807, 489s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 44403
+[v2_launches] 33550645/69433432 blocks, logs=404091, chunk=55503, 492s
+[v2_launches] 33606148/69433432 blocks, logs=405781, chunk=69378, 494s
+[v2_launches] 33675526/69433432 blocks, logs=407669, chunk=86722, 494s
+[v2_launches] 33762248/69433432 blocks, logs=409563, chunk=108402, 495s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 54201
+[v2_launches] 33816449/69433432 blocks, logs=410494, chunk=67751, 498s
+[v2_launches] 33884200/69433432 blocks, logs=411349, chunk=84688, 498s
+[v2_launches] 33968888/69433432 blocks, logs=412410, chunk=105860, 498s
+[v2_launches] 34074748/69433432 blocks, logs=413732, chunk=132325, 498s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 66162
+[v2_launches] 34140910/69433432 blocks, logs=414541, chunk=82702, 501s
+[v2_launches] 34223612/69433432 blocks, logs=416053, chunk=103377, 502s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 51688
+[v2_launches] 34275300/69433432 blocks, logs=417085, chunk=64610, 505s
+[v2_launches] 34339910/69433432 blocks, logs=418588, chunk=80762, 507s
+[v2_launches] 34420672/69433432 blocks, logs=420829, chunk=100952, 508s
+[v2_launches] 34521624/69433432 blocks, logs=423408, chunk=126190, 508s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 63095
+[v2_launches] 34584719/69433432 blocks, logs=425147, chunk=78868, 511s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 39434
+[v2_launches] 34624153/69433432 blocks, logs=425981, chunk=49292, 514s
+[v2_launches] 34673445/69433432 blocks, logs=427180, chunk=61615, 515s
+[v2_launches] 34735060/69433432 blocks, logs=428356, chunk=77018, 515s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 38509
+[v2_launches] 34773569/69433432 blocks, logs=428997, chunk=48136, 518s
+[v2_launches] 34821705/69433432 blocks, logs=429713, chunk=60170, 518s
+[v2_launches] 34881875/69433432 blocks, logs=430567, chunk=75212, 518s
+[v2_launches] 34957087/69433432 blocks, logs=431965, chunk=94015, 520s
+[v2_launches] 35051102/69433432 blocks, logs=434518, chunk=117518, 521s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 58759
+[v2_launches] 35109861/69433432 blocks, logs=435827, chunk=73448, 524s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 36724
+[v2_launches] 35146585/69433432 blocks, logs=436626, chunk=45905, 527s
+[v2_launches] 35192490/69433432 blocks, logs=438402, chunk=57381, 528s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 28690
+[v2_launches] 35221180/69433432 blocks, logs=439471, chunk=35862, 531s
+[v2_launches] 35257042/69433432 blocks, logs=440898, chunk=44827, 531s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 22413
+[v2_launches] 35279455/69433432 blocks, logs=441650, chunk=28016, 534s
+[v2_launches] 35307471/69433432 blocks, logs=442517, chunk=35020, 534s
+[v2_launches] 35342491/69433432 blocks, logs=443620, chunk=43775, 534s
+[v2_launches] 35386266/69433432 blocks, logs=444997, chunk=54718, 537s
+[v2_launches] 35440984/69433432 blocks, logs=446648, chunk=68397, 537s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 34198
+[v2_launches] 35475182/69433432 blocks, logs=447518, chunk=42747, 540s
+[v2_launches] 35517929/69433432 blocks, logs=448327, chunk=53433, 540s
+[v2_launches] 35571362/69433432 blocks, logs=449420, chunk=66791, 540s
+[v2_launches] 35638153/69433432 blocks, logs=450438, chunk=83488, 540s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 41744
+[v2_launches] 35679897/69433432 blocks, logs=450927, chunk=52180, 544s
+[v2_launches] 35732077/69433432 blocks, logs=451471, chunk=65225, 544s
+[v2_launches] 35797302/69433432 blocks, logs=452403, chunk=81531, 544s
+[v2_launches] 35878833/69433432 blocks, logs=453734, chunk=101913, 544s
+[v2_launches] 35980746/69433432 blocks, logs=455891, chunk=127391, 547s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 63695
+[v2_launches] 36044441/69433432 blocks, logs=457636, chunk=79618, 550s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 39809
+[v2_launches] 36084250/69433432 blocks, logs=459275, chunk=49761, 553s
+[v2_launches] 36134011/69433432 blocks, logs=461437, chunk=62201, 553s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 31100
+[v2_launches] 36165111/69433432 blocks, logs=462690, chunk=38875, 556s
+[v2_launches] 36203986/69433432 blocks, logs=464372, chunk=48593, 557s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 24296
+[v2_launches] 36228282/69433432 blocks, logs=465476, chunk=30370, 560s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 36248282/69433432 blocks, logs=466259, chunk=25000, 563s
+[v2_launches] 36273282/69433432 blocks, logs=467417, chunk=31250, 563s
+[v2_launches] 36304532/69433432 blocks, logs=469178, chunk=39062, 564s
+[v2_launches] 36343594/69433432 blocks, logs=472630, chunk=48827, 566s
+[v2_launches] 36392421/69433432 blocks, logs=476146, chunk=61033, 566s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 30516
+[v2_launches] 36422937/69433432 blocks, logs=477431, chunk=38145, 570s
+[v2_launches] 36461082/69433432 blocks, logs=478626, chunk=47681, 570s
+[v2_launches] 36508763/69433432 blocks, logs=480076, chunk=59601, 570s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 29800
+[v2_launches] 36538563/69433432 blocks, logs=480920, chunk=37250, 573s
+[v2_launches] 36575813/69433432 blocks, logs=482007, chunk=46562, 574s
+[v2_launches] 36622375/69433432 blocks, logs=483624, chunk=58202, 574s
+[v2_launches] 36680577/69433432 blocks, logs=485408, chunk=72752, 574s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 36376
+[v2_launches] 36716953/69433432 blocks, logs=486396, chunk=45470, 577s
+[v2_launches] 36762423/69433432 blocks, logs=487844, chunk=56837, 580s
+[v2_launches] 36819260/69433432 blocks, logs=489781, chunk=71046, 580s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 35523
+[v2_launches] 36854783/69433432 blocks, logs=491214, chunk=44403, 584s
+[v2_launches] 36899186/69433432 blocks, logs=493078, chunk=55503, 584s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 27751
+[v2_launches] 36926937/69433432 blocks, logs=494395, chunk=34688, 587s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 36946937/69433432 blocks, logs=495977, chunk=25000, 591s
+[v2_launches] 36971937/69433432 blocks, logs=497302, chunk=31250, 591s
+[v2_launches] 37003187/69433432 blocks, logs=498970, chunk=39062, 591s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 20000
+[v2_launches] 37023187/69433432 blocks, logs=499888, chunk=25000, 594s
+[v2_launches] 37048187/69433432 blocks, logs=500960, chunk=31250, 594s
+[v2_launches] 37079437/69433432 blocks, logs=502197, chunk=39062, 597s
+[v2_launches] 37118499/69433432 blocks, logs=503603, chunk=48827, 597s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 24413
+[v2_launches] 37142912/69433432 blocks, logs=504444, chunk=30516, 600s
+[v2_launches] 37173428/69433432 blocks, logs=505179, chunk=38145, 600s
+[v2_launches] 37211573/69433432 blocks, logs=506063, chunk=47681, 600s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 23840
+[v2_launches] 37235413/69433432 blocks, logs=506492, chunk=29800, 604s
+[v2_launches] 37265213/69433432 blocks, logs=506880, chunk=37250, 604s
+[v2_launches] 37302463/69433432 blocks, logs=507364, chunk=46562, 604s
+[v2_launches] 37349025/69433432 blocks, logs=507795, chunk=58202, 604s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 29101
+[v2_launches] 37378126/69433432 blocks, logs=508078, chunk=36376, 607s
+[v2_launches] 37414502/69433432 blocks, logs=508404, chunk=45470, 610s
+[v2_launches] 37459972/69433432 blocks, logs=508882, chunk=56837, 610s
+[v2_launches] 37516809/69433432 blocks, logs=509395, chunk=71046, 610s
+[v2_launches] 37587855/69433432 blocks, logs=510093, chunk=88807, 610s
+[v2_launches] 37676662/69433432 blocks, logs=510973, chunk=111008, 610s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 55504
+[v2_launches] 37732166/69433432 blocks, logs=511654, chunk=69380, 614s
+[v2_launches] 37801546/69433432 blocks, logs=512760, chunk=86725, 614s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 43362
+[v2_launches] 37844908/69433432 blocks, logs=513700, chunk=54202, 617s
+[v2_launches] 37899110/69433432 blocks, logs=514569, chunk=67752, 617s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 33876
+[v2_launches] 37932986/69433432 blocks, logs=515049, chunk=42345, 620s
+[v2_launches] 37975331/69433432 blocks, logs=515720, chunk=52931, 623s
+[v2_launches] 38028262/69433432 blocks, logs=516483, chunk=66163, 623s
+[v2_launches] 38094425/69433432 blocks, logs=517221, chunk=82703, 623s
+[v2_launches] 38177128/69433432 blocks, logs=518088, chunk=103378, 623s
+[v2_launches] 38280506/69433432 blocks, logs=519196, chunk=129222, 624s
+[v2_launches] 38409728/69433432 blocks, logs=520727, chunk=161527, 624s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 80763
+[v2_launches] 38490491/69433432 blocks, logs=521658, chunk=100953, 627s
+[v2_launches] 38591444/69433432 blocks, logs=523650, chunk=126191, 627s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 63095
+[v2_launches] 38654539/69433432 blocks, logs=525401, chunk=78868, 631s
+[v2_launches] 38733407/69433432 blocks, logs=527819, chunk=98585, 631s
+[v2_launches] 38831992/69433432 blocks, logs=530045, chunk=123231, 633s
+[v2_launches] 38955223/69433432 blocks, logs=531907, chunk=154038, 634s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 77019
+[v2_launches] 39032242/69433432 blocks, logs=532720, chunk=96273, 637s
+[v2_launches] 39128515/69433432 blocks, logs=533503, chunk=120341, 637s
+[v2_launches] 39248856/69433432 blocks, logs=534690, chunk=150426, 637s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 75213
+[v2_launches] 39324069/69433432 blocks, logs=535481, chunk=94016, 640s
+[v2_launches] 39418085/69433432 blocks, logs=537293, chunk=117520, 641s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 58760
+[v2_launches] 39476845/69433432 blocks, logs=538422, chunk=73450, 644s
+[v2_launches] 39550295/69433432 blocks, logs=540131, chunk=91812, 644s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 45906
+[v2_launches] 39596201/69433432 blocks, logs=541284, chunk=57382, 647s
+[v2_launches] 39653583/69433432 blocks, logs=542625, chunk=71727, 650s
+[v2_launches] 39725310/69433432 blocks, logs=544297, chunk=89658, 650s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 44829
+[v2_launches] 39770139/69433432 blocks, logs=545022, chunk=56036, 653s
+[v2_launches] 39826175/69433432 blocks, logs=545682, chunk=70045, 654s
+[v2_launches] 39896220/69433432 blocks, logs=546515, chunk=87556, 654s
+[v2_launches] 39983776/69433432 blocks, logs=547338, chunk=109445, 654s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 54722
+[v2_launches] 40038498/69433432 blocks, logs=548035, chunk=68402, 657s
+[v2_launches] 40106900/69433432 blocks, logs=549107, chunk=85502, 657s
+[v2_launches] 40192402/69433432 blocks, logs=549995, chunk=106877, 657s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 53438
+[v2_launches] 40245840/69433432 blocks, logs=550599, chunk=66797, 661s
+[v2_launches] 40312637/69433432 blocks, logs=551742, chunk=83496, 663s
+[v2_launches] 40396133/69433432 blocks, logs=553100, chunk=104370, 663s
+[v2_launches] 40500503/69433432 blocks, logs=555122, chunk=130462, 664s
+[v2_launches] 40630965/69433432 blocks, logs=556668, chunk=163077, 664s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 81538
+[v2_launches] 40712503/69433432 blocks, logs=557418, chunk=101922, 667s
+[v2_launches] 40814425/69433432 blocks, logs=558284, chunk=127402, 667s
+[v2_launches] 40941827/69433432 blocks, logs=559289, chunk=159252, 668s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 79626
+[v2_launches] 41021453/69433432 blocks, logs=560079, chunk=99532, 671s
+[v2_launches] 41120985/69433432 blocks, logs=561090, chunk=124415, 671s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 62207
+[v2_launches] 41183192/69433432 blocks, logs=561899, chunk=77758, 674s
+[v2_launches] 41260950/69433432 blocks, logs=563184, chunk=97197, 677s
+[v2_launches] 41358147/69433432 blocks, logs=564723, chunk=121496, 677s
+[v2_launches] 41479643/69433432 blocks, logs=566663, chunk=151870, 678s
+[v2_launches] 41631513/69433432 blocks, logs=567847, chunk=189837, 678s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 94918
+[v2_launches] 41726431/69433432 blocks, logs=568656, chunk=118647, 681s
+[v2_launches] 41845078/69433432 blocks, logs=569580, chunk=148308, 681s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 74154
+[v2_launches] 41919232/69433432 blocks, logs=570402, chunk=92692, 684s
+[v2_launches] 42011924/69433432 blocks, logs=571849, chunk=115865, 685s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 57932
+[v2_launches] 42069856/69433432 blocks, logs=572984, chunk=72415, 688s
+[v2_launches] 42142271/69433432 blocks, logs=575187, chunk=90518, 688s
+[v2_launches] 42232789/69433432 blocks, logs=576933, chunk=113147, 691s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 56573
+[v2_launches] 42289362/69433432 blocks, logs=577899, chunk=70716, 694s
+[v2_launches] 42360078/69433432 blocks, logs=578760, chunk=88395, 695s
+[v2_launches] 42448473/69433432 blocks, logs=579516, chunk=110493, 695s
+[v2_launches] 42558966/69433432 blocks, logs=580202, chunk=138116, 695s
+[v2_launches] 42697082/69433432 blocks, logs=581044, chunk=172645, 695s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 86322
+[v2_launches] 42783404/69433432 blocks, logs=581877, chunk=107902, 698s
+[v2_launches] 42891306/69433432 blocks, logs=583452, chunk=134877, 698s
+[v2_launches] 43026183/69433432 blocks, logs=585660, chunk=168596, 699s
+[v2_launches] 43194779/69433432 blocks, logs=588042, chunk=210745, 699s
+[v2_launches] 43405524/69433432 blocks, logs=590061, chunk=263431, 702s
+[v2_launches] 43668955/69433432 blocks, logs=592098, chunk=329288, 703s
+[v2_launches] 43998243/69433432 blocks, logs=597464, chunk=411610, 703s
+[v2_launches] 44409853/69433432 blocks, logs=601865, chunk=514512, 703s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 257256
+[v2_launches] 44667109/69433432 blocks, logs=604987, chunk=321570, 707s
+[v2_launches] 44988679/69433432 blocks, logs=609222, chunk=401962, 707s
+[v2_launches] 45390641/69433432 blocks, logs=611846, chunk=502452, 707s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 251226
+[v2_launches] 45641867/69433432 blocks, logs=614887, chunk=314032, 711s
+[v2_launches] 45955899/69433432 blocks, logs=617537, chunk=392540, 711s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 196270
+[v2_launches] 46152169/69433432 blocks, logs=618602, chunk=245337, 714s
+[v2_launches] 46397506/69433432 blocks, logs=620485, chunk=306671, 717s
+[v2_launches] 46704177/69433432 blocks, logs=622755, chunk=383338, 717s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 191669
+[v2_launches] 46895846/69433432 blocks, logs=623504, chunk=239586, 721s
+[v2_launches] 47135432/69433432 blocks, logs=624868, chunk=299482, 721s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 149741
+[v2_launches] 47285173/69433432 blocks, logs=626137, chunk=187176, 724s
+[v2_launches] 47472349/69433432 blocks, logs=627660, chunk=233970, 724s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 116985
+[v2_launches] 47589334/69433432 blocks, logs=628737, chunk=146231, 728s
+[v2_launches] 47735565/69433432 blocks, logs=629422, chunk=182788, 728s
+[v2_launches] 47918353/69433432 blocks, logs=630340, chunk=228485, 728s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 114242
+[v2_launches] 48032595/69433432 blocks, logs=631288, chunk=142802, 731s
+[v2_launches] 48175397/69433432 blocks, logs=632962, chunk=178502, 734s
+[v2_launches] 48353899/69433432 blocks, logs=634353, chunk=223127, 735s
+[v2_launches] 48577026/69433432 blocks, logs=635158, chunk=278908, 735s
+[v2_launches] 48855934/69433432 blocks, logs=636593, chunk=348635, 735s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 174317
+[v2_launches] 49030251/69433432 blocks, logs=638836, chunk=217896, 739s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 108948
+[v2_launches] 49139199/69433432 blocks, logs=640039, chunk=136185, 742s
+[v2_launches] 49275384/69433432 blocks, logs=642174, chunk=170231, 742s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 85115
+[v2_launches] 49360499/69433432 blocks, logs=642523, chunk=106393, 745s
+[v2_launches] 49466892/69433432 blocks, logs=643100, chunk=132991, 745s
+[v2_launches] 49599883/69433432 blocks, logs=643830, chunk=166238, 745s
+[v2_launches] 49766121/69433432 blocks, logs=645213, chunk=207797, 749s
+[v2_launches] 49973918/69433432 blocks, logs=647690, chunk=259746, 749s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 129873
+[v2_launches] 50103791/69433432 blocks, logs=648804, chunk=162341, 752s
+[v2_launches] 50266132/69433432 blocks, logs=649640, chunk=202926, 752s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 101463
+[v2_launches] 50367595/69433432 blocks, logs=650143, chunk=126828, 756s
+[v2_launches] 50494423/69433432 blocks, logs=650825, chunk=158535, 756s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 79267
+[v2_launches] 50573690/69433432 blocks, logs=651512, chunk=99083, 759s
+[v2_launches] 50672773/69433432 blocks, logs=652739, chunk=123853, 759s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 61926
+[v2_launches] 50734699/69433432 blocks, logs=653595, chunk=77407, 762s
+[v2_launches] 50812106/69433432 blocks, logs=654462, chunk=96758, 763s
+[v2_launches] 50908864/69433432 blocks, logs=655374, chunk=120947, 766s
+[v2_launches] 51029811/69433432 blocks, logs=655910, chunk=151183, 766s
+[v2_launches] 51180994/69433432 blocks, logs=656668, chunk=188978, 766s
+[v2_launches] 51369972/69433432 blocks, logs=657654, chunk=236222, 766s
+[v2_launches] 51606194/69433432 blocks, logs=660311, chunk=295277, 767s
+[v2_launches] 51901471/69433432 blocks, logs=661954, chunk=369096, 767s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 184548
+[v2_launches] 52086019/69433432 blocks, logs=662422, chunk=230685, 770s
+[v2_launches] 52316704/69433432 blocks, logs=663436, chunk=288356, 770s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 144178
+[v2_launches] 52460882/69433432 blocks, logs=664425, chunk=180222, 773s
+[v2_launches] 52641104/69433432 blocks, logs=665786, chunk=225277, 774s
+[v2_launches] 52866381/69433432 blocks, logs=666768, chunk=281596, 777s
+[v2_launches] 53147977/69433432 blocks, logs=667789, chunk=351995, 777s
+[v2_launches] 53499972/69433432 blocks, logs=669801, chunk=439993, 777s
+[v2_launches] 53939965/69433432 blocks, logs=671320, chunk=549991, 777s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 274995
+[v2_launches] 54214960/69433432 blocks, logs=673556, chunk=343743, 781s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 171871
+[v2_launches] 54386831/69433432 blocks, logs=674427, chunk=214838, 784s
+[v2_launches] 54601669/69433432 blocks, logs=674822, chunk=268547, 784s
+[v2_launches] 54870216/69433432 blocks, logs=675868, chunk=335683, 784s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 167841
+[v2_launches] 55038057/69433432 blocks, logs=677136, chunk=209801, 787s
+[v2_launches] 55247858/69433432 blocks, logs=678030, chunk=262251, 788s
+[v2_launches] 55510109/69433432 blocks, logs=678541, chunk=327813, 791s
+[v2_launches] 55837922/69433432 blocks, logs=679917, chunk=409766, 791s
+[v2_launches] 56247688/69433432 blocks, logs=681184, chunk=512207, 791s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 256103
+[v2_launches] 56503791/69433432 blocks, logs=681699, chunk=320128, 794s
+[v2_launches] 56823919/69433432 blocks, logs=682925, chunk=400160, 795s
+[v2_launches] 57224079/69433432 blocks, logs=683584, chunk=500200, 795s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 250100
+[v2_launches] 57474179/69433432 blocks, logs=684391, chunk=312625, 798s
+[v2_launches] 57786804/69433432 blocks, logs=685486, chunk=390781, 798s
+[v2_launches] 58177585/69433432 blocks, logs=686431, chunk=488476, 798s
+[v2_launches] 58666061/69433432 blocks, logs=687900, chunk=610595, 799s
+[v2_launches] 59276656/69433432 blocks, logs=689219, chunk=763243, 802s
+[v2_launches] 60039899/69433432 blocks, logs=691130, chunk=954053, 802s
+[v2_launches] 60993952/69433432 blocks, logs=693131, chunk=1192566, 802s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 596283
+[v2_launches] 61590235/69433432 blocks, logs=693951, chunk=745353, 806s
+[v2_launches] 62335588/69433432 blocks, logs=695587, chunk=931691, 806s
+[v2_launches] 63267279/69433432 blocks, logs=697601, chunk=1164613, 806s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 582306
+[v2_launches] 63849585/69433432 blocks, logs=698754, chunk=727882, 810s
+[v2_launches] 64577467/69433432 blocks, logs=700022, chunk=909852, 810s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 454926
+[v2_launches] 65032393/69433432 blocks, logs=700531, chunk=568657, 813s
+[v2_launches] 65601050/69433432 blocks, logs=701272, chunk=710821, 813s
+[v2_launches] 66311871/69433432 blocks, logs=702897, chunk=888526, 817s
+[v2_launches] 67200397/69433432 blocks, logs=705090, chunk=1110657, 817s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 555328
+[v2_launches] 67755725/69433432 blocks, logs=706488, chunk=694160, 820s
+[v2_launches] error HTTP Error 429: Too Many Requests -> chunk 347080
+[v2_launches] 68102805/69433432 blocks, logs=706891, chunk=433850, 824s
+[v2_launches] 68536655/69433432 blocks, logs=707967, chunk=542312, 824s
+[v2_launches] 69078967/69433432 blocks, logs=708624, chunk=677890, 824s
+[v2_launches] 69433433/69433432 blocks, logs=709489, chunk=847362, 824s
+[v2_launches] DONE records=709489 in 827s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 1000000
+[gen2_launches] 1000000/87284160 blocks, logs=468, chunk=1250000, 1s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 625000
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 312500
+[gen2_launches] 1312500/87284160 blocks, logs=4077, chunk=390625, 4s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 195312
+[gen2_launches] 1507812/87284160 blocks, logs=10160, chunk=244140, 8s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 122070
+[gen2_launches] 1629882/87284160 blocks, logs=13103, chunk=152587, 12s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 76293
+[gen2_launches] 1706175/87284160 blocks, logs=14116, chunk=95366, 15s
+[gen2_launches] 1801541/87284160 blocks, logs=15555, chunk=119207, 15s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 59603
+[gen2_launches] 1861144/87284160 blocks, logs=16643, chunk=74503, 18s
+[gen2_launches] 1935647/87284160 blocks, logs=17636, chunk=93128, 19s
+[gen2_launches] 2028775/87284160 blocks, logs=18556, chunk=116410, 19s
+[gen2_launches] 2145185/87284160 blocks, logs=19391, chunk=145512, 19s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 72756
+[gen2_launches] 2217941/87284160 blocks, logs=19942, chunk=90945, 22s
+[gen2_launches] 2308886/87284160 blocks, logs=20831, chunk=113681, 23s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 56840
+[gen2_launches] 2365726/87284160 blocks, logs=21636, chunk=71050, 26s
+[gen2_launches] 2436776/87284160 blocks, logs=22697, chunk=88812, 26s
+[gen2_launches] 2525588/87284160 blocks, logs=24568, chunk=111015, 26s
+[gen2_launches] 2636603/87284160 blocks, logs=26681, chunk=138768, 27s
+[gen2_launches] 2775371/87284160 blocks, logs=28023, chunk=173460, 27s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 86730
+[gen2_launches] 2862101/87284160 blocks, logs=28581, chunk=108412, 30s
+[gen2_launches] 2970513/87284160 blocks, logs=29196, chunk=135515, 30s
+[gen2_launches] 3106028/87284160 blocks, logs=29825, chunk=169393, 31s
+[gen2_launches] 3275421/87284160 blocks, logs=31787, chunk=211741, 31s
+[gen2_launches] 3487162/87284160 blocks, logs=34897, chunk=264676, 31s
+[gen2_launches] 3751838/87284160 blocks, logs=37788, chunk=330845, 32s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 165422
+[gen2_launches] 3917260/87284160 blocks, logs=38561, chunk=206777, 35s
+[gen2_launches] 4124037/87284160 blocks, logs=40217, chunk=258471, 35s
+[gen2_launches] 4382508/87284160 blocks, logs=43498, chunk=323088, 36s
+[gen2_launches] 4705596/87284160 blocks, logs=46179, chunk=403860, 36s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 201930
+[gen2_launches] 4907526/87284160 blocks, logs=47615, chunk=252412, 40s
+[gen2_launches] 5159938/87284160 blocks, logs=51377, chunk=315515, 40s
+[gen2_launches] 5475453/87284160 blocks, logs=54082, chunk=394393, 40s
+[gen2_launches] 5869846/87284160 blocks, logs=59196, chunk=492991, 41s
+[gen2_launches] 6362837/87284160 blocks, logs=68922, chunk=616238, 42s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 308119
+[gen2_launches] 6670956/87284160 blocks, logs=75898, chunk=385148, 46s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 192574
+[gen2_launches] 6863530/87284160 blocks, logs=82701, chunk=240717, 48s
+[gen2_launches] 7104247/87284160 blocks, logs=89837, chunk=300896, 48s
+[gen2_launches] 7405143/87284160 blocks, logs=94130, chunk=376120, 49s
+[gen2_launches] 7781263/87284160 blocks, logs=103630, chunk=470150, 50s
+[gen2_launches] 8251413/87284160 blocks, logs=109484, chunk=587687, 51s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 293843
+[gen2_launches] 8545256/87284160 blocks, logs=115671, chunk=367303, 52s
+[gen2_launches] 8912559/87284160 blocks, logs=120529, chunk=459128, 53s
+[gen2_launches] 9371687/87284160 blocks, logs=126349, chunk=573910, 54s
+[gen2_launches] 9945597/87284160 blocks, logs=133402, chunk=717387, 54s
+[gen2_launches] 10662984/87284160 blocks, logs=142997, chunk=896733, 55s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 448366
+[gen2_launches] 11111350/87284160 blocks, logs=149381, chunk=560457, 57s
+[gen2_launches] 11671807/87284160 blocks, logs=157289, chunk=700571, 57s
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 350285
+[gen2_launches] error {'code': -32000, 'message': 'logs matched by query exceeds limit of 10000'} -> chunk 175142
+[gen2_launches] 11846949/87284160 blocks, logs=162629, chunk=218927, 60s
+[gen2_launches] 12065876/87284160 blocks, logs=170017, chunk=273658, 61s
+[gen2_launches] 12339534/87284160 blocks, logs=174087, chunk=342072, 61s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 171036
+[gen2_launches] 12510570/87284160 blocks, logs=176189, chunk=213795, 64s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 106897
+[gen2_launches] 12617467/87284160 blocks, logs=178366, chunk=133621, 68s
+[gen2_launches] 12751088/87284160 blocks, logs=182236, chunk=167026, 69s
+[gen2_launches] 12918114/87284160 blocks, logs=186779, chunk=208782, 70s
+[gen2_launches] 13126896/87284160 blocks, logs=190138, chunk=260977, 70s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 130488
+[gen2_launches] 13257384/87284160 blocks, logs=191389, chunk=163110, 74s
+[gen2_launches] 13420494/87284160 blocks, logs=193425, chunk=203887, 74s
+[gen2_launches] 13624381/87284160 blocks, logs=198349, chunk=254858, 74s
+[gen2_launches] 13879239/87284160 blocks, logs=203557, chunk=318572, 75s
+[gen2_launches] 14197811/87284160 blocks, logs=206595, chunk=398215, 75s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 199107
+[gen2_launches] 14396918/87284160 blocks, logs=208975, chunk=248883, 78s
+[gen2_launches] 14645801/87284160 blocks, logs=214615, chunk=311103, 79s
+[gen2_launches] 14956904/87284160 blocks, logs=218964, chunk=388878, 81s
+[gen2_launches] 15345782/87284160 blocks, logs=222961, chunk=486097, 81s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 243048
+[gen2_launches] 15588830/87284160 blocks, logs=226414, chunk=303810, 85s
+[gen2_launches] 15892640/87284160 blocks, logs=228568, chunk=379762, 85s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 189881
+[gen2_launches] 16082521/87284160 blocks, logs=230031, chunk=237351, 88s
+[gen2_launches] 16319872/87284160 blocks, logs=233122, chunk=296688, 88s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 148344
+[gen2_launches] 16468216/87284160 blocks, logs=234642, chunk=185430, 92s
+[gen2_launches] 16653646/87284160 blocks, logs=235918, chunk=231787, 92s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 115893
+[gen2_launches] 16769539/87284160 blocks, logs=236408, chunk=144866, 95s
+[gen2_launches] 16914405/87284160 blocks, logs=237158, chunk=181082, 95s
+[gen2_launches] 17095487/87284160 blocks, logs=239274, chunk=226352, 97s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 113176
+[gen2_launches] 17208663/87284160 blocks, logs=240499, chunk=141470, 100s
+[gen2_launches] 17350133/87284160 blocks, logs=241504, chunk=176837, 100s
+[gen2_launches] 17526970/87284160 blocks, logs=242006, chunk=221046, 101s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 110523
+[gen2_launches] 17637493/87284160 blocks, logs=242246, chunk=138153, 104s
+[gen2_launches] 17775646/87284160 blocks, logs=242551, chunk=172691, 104s
+[gen2_launches] 17948337/87284160 blocks, logs=243581, chunk=215863, 104s
+[gen2_launches] 18164200/87284160 blocks, logs=244993, chunk=269828, 104s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 134914
+[gen2_launches] 18299114/87284160 blocks, logs=245622, chunk=168642, 108s
+[gen2_launches] 18467756/87284160 blocks, logs=246365, chunk=210802, 108s
+[gen2_launches] 18678558/87284160 blocks, logs=247227, chunk=263502, 109s
+[gen2_launches] 18942060/87284160 blocks, logs=249302, chunk=329377, 110s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 164688
+[gen2_launches] 19106748/87284160 blocks, logs=249844, chunk=205860, 113s
+[gen2_launches] 19312608/87284160 blocks, logs=250541, chunk=257325, 113s
+[gen2_launches] 19569933/87284160 blocks, logs=251038, chunk=321656, 113s
+[gen2_launches] 19891589/87284160 blocks, logs=251912, chunk=402070, 113s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 201035
+[gen2_launches] 20092624/87284160 blocks, logs=252317, chunk=251293, 116s
+[gen2_launches] 20343917/87284160 blocks, logs=252749, chunk=314116, 117s
+[gen2_launches] 20658033/87284160 blocks, logs=253771, chunk=392645, 117s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 196322
+[gen2_launches] 20854355/87284160 blocks, logs=254254, chunk=245402, 120s
+[gen2_launches] 21099757/87284160 blocks, logs=254622, chunk=306752, 122s
+[gen2_launches] 21406509/87284160 blocks, logs=255353, chunk=383440, 122s
+[gen2_launches] 21789949/87284160 blocks, logs=256338, chunk=479300, 122s
+[gen2_launches] 22269249/87284160 blocks, logs=257190, chunk=599125, 122s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 299562
+[gen2_launches] 22568811/87284160 blocks, logs=257912, chunk=374452, 125s
+[gen2_launches] 22943263/87284160 blocks, logs=258509, chunk=468065, 125s
+[gen2_launches] 23411328/87284160 blocks, logs=259670, chunk=585081, 125s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 292540
+[gen2_launches] 23703868/87284160 blocks, logs=260183, chunk=365675, 129s
+[gen2_launches] 24069543/87284160 blocks, logs=261477, chunk=457093, 129s
+[gen2_launches] 24526636/87284160 blocks, logs=262624, chunk=571366, 129s
+[gen2_launches] 25098002/87284160 blocks, logs=264523, chunk=714207, 131s
+[gen2_launches] 25812209/87284160 blocks, logs=266221, chunk=892758, 131s
+[gen2_launches] error HTTP Error 429: Too Many Requests -> chunk 446379
+[gen2_launches] 26258588/87284160 blocks, logs=266221, chunk=557973, 134s
+[gen2_launches] 26816561/87284160 blocks, logs=266221, chunk=697466, 134s
+[gen2_launches] 27514027/87284160 blocks, logs=266221, chunk=871832, 135s
+[gen2_launches] 28385859/87284160 blocks, logs=266221, chunk=1089790, 135s
+[gen2_launches] 29475649/87284160 blocks, logs=266221, chunk=1362237, 135s
+[gen2_launches] 30837886/87284160 blocks, logs=266221, chunk=1702796, 135s
+[gen2_launches] 32540682/87284160 blocks, logs=266221, chunk=2128495, 135s
+[gen2_launches] 34669177/87284160 blocks, logs=266221, chunk=2660618, 135s
+[gen2_launches] 37329795/87284160 blocks, logs=266221, chunk=3325772, 137s
+[gen2_launches] 40655567/87284160 blocks, logs=266221, chunk=4157215, 137s
+[gen2_launches] 44812782/87284160 blocks, logs=266221, chunk=5196518, 137s
+[gen2_launches] 50009300/87284160 blocks, logs=266221, chunk=6495647, 137s
+[gen2_launches] 56504947/87284160 blocks, logs=266221, chunk=8000000, 137s
+[gen2_launches] 64504947/87284160 blocks, logs=266221, chunk=8000000, 137s
+[gen2_launches] 72504947/87284160 blocks, logs=266221, chunk=8000000, 137s
+[gen2_launches] 80504947/87284160 blocks, logs=266221, chunk=8000000, 137s
+[gen2_launches] 87284161/87284160 blocks, logs=266221, chunk=8000000, 137s
+[gen2_launches] DONE records=266221 in 139s

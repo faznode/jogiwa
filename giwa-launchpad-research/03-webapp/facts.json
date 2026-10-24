@@ -1,0 +1,69 @@
+{
+  "phase": "03-webapp",
+  "target": "https://ponsfamily.com",
+  "observed_at": "2026-10-23",
+  "evidence_root": "raw/bundles/, raw/captures/, raw/docs-snapshots/",
+  "stack": {
+    "framework": "Next.js App Router (RSC flight payload __next_f), Turbopack production build",
+    "react": "19.x",
+    "hosting": "Vercel (deployment id dpl_GEnxfSpjSd3XoUUAoNoLS3HM5X3S, x-matched-path, x-vercel-cache headers)",
+    "server_state": "TanStack Query, staleTime 8000 ms, refetch on focus",
+    "client_state": "valtio + React context (geo/equity restriction)",
+    "wallet": ["wagmi", "viem", "Reown AppKit (WalletConnect v2)", "Coinbase Wallet SDK", "Turnkey embedded wallets"],
+    "auth": "SIWE (/api/profile/nonce -> /api/session)",
+    "bot_protection": "Cloudflare Turnstile (/api/human)",
+    "realtime": "Ably (events token.created, token.updated)",
+    "charts": "TradingView-style; library UNKNOWN (OQ-3.1)",
+    "styling": "Tailwind-style utilities + app-* classes, Radix primitive(s), light/dark theme",
+    "i18n": "English only",
+    "pwa": "service worker + Web Push",
+    "analytics": "Vercel Analytics; client wallet errors to /api/client-errors/wallet",
+    "source_maps": false,
+    "bundle_chunks_captured": 49,
+    "evidence": "[OBSERVED]"
+  },
+  "chain_layer": {
+    "chain_id": 4663,
+    "rpc": ["same-origin /api/rpc proxy", "public https://rpc.mainnet.chain.robinhood.com"],
+    "multicall3": "0xcA11bde05977b3631167028862bE2a173976CA11",
+    "simulation": "eth_simulateV1 before signing",
+    "approvals": "plain ERC-20 approve to curve for custom pairs; native ETH via msg.value",
+    "error_mapping": "/api/glossary/Errors (custom error name -> copy)",
+    "geo_gating": "server countryCode -> equityPairsRestricted; equity pairs hidden/disabled",
+    "wallet_screening": "modal 'This wallet can't be used on Pons' (provider UNKNOWN OQ-3.3)",
+    "evidence": "[OBSERVED]"
+  },
+  "api": {
+    "spec_file": "03-webapp/api-spec.yaml",
+    "same_origin_routes": 29,
+    "external_services": ["https://balancesapi.ponsfamily.com (Cloudflare)", "Ably", "Turnkey auth iframe", "IPFS gateway via /api/artwork proxy"],
+    "observed_captures": 17,
+    "pagination": "limit (+ cursor inferred)",
+    "cache_headers": {"launches": "public, edge cached", "ticks": "public, max-age=0, must-revalidate", "session/nonce/rpc": "no-store"},
+    "graphql_or_subgraph": false,
+    "websocket_from_origin": false,
+    "evidence": "[OBSERVED]"
+  },
+  "features": {
+    "create_flow_steps": 2,
+    "create_fields": ["image (IPFS)", "name", "ticker", "description", "socials x5", "quote asset", "creator fee recipient", "creator tax <=10%", "buyback toggle", "snipe-tax exempt wallets <=32", "opening buy"],
+    "create_tx_count": 1,
+    "discovery_sorts": ["market cap", "new", "active", "graduation"],
+    "trending_inputs": ["volumeUsd", "trades", "traders", "change"],
+    "king_of_the_hill": false,
+    "comments_or_chat": false,
+    "referral_routes": "/ref/* exist, mechanics UNKNOWN (OQ-1.3)",
+    "points_or_seasons": false,
+    "holder_fee_sharing": true,
+    "snipe_whitelist_usage_top50": "7/50",
+    "evidence": "[OBSERVED]"
+  },
+  "ux": {
+    "clicks_to_first_buy_new_user": "connect (1-2) -> accept legal (1) -> token (1) -> amount+buy (2) -> wallet confirm (1) = 6-7",
+    "clicks_to_launch": "two-step form + one tx = ~12 fields, 2 confirmations",
+    "strengths": ["one-tx launch+first-buy", "live preview card", "error glossary with human copy", "pair-asset choice (ETH/USDG/stocks)", "holder fee sharing visible on token page"],
+    "weaknesses": ["English only", "no in-app report/moderation surface", "no comments/community layer", "serial-deployer badge is the only trust signal", "snipe-whitelist is creator-controlled and invisible until after launch", "geo-gated equity pairs confuse first-time users"],
+    "evidence": "[OBSERVED] session-1 browser observation (screenshots lost), snapshots in raw/docs-snapshots/"
+  },
+  "open_questions": ["OQ-3.1 chart library", "OQ-3.2 Turnkey delegated-signing policy", "OQ-3.3 wallet-screening provider", "OQ-3.4 exact sort enum and cursor format", "OQ-3.5 /api/trade/route POST schema"]
+}

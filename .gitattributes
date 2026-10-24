@@ -1,0 +1,2 @@
+giwa-launchpad-research/raw/traces/events_gen2_launches.json.gz filter=lfs diff=lfs merge=lfs -text
+giwa-launchpad-research/raw/traces/events_v2_launches.json.gz filter=lfs diff=lfs merge=lfs -text

@@ -1,0 +1,35 @@
+10/240 curves, 7s
+20/240 curves, 14s
+30/240 curves, 21s
+40/240 curves, 30s
+50/240 curves, 38s
+60/240 curves, 45s
+70/240 curves, 52s
+80/240 curves, 62s
+90/240 curves, 68s
+100/240 curves, 78s
+110/240 curves, 85s
+120/240 curves, 94s
+130/240 curves, 99s
+140/240 curves, 107s
+150/240 curves, 114s
+160/240 curves, 121s
+170/240 curves, 128s
+180/240 curves, 135s
+190/240 curves, 147s
+200/240 curves, 159s
+210/240 curves, 173s
+220/240 curves, 185s
+230/240 curves, 195s
+240/240 curves, 315s
+DONE 240 curves in 315s
+[non] n=180 median quote_in=0.0545 ETH mean=0.9474 p90=1.5105 max=35.760
+[non] zero-buy launches=25 only-deployer-buyer=2 median traders=3.5 median buys=3.0
+[non] deployer bought=12 deployer sold=86 first buy in launch tx=134 first buy same block=134
+[non] total quote_in=170.531 quote_out=164.599 buy_fee=1.9032 buy_tax=0.9546 sell_fee=1.6720 sell_tax=0.9240
+[non] median active span blocks=2313.0 p90=619422
+[grad] n=60 median quote_in=10.2616 ETH mean=11.7278 p90=20.0436 max=34.514
+[grad] zero-buy launches=0 only-deployer-buyer=0 median traders=38.0 median buys=268.5
+[grad] deployer bought=11 deployer sold=4 first buy in launch tx=50 first buy same block=50
+[grad] total quote_in=703.669 quote_out=421.357 buy_fee=8.4845 buy_tax=11.0519 sell_fee=4.3213 sell_tax=6.4550
+[grad] median active span blocks=7323.0 p90=220990

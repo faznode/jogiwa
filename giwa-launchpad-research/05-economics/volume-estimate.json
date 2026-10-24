@@ -1,0 +1,99 @@
+{
+ "non": {
+  "volume_eth": {
+   "per_launch_mean": 1.8618,
+   "per_launch_median": 0.1042,
+   "ci95_mean": [
+    1.0379,
+    2.9819
+   ],
+   "population": 426637,
+   "total_point": 794328,
+   "total_ci95": [
+    442826,
+    1272209
+   ]
+  },
+  "fee_eth": {
+   "per_launch_mean": 0.0199,
+   "per_launch_median": 0.0012,
+   "ci95_mean": [
+    0.0113,
+    0.0311
+   ],
+   "population": 426637,
+   "total_point": 8474,
+   "total_ci95": [
+    4806,
+    13287
+   ]
+  },
+  "creator_tax_eth": {
+   "per_launch_mean": 0.0104,
+   "per_launch_median": 0.0,
+   "ci95_mean": [
+    0.0043,
+    0.0201
+   ],
+   "population": 426637,
+   "total_point": 4453,
+   "total_ci95": [
+    1841,
+    8569
+   ]
+  }
+ },
+ "grad": {
+  "volume_eth": {
+   "per_launch_mean": 18.7504,
+   "per_launch_median": 15.9471,
+   "ci95_mean": [
+    15.615,
+    22.189
+   ],
+   "population": 5177,
+   "total_point": 97071,
+   "total_ci95": [
+    80839,
+    114873
+   ]
+  },
+  "fee_eth": {
+   "per_launch_mean": 0.2134,
+   "per_launch_median": 0.1659,
+   "ci95_mean": [
+    0.179,
+    0.2529
+   ],
+   "population": 5177,
+   "total_point": 1105,
+   "total_ci95": [
+    927,
+    1309
+   ]
+  },
+  "creator_tax_eth": {
+   "per_launch_mean": 0.2918,
+   "per_launch_median": 0.1464,
+   "ci95_mean": [
+    0.2044,
+    0.3892
+   ],
+   "population": 5177,
+   "total_point": 1511,
+   "total_ci95": [
+    1058,
+    2015
+   ]
+  }
+ },
+ "totals": {
+  "volume_eth_point": 891399,
+  "fee_eth_point": 9579,
+  "protocol_fee_eth_point": 2874,
+  "creator_fee_eth_point": 6705,
+  "creator_tax_eth_point": 5964,
+  "effective_creator_tax_pct": 0.67,
+  "note": "ETH-pair curves only (431,814 launches); excludes USDG/stock pairs and all post-graduation v4 hook fees; extrapolated from stratified sample n=240 (seed 20261024); heavy-tailed, see ci95"
+ }
+}

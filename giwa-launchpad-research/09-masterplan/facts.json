@@ -1,0 +1,61 @@
+{
+  "phase": "09-masterplan",
+  "status": "complete",
+  "generated_at": "2026-10-24",
+  "working_name": "Madang (placeholder; trademark clearance pending, 13 §3 #1)",
+  "documents": [
+    "01-executive-summary.md", "02-prd.md", "03-smart-contract-spec.md", "04-security-plan.md",
+    "05-system-architecture.md", "06-frontend-ux-spec.md", "07-data-analytics.md", "08-tokenomics-incentives.md",
+    "09-go-to-market.md", "10-legal-compliance-risk.md", "11-roadmap.md", "12-mainnet-migration-playbook.md",
+    "13-decision-log-and-open-questions.md", "14-appendix.md", "15-honeypot-pot2pump-review.md"
+  ],
+  "north_star_metric": "distinct attested humans per graduated token",
+  "p0_features": ["F01", "F02", "F03", "F04", "F05", "F06", "F07", "F08", "F09", "F10", "F11", "F12", "F13", "F14", "F15", "F16", "F17", "F18", "F19", "F20", "F21", "F22", "F23", "F24"],
+  "parameters_testnet": {
+    "S_tokens": 1000000000,
+    "Q0_SC": 1000,
+    "G_SC": 2500,
+    "fee_bps": 100,
+    "split_bps": {"creator": 4000, "holders": 3000, "protocol": 3000},
+    "split_bounds": {"creator": "[3000, 7000]", "holders": "{0} ∪ [2000, 4000]", "protocol": "<= 4500"},
+    "obw_duration_s": 120,
+    "obw_ab_arms_s": [90, 120, 180],
+    "humans_first_s": 600,
+    "cap_tier1_bps_of_G": 200,
+    "cap_tier2_bps_of_G": 500,
+    "people_threshold_N": 25,
+    "grace_fallback_s": 86400,
+    "creator_alloc_max_bps_of_S": 300,
+    "creator_tax_max_bps": 300,
+    "vesting": {"cliff": "graduation", "linear_days": 30, "expiry_days": 30},
+    "launch_fee_SC": 1,
+    "rations_SC_per_day": {"tier0": 0, "tier1": 20, "tier2": 50},
+    "epoch": "1 day",
+    "keeper_bounty_bps": 5,
+    "timelock_hours": 48,
+    "guardian_pause_expiry_days": 7
+  },
+  "parameters_mainnet_proposal": {"quote": "WETH 0x4200000000000000000000000000000000000006", "Q0_ETH": 1.0, "G_ETH": 2.5, "N": 50, "launch_fee_ETH": 0.0005, "holders_share": "3000 or 0 pending counsel Q3"},
+  "derived_identities": {
+    "supply_split_at_graduation_pct": {"sold": 71.43, "pool": 20.41, "burned": 8.16},
+    "price_multiple_at_graduation": 12.25,
+    "gross_quote_to_graduate_SC": {"c0": 2525.25, "c1pct": 2551.02, "c3pct": 2604.17}
+  },
+  "adrs": {
+    "accepted": ["ADR-01", "ADR-02", "ADR-03", "ADR-04", "ADR-05", "ADR-06", "ADR-07", "ADR-08", "ADR-09", "ADR-10", "ADR-11", "ADR-12", "ADR-13", "ADR-14", "ADR-15", "ADR-17"],
+    "proposed": ["ADR-16 (TWAB holder rewards)"]
+  },
+  "owner_decisions_pending": ["product name", "embedded-wallet provider with Kakao login", "counsel engagement KR (+ID)", "audit budget tier A/B", "Season 0 invite-only", "approve ADR-16"],
+  "honeypot_pot2pump_review": {
+    "verdict": "include selectively",
+    "adopt": ["IGraduationTarget adapter seam (P0 rule)", "Pot mode raise-or-refund (P2, F41)", "AI image generation within F38 safety pipeline (P2)"],
+    "reject": ["participant-LP / ALM vault", "Drip Drive per-transaction rewards", "Cheese Benance up-only tokens"],
+    "partnership": "no (company pivoted to media/licensing; clean-room rule)"
+  },
+  "roadmap_weeks": 26,
+  "team_person_weeks": 97,
+  "audit_budget_usd": {"tier_a": "25k-40k", "tier_b": "60k-90k"},
+  "monthly_infra_usd": {"testnet": "140-880", "mainnet_y1": "880-3900"},
+  "open_questions_file": "_open-questions.md",
+  "evidence_index_file": "_evidence-index.md"
+}

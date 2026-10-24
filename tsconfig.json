@@ -1,0 +1,3 @@
+{
+  "extends": "./giwa-launchpad-web/08-prototype/tsconfig.json"
+}

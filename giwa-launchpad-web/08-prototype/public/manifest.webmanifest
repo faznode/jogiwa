@@ -1,0 +1,14 @@
+{
+  "name": "Bros",
+  "short_name": "Bros",
+  "description": "A meme launchpad on the GIWA Sepolia testnet where people graduate tokens, not bots.",
+  "start_url": "/discover",
+  "display": "standalone",
+  "background_color": "#ebedf0",
+  "theme_color": "#ebedf0",
+  "icons": [
+    { "src": "/brand/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/brand/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/brand/bros-mark.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

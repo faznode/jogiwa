@@ -65,6 +65,7 @@ Unit of randomisation: **launch** (parameters are copied at creation, so each la
 | E6 | Ranking variant | quality score v1 vs v2 (more retention weight) | rank-to-graduation precision; 7-day retained holders of top-10 | time on feed | 1–2 (user-level randomisation) |
 | E7 | Fairness sheet format | 6-row table vs narrative | dwell; post-trade regret proxy (sell within 10 min) | trade conversion | 1 |
 | E8 | Bounty size | 5 / 10 bps | third-party keeper share | protocol fee leakage | 1 |
+| E9 | Launch mode (F41, once shipped) | batch-first (default) vs Pot mode (raise-or-refund) | attested buyers per graduation; 7-day holder retention | creator drop-off; share of refunded launches | 2+ (per-launch) |
 
 Power: with ~150 launches/day and 3 arms, a 28-day season gives ~1,400 launches per arm — enough to detect a 2-percentage-point difference in graduation rate (from 6%) at 80% power, and much smaller differences in window participation. Users-level tests (E6) need ~2,000 active users per arm for a 10% relative lift in retention; feasible in Season 1 if acquisition targets are met, otherwise extend one season.
 

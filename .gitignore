@@ -18,3 +18,6 @@ node_modules
 # Large raw event dumps stay local; lossless .json.gz copies are versioned.
 /giwa-launchpad-research/raw/traces/events_gen2_launches.json
 /giwa-launchpad-research/raw/traces/events_v2_launches.json
+
+# Internal findings must remain local; this repository is public.
+/giwa-launchpad-research/_findings-private.md

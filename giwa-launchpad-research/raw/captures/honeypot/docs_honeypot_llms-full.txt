@@ -1,0 +1,2577 @@
+# About Honeypot Finance
+
+Building Institutional-Grade Liquidity Infrastructure for the Next Wave of DeFi
+
+## 💡 Introduction
+
+Honeypot Finance is an all-in-one liquidity hub creating institutional-grade infrastructure for decentralized finance. Its vertically integrated platform combines **AMM-based perpetual trading**, a**utomated liquidity management**, and **omnichain capital flow**, addressing the structural inefficiencies that limit scalability and composability in current DeFi systems.
+
+* Our innovative [Honeypot Dex](/products/honeypot-dex) supports native limit orders, TWAP execution & active liquidity vaults. Integrated with abstract account infrastructure, users can execute cross-chain trades from a single account - simplifying wallet management & increasing composability.
+* [Dreampad](/products/dreampad) supports our innovative Fair Token Offering (FTO) model and both Fjord Foundry's LBP and Fixed Price Sales to ensure successful and sustainable token launches for projects.
+* [Pot2Pump](/products/pot2pump) is a meme launchpad that combines a liquidity-focused meme model with fair launch mechanisms during the pre-DEX phase like [Daos.fun](#introduction). Early participants join as liquidity providers (LPs), forming an LP army like on Meteora that ensures optimal concentrated liquidity management through the ALM.
+
+## :honey\_pot: Our Purpose
+
+As a vertically integrated liquidity hub & DEX++, Honeypot Finance is built to solve the critical issues of idle TVL, inefficient incentives & market fragmentation found across DeFi.
+
+We combine professional trading tools, behaviour-driven incentives & programmable financial assets into a unified system for liquidity creation, circulation and retention.
+
+We moved beyond traditional DeFi to build a first-of-its-kind DEX++ liquidity engine. This isn't just another reflexive model; it's a comprehensive, high-yield, one-stop solution engineered to form a full-cycle system that supports trading, incentivization & long-term capital formation.
+
+We're going beyond fee extraction to become an infrastructure layer for launching & sustaining aligned token economies across high performance L1 & L2 chains.
+
+
+# Our Roadmap
+
+Honeypot Finance's journey on Berachain and beyond
+
+* **Q2 2025**: What’s Next for Honeypot – The Expansion
+  * Launched the [**All-in-One Rewards Vault**](https://x.com/honeypotfinance/status/1935727348847960153) **-** the first true implementation of dynamic, action-based incentivization on Berachain.
+  * Introduced two new liquidity engines:
+    * *Cheese Benance* – an “Up Only” mint + swap mechanism powered by backed cAssets.
+    * *Drip Drive* – a swap-mining function that rewards real on-chain usage.
+  * Began ecosystem outreach beyond Berachain, targeting Monad and other high-throughput environments.
+* **Q1 2025**: Overlay public sale as Launch Partner. AI Agents and bots integration of Pot2Pump for meme trading. Mainnet & TGE on Berachain. Pot2Pump integration with concentrated liquidity + ALM.
+* **Q4 2024**: Successful public sale and pre-sale of Berally and Burrbear as Launch Partner. Launched a $4 million incentive plan to support the Pot2Pump Meme Launchpad.
+* **Q3 2024**: Developed custom hooks extending the FTO model, supporting flexible market launches. Partnered with Fjord Foundry to better serve the entire Berachain ecosystem. Developed the fair token launch model Pot2Pump.
+* **Q2 2024**: Released a new testnet with improved UI/UX. Secured the seed round investment.
+* **Q1 2024**: Refined the Flywheel Model to better align with Berachain. Hosted the Berabeelon testnet, with 79 users participating in 250+ token launches. Launched the HoneyGenesis NFT collection, raising over $2M in two days (second highest NFT raise at that time on Berachain).
+* **Q3 2023**: Introduced the Fair Token Offering (FTO) model, ensuring fair launches and protection against market manipulation within the Berachain community.
+* **Q2 2023**: Won ETH Shanghai hackathon with Batch A2MM protocol, providing fair pricing and protection against sandwich attacks in shallow liquidity pools.
+* **Q4 2022**: Honeypot Finance introduced an automated liquidity pool incentive scheme via DAO contracts, making liquidity commitment highly attractive.
+* **Q3 2022**: Among the first to launch on the innovative L1 Berachain.
+
+
+# Official Links
+
+Stay safe and use our official links only 👇
+
+* Website: <https://honeypotfinance.xyz>
+* X: <https://x.com/honeypotfinance>
+* Mirror: <https://mirror.xyz/honeypotfi.eth>&#x20;
+* Telegram: <https://t.me/join_pot>
+* Discord: <https://discord.gg/NfnK78KJxH>
+* Dmail: <https://mail.dmail.ai/sub/HoneypotFi>
+* Medium: <https://medium.com/@HoneypotFinance1>
+* Magic Eden:&#x20;
+* OpenSea: <https://opensea.io/fr/collection/honeygenesis-arbitrum>
+* Security Audits:&#x20;
+  * DEX:  <https://docs.algebra.finance/algebra-integral-documentation/algebra-integral-technical-reference/audits>
+  * Launchpad (FTO Model and Hooks): <https://hashlock.com/wp-content/uploads/2024/10/Honeypot-Finance-Smart-Contract-Audit-Report-Final-Report-v1.pdf>
+  * All-in-One Vault: <https://hashlock.com/wp-content/uploads/2024/10/Honeypot-Finance-2nd-Smart-Contract-Audit-Report-Final-Report-v2.pdf>
+  * Meme Launchpad (Pot2Pump) <https://github.com/shieldify-security/audits-portfolio/blob/main/reports/Honeypot-Pot2PumpUpdates-Security-Review.pdf>
+  * Meme Launchpad: <https://github.com/shieldify-security/audits-portfolio/blob/main/reports/HoneypotFinance-Security-Review.pdf>
+
+{% hint style="info" %}
+If you hold a HoneyGenesis NFT, participate in Honeypot Finance governance on Snapshot 👉 <https://snapshot.org/#/honeypotfi.eth>
+{% endhint %}
+
+
+# Honeypot DEX
+
+Honeypot Finance delivers a comprehensive DeFi experience to further incentivize our community. Built using the **Algebra Integral v1.2** tech stack unlocks the modular composability approach alongside enhanced incentives and a seamless user experience.
+
+***
+
+## **Modular Concentrated Liquidity Experience**
+
+**Algebra Integral** underpins our Honeypot DEX, offering a robust and customizable concentrated liquidity framework. This foundation ensures efficient liquidity management and optimal trading conditions. Below are the customized unique features:
+
+### Plugins Concept <a href="#plugins" id="plugins"></a>
+
+A [**plugin** ](https://docs.algebra.finance/algebra-integral-documentation/algebra-integral-technical-reference/plugins/overview)is a smart contract that connects to a Pool contract, expanding its functionality through hooks. **Hooks** are triggered before or after key pool events (e.g., pool initialization, minting or burning liquidity, swaps, and flash loans). This mechanism allows plugins and pools to exchange information, enabling advanced features in the Honeypot DEX including:
+
+* **TWAP Oracle:** provides access to historical price and volatility data.
+* **Dynamic Fee:** one major advantage of the Algebra-based DEX is the dynamic fee structure. By using TWAP Oracle data on price changes, a plugin calculates the fee based on the volatility of each trading pair.
+* **Farming:** the current farming implementation utilizes a Virtual Pool that stores information about the liquidity and state of the original Pool. This enables rewards distribution to liquidity providers in a flexible and efficient manner.
+* **Security:** this hook mechanism governs three possible pool statuses: ENABLED, DISABLED (all hook operations are disabled), and BURN\_ONLY (only liquidity removal is allowed). This security layer helps protect against malicious activities and ensures greater control over the pool.
+
+### **Flash Loans**
+
+The new DEX allows borrowing tokens from pools up to the total pool balance. [Flash loan](https://docs.algebra.finance/algebra-integral-documentation/algebra-integral-technical-reference/integration-process/technical-guides/flashloans) fees (and any excess tokens returned in the callback) are distributed to active liquidity providers. If no active liquidity exists at the time of a flash loan, fees accrue to the first liquidity positions activated thereafter.
+
+{% hint style="warning" %}
+It is important to note that, not only active liquidity is available to receive flash loans, but the **entire token balance available** to the pool.
+{% endhint %}
+
+Flash loans utilize a [**callback** ](https://docs.algebra.finance/algebra-integral-documentation/algebra-integral-technical-reference/integration-process/technical-guides/flashloans/flash-callback)mechanism. If you implement a contract that leverages Algebra Integral’s flash loans, ensure the contract triggering the callback is indeed the expected Algebra Integral pool
+
+***
+
+### Incentivization: Sustainable Engagement Loop Beyond Traditional TVL Emisisons
+
+Through our modular approach and customizable plugins, we can offer both blue chip and and long-tail assets enhanced incentives and support. A new and improved **m3m3 staking resolution** will be introduced, supporting both single-token staking and LP staking. This system integrates seamlessly with **our behaviour-driven incentives model**, giving stakers the opportunity to earn outsized rewards for the on-chain activity.
+
+
+# Honeypot DEX Subgraph
+
+### special terms
+
+* `factory`: a factory is a contract that creates pools, and global variables are stored in the factory entity.
+* `whitelisted tokens`: tokens that are manually added to the platform by the hpot team, usually tokens with a large market cap and high liquidity.
+* `untracked`: Untracked means that the trade amount is not traded with our platform whitelisted tokens (e.g. Honey, USDC, etc.).
+
+### navigation
+
+* Global Variables
+* Token
+  * Account Holding Token
+* Pool
+  * Pool Hour Data
+  * Pool Day Data
+  * Pool Week Data
+  * Pool Month Data
+  * Mints
+  * Burns
+  * Swaps
+  * Collects
+  * Ticks
+  * Positions
+* Vaults
+  * vault Shares
+  * vault Deposits
+  * vault Withdraws
+  * vault Approvals
+  * vault Affiliates
+  * vault Hysteresis
+  * vault Collect Fees
+  * Max Total Supply
+  * Vault Ownership Transferred
+  * Vault Rebalance
+  * Vault Set Twap Period
+  * Vault Transfer
+* Pot2Pump
+  * Participant
+  * Participant Transaction History
+  * DepositRaisedToken
+  * Refund
+  * ClaimLp
+* Account
+  * Account Holding Token
+* Transaction
+  * Mint
+  * Burn
+  * Swap
+  * Collect
+  * Flash
+  * Deposit
+  * Withdraw
+  * DepositRaisedToken
+  * Refund
+  * ClaimLp
+
+### highlighted usage of queries
+
+* pot2pump newly launched
+* pot2pump near success launch
+* pot2pump trending launch
+* user active positions
+* get pool by token pair
+* get account vault shares
+
+### 1. Global Variables
+
+global variables are stored in the `factory` entity.
+
+#### factory fields:
+
+* `id`(string): the address of the factory.
+* `poolCount`(BigInt): the number of pools created by the factory.
+* `txCount`(BigInt): the number of transactions executed with hpot products.
+* `totalVolumeUSD`(BigDecimal): the total volume of the factory in USD.
+* `totalVolumeMatic`(BigDecimal): the total volume of the factory in Matic.
+* `totalFeesUSD`(BigDecimal): the total fees gained by the factory in USD.
+* `totalFeesMatic`(BigDecimal): the total fees gained by the factory in Matic.
+* `untrackedVolumeUSD`(BigDecimal): the untracked volume of the factory in USD.
+* `totalValueLockedUSD`(BigDecimal): the total value locked of the factory in USD.
+* `totalValueLockedMatic`(BigDecimal): the total value locked of the factory in Matic.
+* `accountCount`(BigInt): the number of accounts that have interacted with hpot products.
+
+#### example query to get global variables:
+
+```graphql
+query {
+  factories {
+    id
+    poolCount
+    txCount
+    totalVolumeUSD
+    totalVolumeMatic
+    totalFeesUSD
+    totalFeesMatic
+    untrackedVolumeUSD
+    totalValueLockedUSD
+    totalValueLockedMatic
+    accountCount
+  }
+}
+```
+
+### 2. Pool
+
+#### pool fields:
+
+* `id`(string): the address of the pool.
+* token0(token entity): the entity of the first token in the pool.
+* token1(token entity): the entity of the second token in the pool.
+* `createdAtTimestamp`(BigInt): the timestamp of the pool creation.
+* `createdAtBlockNumber`(BigInt): the block number of the pool creation.
+* `plugin`(string): the address of the plugin of the pool.
+* `fee`(int): current fee percentage of the pool.
+* `liquidity`(BigDecimal): the liquidity of the pool.
+* `token0Price`(BigDecimal): the price of token0 in the pool.
+* `token1Price`(BigDecimal): the price of token1 in the pool.
+* `tick`(int): current tick of the pool.
+* `volumeToken0`(BigDecimal): the total volume of token0 in the pool.
+* `volumeToken1`(BigDecimal): the total volume of token1 in the pool.
+* `volumeUSD`(BigDecimal): the total volume of the pool in USD.
+* `untrackedVolumeUSD`(BigDecimal): the untracked volume of the pool in USD.
+* `feesUSD`(BigDecimal): the total fees gained by the pool in USD.
+* `tickSpacing`(int): the tick spacing of the pool.
+* `untrackedFeesUSD`(BigDecimal): the total untracked fees of the pool in USD.
+* `txCount`(BigInt): the number of transactions executed with the pool.
+* `collectedFeesToken0`(BigDecimal): the collected fees of token0 in the pool.
+* `collectedFeesToken1`(BigDecimal): the collected fees of token1 in the pool.
+* `collectedFeesUSD`(BigDecimal): the collected fees of the pool in USD.
+* `totalValueLockedToken0`(BigDecimal): the total value locked of token0 in the pool.
+* `totalValueLockedToken1`(BigDecimal): the total value locked of token1 in the pool.
+* `feesToken0`(BigDecimal): the fees of token0 gained by the pool.
+* `feesToken1`(BigDecimal): the fees of token1 gained by the pool.
+* `totalValueLockedMatic`(BigDecimal): the total value locked of the pool in Matic.
+* `totalValueLockedUSD`(BigDecimal): the total value locked of the pool in USD.
+* `totalValueLockedUSDUntracked`(BigDecimal): the total value locked of the pool in USD(untracked).
+* `searchString`(string): the search string of the pool, combination of token0 and token1 symbols and pool address in lowercase.
+* `aprPercentage`(BigDecimal): the APR percentage of the pool(untracked).
+* `liquidityProviderCount`(BigInt): the number of liquidity providers in the pool.
+* vaults(vaults entity): the vaults entity of the pool.
+* `Time range data`:
+  * poolHourData( poolHourData entity): the hourly data entities of the pool.
+  * poolDayData(poolDayData entity): the daily data entities of the pool.
+  * poolWeekData(poolWeekData entity): the weekly data entities of the pool.
+  * poolMonthData(poolMonthData entity): the monthly data entities of the pool.
+* `events`:
+  * mints(mints entity): the mints transaction entities of the pool.
+  * burns(burns entity): the burns transaction entities of the pool.
+  * swaps(swaps entity): the swaps transaction entities of the pool.
+  * collects(collects entity): the collects transaction entities of the pool.
+  * ticks(ticks entity): the ticks entities of the pool.
+
+#### Example query to get detailed pool data:
+
+```graphql
+query {
+  pools {
+    id
+    token0 {
+      id
+      symbol
+      name
+      decimals
+    }
+    token1 {
+      id
+      symbol
+      name
+      decimals
+    }
+    fee
+    liquidity
+    token0Price
+    token1Price
+    tick
+    volumeToken0
+    volumeToken1
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    tickSpacing
+    untrackedFeesUSD
+    txCount
+    collectedFeesToken0
+    collectedFeesToken1
+    collectedFeesUSD
+    totalValueLockedToken0
+    totalValueLockedToken1
+    feesToken0
+    feesToken1
+    totalValueLockedMatic
+    totalValueLockedUSD
+    totalValueLockedUSDUntracked
+    liquidityProviderCount
+    poolHourData(orderBy: periodStartUnix, orderDirection: desc, first: 24) {
+      id
+      periodStartUnix
+      volumeToken0
+      volumeToken1
+      volumeUSD
+      untrackedVolumeUSD
+      feesUSD
+      txCount
+      aprPercentage
+    }
+    poolDayData(orderBy: date, orderDirection: desc, first: 7) {
+      id
+      date
+      volumeToken0
+      volumeToken1
+      volumeUSD
+      untrackedVolumeUSD
+      feesUSD
+      txCount
+      aprPercentage
+    }
+    poolWeekData(orderBy: week, orderDirection: desc, first: 4) {
+      id
+      week
+      volumeToken0
+      volumeToken1
+      volumeUSD
+      untrackedVolumeUSD
+      feesUSD
+      txCount
+      aprPercentage
+    }
+    poolMonthData(orderBy: month, orderDirection: desc, first: 12) {
+      id
+      month
+      volumeToken0
+      volumeToken1
+      volumeUSD
+      untrackedVolumeUSD
+      feesUSD
+      txCount
+      aprPercentage
+    }
+    mints(orderBy: timestamp, orderDirection: desc, first: 10) {
+      id
+      timestamp
+      amount0
+      amount1
+      amountUSD
+    }
+    burns(orderBy: timestamp, orderDirection: desc, first: 10) {
+      id
+      timestamp
+      amount0
+      amount1
+      amountUSD
+    }
+    swaps(orderBy: timestamp, orderDirection: desc, first: 10) {
+      id
+      timestamp
+      amount0
+      amount1
+      amountUSD
+      sender
+      recipient
+    }
+  }
+}
+```
+
+#### get pool by token pair query
+
+```graphql
+# @param token0: token0 address
+# @param token1: token1 address
+query PoolsByTokenPair($token0: ID!, $token1: ID!) {
+  pools(where: { token0_: { id: $token0 }, token1_: { id: $token1 } }) {
+    ...PoolFields
+  }
+}
+```
+
+### 3. Pool Hour Data
+
+#### poolHourData fields:
+
+* `id`(string): the id of the pool hour data
+* `periodStartUnix`(BigInt): the timestamp of the pool hour data
+* `volumeToken0`(BigInt): the volume of token0 in the pool hour data
+* `volumeToken1`(BigInt): the volume of token1 in the pool hour data
+* `volumeUSD`(BigInt): the volume of the pool in USD in the pool hour data
+* `untrackedVolumeUSD`(BigInt): the untracked volume of the pool in USD in the pool hour data
+* `feesUSD`(BigInt): the fees of the pool in USD in the pool hour data
+* `txCount`(BigInt): the number of transactions executed with the pool in the pool hour data
+* `aprPercentage`(BigDecimal): average apr of this pool hour data
+* pool(entity): the pool entity of the pool hour data
+
+#### Example query to get pool hour data:
+
+```graphql
+query {
+  poolHourData(orderBy: periodStartUnix, orderDirection: desc, first: 24) {
+    id
+    periodStartUnix
+    volumeToken0
+    volumeToken1
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    txCount
+    aprPercentage
+  }
+}
+```
+
+### 4. Pool Day Data
+
+#### poolDayData fields:
+
+* `id`(string): the id of the pool day data
+* `date`(BigInt): the timestamp of the pool day data
+* `volumeToken0`(BigInt): the volume of token0 in the pool day data
+* `volumeToken1`(BigInt): the volume of token1 in the pool day data
+* `volumeUSD`(BigInt): the volume of the pool in USD in the pool day data
+* `untrackedVolumeUSD`(BigInt): the untracked volume of the pool in USD in the pool day data
+* `feesUSD`(BigInt): the fees of the pool in USD in the pool day data
+* `txCount`(BigInt): the number of transactions executed with the pool in the pool day data
+* `aprPercentage`(BigDecimal): average apr of this pool day data
+* pool(pool entity): the pool entity of the pool day data
+
+#### example query to get pool day data:
+
+```graphql
+query {
+  poolDayData(orderBy: date, orderDirection: desc, first: 7) {
+    id
+    date
+    volumeToken0
+    volumeToken1
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    txCount
+    aprPercentage
+  }
+}
+```
+
+### 5. Pool Week Data
+
+#### poolWeekData fields:
+
+* `id`(string): the id of the pool week data
+* `week`(BigInt): the timestamp of the pool week data
+* `volumeToken0`(BigInt): the volume of token0 in the pool week data
+* `volumeToken1`(BigInt): the volume of token1 in the pool week data
+* `volumeUSD`(BigInt): the volume of the pool in USD in the pool week data
+* `untrackedVolumeUSD`(BigInt): the untracked volume of the pool in USD in the pool week data
+* `feesUSD`(BigInt): the fees of the pool in USD in the pool week data
+* `txCount`(BigInt): the number of transactions executed with the pool in the pool week data
+* `aprPercentage`(BigDecimal): average apr of this pool week data
+* pool(pool entity): the pool entity of the pool week data
+
+#### example query to get pool week data:
+
+```graphql
+query {
+  poolWeekData(orderBy: week, orderDirection: desc, first: 4) {
+    id
+    week
+    volumeToken0
+    volumeToken1
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    txCount
+    aprPercentage
+  }
+}
+```
+
+### 6. Pool Month Data
+
+#### poolMonthData fields:
+
+* `id`(string): the id of the pool month data
+* `month`(BigInt): the timestamp of the pool month data
+* `volumeToken0`(BigInt): the volume of token0 in the pool month data
+* `volumeToken1`(BigInt): the volume of token1 in the pool month data
+* `volumeUSD`(BigInt): the volume of the pool in USD in the pool month data
+* `untrackedVolumeUSD`(BigInt): the untracked volume of the pool in USD in the pool month data
+* `feesUSD`(BigInt): the fees of the pool in USD in the pool month data
+* `txCount`(BigInt): the number of transactions executed with the pool in the pool month data
+* `aprPercentage`(BigDecimal): average apr of this pool month data
+* pool(pool entity): the pool entity of the pool month data
+
+#### example query to get pool month data:
+
+```graphql
+query {
+  poolMonthData(orderBy: month, orderDirection: desc, first: 12) {
+    id
+    month
+    volumeToken0
+    volumeToken1
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    txCount
+    aprPercentage
+  }
+}
+```
+
+### 7. Mints
+
+#### mints fields:
+
+* `id`(string): the id of the mint transaction
+* `transaction`(transaction entity): the transaction entity of the mint transaction
+* `timestamp`(BigInt): the timestamp of the mint transaction
+* pool(pool entity): the pool entity of the mint transaction
+* `amount`(BigInt): liquidity minted
+* `amount0`(BigDecimal): amount of token0 minted
+* `amount1`(BigDecimal): amount of token1 minted
+* `amountUSD`(BigDecimal): amount of liquidity minted in USD
+* token0(token entity): the token0 entity of the pool
+* token1(token entity): the token1 entity of the pool
+* `tickLower`(int): the tick lower of the minted position
+* `tickUpper`(int): the tick upper of the minted position
+* `owner`(address): owner of the minted position
+* `origin`(string): the EOA that initiated the txn
+
+#### example query to get mints:
+
+```graphql
+query {
+  mints(orderBy: timestamp, orderDirection: desc, first: 10) {
+    id
+    timestamp
+    amount0
+    amount1
+    amountUSD
+  }
+}
+```
+
+### 8. Burns
+
+#### burns fields:
+
+* `id`(string): the id of the burn transaction
+* `transaction`(transaction entity): the transaction entity of the burn transaction
+* `timestamp`(BigInt): the timestamp of the burn transaction
+* pool(pool entity): the pool entity of the burn transaction
+* `amount`(BigInt): liquidity burned
+* `amount0`(BigDecimal): amount of token0 burned
+* `amount1`(BigDecimal): amount of token1 burned
+* `amountUSD`(BigDecimal): amount of liquidity burned in USD
+* token0(token entity): the token0 entity of the pool
+* token1(token entity): the token1 entity of the pool
+* `tickLower`(int): the tick lower of the burned position
+* `tickUpper`(int): the tick upper of the burned position
+* `owner`(address): owner of the burned position
+* `origin`(string): the EOA that initiated the txn
+
+#### example query to get burns:
+
+```graphql
+query {
+  burns(orderBy: timestamp, orderDirection: desc, first: 10) {
+    id
+    timestamp
+    amount0
+    amount1
+    amountUSD
+  }
+}
+```
+
+### 9. Swaps
+
+#### swaps fields:
+
+* `id`(string): the id of the swap transaction
+* `transaction`(transaction entity): the transaction entity of the swap transaction
+* `timestamp`(BigInt): the timestamp of the swap transaction
+* pool(pool entity): the pool entity of the swap transaction
+* `amount0`(BigDecimal): amount of token0 swapped
+* `amount1`(BigDecimal): amount of token1 swapped
+* `amountUSD`(BigDecimal): amount of liquidity swapped in USD
+* token0(token entity): the token0 entity of the pool
+* token1(token entity): the token1 entity of the pool
+* `sender`(address): the sender of the swap transaction
+* `recipient`(address): the recipient of the swap transaction
+
+#### example query to get swaps:
+
+```graphql
+query {
+  swaps(orderBy: timestamp, orderDirection: desc, first: 10) {
+    id
+    timestamp
+    amount0
+    amount1
+    amountUSD
+  }
+}
+```
+
+### 10. Collects
+
+* `id`(string): the id of the collect transaction
+* `transaction`(transaction entity): the transaction entity of the collect transaction
+* `timestamp`(BigInt): the timestamp of the collect transaction
+* pool(pool entity): the pool entity of the collect transaction
+* `amount0`(BigDecimal): amount of token0 collected
+* `amount1`(BigDecimal): amount of token1 collected
+* `amountUSD`(BigDecimal): amount of liquidity collected in USD
+* token0(token entity): the token0 entity of the pool
+* token1(token entity): the token1 entity of the pool
+* `tickLower`(int): the tick lower of the collected position
+* `tickUpper`(int): the tick upper of the collected position
+* `owner`(address): owner of the collected position
+
+#### example query to get collects:
+
+```graphql
+query {
+  collects(orderBy: timestamp, orderDirection: desc, first: 10) {
+    id
+    timestamp
+    amount0
+    amount1
+    amountUSD
+  }
+}
+```
+
+### 11. Ticks
+
+#### tick fields:
+
+* `id`(string): the id of the tick
+* `poolAddress`(string): the address of the pool
+* `tickIdx`(BigInt): the index of the tick
+* pool(pool entity): the pool entity of the tick
+* `liquidityGross`(BigInt): the gross liquidity of the tick
+* `liquidityNet`(BigInt): the net liquidity of the tick
+* `price0`(BigDecimal): the price of token0 in the tick
+* `price1`(BigDecimal): the price of token1 in the tick
+
+#### example query to get ticks:
+
+```graphql
+query {
+  ticks(orderBy: tickIdx, orderDirection: asc, first: 10) {
+    id
+    poolAddress
+    tickIdx
+    liquidityGross
+    liquidityNet
+    price0
+    price1
+  }
+}
+```
+
+### 12. Vaults
+
+the entity for vault is `ichiVault`, this is developed from by aquabera team
+
+#### vaults fields:
+
+* `id`(string): the address of the vault
+* `sender`(address): the sender of the vault
+* `tokenA`(address): the address of the first token in the vault
+* `allowTokenA`(boolean): whether the first token is allowed to deposit
+* `tokenB`(address): the address of the second token in the vault
+* `allowTokenB`(boolean): whether the second token is allowed to deposit
+* `count`(BigInt): the number of vaults that have been created to date, can be see as index of this vault
+* `holdersCount`(int): the number of holders have hold shares in this vault
+* pool(pool entity): the pool entity of the vault
+* `totalShares`(BigDecimal): the total number of shares in the vault, this could be used to calculate token amount and user amount
+* `searchString`(string): the search string of the vault, combination of token0 and token1 symbols and pool address in lowercase
+* `entities`: the entities of the vault
+  * vaultShares(vaultShares entity): the vault shares entity of the vault
+  * vaultDeposits(vaultDeposits entity): the vault deposits entity of the vault
+  * vaultWithdraws(vaultWithdraws entity): the vault withdraws entity of the vault
+  * vaultApprovals(vaultApprovals entity): the vault approvals entity of the vault
+  * vaultAffiliates(vaultAffiliates entity): the vault affiliates entity of the vault
+  * vaultHysteresis(vaultHysteresis entity): the vault hysteresis entity of the vault
+  * vaultCollectFees(vaultCollectFees entity): the vault collect fees entity of the vault
+  * maxTotalSupply(maxTotalSupply entity): the max total supply entity of the vault
+  * vaultOwnershipTransferred(vaultOwnershipTransferred entity): the vault ownership transferred entity of the vault
+  * vaultRebalance(vaultRebalance entity): the vault rebalance entity of the vault
+  * vaultSetTwapPeriod(vaultSetTwapPeriod entity): the vault set twap period entity of the vault
+    * vaultTransfer(vaultTransfer entity): the vault transfer entity of the vault
+
+#### example query to get vaults:
+
+```graphql
+query {
+  ichiVaults {
+    id
+    sender
+    tokenA
+    allowTokenA
+    tokenB
+    allowTokenB
+    count
+    holdersCount
+    totalShares
+    searchString
+  }
+}
+```
+
+### 13. Token
+
+#### token fields:
+
+* `id`(string): the address of the token
+* `symbol`(string): token symbol
+* `name`(string): token name
+* `decimals`(BigInt): token decimals
+* `totalSupply`(BigInt): total supply of the token
+* `volume`(BigDecimal): volume in token units
+* `volumeUSD`(BigDecimal): volume in derived USD
+* `untrackedVolumeUSD`(BigDecimal): volume in USD even on pools with less reliable USD values
+* `feesUSD`(BigDecimal): fees in USD
+* `txCount`(BigInt): transactions across all pools that include this token
+* `poolCount`(BigInt): number of pools containing this token
+* `totalValueLocked`(BigDecimal): liquidity across all pools in token units
+* `totalValueLockedUSD`(BigDecimal): liquidity across all pools in derived USD
+* `totalValueLockedUSDUntracked`(BigDecimal): TVL derived in USD untracked
+* `derivedMatic`(BigDecimal): derived price in Matic
+* `derivedUSD`(BigDecimal): derived price in USD
+* `initialUSD`(BigDecimal): initial price in USD
+* `priceChange24h`(BigDecimal): 24 hour price change
+* `priceChange24hPercentage`(BigDecimal): 24 hour price change percentage
+* `whitelistPools`(pool entity): pools token is in that are white listed for USD pricing
+* `marketCap`(BigDecimal): derived market cap by total supply and derived price
+* `holderCount`(BigInt): number of holders of this token
+* `entities`:
+  * tokenHourData(tokenHourData entity): hourly data for this token
+  * tokenDayData(tokenDayData entity): daily data for this token
+  * holders(holders entity): holders of this token
+
+#### example query to get token data:
+
+```graphql
+query {
+  tokens {
+    id
+    symbol
+    name
+    decimals
+    totalSupply
+    volume
+    volumeUSD
+    untrackedVolumeUSD
+    feesUSD
+    txCount
+    poolCount
+    totalValueLocked
+    totalValueLockedUSD
+    totalValueLockedUSDUntracked
+    derivedMatic
+    derivedUSD
+    marketCap
+    holderCount
+  }
+}
+```
+
+### 14. Vault Shares
+
+#### vaultShare fields:
+
+* `id`(string): unique identifier for the vault share
+* `user`(account entity): the account that owns the shares
+* `vault`(vault entity): reference to the vault
+* `vaultShareBalance`(BigDecimal): balance of shares owned by the user
+
+#### example query to get vault shares:
+
+```graphql
+query {
+  vaultShares {
+    id
+    user {
+      id
+    }
+    vault {
+      id
+    }
+    vaultShareBalance
+  }
+}
+```
+
+#### get account vault shares query
+
+```graphql
+# @param accountId: account address
+query AccountVaultShares($AccountId: ID!) {
+  vaultShares(where: { user_: { id: $AccountId }, vaultShareBalance_gt: 0 }) {
+    ...VaultSharesField
+    id
+  }
+}
+```
+
+### 15. Vault Deposits
+
+#### vaultDeposit fields:
+
+* `id`(string): unique identifier for the deposit
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `to`(Bytes): recipient address of the minted LP tokens
+* `shares`(BigInt): quantity of LP tokens minted
+* `amount0`(BigInt): amount of token0 deposited
+* `amount1`(BigInt): amount of token1 deposited
+* `tick`(Int): current price tick
+* `createdAtTimestamp`(BigInt): timestamp of deposit
+* `sqrtPrice`(BigInt): square root of price at deposit time
+* `totalAmount0`(BigInt): total token0 in vault after deposit
+* `totalAmount1`(BigInt): total token1 in vault after deposit
+* `totalAmount0BeforeEvent`(BigInt): total token0 before deposit
+* `totalAmount1BeforeEvent`(BigInt): total token1 before deposit
+* `totalSupply`(BigInt): total supply of LP tokens
+
+#### example query to get vault deposits:
+
+```graphql
+query {
+  vaultDeposits {
+    id
+    vault {
+      id
+    }
+    sender
+    shares
+    amount0
+    amount1
+    createdAtTimestamp
+  }
+}
+```
+
+### 16. Vault Withdraws
+
+#### vaultWithdraw fields:
+
+* `id`(string): unique identifier for the withdrawal
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `to`(Bytes): recipient address of withdrawn tokens
+* `shares`(BigInt): quantity of LP tokens burned
+* `amount0`(BigInt): amount of token0 withdrawn
+* `amount1`(BigInt): amount of token1 withdrawn
+* `tick`(Int): current price tick
+* `createdAtTimestamp`(BigInt): timestamp of withdrawal
+* `sqrtPrice`(BigInt): square root of price at withdrawal time
+* `totalAmount0`(BigInt): total token0 in vault after withdrawal
+* `totalAmount1`(BigInt): total token1 in vault after withdrawal
+* `totalAmount0BeforeEvent`(BigInt): total token0 before withdrawal
+* `totalAmount1BeforeEvent`(BigInt): total token1 before withdrawal
+* `totalSupply`(BigInt): total supply of LP tokens
+
+#### example query to get vault withdrawals:
+
+```graphql
+query {
+  vaultWithdraws {
+    id
+    vault {
+      id
+    }
+    sender
+    shares
+    amount0
+    amount1
+    createdAtTimestamp
+  }
+}
+```
+
+### 17. Vault Approvals
+
+#### vaultApproval fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `owner`(Bytes): address of the owner of the spender account
+* `spender`(Bytes): address for which the allowance is being set
+* `value`(BigInt): the new allowance amount
+
+#### example query to get vault approvals:
+
+```graphql
+query {
+  vaultApprovals {
+    id
+    vault {
+      id
+    }
+    owner
+    spender
+    value
+  }
+}
+```
+
+### 18. Vault Affiliates
+
+#### vaultAffiliate fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `affiliate`(Bytes): address of the new affiliate that will receive trading fee split
+
+#### example query to get vault affiliates:
+
+```graphql
+query {
+  vaultAffiliates {
+    id
+    vault {
+      id
+    }
+    sender
+    affiliate
+  }
+}
+```
+
+### 19. Vault Hysteresis
+
+#### vaultHysteresis fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `hysteresis`(BigInt): new hysteresis threshold in percentage
+
+#### example query to get vault hysteresis:
+
+```graphql
+query {
+  vaultHysteresis {
+    id
+    vault {
+      id
+    }
+    sender
+    hysteresis
+  }
+}
+```
+
+### 20. Vault Collect Fees
+
+#### vaultCollectFee fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the CollectFees transaction signer
+* `tick`(Int): current price tick
+* `createdAtTimestamp`(BigInt): timestamp of fee collection
+* `sqrtPrice`(BigInt): square root price at collection time
+* `feeAmount0`(BigInt): collected fee amount of token0
+* `feeAmount1`(BigInt): collected fee amount of token1
+* `totalAmount0`(BigInt): total token0 in vault after collection
+* `totalAmount1`(BigInt): total token1 in vault after collection
+* `totalSupply`(BigInt): total supply of LP tokens
+
+#### example query to get vault collect fees:
+
+```graphql
+query {
+  vaultCollectFees {
+    id
+    vault {
+      id
+    }
+    sender
+    feeAmount0
+    feeAmount1
+    createdAtTimestamp
+  }
+}
+```
+
+### 21. Max Total Supply
+
+#### maxTotalSupply fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `totalSupply`(BigInt): total supply of LP tokens
+
+#### example query to get max total supply:
+
+```graphql
+query {
+  maxTotalSupply {
+    id
+    vault {
+      id
+    }
+    totalSupply
+  }
+}
+```
+
+### 22. Vault Ownership Transferred
+
+#### vaultOwnershipTransferred fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `from`(Bytes): address of the previous owner
+* `to`(Bytes): address of the new owner
+
+#### example query to get vault ownership transferred:
+
+```graphql
+query {
+  vaultOwnershipTransferred {
+    id
+    vault {
+      id
+    }
+    from
+    to
+  }
+}
+```
+
+### 23. Vault Rebalance
+
+#### vaultRebalance fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `amount0`(BigInt): amount of token0 to be rebalanced
+* `amount1`(BigInt): amount of token1 to be rebalanced
+
+#### example query to get vault rebalance:
+
+```graphql
+query {
+  vaultRebalance {
+    id
+    vault {
+      id
+    }
+    sender
+    amount0
+    amount1
+  }
+}
+```
+
+### 24. Vault Set Twap Period
+
+#### vaultSetTwapPeriod fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `twapPeriod`(BigInt): new twap period in seconds
+
+#### example query to get vault set twap period:
+
+```graphql
+query {
+  vaultSetTwapPeriod {
+    id
+    vault {
+      id
+    }
+    sender
+    twapPeriod
+  }
+}
+```
+
+### 25. Vault Transfer
+
+#### vaultTransfer fields:
+
+* `id`(string): unique identifier (transaction hash + log index)
+* `vault`(IchiVault): reference to the vault
+* `sender`(Bytes): address of the transaction signer
+* `to`(Bytes): address of the recipient
+* `amount0`(BigInt): amount of token0 to be transferred
+* `amount1`(BigInt): amount of token1 to be transferred
+
+#### example query to get vault transfer:
+
+```graphql
+query {
+  vaultTransfer {
+    id
+    vault {
+      id
+    }
+    sender
+    to
+    amount0
+    amount1
+  }
+}
+```
+
+### 26. Pot2Pump
+
+#### pot2Pump fields:
+
+* `id`(string): token address
+* `launchTokenInitialPrice`(BigDecimal): initial price of the launch token
+* `launchToken`(entity): reference to the token being launched
+* `DepositLaunchToken`(BigInt): amount of launch tokens deposited
+* `LaunchTokenTVLUSD`(BigDecimal): total value locked in USD for launch token
+* `LaunchTokenMCAPUSD`(BigDecimal): market cap in USD for launch token
+* `raisedTokenMinCap`(BigInt): minimum cap for the raised token
+* `raisedToken`(entity): reference to the token being raised
+* `depositRaisedTokenPercentageToMinCap`(BigDecimal): percentage of raised token deposited compared to min cap
+* `raisedTokenReachingMinCap`(Boolean): whether raised token reached minimum cap
+* `DepositRaisedToken`(BigInt): amount of raised tokens deposited
+* `creator`(String): address of the creator
+* `participantsCount`(BigInt): number of participants
+* `totalRefundAmount`(BigInt): total amount refunded
+* `totalClaimLpAmount`(BigInt): total amount of LP tokens claimed
+* `createdAt`(BigInt): timestamp of creation
+* `endTime`(BigInt): timestamp of end time
+* `state`(BigInt): current state of the Pot2Pump
+* `buyCount`(BigInt): number of buy transactions
+* `sellCount`(BigInt): number of sell transactions
+* `searchString`(String): searchable string combining address and token symbols
+
+#### example query to get pot2pump data:
+
+```graphql
+query {
+  pot2Pumps {
+    id
+    launchTokenInitialPrice
+    launchToken {
+      symbol
+      name
+    }
+    DepositLaunchToken
+    LaunchTokenTVLUSD
+    LaunchTokenMCAPUSD
+    raisedTokenMinCap
+    raisedToken {
+      symbol
+      name
+    }
+    depositRaisedTokenPercentageToMinCap
+    raisedTokenReachingMinCap
+    DepositRaisedToken
+    creator
+    participantsCount
+    totalRefundAmount
+    totalClaimLpAmount
+    createdAt
+    endTime
+    state
+    buyCount
+    sellCount
+  }
+}
+```
+
+#### pot2pump newly launched query:
+
+```graphql
+# @param endTime: BigInt - timestamp of the current time
+query Pot2PumpPottingNewTokens($endTime: BigInt) {
+  pot2Pumps(
+    first: 25
+    orderBy: createdAt
+    orderDirection: desc
+    where: { raisedTokenReachingMinCap: false, endTime_gt: $endTime }
+  ) {
+    id
+    launchToken {
+      symbol
+    }
+    raisedToken {
+      symbol
+    }
+  }
+}
+```
+
+#### pot2pump near success query:
+
+```graphql
+# @param endTime: BigInt - timestamp of the current time
+query Pot2PumpPottingNearSuccess($endTime: BigInt) {
+  pot2Pumps(
+    first: 25
+    orderBy: depositRaisedTokenPercentageToMinCap
+    orderDirection: desc
+    where: { raisedTokenReachingMinCap: false, endTime_gt: $endTime }
+  ) {
+    id
+    launchToken {
+      symbol
+    }
+    raisedToken {
+      symbol
+    }
+  }
+}
+```
+
+#### pot2pump trending launch query:
+
+```graphql
+query Pot2PumpPottingTrending {
+  pot2Pumps(
+    first: 25
+    orderBy: launchToken__priceChange24hPercentage
+    orderDirection: desc
+    where: { raisedTokenReachingMinCap: true }
+  ) {
+    ...Pot2PumpField
+  }
+}
+```
+
+### 27. Participant
+
+#### participant fields:
+
+* `id`(string): unique identifier
+* `pot2Pump`(Pot2Pump): reference to the Pot2Pump
+* `account`(Account): reference to the participant's account
+* `amount`(BigInt): total deposit amount
+* `totalRefundAmount`(BigInt): total amount refunded
+* `totalclaimLqAmount`(BigInt): total amount of LP claimed (1 means claimed all, 0 means none)
+* `claimed`(Boolean): whether participant has claimed
+* `refunded`(Boolean): whether participant has been refunded
+* `createdAt`(BigInt): timestamp of participation
+* `participantTransactionHistorys`(entity): history of participant's transactions
+
+#### example query to get participant data:
+
+```graphql
+query {
+  participants {
+    id
+    pot2Pump {
+      id
+      launchToken {
+        symbol
+      }
+    }
+    account {
+      id
+    }
+    amount
+    totalRefundAmount
+    totalclaimLqAmount
+    claimed
+    refunded
+    createdAt
+  }
+}
+```
+
+### 28. Participant Transaction History
+
+#### participantTransactionHistory fields:
+
+* `id`(string): unique identifier
+* `account`(entity): reference to the participant's account
+* `pot2Pump`(entity): reference to the Pot2Pump
+* `depositAmount`(BigInt): amount deposited in transaction
+* `refundAmount`(BigInt): amount refunded in transaction
+* `claimLqAmount`(BigInt): amount of LP claimed in transaction (1 means all, 0 means none)
+* `actionType`(TransactionType): type of transaction
+* `createdAt`(BigInt): timestamp of transaction
+* `participant`(entity): reference to the participant
+
+#### example query to get transaction history:
+
+```graphql
+query {
+  participantTransactionHistories {
+    id
+    account {
+      id
+    }
+    pot2Pump {
+      id
+      launchToken {
+        symbol
+      }
+    }
+    depositAmount
+    refundAmount
+    claimLqAmount
+    actionType
+    createdAt
+  }
+}
+```
+
+### 29. Account
+
+#### account fields:
+
+* `id`(string): account address
+* `memeTokenHoldingCount`(BigInt): number of meme tokens held by this account
+* `holder`(holdingToken entity): list of tokens held by this account
+* `pot2PumpLaunchCount`(BigInt): number of Pot2Pump launches by this account
+* `participateCount`(BigInt): number of Pot2Pump participations
+* `participant`(entity): list of Pot2Pump participations
+* `transaction`(transaction entity): list of transactions made by this account
+* `platformTxCount`(BigInt): total number of transactions on the platform
+* `swapCount`(BigInt): number of swap transactions
+* `holdingPoolCount`(BigInt): number of pools the account has holdings in
+* `totalSpendUSD`(BigDecimal): total amount spent in USD
+* `vaultShares`(vaultShare entity): list of vault shares owned by this account
+
+#### example query to get account data:
+
+```graphql
+query {
+  accounts {
+    id
+    memeTokenHoldingCount
+    pot2PumpLaunchCount
+    participateCount
+    platformTxCount
+    swapCount
+    holdingPoolCount
+    totalSpendUSD
+    holder {
+      token {
+        symbol
+        name
+      }
+      holdingValue
+    }
+    participant {
+      pot2Pump {
+        id
+      }
+      amount
+    }
+    vaultShares {
+      vault {
+        id
+      }
+      vaultShareBalance
+    }
+  }
+}
+```
+
+### 30. Holding Token
+
+#### holdingToken fields:
+
+* `id`(string): account address + token address
+* `token`(entity): reference to the token being held
+* `account`(entity): reference to the account holding the token
+* `holdingValue`(BigInt): amount of tokens held
+
+#### example query to get holding token data:
+
+```graphql
+query {
+  holdingTokens {
+    id
+    token {
+      symbol
+      name
+      decimals
+    }
+    account {
+      id
+    }
+    holdingValue
+  }
+}
+```
+
+### 31. Transaction
+
+#### transaction fields:
+
+* `id`(string): transaction hash
+* `type`(TransactionType): type of transaction (DEPOSIT, REFUND, CLAIM\_LP, SWAP, COLLECT, MINT, BURN, INCREASE\_LIQUIDITY, DECREASE\_LIQUIDITY)
+* `account`(entity): reference to the account that made the transaction
+* `blockNumber`(BigInt): block number of the transaction
+* `timestamp`(BigInt): timestamp of the transaction
+* `gasLimit`(BigInt): gas limit of the transaction
+* `gasPrice`(BigInt): gas price of the transaction
+* events
+  * `mints` (Mint entity): list of mint events in this transaction
+  * `burns` (Burn entity): list of burn events in this transaction
+  * `swaps` (Swap entity): list of swap events in this transaction
+  * `flashed` (Flash entity): list of flash events in this transaction
+  * `collects` (Collect entity): list of collect events in this transaction
+  * `depositRaisedTokens` (DepositRaisedToken entity): list of deposit raised token events
+  * `refunds` (Refund entity): list of refund events
+  * `claimLps` (ClaimLp entity): list of claim LP events
+
+#### example query to get transaction data:
+
+```graphql
+query {
+  transactions {
+    id
+    type
+    account {
+      id
+    }
+    blockNumber
+    timestamp
+    gasLimit
+    gasPrice
+    swaps {
+      amount0
+      amount1
+      amountUSD
+    }
+    mints {
+      amount0
+      amount1
+      amountUSD
+    }
+    burns {
+      amount0
+      amount1
+      amountUSD
+    }
+  }
+}
+```
+
+### 32. Flash
+
+#### flash fields:
+
+* `id`(string): transaction hash + index
+* `transaction`(transaction entity): reference to the transaction
+* `timestamp`(BigInt): timestamp of the flash event
+* `pool`(Pool): reference to the pool
+* `sender`(Bytes): address of the sender
+* `recipient`(Bytes): address of the recipient
+* `amount0`(BigDecimal): amount of token0 flashed
+* `amount1`(BigDecimal): amount of token1 flashed
+* `amountUSD`(BigDecimal): total amount in USD
+* `amount0Paid`(BigDecimal): amount of token0 paid for flash
+* `amount1Paid`(BigDecimal): amount of token1 paid for flash
+* `logIndex`(BigInt): index in the transaction
+
+#### example query to get flash data:
+
+```graphql
+query {
+  flashes {
+    id
+    timestamp
+    pool {
+      id
+    }
+    sender
+    recipient
+    amount0
+    amount1
+    amountUSD
+    amount0Paid
+    amount1Paid
+  }
+}
+```
+
+### 33. Refund
+
+#### refund fields:
+
+* `id`(string): unique identifier (transaction hash + index)
+* `transaction`(entity): reference to the transaction
+* `timestamp`(BigInt): timestamp of the refund
+* `amount`(BigInt): amount being refunded
+* `origin`(Bytes): the EOA that initiated the transaction
+* `logIndex`(BigInt): index in the transaction
+* `poolAddress`(Bytes): address of the pool where refund occurred
+
+#### example query to get refund data:
+
+```graphql
+query {
+  refunds {
+    id
+    transaction {
+      id
+    }
+    timestamp
+    amount
+    origin
+    poolAddress
+  }
+}
+```
+
+### 34. ClaimLp
+
+#### claimLp fields:
+
+* `id`(string): unique identifier (transaction hash + index)
+* `transaction`(entity): reference to the transaction
+* `timestamp`(BigInt): timestamp of the LP claim
+* `amount`(BigInt): amount of LP tokens claimed
+* `origin`(Bytes): the EOA that initiated the transaction
+* `logIndex`(BigInt): index in the transaction
+* `poolAddress`(Bytes): address of the pool where LP was claimed
+
+#### example query to get claim LP data:
+
+```graphql
+query {
+  claimLps {
+    id
+    transaction {
+      id
+    }
+    timestamp
+    amount
+    origin
+    poolAddress
+  }
+}
+```
+
+### 35. Deposit Raised Token
+
+#### depositRaisedToken fields:
+
+* `id`(string): unique identifier (transaction hash + index)
+* `transaction`(entity): reference to the transaction
+* `timestamp`(BigInt): timestamp of the deposit raised token event
+* `amount`(BigInt): amount of tokens deposited
+* `logIndex`(BigInt): index in the transaction
+* `poolAddress`(Bytes): address of the pool where deposit occurred
+
+#### example query to get deposit raised token data:
+
+```graphql
+query {
+  depositRaisedTokens {
+    id
+    transaction {
+      id
+    }
+    timestamp
+    amount
+    poolAddress
+  }
+}
+```
+
+### 36. positions
+
+#### position fields:
+
+* `id`(string): unique identifier (transaction hash + index)
+* `owner`(Bytes): address of the owner
+* `pool`(pool entity): reference to the pool
+* `token0`(token entity): reference to the token0
+* `token1`(token entity): reference to the token1
+* `liquidity`(BigInt): liquidity of the position
+* `depositedToken0`(BigInt): amount of token0 deposited
+* `depositedToken1`(BigInt): amount of token1 deposited
+* `withdrawnToken0`(BigInt): amount of token0 withdrawn
+* `withdrawnToken1`(BigInt): amount of token1 withdrawn
+
+#### example query to get position data:
+
+```graphql
+query {
+  positions {
+    id
+    owner
+    pool {
+      id
+    }
+    token0 {
+      symbol
+      name
+      decimals
+    }
+    token1 {
+      symbol
+      name
+      decimals
+    }
+    liquidity
+    depositedToken0
+    depositedToken1
+    withdrawnToken0
+    withdrawnToken1
+  }
+}
+```
+
+#### user active positions query
+
+```graphql
+# @param account: account address
+query UserActivePositions($account: Bytes!) {
+  positions(where: { owner: $account, liquidity_gt: 0 }) {
+    ...PositionFields
+  }
+}
+```
+
+
+# HoneyGenesis NFT
+
+Gen-0 collection of 6,000 NFTs
+
+Our HoneyGenesis NFTs is positioned at the core of the Honeypot Finance ecosystem since March 2024 and entitle holders to many different future revenue streams and exclusive perks, from $HPOT airdrop allocations to owning future top-tier meme tokens and beyond.
+
+{% hint style="success" %}
+Join the @berachain Discord server and verify your HoneyGenesis NFT to unlock a special surprise 🎁
+{% endhint %}
+
+***
+
+## Official Links
+
+Magic Eden: <https://magiceden.io/collections/berachain/honeygenesis-44>
+
+***
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FOUGE9dvHN7z8cXM2r8oX%2FHoney.png?alt=media&amp;token=17af1472-049b-42a3-b79a-a9aea21575a6" alt=""><figcaption><p>HoneyGenesis Utility</p></figcaption></figure>
+
+### 1. HoneyPot Finance POL Vault Rewards
+
+Earn automatic yields from the Protocol-Owned Liquidity vault. Your NFT entitles you to a share of the vault's performance, generating passive income from DeFi strategies across multiple chains.
+
+### 2. 📊 Perpetual DEX Revenue Sharing
+
+Share in the trading fees generated by the HoneyPot perpetual exchange. As trading volume grows, so does your share of the revenue - a true stake in the protocol's success.
+
+### 3. Enhanced Staking Rewards
+
+Lock your NFT to supercharge your earnings with time-based multipliers. The longer you stake, the higher your rewards - reaching up to 3x+ after just 60 days!
+
+### 4. Exclusive Airdrop
+
+Receive exclusive HPOT token airdrops reserved for NFT holders. Be rewarded for your early support and loyalty to the HoneyPot Finance ecosystem with governance tokens.
+
+<br>
+
+{% hint style="success" %}
+HoneyGenesis NFTs will also benefit from numerous airdrops in the Berachain ecosystem and beyond.
+
+For example, HoneyGenesis holders have recently received an airdrop from the [Mint blockchain](https://x.com/Mint_Blockchain).
+{% endhint %}
+
+{% hint style="info" %}
+If you hold a HoneyGenesis NFT, you can also participate in Honeypot Finance governance on Snapshot 👉 <https://snapshot.org/#/honeypotfi.eth>
+{% endhint %}
+
+
+# Pot2Pump
+
+Fair Meme Launch Model on Berachain
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FjGGxmAhqc16ng9SPCalH%2Fexample_2.jpg?alt=media&amp;token=df821c4d-4786-448f-be8b-969d5fc2f023" alt=""><figcaption></figcaption></figure>
+
+
+# Introduction
+
+Pot2Pump: The Bonding Curve Killer
+
+**Pot2Pump** is a meme launch model evolved from our original FTO approach, designed to create fair and transparent liquidity launches. While **Pump.fun** utilized a bonding-curve mechanism during a super-meme cycle, it faced several notable challenges:
+
+* Trading bots which **extract user liquidity**
+* **Low success rate** for token launches (only 1% of Pump.fun projects succeed)
+* **Lack of incentives** for Liquidity Providers
+* **High** **selling pressure** from early buyers dumping on late investors
+
+To address these issues, we developed **Pot2Pump**, a fair-liquidity meme launchpad. It merges a liquidity-focused meme model with a fair-launch mechanism in the pre-DEX phase (similar to [Daos.fun](https://daos.fun)).
+
+As is the case in on [Meteora](https://meteora.ag/), early participants become liquidity providers, where an Automated Liquidity Manager (ALM) optimizes concentrated liquidity management. This setup delivers robust support and incentives for LPs.
+
+### Berachain-Native, Meteora-Inspired Liquidity Management for Meme Coins
+
+#### **What is Meteora?**
+
+**Meteora** is an LP “army” built on Solana, offering dynamic liquidity solutions to improve capital efficiency and yield optimization for liquidity providers (LPs).
+
+#### **Core Features:**
+
+* **Dynamic Liquidity Market Maker (DLMM):** Adjusts fees and concentrates liquidity in real-time based on market conditions, enabling precise liquidity management & enhancing capital efficiency.
+* **Claiming Fees from Permanently Locked Liquidity:** Token creators can permanently lock liquidity in a dynamic pool and claim compounding trading fees from that locked liquidity forever.
+* **Dynamic Vaults:** Automatically rebalances assets across multiple lending protocols every minute, maximizing yield without manual intervention.
+
+### Why Expert-Level LP Management Matters for Meme Coins
+
+Meme coins are highly volatile yet offer significant potential returns. They often fail when early LPs rapidly withdraw, as there are few protections or incentives to stay. Typical meme launchpads add liquidity to Uniswap V2-like DEXs (e.g., [Pump.fun](https://pump.fun) adding liquidity to [Raydium](https://raydium.io)) but fail to generate enough fees or yield to offset LP risks. Consequently, many LPs exit at a loss.
+
+***
+
+## How Pot2Pump Solves the Problem
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FlatzkkKzgQov19P6Xrh5%2Fimage.png?alt=media&amp;token=fe77cc3c-e7ab-49ec-bbb2-5ac950be3de6" alt=""><figcaption></figcaption></figure>
+
+### Enhanced Solution to Replace DLMM for Concentrated Liquidity Management
+
+Once meme coin liquidity matures, it transitions to **Honeypot DEX**, leveraging [**Algebra Integral’s**](https://docs.algebra.finance/algebra-integral-documentation/overview-faq/algebra-integral) concentrated liquidity management. A dedicated **POGE vault**—powered by [**Aquabera’s ALM solution**](https://docs.aquabera.com/user-docs/aquabera-overview)—dynamically manages price ranges and optimizes transaction fee collection for LPs.
+
+This approach, combining concentrated liquidity management with ALM, offers an enhancement to Meteora’s DLMM, with specialized algorithms and strategies tailored to meme coins. As a result, the likelihood of prices slipping outside targeted price ranges is significantly reduced.
+
+### Lock Liquidity in InterPoL—Without Renouncing Yields
+
+Before entering the DEX phase, **Pot2Pump** locks 40% of the liquidity in [**InterPol**](https://docs.notinterpol.com/introduction#introduction-to-interpol), effectively removing LP tokens from circulation while retaining the associated yields and incentives. This tactic boosts token scarcity, heightens price potential after launch, and rewards early participants (similar to [Meteora’s Dynamic Pool lock mechanism](https://docs.meteora.ag/liquidity-primitives/dynamic-amm-pools/claiming-fees-from-permanently-locked-liquidity)).
+
+Through this strategic partnership led by Honeypot Finance, Pot2Pump taps directly into Berachain’s Proof of Liquidity, offering yields and incentives even greater than Meteora’s Dynamic AMM pools.
+
+### Enhanced Dynamic Vault Solution
+
+The vault automatically rebalances assets across multiple lending protocols and includes a compounding mechanism for LP gains. This allows liquidity providers to capture unused transaction fees, maximizing returns and unlocking additional earning potential.
+
+### Improved M3M3 DEX Staking Incentivization
+
+**Pot2Pump** introduces an upgraded **M3M3 staking** model that supports both single-token staking and LP staking. Seamless integration with Berachain’s Proof of Liquidity (PoL) allows stakers to earn **Wasabee tokens** and **BGT emissions**, further incentivizing participation and long-term engagement.
+
+
+# How It Works
+
+## How Does Pot2Pump Work?
+
+There are two main phases in the Pot2Pump meme launch process:
+
+* **The Pot Phase**: the pre-DEX phase where users “pot” funds in the desired token
+* **The Pump Phase**: when the token graduates to the DEX upon reaching the $20,000 raise threshold.
+
+***
+
+### The Pot Phase
+
+When a meme token is launched via Pot2Pump, it first enters the Pot Phase. Here’s what happens:
+
+* **Project Raises Initial Funds:** users invest in new projects by depositing any of the whitelisted tokens ($WBERA, $HPOT, $HONEY, or $HENLO)
+* **Add Liquidity Pools:** project owner creates Liquidity Pools (LPs) based on the amounts of whitelisted tokens contributed. There are two possible outcomes from this position:
+  * **Raise reaches $20,000 threshold**
+    * Liquidity is added to Honeypot DEX, deployed through the [Algebra Integral concentrated liquidity mechanism](https://docs.algebra.finance/algebra-integral-documentation/overview-faq/algebra-integral).
+    * A POGE Vault is created, using [Aquabera’s ALM](https://docs.aquabera.com/user-docs/aquabera-overview) (Automated Liquidity Manager) solution to manage price ranges and optimize transaction fee collection for LPs.
+  * **Raise does not reach $20,000 threshold**
+    * Users can claim a full refund of their deposited tokens.
+
+{% hint style="success" %}
+💡**POGE = Pottarded Office of Generational Earnings**
+
+A POGE Vault is Honeypot Finance's customized concentrated liquidity vault where users deposit their liquidity and the Aquabera vault solution will manage the directional liquidity, optimizing returns and reducing risk.
+{% endhint %}
+
+***
+
+### The Pump Phase
+
+Once the $20,000 threshold is met and the meme token graduates to Honeypot DEX, participants in the Pot Phase can claim their position in the newly established POGE Vault. Key steps in this process involve:
+
+1. **Converting Positions:** the original ERC-721 NFT position is converted into an ERC-20 position within the POGE Vault.
+2. **Earning Opportunities:**
+   * **High APY Transaction Fees:** earn fees generated by trading activity.
+   * **Partner Yields:** enjoy additional rewards through integrated partners.
+   * **BGT Emissions:** if the meme token is whitelisted, participants become eligible for BGT (Berachain Governance Token) emissions.
+3. **LP Ownership Breakdown:**
+   * 50% to early participants in the Pot phase
+   * 40% LP locked in InterPoL
+   * 5% to token deployer
+   * 5% to platform
+
+***
+
+
+# Key Benefits
+
+By blending low-risk participation, real liquidity, and a fair launch model, Pot2Pump represents the next generation of meme token financing - solving Pump.fun’s limitations and providing a more rewarding experience for both investors and token deployers. Here are some of the key benefits:
+
+#### 1. Technical Burn of 40% of LP Tokens—Without Losing Yields
+
+Before entering the DEX phase, Pot2Pump locks 40% of the liquidity in interPoL. By effectively removing these LP tokens from circulation—but not renouncing the associated yields and incentives—Pot2Pump increases token scarcity, elevates price potential post-launch, and rewards early participants.
+
+#### 2. Refund Mechanism for Failed Launches
+
+If a launch fails to meet its target ($20,000 threshold within designated period), users can pay only a gas fee to claim a full refund of their deposited tokens. This ensures low financial risk for participants, unlike Pump.fun, which offers no refunds for unsuccessful launches.
+
+#### 3. Lower Entry Barriers
+
+When the raised amount reaches $20,000, liquidity is automatically added to the DEX. Pot2Pump also supports single-sided liquidity, further boosting token prices through the classic *xy=k\** model and making it easier for smaller investors to participate.
+
+#### 4. Protection Against Bots
+
+Early-stage trading advantages are removed, ensuring a level playing field for all participants. Regular users can contribute with confidence, reducing losses caused by predatory bot activity.
+
+#### 5. Higher Rewards for Token Deployers
+
+Instead of imposing a fee, Pot2Pump offers a **5% LP token incentive** to token deployers, with the flexibility to adjust this rate. This is more beneficial than Pump.fun’s approach, which requires token deployers to pay a fee.
+
+#### 6. Real Liquidity and Higher Success Rates
+
+Pot2Pump’s combination of real liquidity, reliable token locking, and a robust refund mechanism leads to higher success rates compared to Pump.fun. Early participants stand to gain significantly if the market cap surpasses $69,000 (the previous Pump.fun DEX deployment threshold) - effectively tripling the initial price. In contrast, Pump.fun saw 70% of participants facing losses at a similar stage in the process.
+
+
+# Pot2Pump ABI
+
+## `Pot2PumpFactory` Module
+
+***
+
+#### <mark style="color:red;">`createPair`</mark> <mark style="color:red;"></mark><mark style="color:red;">method</mark>
+
+Creates a new trading pair in Pot2Pump.
+
+```json
+### ABI Format
+{
+  "inputs": [{
+    "components": [{
+      "internalType": "address",
+      "name": "raisedToken",
+      "type": "address"
+    }, {
+      "internalType": "string",
+      "name": "name",
+      "type": "string"
+    }, {
+      "internalType": "string", 
+      "name": "symbol",
+      "type": "string"
+    }, {
+      "internalType": "address",
+      "name": "swapHandler",
+      "type": "address"
+    }],
+    "internalType": "struct Pot2PumpFactory.CreatePairParams",
+    "name": "params",
+    "type": "tuple"
+  }],
+  "name": "createPair",
+  "outputs": [{
+    "internalType": "address",
+    "name": "pair",
+    "type": "address"
+  }, {
+    "internalType": "address",
+    "name": "launchedToken",
+    "type": "address"
+  }],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}
+```
+
+**Structure**
+
+<table><thead><tr><th width="152">Field</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td>params</td><td>tuple</td><td>Parameter struct required for creating the trading pair.</td></tr><tr><td>raisedToken</td><td>address</td><td>Address of the token being raised.</td></tr><tr><td>name</td><td>string</td><td>Name of the new trading pair.</td></tr><tr><td>symbol</td><td>string</td><td>Symbol of the new trading pair.</td></tr><tr><td>swapHandler</td><td>address</td><td>Address of the swap handler contract.</td></tr></tbody></table>
+
+**Returns**
+
+<table><thead><tr><th width="150">Name</th><th width="141">Type</th><th>Description</th></tr></thead><tbody><tr><td>pair</td><td>address</td><td>Address of the newly created trading pair.</td></tr><tr><td>handler</td><td>address</td><td>Address of the handler linked to the pair.</td></tr></tbody></table>
+
+{% hint style="warning" %}
+
+1. The caller must verify that the `raisedToken` is properly registered in the factory contract.
+2. The `swapHandler` address must point to a valid and functional swap handler contract.
+3. This method will deploy new token and pair contracts.
+4. The newly created pair will be initialized with the appropriate parameters upon deployment.
+   {% endhint %}
+
+{% tabs %}
+{% tab title="Usage Example" %}
+
+````javascript
+// Web3.js example
+const createPairParams = {
+  raisedToken: "0x...", // Fundraising token address
+  name: "MyToken",      // New token name
+  symbol: "MTK",        // New token symbol
+  swapHandler: "0x..."  // Swap handler address
+};
+
+const result = await pot2PumpFactory.methods.createPair(createPairParams).send({
+  from: userAddress
+});
+
+const { pair, launchedToken } = result.events.PairCreated.returnValues;
+```
+````
+
+{% endtab %}
+{% endtabs %}
+
+***
+
+<mark style="color:red;">**`depositRaisedToken`**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**&**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**`refundRaisedToken`**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**methods**</mark>
+
+<pre class="language-json"><code class="lang-json"><strong>### ABI Format
+</strong>
+[{
+  "inputs": [{
+    "internalType": "address",
+    "name": "depositor",
+    "type": "address"
+  }, {
+    "internalType": "uint256",
+    "name": "amount",
+    "type": "uint256"
+  }],
+  "name": "depositRaisedToken",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [],
+  "name": "refundRaisedToken",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}]
+</code></pre>
+
+1. **`depositRaisedToken`**&#x20;
+
+This method is used to deposit fundraising tokens.
+
+**Structure**
+
+<table><thead><tr><th width="152">Field</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td>depositor</td><td>address</td><td>Depositor's address</td></tr><tr><td>amount</td><td>uint256</td><td>Deposit amount</td></tr></tbody></table>
+
+{% hint style="info" %}
+
+1. Checks that the pair status is not paused
+2. Verifies current time hasn't exceeded end time
+3. Deposits made in the first half of the launch cycle are considered early deposits
+4. Automatically executes `_perform()` if total deposits reach minimum cap
+   {% endhint %}
+
+{% tabs %}
+{% tab title="Usage Example" %}
+
+```javascript
+// Web3.js example
+await pot2PumpPair.methods.depositRaisedToken(
+  userAddress,  // Depositor address
+  "1000000000000000000"  // Amount (in wei)
+).send({
+  from: userAddress
+});
+```
+
+{% endtab %}
+{% endtabs %}
+
+2. **`refundRaisedToken`**&#x20;
+
+This method is used to refund raised tokens.
+
+{% hint style="info" %}
+
+1. Refunds are only possible when:
+   * Fundraising period has ended and minimum cap wasn't reached
+   * Or pair status is paused
+2. Returns user's deposited tokens
+3. Updates early deposit records
+   {% endhint %}
+
+{% hint style="warning" %}
+
+1. Ensure contract approval before `depositRaisedToken`
+2. Early depositors (first half of launch cycle) receive additional rewards
+3. `refundRaisedToken` has strict triggering conditions
+4. Both methods are non-reentrant to prevent attacks
+   {% endhint %}
+
+{% tabs %}
+{% tab title="Usage Example" %}
+
+```javascript
+// Web3.js example
+await pot2PumpPair.methods.refundRaisedToken().send({
+  from: userAddress
+});
+```
+
+{% endtab %}
+
+{% tab title="Approval Example" %}
+
+```javascript
+// Approve before deposit
+await raisedToken.methods.approve(
+  pot2PumpPairAddress,
+  amount
+).send({
+  from: userAddress
+});
+```
+
+{% endtab %}
+{% endtabs %}
+
+***
+
+<mark style="color:red;">**`claimLP`**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**&**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**`claimableLP`**</mark><mark style="color:red;">**&#x20;**</mark><mark style="color:red;">**methods**</mark>
+
+```json
+### ABI Format
+[{
+  "inputs": [{
+    "internalType": "address",
+    "name": "claimer",
+    "type": "address"
+  }],
+  "name": "claimLP",
+  "outputs": [],
+  "stateMutability": "nonpayable",
+  "type": "function"
+}, {
+  "inputs": [{
+    "internalType": "address",
+    "name": "claimer",
+    "type": "address"
+  }],
+  "name": "claimableLP",
+  "outputs": [{
+    "internalType": "uint256",
+    "name": "",
+    "type": "uint256"
+  }],
+  "stateMutability": "view",
+  "type": "function"
+}]
+```
+
+1. **`claimLP`**&#x20;
+
+This method is used to claim LP tokens.
+
+**Structure**
+
+<table><thead><tr><th width="152">Field</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td>claimer</td><td>address</td><td>Claimer's address</td></tr></tbody></table>
+
+{% hint style="info" %}
+
+1. Checks pair status must be Success
+2. Transfers claimable LP tokens to specified address
+3. Includes reentrancy protection (nonReentrant)
+   {% endhint %}
+
+{% tabs %}
+{% tab title="Usage Example" %}
+
+```javascript
+// Web3.js example
+await pot2PumpPair.methods.claimLP(
+  userAddress  // Claimer address
+).send({
+  from: userAddress
+});
+```
+
+{% endtab %}
+{% endtabs %}
+
+2. **`claimableLP`**&#x20;
+
+This method is used to query claimable LP token amount.
+
+**Structure**
+
+<table><thead><tr><th width="152">Field</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td>claimer</td><td>address</td><td>Query address</td></tr></tbody></table>
+
+**Returns**
+
+<table><thead><tr><th width="152">Field</th><th width="138">Type</th><th>Description</th></tr></thead><tbody><tr><td>""</td><td>uint256</td><td>Amount of claimable LP tokens</td></tr></tbody></table>
+
+{% hint style="info" %}
+
+1. Checks pair status must be Success
+2. Calculates total LP amount for the address
+3. Returns unclaimed LP amount (total minus claimed)
+   {% endhint %}
+
+{% hint style="warning" %}
+
+1. Only available when pair status is Success
+2. LP token calculation based on user participation
+3. Each address can claim only once
+4. Check claimable amount before claiming
+   {% endhint %}
+
+{% tabs %}
+{% tab title="Usage Example" %}
+
+```javascript
+Web3.js example
+const claimableAmount = await pot2PumpPair.methods.claimableLP(
+  userAddress  // Query address
+).call();
+console.log(`Claimable LP amount: ${claimableAmount}`);
+
+```
+
+{% endtab %}
+
+{% tab title="Complete Usage Example" %}
+
+```javascript
+// 1. First query claimable amount
+const claimableAmount = await pot2PumpPair.methods.claimableLP(userAddress).call();
+
+// 2. Claim if amount available
+if (claimableAmount > 0) {
+  await pot2PumpPair.methods.claimLP(userAddress).send({
+    from: userAddress
+  });
+  console.log(`Successfully claimed ${claimableAmount} LP tokens`);
+} else {
+  console.log('No LP tokens available to claim');
+}
+```
+
+{% endtab %}
+{% endtabs %}
+
+
+# Dreampad
+
+Aligning the interests of the community and developers
+
+Honeypot Finance's launchpad is called *Dreampad* and supports our innovative Fair Token Offering (FTO) model and both Fjord Foundry's LBP and Fixed Price Sales to ensure successful and sustainable token launches for projects.
+
+## Current Launchpad Problems
+
+New projects (tokens) typically enter DeFi through launchpads. As the entrance to liquidity, these launchpads are the engines through which the entire DeFi system can further expand its reach and venture. However, the current launchpad model suffers from the following issues:
+
+1. **Unfair Launch:** Early investors or insiders can profit and dump the token.
+2. **Lack of Long Term Support:** It will result in a failed token price in the long term.
+3. **Lack of Customization:** Projects are forced to make compromises.
+4. **Liquidity Segmentation:** After launching, users must find a platform to list the token, wasting time and capital.
+5. **Entrance Barriers:**  Other launchpads often require users to stake assets, like tokens or NFTs, to join the campaign.
+
+## Dreampad's Unique Advantages
+
+1. **Endless Possibilities:** Opt for our unique Fair Token Offering (FTO) model or for Fjord Foundry's LBP and Fixed Price Sales to ensure successful and sustainable token launches for your project on one plaftorm.
+2. [**Fair Token Offering (FTO)**](/products/dreampad/fto)**:** Your project can opt for the fairest launchpad model. There are no presale tokens, and developers have no information advantage. Our FTO protocol provides fairer token pricing for all participants, avoiding the skewed pricing often seen in other models. After the launch of LP tokens, they will be automatically added to Honeypot DEX to get a 100% liquidity pool.
+3. **No Entrance Barriers:**  Our launchpad is open to everyone, with no restrictions on participation. This inclusive approach ensures that all users can engage in the launchpad campaigns, fostering a diverse community and maximizing opportunities for projects to attract support and investment.
+4. [**Custom Hooks**](/products/dreampad/custom-hooks)**:** Leverage our innovative custom hooks to tailor your token launch experience. These hooks provide maximum flexibility, allowing projects to create unique incentives and engagement strategies that align with their goals.
+5. [**Dreampad Incentive Plan**](/products/dreampad/dpincentive)**:** We use $HPOT to participate in the token launch of projects to help them raise funds, and use the purchased tokens for airdrops and bribes to help projects distribute tokens.
+
+## Dreampad Services - Tailored to Your Needs
+
+* **Incubated Launches (FTO, LBP, FPS)**: Our comprehensive support tier for projects poised for significant impact, requiring full-service incubation.
+* **Curated Launches (FTO, LBP, FPS)**: Designed for projects needing hands-on support without full incubation, offering a balance of guidance and autonomy.
+* **Permissionless Launches (FTO only)**: For projects that prefer to launch independently with basic support from Honeypot Finance.
+
+{% embed url="<https://forms.gle/E59zJqViUvSZbF2E6>" %}
+
+
+# Fair Token Offering (FTO)
+
+Our innovative Fair Token Offering model plays a vital role behind the scene.
+
+We designed a new liquidity entrance model, called Fair Token Offering (FTO) model, which is used exclusively by Dreampad and created by Honeypot Finance.
+
+## Why is FTO Ideal for My Token Launch?
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FGvzpxryyF5psxvQTASPK%2F122.png?alt=media&amp;token=18ddd741-0921-4948-88a7-a8e3302ae586" alt=""><figcaption><p>Fair Token Offering (FTO)</p></figcaption></figure>
+
+* Uniform pricing across all users, so no rat positions.
+* **Immediate establishment of a 100% deep liquidity pool for the token**, enabling instant user trading.
+  * No pre-minted token in the market;
+  * All token A (launch token) is within the pool, **preventing market manipulation such as early investor dumps.**
+  * Users who missed the token sale can only purchase it in the AMM pool, with no other opaque operations.
+* **Removing liquidity is in balanced proportions according to constant K and thus will not affect the price;**
+  * Project parties can remove $LP tokens and obtain funding support for development without dumping the token price;
+* (Optional) Burn the token $A after removing liquidity,
+
+  * This shows that the project owner has no intention of dumping the market;
+  * **As the price of token $A increases, the project can secure more funds by removing liquidity,** which keeps the interests of the project side and currency holders consistent.
+
+  This model aligns with the (3,3) game theory proposed by OlympusDAO After raising funds through FTO, the behavior of the community and project owner can be categorized into three actions:
+* Buy $A;
+* Add/hold liquidity;
+* Remove liquidity and sell $A.
+
+Each transaction to buy $A increases the extractable value $B of $LP; adding and holding liquidity provides the community with better prices and less slippage.
+
+According to the constant k formula, removing liquidity is non-disruptive when executed without affecting the price; However, further selling would result in collective losses for all LP holders, as it would decrease the extractable value $B and reduce the token price. To counteract this, we have implemented a **remove & burn tokenA mechanism** to prevent price drops.
+
+Let's see all [FTO advantages](/products/dreampad/advantages-of-fto-model).
+
+## How Does FTO Promote Proof of Liquidity (PoL)?
+
+The Fisher Equation, MV=PT, is a fundamental component of the Quantity Theory of Money, where M represents Money Supply, V is the Velocity of Circulation, P denotes Price Level, and T stands for Transactions. Traditionally, this equation has been used to monitor inflation and deflation. In the context of blockchain, however, P should be interpreted as asset value. The formula remains relevant, with MV capturing macro-level activities and PT reflecting micro-level dynamics.
+
+Proof of Liquidity (PoL) incentivizes on-chain activity, accelerating the velocity of circulation. This enables PoL networks to achieve economies of scale with a lower token supply or even greater efficiencies with the same token supply. This contrasts with Proof of Stake (PoS) systems, where a significant portion of the token supply is locked by validators to earn rewards, resulting in a reduced velocity of circulation.
+
+Fair Token Offerings (FTO) can further enhance the velocity of circulation by providing immediate liquidity after a token launch. This immediate available liquidity facilitates trading, significantly bolstering the Proof of Liquidity's capacity to achieve economies of scale.
+
+
+# Advantages of FTO model
+
+* **Fair Access:** Uniform pricing across all users ensures no single user gains an unfair advantage, promoting equitable token distribution.
+* **Earn Transaction Fees and $BGT:**  As we automatically add LP to Honeypot DEX, both users and projects can immediately start earning transaction fees and $BGT emissions from PoL.
+* **Immediate Liquidity:** A 100% deep liquidity pool is established immediately, enabling instant user trading and improving market efficiency and confidence.
+* **Market Stability:** With no pre-minted tokens and all tokens initially in the liquidity pool, the model prevents early investor dumps and market manipulation.
+* **Transparency:** Users who missed the initial sale can only purchase tokens through the AMM pool, ensuring transparent and fair token distribution.
+* **Price Stability:** Balanced liquidity removal according to the constant K formula prevents price disruption due to liquidity changes.
+* **Sustainable Funding:** Project parties can remove LP tokens to secure development funding without affecting the token price, promoting long-term sustainability.
+* **Anti-Dumping Measures**: The optional token burn after liquidity removal demonstrates the project owner's commitment to market stability and investor confidence.
+* **Aligned Incentives:** Aligning the interests of the project and token holders ensures that as the token price increases, the project can access more funds, benefiting all parties.
+* **Community Engagement:** The (3,3) game theory encourages community participation through strategic actions like buying, adding, and holding liquidity, fostering a collaborative and engaged user base.
+
+
+# LBP & Fixed Price Sales
+
+To better serve the Berachain ecosystem
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FTJGCgSIMaJagJOZxFy66%2FGYEHjE9b0AAYXBA.jpeg?alt=media&amp;token=a8d4da5a-229f-45f3-a852-7343625ea184" alt=""><figcaption><p>Honeypot Finance x Fjord Foundry</p></figcaption></figure>
+
+The synergy between Honeypot Finance and Fjord Foundry is rooted in our shared commitment to innovation and community growth. By combining our unique strengths, we can offer a comprehensive suite of launch mechanisms tailored to the specific needs of projects building on Berachain.
+
+## Fjord Foundry's Expertise
+
+Fjord Foundry brings a wealth of experience in the token launching space. Their [**Liquidity Bootstrapping Pool (LBP)**](https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-participants/token-sale-types/liquidity-bootstrapping-pools-lbps) model has paved the way for numerous protocols to successfully launch across various verticals in the Web3 landscape. Recognizing the importance of choice for clients and users alike, they recently expanded their offerings to include [**Fixed Price Sales (FPS)**](https://help.fjordfoundry.com/fjord-foundry-docs/for-sale-participants/token-sale-types/fixed-price-sales).
+
+## Key Elements of the Partnership <a href="#id-0cf3" id="id-0cf3"></a>
+
+1. **Collaborative Launches**: We will cooperate on token launches within the Berachain ecosystem, leveraging our combined expertise to support project success.
+2. **Integrated Participation**: Honeypot Finance will integrate Fjord’s backend, enabling simultaneous participation in Berachain launches through both the Fjord and Honeypot front ends. This widens the scope of launches offered on Honeypot and allows Fjord to tap deeper into the Berachain ecosystem.
+3. **Tailored Referral System**: Both parties will refer projects to launch through Honeypot or Fjord based on the suitability of the launch model for each individual protocol, ensuring optimal alignment with project goals.
+4. **Amplifying Token Launches**: Honeypot Finance will amplify all Berachain token launches facilitated through Fjord, increasing visibility and engagement within the community.
+5. **Official Curator**: Honeypot Finance will become official curators on the Fjord platform, curating projects that meet our stringent criteria and supporting them throughout their launch journey.
+
+## The Future of Token Launches on Berachain <a href="#d1c3" id="d1c3"></a>
+
+This partnership is set to revolutionize how projects launch on Berachain by offering more flexibility, support, and exposure than ever before. With an ever-growing community and a pre-mainnet ecosystem ripe with potential, we’re excited to help shape the future of DeFi and Berachain together.
+
+
+# Custom Hooks
+
+Unlock full composability for your token launch.
+
+The FTO custom hook is designed to offer maximum flexibility, accommodating various project requirements and investor demands. It also expand the range of assets that can be launched on chain. We used a modular development approach to create them, allowing projects to use multiple custom hooks simultaneously to support their launch requirements.&#x20;
+
+{% hint style="info" %}
+We also encourage community developers to create their own hooks—once merged into the official collection, contributors receive token incentives through our program.
+{% endhint %}
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FL7CmDNNgXz6A1DLhi1ps%2FCapture%20d%E2%80%99e%CC%81cran%202024-10-05%20a%CC%80%2018.05.46.png?alt=media&amp;token=fb0cfa0c-5af9-4ed0-b819-1bfdfb79c197" alt=""><figcaption><p>Main Custom Hooks available</p></figcaption></figure>
+
+## 1. Vesting Hook
+
+The vesting hook is one of the official hooks we provide. Projects that use this hook at launch can set up a predefined vesting schedule, allowing a percentage of the LP to be released linearly over time.
+
+## 2. **Future Option Hook**
+
+The design of the “future option” contracts on tokens enables traders to speculate on the future price of tokens, including those in circulation and those not yet launched.
+
+These futures tokens are redeemable 1:1 for the underlying token, and provide a way for founders, early investors and large holders to manage exposure and liquidity.
+
+The contracts can feature set maturity dates (when the token is “expired” and auto redeemable 1:1 for the underlying token) and customizable criteria (details tbc) to meet funding / trading strategy needs.
+
+The three main use cases for such contracts are:
+
+1. **Liquidity for Founders**: Founders can raise funds by selling futures contracts on their tokens through Dreampad, securing liquidity before the actual token generation event (TGE).
+2. **Exposure Management:** Large holders or "whales" can reduce exposure to specific projects by offloading tokens (potentially at a reduced rate) through futures contracts with future expiry dates, limiting the impact on the spot market price.
+3. **Trader Speculation:** Traders can speculate on the future value of tokens, especially those awaiting their Token Generation Event (TGE), aiming to profit from anticipated price movements.
+
+## **3. Remove & Burn Liquidity Hook**
+
+The Remove & Burn Liquidity Hook is another official hook we provide. When launching via the FTO model, projects can use this hook to burn their own tokens when they remove liquidity from the pool. This hook can also be combined with the vesting hook.&#x20;
+
+The objective of the Remove & Burn Liquidity Hook is that, by reducing the token supply, this hook creates strong buying power for the token.
+
+
+# Incentive Plans
+
+By the community, for the community
+
+### The Dreampad Development Fund&#x20;
+
+We will allocate 16% of $HPOT from Tokenomics to support the long term development of incubated dreampad projects, such as participating in subscriptions to help better finance the launchpad project. The Dreampad Development Fund is a non-profit fund, and the tokens received will serve as incentives for HoneyGenesis NFTs.&#x20;
+
+### Community Incentive (Airdrop) - Dreampad Bundle&#x20;
+
+All Honeypot airdrops will avoid being issued directly in $HPOT. Instead, $HPOT will be used to purchase assets launched in DreamPad, participate in DreamPad subscriptions, etc., and then use the obtained tokens for airdrops.&#x20;
+
+### BGT Node Bribery Scheme - Dreampad Bundle
+
+When Honeypot pays bribes to BGT nodes, it will avoid issuing directly in $HPOT. Instead, it will use $HPOT to purchase assets launched in Dreampad, participate in Dreampad subscriptions, etc., and then use the obtained tokens for bribes.&#x20;
+
+### Summary&#x20;
+
+The large number of incentives we give to Dreampad means that project launched on Dreampad will have huge subscriptions and continuous net buying. It also represents our confidence in the FTO model and all projects in our ecosystem.
+
+
+# Flywheel Model
+
+Don't miss out the dual incentive that you can receive with us.
+
+Honeypot Finance's vision is closely aligned with Berachain, and our unique flywheel model actively supports the growth and dynamism of the Bera community.
+
+### Architecture
+
+Honeypot Finance is building a community-run DeFi Hub on Berachain that integrates a unique AMM model to unite a community-led launchpad and DEX, addressing Defi's low liquidity utilization issues.
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FClJlfNnjZJlPZxWslIVP%2F10.png?alt=media&amp;token=9bb78fa1-1459-44b4-8183-ce4bc50ccafb" alt=""><figcaption><p>Honeypot Finance Flywheel Model</p></figcaption></figure>
+
+Dreampad, Honeypot DEX, and HiveNode form a comprehensive pathway that supports the introduction, retention, and incentivization of liquidity within Honeypot Finance, enhancing the platform’s positive flywheel effect.
+
+* **Honeypot DEX** caters to all memecoin & long-tail asset enthusiasts, featuring a unique meme-centric approach alongside enhanced incentives and a seamless user experience.
+* **Dreampad** supports our innovative Fair Token Offering (FTO) model and both Fjord Foundry's LBP and Fixed Price Sales to ensure successful and sustainable token launches for projects.
+* [Pot2Pump](/products/pot2pump) is a meme launchpad that combines liquidity-focused meme model with fair launch mechanism at pre-dex phase like [Daos.fun](#introduction).  Early participants will become LPer on [Meteora ](https://meteora.ag/)like Defi army that ensures optimal concentrated liquidity management via ALM (automated liquidity Manager), delivering robust support for liquidity providers.
+
+Plug into the Berachain PoL and start earning. Launch your project through *Dreampad*, with immediate token liquidity and grants. Our innovative *Fair Token Offering (FTO)* model stands apart, providing Liquidity Pool token ownership and plugs users and projects directly into PoL.
+
+### Flywheels
+
+Our flywheel model includes our community-led launchpad Dreampad, as well as a community-driven public validation node. On top of it, we're introducing $HPOT as a governance token, key to Honeypot's leadership within the Berachain ecosystem. Consider this: $BGT and $Honey join forces, creating a dynamic system of three dual-incentive tokens.
+
+**The $HPOT flywheel plays a significant role:**
+
+1. It helps launch projects, stimulate business and incentivize our community.
+2. This is an attractive incentive for $BGT, increasing the number of votes and revenues for our BeeHive community nodes.
+3. It increases the liquidity depth of $HPOT, creating a robust and appealing financial ecosystem.
+4. Node earnings and fees from the protocol will be used as buy back for $HPOT. It aims at perpetually enhancing $HPOT’s value. This strategic approach functions as a powerful catalyst, continually driving $HPOT's market price to new highs.
+
+**The $BGT cycle forms also a substantial flywheel effect:**
+
+1. $BGT holders who delegate to our node receive attractive $HPOT bribes.
+2. The bribe mechanism boosts voting rights, increasing the incentives for $HPOT and $Honey token pools to attract more $BGT rewards.
+3. $HPOT holders participate in PoL mining, collecting $BGT profits.
+
+**This creates a lucrative income flywheel driven by $BGT and $HPOT:**
+
+1. The revenue from the protocol and community nodes grows.
+2. Increased revenues prompt $HPOT buybacks, which significantly elevate its market value.
+3. As tokens increase in value, they attract larger bribes and incentives, further stimulating the flywheel of $BGT and intensifying the rise of $HPOT.
+4. A boosted $HPOT leads to an increase in the number of nodes and protocol revenues, sustaining a cycle of growth and prosperity.
+
+<figure><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FczkZsmQkd49Q16YkXkTA%2Fimage.png?alt=media&amp;token=37c23e90-de17-4f69-ac07-ae9bdf31c899" alt=""><figcaption><p>A huge pump turns two flywheels</p></figcaption></figure>
+
+
+# Built on Berachain
+
+A new paradigm
+
+Berachain is a high-performance [EVM-identical](https://docs.berachain.com/learn/#berachain-and-the-evm) blockchain built on [Proof-of-Liquidity](https://docs.berachain.com/learn/#proof-of-liquidity-overview) (PoL) consensus, and supported by the [BeaconKit](https://docs.berachain.com/learn/what-is-beaconkit) framework.&#x20;
+
+Proof-of-Liquidity is a novel consensus mechanism that aims to align network incentives, creating a strong synergy between Berachain validators, ecosystem projects and everyday users. Berachain is built using BeaconKit, a modular and customizable consensus layer for EVM-based blockchains.
+
+{% embed url="<https://www.berachain.com/>" %}
+
+## Honeypot Finance on Berachain 🐻⛓
+
+As a comprehensive PoL Accelerator, we are committed to providing the tools and protocols needed for launching and trading long-tail assets, maintaining their quality, and supporting their expansion.
+
+
+# Three Tokens and Proof of Liquidity
+
+Liquidity is the cornerstone of Berachain.
+
+This article is for newcomers who have heard about Berachain for the first time. Welcome to the Berachain community! 👏
+
+How is Berachain different from many L1 blockchains? The differences that can be directly observed include at least the following aspects:
+
+1. Bera is said to have three tokens operating simultaneously, unlike the traditional L1 which only has one GasCoin;&#x20;
+2. Bera’s consensus mechanism is called Proof of Liquidity, which is different from the common PoW and PoS;&#x20;
+3. Berachain has the official self-operated decentralized exchange BEX, the perpetual contract BERPS and the lending protocol BEND, rather than just providing the blockchain as a ledger.&#x20;
+
+What is the purpose of such a complex mechanism? So let’s dive into this issue together.
+
+### Three Tokens
+
+Berachain's three tokens are $Bera, $BGT and the stablecoin $Honey.
+
+* $BERA is used as a Gas Fee;&#x20;
+* $HONEY is a stablecoin on Berachain that serves as a low-risk alternative to cash.&#x20;
+* $BGT is the governance token used by validator nodes to perform Proof of Liquidity (PoL);&#x20;
+  * $BGT is non-transferable and cannot be purchased;&#x20;
+  * $BGT can be burned to redeem $BERA;
+
+The most complex design is on $BGT. Berachain rewards $BGT to those who contribute to the liquidity protocol, such as providing liquidity in BEX, or lending $Honey on the perpetual contract BERPS, and may receive $BGT as a reward.
+
+$BGT is essentially a voting right, serving as the weight for blockchain consensus validators to vote for blocks.
+
+### Proof of Liquidity
+
+The consensus mechanism determines the rules for producing blocks. Sometimes we only need to consider a simple question: Who are the miners?
+
+Under the PoW mechanism, miners are the people who provide computing power to package transactions and record them on the chain.
+
+Under the PoS mechanism, there are two kinds of miners; one is who provide computing power and package transactions as miners; the second one is who only provide $ETH as a deposit to become miners on the cloud.
+
+On PoL, there are three types of miners:
+
+* The validator nodes that provide computing power, package transactions, and set the distribution rules of $BGT are miners;&#x20;
+  * They earn gas and fees from the exchange, also known as BCV.&#x20;
+* People who provide liquidity are also miners;&#x20;
+  * They receive $BGT emissions and fees from the exchange as incentives.&#x20;
+* Voters who delegate $BGT to nodes are also miners;&#x20;
+  * They can obtain bribes from nodes.
+
+In the past, PoS only had one coin mechanism. For example, if you own $ETH, you can stake $ETH to become a miner and get more $ETH as income, just like a snowball. At the same time, $ETH can be purchased directly on the market. If you are rich enough, you can buy enough voting rights to become a giant mining pool.
+
+Proof of liquidity completes the separation of voting rights and GasCoin. The creation of blocks in the blockchain must be decided by those who have truly taken the risks and contributed to the liquidity of the chain.
+
+The ecosystem of a blockchain is supported by many applications and their user communities. In the past, we often saw examples like this: an application issued tokens and provided incentives for the liquidity pool of its own tokens to ensure stable market value and win the trust of community users. These incentives are often more air tokens, which will eventually destroy the market value that has been painstakingly maintained. Once the community collapses, the project will disappear.
+
+In the mechanism of PoL, we can see an ingenious path to improve the level of decentralization:
+
+1. The project deploys nodes and sets $BGT rewards to the pool with its own tokens;&#x20;
+2. Community users and supporters of the project delegate their $BGT to the project’s nodes;
+3. The community has greater voting power, more $BGT incentives and deeper liquidity.
+
+Note that these incentives are real $BGT and not more token liabilities from the air.
+
+In the past consensus mechanism, the relationship between the blockchain and the applications on it was independent, and the application could go to the deployment contract of any chain at will to provide the same function. In terms of the PoL mechanism, project parties will be able to deeply bind themselves to the chain and build a win-win ecological flywheel for the community, developers and the blockchain.
+
+### More
+
+If you have more questions about Berachain, we highly recommend reading Berachain’s official [documentation](https://docs.berachain.com)!
+
+
+# $HPOT
+
+The honeypot is the container of the bear's most prized honey, and if you are a rich bear, you should buy and hold as many $HPOT as you can!
+
+$HPOT serves as the governance token of the Honeypot community and is the pump for running Honeypot products and protocols.
+
+Everything about $HPOT’s tokenomics is designed to grow our community and make the Honeypot and Berachain ecosystem more vibrant.
+
+#### Utilities of HPOT
+
+HPOT offers a range of utilities that enhance its value within the ecosystem:
+
+1. **Self-Deflationary Token**\
+   Supported by numerous Bera ecosystem partners, including Pot2Pump, Berally, and BeraScout, HPOT benefits from deflationary mechanisms that drive scarcity and value.
+2. **High-Yield Token**\
+   Stake HPOT to earn rewards such as BGT, BURA, and tokens from other ecosystem projects, making it a highly rewarding asset for holders.
+3. **Real-World Applications**\
+   HPOT aligns with several DePIN (Decentralized Physical Infrastructure Networks) projects, providing tangible use cases in the real world.
+
+<br>
+
+
+# Our Team
+
+Welcome to the heart of Honeypot Finance, where innovation meets expertise!
+
+### Meet our team
+
+Our team includes multiple Ph.D. specializing in blockchain, former CTOs, senior blockchain developers ranked in the top 500, contributors to well-known blockchain projects, and a strong advisory team guiding our business and product development.
+
+<table data-view="cards"><thead><tr><th></th><th></th><th></th><th data-hidden data-card-cover data-type="files"></th></tr></thead><tbody><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FtECUhaBl8EDX9aepy3df%2Fwilsonpfp.jpeg?alt=media&amp;token=1274b742-c9bc-41a6-b11c-10b3b3fc26b9" alt=""></td><td><a href="https://twitter.com/0xWilsonWu"><mark style="color:yellow;">Wilson</mark></a></td><td><strong>CEO</strong></td><td></td></tr><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2Ft2iYY7kBIUU1bevB6wyf%2Ftakipfp.jpeg?alt=media&amp;token=d33ae272-aff8-4ddd-82cd-57b6a828fa11" alt=""></td><td><a href="https://twitter.com/0xTaki_eth"><mark style="color:yellow;">Taki</mark></a></td><td><strong>CTO</strong></td><td></td></tr><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FvMNN4rw2SY1lM40kuoyT%2Fpot.jpeg?alt=media&amp;token=9ffe95ab-4748-40cd-abc4-4bb28214bad6" alt=""></td><td><a href="https://twitter.com/PotTheBera"><mark style="color:yellow;">Pot the Bera</mark></a></td><td><strong>Operation Manager</strong></td><td></td></tr><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FzwVTeMAtSys94JU3hVGL%2Fian%20pfp.jpeg?alt=media&amp;token=3dd1ef82-ef40-41bd-bbf4-911c0a6ab2f9" alt=""></td><td><a href="https://twitter.com/naibother_"><mark style="color:yellow;">Ian</mark></a></td><td><strong>Marketing &#x26; Partnerships</strong></td><td></td></tr><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FYu9L5fOZxtamayEf6bQX%2Fyogi.jpeg?alt=media&amp;token=47eb0ca5-7c85-4367-b7f0-fbc944711667" alt=""></td><td><mark style="color:yellow;">Yogi</mark></td><td><strong>Design Manager</strong></td><td></td></tr><tr><td><img src="https://2323260835-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FbgQWKchuKlgDXjRIJTz5%2Fuploads%2FSagR8Gt88NExsNv59ycd%2FsWW15ii8_400x400.png?alt=media&amp;token=e24e85e3-f142-4950-afaa-c2697d826798" alt="" data-size="original"></td><td><a href="https://x.com/punk2sang"><mark style="color:yellow;">Punk</mark></a></td><td><strong>Smart Contract Developer</strong></td><td></td></tr><tr><td></td><td><p></p><p></p><p></p><p>and more to discover soon!</p></td><td></td><td></td></tr></tbody></table>
+
+### Join our journey
+
+We're always looking for passionate individuals to join our team. If you're eager to make a difference and work on an exciting project, please get in touch with us on Twitter!
+
+
+# Security Audits
+
+FTO (August 2024) & All-in-One Vault (May 2025):  <https://hashlock.com/audits/honeypot-finance>
+
+{% embed url="<https://github.com/shieldify-security/audits-portfolio/blob/main/reports/Honeypot-Pot2PumpUpdates-Security-Review.pdf>" %}
+February 2025
+{% endembed %}
+
+
+# User Guide
+
+Coming soon!
+
+
+# Q\&A
+
+Stay tuned for exciting updates coming soon!
+
+### 1. How does the selection process for Dreampad candidates work?
+
+Our selection process for Dreampad candidates is entirely community-driven:
+
+* **Proposal creation:** Community members propose potential projects.
+* **Voting:** NFT holders vote on these proposals with equal rights.
+* **Evaluation:** We have a robust team of developers and advisors who thoroughly evaluate the queued projects that want to launch through the Honeypot. Then we provide Honeypot Finance’s community with fair and objective information based on our assessments.
+* **Community decision:** The community makes the final decision through voting, ensuring an unbiased and representative outcome.
+
+### 2. If I come across a risky project engaging in suspicious activities that could potentially turn out to be a scam, is there a way to stop it once it has been launched on Dreampad?
+
+HoneyGenesis NFT holders can stop launches on Dreampad through community voting. Even during an active launch, proposals can be created. **If the vote surpasses a certain threshold, our smart contract, which incorporates OpenZeppelin's pause mechanism, can halt the launch.** Participants will receive refunds as funds are kept in the AMM pool, which is fully decentralized.
+
+### 3. What benefits do HoneyGenesis NFT holders receive?
+
+HoneyGenesis NFT holders enjoy several unique benefits:
+
+* **Exclusive Airdrops:** Higher intensity of airdrops from top-tier Berachain projects.
+* **Launchpad Participation:** Participate in token launches via Dreampad, earning additional tokens.
+* **Liquidity Provision:** Automatically provide liquidity on Honeypot DEX post-launch, earning transaction fees.
+* **Protocol Integrations:** Access additional benefits through our flywheels models with our partners.
+
+### 4. How does Dreampad ensure fair pricing for participants?
+
+Dreampad ensures fair pricing through our innovative Fair Token Offering (FTO) model, which includes several key features:
+
+* **Fair Access:** Uniform pricing across all users ensures no single user gains an unfair advantage, promoting equitable token distribution.
+* **Immediate Liquidity:** A 100% deep liquidity pool is established immediately, enabling instant user trading and improving market efficiency and confidence.
+* **No Pre-minted Tokens:** Tokens exist only within the liquidity pool, preventing market manipulation by early investors.
+* **Transparency:** Users who missed the initial sale can only purchase tokens through the AMM pool, ensuring transparent and fair token distribution.
+* **Anti-Dumping Measures:** The optional token burn after liquidity removal demonstrates the project owner's commitment to market stability and investor confidence.
+
+### **5. As a user wanting to participate in the token launch campaign on Honeypot Finance, what measures have you implemented to prevent rug pulls?**
+
+At Honeypot Finance, we prioritize the security and trust of our community. To mitigate the risk of rug pulls, we've implemented several robust mechanisms:
+
+1. **Democratic Voting and Pause Mechanism:**
+   * We believe in the collective wisdom of our community. Our platform incorporates a robust democratic voting and pause mechanism, allowing users to halt suspicious activities promptly. This helps prevent potential rug pulls effectively.
+2. **Launch Model:**
+   * Our launch model is designed to make rug pulls economically non-viable. Here's how it works:
+   * **Liquidity Pool (LP) Token Launch:**
+     * We launch LP tokens and immediately add them to our Honeypot DEX. This approach ensures projects earn transaction fees as LP providers, creating a long-term revenue stream.
+     * By doing this, projects are not incentivized to dump tokens for short-term gains. Instead, they benefit from sustained earnings.
+   * **Liquidity Removal and Token Burn Mechanism:**
+     * When a project removes liquidity from the pool, the token’s value remains stable due to the constant K formula used in our Automated Market Maker (AMM) model.
+     * Additionally, projects can choose to burn their tokens while removing liquidity. This burning mechanism reduces the token supply, thereby supporting the token's price.
+
+Our approach ensures that the long-term benefits of maintaining liquidity and earning transaction fees outweigh the short-term gains from a potential rug pull. This economic incentive structure makes rug pulls highly unlikely and aligns the interests of projects with those of the community.
+
+### **6. I am a user who wants to participate in the token launch campaign on Honeypot Finance. How likely is it that I will see the promotion of token launch success and sustainability?**
+
+The likelihood of experiencing successful and sustainable token launches on Honeypot Finance is very high. Our Fair Token Offering (FTO) model incorporates several built-in advantages to ensure the success of token launches. You can explore all the benefits of our FTO model on our [GitHub page](https://docs.honeypotfinance.xyz/overview/dreampad/advantages-of-fto-model).
+
+Here are some key points that contribute to the success and sustainability of token launches on our platform:
+
+1. **High-Quality Projects:**
+   * We carefully curate and bring top-quality projects to our platform, ensuring that only the most promising and credible projects are launched.
+2. **Excellent Support Mechanisms:**
+   * Our platform has robust mechanisms in place to support the success of token launches. These include democratic voting, pause mechanisms, and liquidity management strategies.
+3. **Economic Incentives:**
+   * The FTO model creates long-term economic incentives for projects by enabling them to earn transaction fees as liquidity providers. This discourages short-term, opportunistic behaviors like rug pulls.
+
+### **7. How can I apply for Dreampad as a project?**
+
+If you are interested in applying for Dreampad, please contact our team on Discord or Telegram. We also offer incubation services: join us and take your project to the next level. Honeypot Finance is your gateway to the Berachain Ecosystem!
+
+{% embed url="<https://forms.gle/E59zJqViUvSZbF2E6>" %}
+
+{% hint style="info" %}
+If you have more questions, feel free to open a ticket on our Discord, and one of our team members will answer you 🚀
+{% endhint %}
+
+

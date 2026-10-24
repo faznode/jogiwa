@@ -107,3 +107,13 @@ Scope: Robinhood Chain peers (Pools.trade incl. Crowd Launch, Lemon.fun, NOXA), 
 - OQ-6.2 Source URLs for competitor fee facts (search summaries only); re-verify Pools.trade docs, pump.fun fee page, Zora/Clanker/Flaunch docs before quoting externally.
 - OQ-6.3 MemeFab.fun and GIWA.MARKETS fee rates / launch modes (needs browser observation; site is JS-rendered).
 - OQ-6.4 Korean-market launchpads beyond GIWA (none found with Korean-first UX other than GIWA.MARKETS).
+
+## 8. Addendum (session 3) — Honeypot Finance Pot2Pump
+
+Reviewed at the owner's request (09-masterplan/15-honeypot-pot2pump-review; captures in `raw/captures/honeypot/`). Feature-matrix row for completeness:
+
+| Launchpad | Chain | Launch format | Fee / split | Graduation | Anti-sniper | Status (2026-10-24) | Evidence |
+|---|---|---|---|---|---|---|---|
+| Honeypot Pot2Pump | Berachain (Monad announced, never observed) | Pot phase: uniform-price raise to $20k within a set period; full refund on failure | no platform fee; LP split 50% participants / 40% locked (yield retained) / 5% deployer / 5% platform | into Algebra Integral CL pool inside an Aquabera ALM vault; participants receive vault shares | no trading before the target is met (uniform entry) | docs last updated ≈ 11 months ago; company pivoted to media/tech licensing; founder refers to Pot2Pump in the past tense | [DOCS] docs.honeypotfinance.xyz; [DOCS] X article 2025-06-26; [OBSERVED] site 2026-10-24 |
+
+Verdict carried into the plan (ADR-15): the raise-or-refund phase converges with Pools.trade Crowd Launch and becomes an optional P2 "Pot mode" (F41); the participant-LP/ALM vault, Drip Drive (per-transaction rewards) and Cheese Benance ("up-only" tokens) are rejected on Phase 5/7 evidence and regulatory grounds; no partnership or licence.

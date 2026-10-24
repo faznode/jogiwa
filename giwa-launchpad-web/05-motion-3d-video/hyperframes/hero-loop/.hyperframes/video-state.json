@@ -1,0 +1,97 @@
+{
+  "version": 1,
+  "historyId": "f3f3a9dd-9544-414a-9136-bd1345bd2f7d",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/bros-wordmark-plate.svg": {
+      "hash": "d8459733b223fa4b653728bef0b7e07845603cf367be05f473f8e9c838243fcd",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/d8/d8459733b223fa4b653728bef0b7e07845603cf367be05f473f8e9c838243fcd"
+    },
+    "assets/fonts/antonio-latin-var.woff2": {
+      "hash": "d9dbab0fea9235c04f1b3c6b558d0dbebf93202a9e5fc3b2c0a15d5da7553694",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/d9/d9dbab0fea9235c04f1b3c6b558d0dbebf93202a9e5fc3b2c0a15d5da7553694"
+    },
+    "assets/fonts/archivo-latin-var.woff2": {
+      "hash": "ebc437317cbed7ea2025b654945f9300d5d295682a31a004e2d090e4cac0794a",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/eb/ebc437317cbed7ea2025b654945f9300d5d295682a31a004e2d090e4cac0794a"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "ee70e97841917674620ca18fdbf3e6ee9ba700b510810d44da81722a54db0d4e",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/ee/ee70e97841917674620ca18fdbf3e6ee9ba700b510810d44da81722a54db0d4e"
+    },
+    "meta.json": {
+      "hash": "9dc75b027fcbc412e096828842828ebd74e8f04bae3a360c6a75cf512a85d839",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/9d/9dc75b027fcbc412e096828842828ebd74e8f04bae3a360c6a75cf512a85d839"
+    },
+    "package.json": {
+      "hash": "d5d9686252f91531e993599623e02f0c103e22c7619b78494ff52d1445c6ee20",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/f3f3a9dd-9544-414a-9136-bd1345bd2f7d/blobs/d5/d5d9686252f91531e993599623e02f0c103e22c7619b78494ff52d1445c6ee20"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "b1696a78-f71f-4b5e-8640-f48f800d2736"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "b1696a78-f71f-4b5e-8640-f48f800d2736",
+        "scope": "project",
+        "report": "/vercel/share/v0-project/giwa-launchpad-web/05-motion-3d-video/hyperframes/hero-loop/.hyperframes/artifacts/checks/b1696a78-f71f-4b5e-8640-f48f800d2736.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792813460883,
+        "contentHash": "d98ba61bc671f5dfa68ee645efeaa8c648fd20e71732f3a011535a101397160c",
+        "revision": null,
+        "inputFingerprint": "7be654d31c6ba57cc3c7595b6570b4382cef0aacb95ef22879d916f0ad8f8c80",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "b4d5a52e-6043-4a7e-ab5e-b5ec1c50ed4f",
+      "completedAt": 1792813492275,
+      "output": "/vercel/share/v0-project/giwa-launchpad-web/05-motion-3d-video/renders/hero-loop.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

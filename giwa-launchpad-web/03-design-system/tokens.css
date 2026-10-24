@@ -1,0 +1,146 @@
+/* Hallmark · shape: app + marketing system · genre: playful · theme: custom · job: try · idea: "Every launch hangs its own sign on one street; the lit number is people, not price" · vibe: "daytime signage, condensed names, quiet shop floor"
+ * paper: oklch(94.6% 0.005 250) · accent: oklch(86.5% 0.165 95) as a sign surface posture · display: Antonio · body: Archivo · nav: edge wordmark plate, four links, network and wallet (trading convention) · footer: facts and links in columns
+ * axes: light/display-condensed/chromatic-yellow · posture: signage (yellow is a surface, not an accent) · contrast: pass (03-design-system/contrast-report.md) · v2.0.0 */
+/* Hallmark · pre-emit critique: P5 H4 E4 S5 R4 V5 · weakest: H, signs compete with data; signs confined to headers and cards, shop floor in ink and concrete only */
+
+/* Source of truth for colour, type, space, radius, motion. Mirrored in tokens.ts. Never ship a literal colour past this file. */
+
+/* @theme light */
+:root,
+[data-theme="light"] {
+  color-scheme: light;
+  --color-paper: oklch(94.6% 0.005 250);
+  --color-paper-2: oklch(98.3% 0.003 250);
+  --color-paper-3: oklch(90.6% 0.006 250);
+  --color-ink: oklch(19% 0.012 262);
+  --color-ink-2: oklch(34% 0.012 262);
+  --color-muted: oklch(46% 0.01 262);
+  --color-rule: oklch(19% 0.012 262 / 0.14);
+  --color-rule-strong: oklch(19% 0.012 262 / 0.85);
+  --color-sign: oklch(86.5% 0.165 95);
+  --color-on-sign: oklch(19% 0.012 262);
+  --color-plate: oklch(19% 0.012 262);
+  --color-on-plate: oklch(86.5% 0.165 95);
+  --color-action: oklch(19% 0.012 262);
+  --color-on-action: oklch(98.3% 0.003 250);
+  --color-focus: oklch(19% 0.012 262);
+  --color-red: oklch(52% 0.2 27);
+  --color-blue: oklch(47% 0.15 262);
+  --color-green: oklch(50% 0.13 152);
+  --color-on-direction: oklch(98.3% 0.003 250);
+  --shadow-sheet: 0 16px 40px -12px oklch(19% 0.012 262 / 0.28);
+  --shadow-pop: 0 6px 16px -4px oklch(19% 0.012 262 / 0.2);
+}
+/* @end */
+
+/* @theme dark */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: oklch(17% 0.012 262);
+  --color-paper-2: oklch(21.5% 0.013 262);
+  --color-paper-3: oklch(26.5% 0.014 262);
+  --color-ink: oklch(95.5% 0.005 250);
+  --color-ink-2: oklch(83% 0.007 250);
+  --color-muted: oklch(70% 0.009 250);
+  --color-rule: oklch(95.5% 0.005 250 / 0.14);
+  --color-rule-strong: oklch(95.5% 0.005 250 / 0.8);
+  --color-sign: oklch(86.5% 0.165 95);
+  --color-on-sign: oklch(19% 0.012 262);
+  --color-plate: oklch(11% 0.01 262);
+  --color-on-plate: oklch(86.5% 0.165 95);
+  --color-action: oklch(95.5% 0.005 250);
+  --color-on-action: oklch(19% 0.012 262);
+  --color-focus: oklch(86.5% 0.165 95);
+  --color-red: oklch(69% 0.17 27);
+  --color-blue: oklch(72% 0.12 255);
+  --color-green: oklch(74% 0.15 152);
+  --color-on-direction: oklch(17% 0.012 262);
+  --shadow-sheet: 0 16px 40px -12px oklch(0% 0 0 / 0.6);
+  --shadow-pop: 0 6px 16px -4px oklch(0% 0 0 / 0.5);
+}
+/* @end */
+
+/* Price direction. Default Global; the boot script sets data-direction="korean" for ko browsers or Asia/Seoul (Q13). Never colour alone: every change also carries a sign and an arrow glyph. */
+:root,
+[data-direction="global"] {
+  --color-up: var(--color-green);
+  --color-down: var(--color-red);
+}
+[data-direction="korean"] {
+  --color-up: var(--color-red);
+  --color-down: var(--color-blue);
+}
+
+:root {
+  --color-danger: var(--color-red);
+
+  --font-display: "Antonio", "Antonio Fallback", ui-sans-serif, sans-serif;
+  --font-body: "Archivo", "Archivo Fallback", ui-sans-serif, system-ui, sans-serif;
+  /* future KO: append a Hangul family via unicode-range here; Latin metrics stay put */
+
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-md: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.375rem;
+  --text-2xl: 1.75rem;
+  --text-3xl: 2.25rem;
+  --text-4xl: 3rem;
+  --text-section: clamp(2.25rem, 3vw + 1rem, 4rem);
+  --text-display-s: clamp(2.5rem, 3.6vw + 1rem, 4.5rem);
+  --text-display: clamp(3.25rem, 6vw + 0.5rem, 7rem);
+  --width-figure: 70%;
+
+  --space-3xs: 2px;
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --space-3xl: 96px;
+  --space-4xl: 144px;
+
+  --radius-plate: 2px;
+  --radius-control: 6px;
+  --radius-sheet: 10px;
+  --radius-pill: 999px;
+  --rule-hair: 1px;
+
+  --control-h: 40px;
+  --control-h-lg: 48px;
+  --row-h: 44px;
+  --hit: 44px;
+
+  --container: 1440px;
+  --gutter: 64px;
+  --gap-columns: 24px;
+  --section-gap: 144px;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-micro: 120ms;
+  --dur-short: 200ms;
+  --dur-long: 420ms;
+
+  --z-base: 1;
+  --z-raised: 10;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-sticky-nav: 300;
+  --z-modal: 400;
+  --z-toast: 500;
+  --z-tooltip: 600;
+}
+
+[data-density="compact"] {
+  --control-h: 32px;
+  --control-h-lg: 40px;
+  --row-h: 36px;
+}
+
+@media (max-width: 60rem) { :root { --gutter: 24px; --section-gap: 96px; } }
+@media (max-width: 40rem) { :root { --gutter: 16px; --section-gap: 72px; --gap-columns: 16px; } }

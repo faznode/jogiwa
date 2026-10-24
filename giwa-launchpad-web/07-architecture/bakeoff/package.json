@@ -1,0 +1,20 @@
+{
+  "name": "bros-frontend-bakeoff",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "FW=react vite build && FW=preact vite build && FW=solid vite build",
+    "measure": "node measure.mjs"
+  },
+  "dependencies": {
+    "preact": "10.27.2",
+    "react": "19.2.0",
+    "react-dom": "19.2.0",
+    "solid-js": "1.9.9"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "5.0.4",
+    "vite": "7.1.12",
+    "vite-plugin-solid": "2.11.9"
+  }
+}

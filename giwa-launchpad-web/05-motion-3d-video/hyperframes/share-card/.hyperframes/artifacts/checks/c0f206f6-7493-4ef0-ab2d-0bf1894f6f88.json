@@ -1,0 +1,240 @@
+{
+  "ok": true,
+  "strict": false,
+  "browserSkipped": false,
+  "lint": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 1,
+    "infoCount": 0,
+    "findings": [
+      {
+        "code": "nested_structure_needs_subcomposition",
+        "severity": "warning",
+        "message": "<div id=\"sign\"> is a timeline element that contains nested <img id=\"token\">. The timeline shows one row per top-level element, and the root composition is built only from sub-compositions.",
+        "selector": "#sign",
+        "dataAttributes": {},
+        "sourceFile": "/vercel/share/v0-project/giwa-launchpad-web/05-motion-3d-video/hyperframes/share-card/index.html",
+        "bbox": {
+          "x": 0,
+          "y": 0,
+          "width": 0,
+          "height": 0
+        },
+        "time": 0,
+        "fixHint": "Move <div id=\"sign\"> and its contents into a sub-composition file and mount it with data-composition-src."
+      }
+    ],
+    "filesScanned": 1
+  },
+  "runtime": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": []
+  },
+  "layout": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 2,
+    "infoCount": 1,
+    "findings": [
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 0.278,
+        "selector": "#d-after",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 906,
+          "top": 297.23,
+          "right": 1076,
+          "bottom": 369.23,
+          "width": 170,
+          "height": 72
+        },
+        "containerSelector": "#digits",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 906,
+          "top": 225.23,
+          "right": 1076,
+          "bottom": 297.23,
+          "width": 170,
+          "height": 72
+        },
+        "overflow": {
+          "bottom": 72
+        },
+        "dataAttributes": {
+          "data-var-text": "after"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 906,
+          "y": 297.23,
+          "width": 170,
+          "height": 72
+        },
+        "firstSeen": 0.278,
+        "lastSeen": 1.944,
+        "occurrences": 4,
+        "heldMs": 1666,
+        "times": [
+          0.278,
+          0.833,
+          1.389,
+          1.944
+        ]
+      },
+      {
+        "code": "container_overflow",
+        "severity": "warning",
+        "time": 2.5,
+        "selector": "#d-before",
+        "message": "Element extends outside a clipping layout container.",
+        "rect": {
+          "left": 906,
+          "top": 157,
+          "right": 1076,
+          "bottom": 229,
+          "width": 170,
+          "height": 72
+        },
+        "containerSelector": "#digits",
+        "fixHint": "Resize/reposition the child or container, or mark intentional overflow with data-layout-allow-overflow.",
+        "containerRect": {
+          "left": 906,
+          "top": 229,
+          "right": 1076,
+          "bottom": 301,
+          "width": 170,
+          "height": 72
+        },
+        "overflow": {
+          "top": 72
+        },
+        "dataAttributes": {
+          "data-var-text": "before"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 906,
+          "y": 157,
+          "width": 170,
+          "height": 72
+        },
+        "firstSeen": 2.5,
+        "lastSeen": 4.722,
+        "occurrences": 5,
+        "heldMs": 2222.0000000000005,
+        "times": [
+          2.5,
+          3.056,
+          3.611,
+          4.167,
+          4.722
+        ]
+      },
+      {
+        "code": "content_overlap",
+        "severity": "info",
+        "time": 2,
+        "selector": "#d-before",
+        "message": "Two text blocks overlap and may render unreadable.",
+        "rect": {
+          "left": 913.16,
+          "top": 229,
+          "right": 1068.83,
+          "bottom": 291.65,
+          "width": 155.67,
+          "height": 62.65
+        },
+        "containerSelector": "#d-after",
+        "text": "18/25",
+        "fixHint": "Give each block its own zone, or put data-layout-allow-overlap on the text or on a container inside the scene. A marker on the scene root does not apply.",
+        "dataAttributes": {
+          "data-var-text": "before"
+        },
+        "sourceFile": "index.html",
+        "bbox": {
+          "x": 913.16,
+          "y": 229,
+          "width": 155.67,
+          "height": 62.65
+        },
+        "firstSeen": 2,
+        "lastSeen": 2,
+        "occurrences": 1,
+        "heldMs": 0,
+        "times": [
+          2
+        ]
+      }
+    ],
+    "duration": 5,
+    "samples": [
+      0.278,
+      0.833,
+      1.389,
+      1.944,
+      2.5,
+      3.056,
+      3.611,
+      4.167,
+      4.722
+    ],
+    "transitionSamples": [],
+    "transitionSamplesDropped": 0,
+    "tolerance": 2,
+    "totalIssueCount": 3,
+    "truncated": false
+  },
+  "motion": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": false,
+    "samples": 0
+  },
+  "contrast": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "samples": [
+      0.278,
+      1.389,
+      2.5,
+      3.611,
+      4.722
+    ],
+    "checked": 0,
+    "passed": 0
+  },
+  "craft": {
+    "ok": true,
+    "errorCount": 0,
+    "warningCount": 0,
+    "infoCount": 0,
+    "findings": [],
+    "enabled": true,
+    "step": 0.125,
+    "samples": 40
+  },
+  "hdr": {
+    "autoPromotion": null,
+    "inspection": "available"
+  },
+  "snapshots": {
+    "enabled": false,
+    "files": [],
+    "times": [],
+    "findingFiles": []
+  }
+}

@@ -32,9 +32,18 @@ Lost at disconnect: no `_progress.md`, `_evidence-index.md`, `_open-questions.md
 - [x] Phase 5: scan complete (gen1 1,895 / gen2 266,221 / v2 709,489 launches / 10,427 graduations); `cohort_analysis.py`, `sample_curve_volume.py` (240-curve stratified sample), report, facts.json, `fee-model.csv`, `daily_launches.csv`, `volume-estimate.json`
 - [x] Phase 6 report + facts.json (incl. GIWA.MARKETS incumbent)
 - [x] Phase 7 report (live GIWA probes, docs corpus in `raw/giwa/`) + facts.json
-- [ ] Phase 8 ideation
-- [ ] Phase 9 masterplan (14 docs)
-- [ ] `_evidence-index.md`, `_open-questions.md`, `_findings-private.md` final pass
+- [x] Phase 8 ideation (report, `ideas.csv` 44 scored, `shortlist-specs.md` 12 specs, facts.json) — written after the log capture, committed in `a5b567a`
+- [x] Phase 9 masterplan docs 01–12 — same commit
+- [ ] Masterplan docs 13–14, `_evidence-index.md`, `_open-questions.md`, `_findings-private.md` — **not written in S2**; `_progress.md` left stale
+
+### Session 3 (2026-10-24, audit + completion) — see `_audit-session-3.md`
+- [x] Re-cloned `faznode/jogiwa@a5b567a` into the workspace (34 MB incl. two Git LFS pointers; LFS objects verified present on GitHub).
+- [x] Audited Phases 1–8 (coverage, evidence quality, spot-checks of cohort stats, forge outputs, source constants) and masterplan docs 01–12 (consistency matrix, worked examples re-derived). Findings C1–C8, R1–R7 in `_audit-session-3.md`.
+- [x] Fixed C1 (split bounds vs `holdersShareBps = 0` fallback → ADR-17), C2 (deposit limit buckets), C4 (Gantt dates), C5 (exec-summary pointers); proposed ADR-16 (TWAB holder rewards instead of a `prevrandao` snapshot).
+- [x] Owner request: reviewed Honeypot Finance "2.0"/Pot2Pump → `09-masterplan/15-honeypot-pot2pump-review.md` (captures in `raw/captures/honeypot/`), ADR-15, F41, F38 scope, M33, E9, 06 §8 addendum.
+- [x] Wrote `13-decision-log-and-open-questions.md`, `14-appendix.md`, `09-masterplan/facts.json`.
+- [x] Wrote `_evidence-index.md` (curated IDs E0–E9, EH) + `_evidence-inventory.generated.md` (598 files with SHA-256), `_open-questions.md` (43 OQs with status/owner), `_findings-private.md` (**keep out of the public repo**).
+- [x] Definition of Done satisfied; one decision pending owner approval (ADR-16) and five product decisions listed in 13 §3.
 
 ---
 
@@ -112,6 +121,30 @@ Lost at disconnect: no `_progress.md`, `_evidence-index.md`, `_open-questions.md
 6. Audience/regulatory: CEX-centric Korean retail, ICO ban, VAUPA phase 1, Digital Asset Basic Act stalled; trademark risk around "GIWA".
 7. Testnet strategy: 4-week seasons, soulbound rationed season credit as the curve quote, Dojang-weighted scoring of *quality* metrics, cluster slashing, exit criteria.
 
+### Phase 8 — Ideation (CLOSED in S2; M33 added in S3)
+1. 33 mechanics classified: 8 MUST-COPY, 12 IMPROVE, 6 DROP, 7 REPLACE (+ M33 Honeypot Pot2Pump: IMPROVE refund phase / DROP LP vault).
+2. 16 pains/abuse vectors P1–P16 mapped from Phases 2–6 (bundling, invisible exemptions, churn volume, creator dumps, graduate-and-forget, keeper income, no timelock, indexer-as-chain, no identity, English-only, testnet value, namespace, whale dominance, ordering games, content abuse, hidden-fee drift).
+3. 44 ideas scored on 6 criteria (max 30); distribution 19–28; incentives axis strongest (mean 26.0).
+4. Shortlist of 12 specs: S1 batch window, S2 humans-first, S3 people threshold, S4 Fairness Card, S5 creator vesting, S6 streaming pull fees, S7 reputation, S8 quality discovery, S9 holder-paid locked liquidity, S10 timelocked admin, S11 squads, S12 season economy.
+5. Differentiation Thesis + 3 pillars (Korean communities not bots; verifiable fairness; GIWA as the right home) and 5 placeholder names (Madang default).
+6. Four unknowns carried to Phase 0 probes (`eth_simulateV1`, Upbit-attested wallet count, window-length tolerance, Kakao-capable embedded wallet).
+7. Judgement calls flagged: Flashblocks-dependent ideas scored 3 on feasibility; balance-ranked and streamer ideas scored ≤ 3 on risk.
+8. Not shortlisted but kept as P1/P2: rate limits, churn labels, early-holder bonus, Sunrise, Chapters, streaks, battles.
+9. Open: whether a 2–3 minute window is tolerable (E1 experiment).
+10. S3 addition: Honeypot's raise-or-refund phase becomes optional Pot mode (F41, P2); LP-army vault rejected (09-masterplan/15).
+
+### Phase 9 — Masterplan (CLOSED in S3)
+1. 15 documents (brief required 14; 15 = owner-requested Honeypot review) + `facts.json`; all parameters consistent across docs (consistency matrix in `_audit-session-3.md` §C).
+2. Product: Madang — batch-cleared opens for Dojang-attested humans, people-threshold graduation, Fairness Card, default creator vesting, own locked CPAMM with 40/30/30 fees and daily holder epochs, soulbound Season Credit on testnet, 48 h timelock + Guardian, permissionless bountied keepers, chain-first trading.
+3. Contract spec: 11 singletons/implementations + per-launch clones; worked examples A–E; parameter table with bounds; 17-row Pons-weakness → mitigation table; CreateX deterministic deployment for Sepolia → mainnet address parity.
+4. Security: STRIDE per component, MEV/Flashblocks analysis, 7 design-specific abuse scenarios, 20 invariants, 10-layer test plan, two-stage audit + contest, bounty tiers, monitoring, runbook, key policy.
+5. Architecture: Next.js 16 + wagmi/viem, Ponder → Neon, SSE realtime, 2-region keepers, scoring job → EAS attestations, three-indicator health model; cost $140–880/mo testnet.
+6. Data: on-chain + client event schema, KPI dashboard with Pons baselines, 9 pre-registered experiments (E1–E9) with power estimates.
+7. Tokenomics: no platform token (ADR-10); fee model; creator incentives; season points (quality-only) with anti-farming rules and retro slashing.
+8. GTM: Korean-first channels, First-100 creators, partnerships (GIWA core, Dojang/Upbit team first), launch-week plan, 6 growth loops, metrics per phase.
+9. Legal: moderation policy v1, 16 counsel questions (KR/ID/general), 18-row risk register; roadmap 26 weeks with lean 1–3 builder variants; migration playbook as a config exercise.
+10. Decisions: 17 ADRs (16 accepted, ADR-16 proposed); 5 owner decisions pending (name, wallet provider, counsel, audit tier, Season 0 access).
+
 ## Decisions
 - D5: Graduation liquidity goes to our own permanently-locked constant-product pool (no used DEX on GIWA; v4 BUSL; keeps LP fee routable to holders).
 - D6: Dojang/EAS is the identity primitive (creator badges, launch gating, sybil-weighted points); never store PII.
@@ -121,6 +154,15 @@ Lost at disconnect: no `_progress.md`, `_evidence-index.md`, `_open-questions.md
 - D3: Verification of formulas = Python big-int replay of real tx + live-fork forge test; pinned-block replay archived as documentation because the public RPC is non-archival.
 - D4: Scanner stores compact records and checkpoints; cohort analysis uses interpolated timestamps from 500k-block anchors.
 
+- D8 (S3): ADR numbering is canonical in `09-masterplan/13-decision-log-and-open-questions.md`; D1–D7 above map to RD-1…RD-4 and ADR-03/04/14.
+- D9 (S3): `_findings-private.md` is excluded from anything public; recommend a `.gitignore` entry before pushing.
+
 ## Blockers
-- Robinhood RPC 429s while the event scan runs; gas measurements deferred to after the scan.
-- Pools.trade and docs.pools.trade are JS-rendered; need browser observation.
+- Robinhood RPC 429s while the event scan runs; gas measurements deferred (OQ-2.6) — scan finished in S2, measurement not re-run in S3 to avoid low-value load.
+- Pools.trade and docs.pools.trade are JS-rendered; need browser observation (OQ-6.2).
+- Owner approval needed for ADR-16 before F10 (HolderRewards) is specified in code (roadmap W4–W5).
+
+## Handover notes for the next session (if any)
+- Everything is file-based and resumable: start from `_audit-session-3.md` §E (Definition of Done) and `_open-questions.md`.
+- Highest-value follow-ups, in order: (1) W1 probes bundle — `eth_simulateV1`, Dojang attestation counts by attester, flashblocks ordering, exact-timestamp re-measure of time-to-graduation on 200 Pons graduations (R6); (2) primary-URL capture for press/competitor facts (OQ-4.1, 6.1, 6.2); (3) Pons module verification lookups (OQ-2.7) and `snipeTaxSeconds` live read (OQ-2.8).
+- Toolchain recipe that worked: Foundry 1.5.1 stable tarball at `/tmp/rea-tools/` (`forge test --fork-url`, no anvil), REA 6.7.0 via `npx -y rea-agents@6.7.0`, Python 3 for scans with a browser User-Agent against `rpc.mainnet.chain.robinhood.com`.

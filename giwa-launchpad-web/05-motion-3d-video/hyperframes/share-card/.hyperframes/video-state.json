@@ -1,0 +1,101 @@
+{
+  "version": 1,
+  "historyId": "d48a7fa7-f147-475a-bb68-e5d658f8749e",
+  "currentRevision": null,
+  "pendingChanges": false,
+  "files": {
+    "AGENTS.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "CLAUDE.md": {
+      "hash": "1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/1b/1b36171117cb7c18f4100a0db6a3782ff2e096115995733200445cc2e80a4060"
+    },
+    "assets/bros-wordmark-plate.svg": {
+      "hash": "d8459733b223fa4b653728bef0b7e07845603cf367be05f473f8e9c838243fcd",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/d8/d8459733b223fa4b653728bef0b7e07845603cf367be05f473f8e9c838243fcd"
+    },
+    "assets/fonts/antonio-latin-var.woff2": {
+      "hash": "d9dbab0fea9235c04f1b3c6b558d0dbebf93202a9e5fc3b2c0a15d5da7553694",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/d9/d9dbab0fea9235c04f1b3c6b558d0dbebf93202a9e5fc3b2c0a15d5da7553694"
+    },
+    "assets/fonts/archivo-latin-var.woff2": {
+      "hash": "ebc437317cbed7ea2025b654945f9300d5d295682a31a004e2d090e4cac0794a",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/eb/ebc437317cbed7ea2025b654945f9300d5d295682a31a004e2d090e4cac0794a"
+    },
+    "assets/token.webp": {
+      "hash": "57576dd714a3908c970746762c39f2276b999b8a5d0a0836ef6d65882ba77731",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/57/57576dd714a3908c970746762c39f2276b999b8a5d0a0836ef6d65882ba77731"
+    },
+    "hyperframes.json": {
+      "hash": "53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/53/53dbce1e19aa713cbb12ee0bc4d206143b45ab15e6ffbfcaa8f69572d4d24d50"
+    },
+    "index.html": {
+      "hash": "12b2e0e789573a902cbb049ea90ba90e5db89938364621ca9e58c36316caa340",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/12/12b2e0e789573a902cbb049ea90ba90e5db89938364621ca9e58c36316caa340"
+    },
+    "meta.json": {
+      "hash": "2eac90d29c15d129366a5be8e71993c762cc31b781e7f0febc4ae49fe9834f86",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/2e/2eac90d29c15d129366a5be8e71993c762cc31b781e7f0febc4ae49fe9834f86"
+    },
+    "package.json": {
+      "hash": "3f2e47692c9ce9aa592c4e68a81c0dfc8393356061ac07ba7bff110b4a77c7eb",
+      "content": "/home/vercel-sandbox/.cache/hyperframes/history/d48a7fa7-f147-475a-bb68-e5d658f8749e/blobs/3f/3f2e47692c9ce9aa592c4e68a81c0dfc8393356061ac07ba7bff110b4a77c7eb"
+    }
+  },
+  "revisions": {},
+  "checks": {
+    "latest": {
+      "revision": null,
+      "id": "c0f206f6-7493-4ef0-ab2d-0bf1894f6f88"
+    },
+    "revisions": {},
+    "unversioned": [
+      {
+        "id": "c0f206f6-7493-4ef0-ab2d-0bf1894f6f88",
+        "scope": "project",
+        "report": "/vercel/share/v0-project/giwa-launchpad-web/05-motion-3d-video/hyperframes/share-card/.hyperframes/artifacts/checks/c0f206f6-7493-4ef0-ab2d-0bf1894f6f88.json",
+        "metadata": {
+          "ok": true,
+          "browserSkipped": false,
+          "options": {
+            "samples": 9,
+            "atTransitions": false,
+            "maxIssues": 80,
+            "collapseStatic": true,
+            "tolerance": 2,
+            "timeout": 3000,
+            "contrast": true,
+            "strict": false,
+            "snapshots": false,
+            "browserGpuMode": "auto"
+          }
+        },
+        "createdAt": 1792813591444,
+        "contentHash": "92560300f05f2c78fe96f63e6bbfe9895ae44bf48ecad4e8cb9d0d4b4aeb0ae6",
+        "revision": null,
+        "inputFingerprint": "ffa3abeeb4ac723550dbe1a0c82b0dd341c235052c87fe472c0b3bfbe0660896",
+        "inputScope": "local-project-files",
+        "attribution": "unversioned"
+      }
+    ]
+  },
+  "snapshots": {
+    "latest": null,
+    "revisions": {},
+    "unversioned": []
+  },
+  "renders": {
+    "latest": {
+      "id": "39483123-b8e3-4486-a132-cba86a8b6379",
+      "completedAt": 1792813600336,
+      "output": "/vercel/share/v0-project/giwa-launchpad-web/05-motion-3d-video/renders/share-card.mp4",
+      "status": "completed",
+      "revision": null
+    },
+    "retainedRevisions": []
+  },
+  "pendingArtifactCleanup": []
+}

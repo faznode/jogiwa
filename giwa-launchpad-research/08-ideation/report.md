@@ -45,7 +45,9 @@ Every Pons mechanic (Phase 2–4) and every notable competitor mechanic (Phase 6
 | M31 | Livestreams on token pages | pump.fun [WEB] | DROP (v1) | Legal and moderation exposure; revisit as verified-streamer collabs (I35, P2). |
 | M32 | Creator vesting / dev-lock options | four.meme / several [WEB] | IMPROVE → default | Vesting is opt-in elsewhere; here it is the default and unavoidable for the creator allocation (I11). |
 
-Summary: 8 MUST-COPY, 12 IMPROVE, 6 DROP, 7 REPLACE (one mechanic split). The three REPLACEs that define the product: snipe tax → batch window + manifest; quote-only graduation → people threshold; v4 hook → locked CPAMM with holder share.
+| M33 | Pot2Pump: uniform-price raise to a target with full refund on failure; participants become LPs in an ALM-managed concentrated-liquidity vault (50/40/5/5 LP split) | Honeypot Finance [DOCS] (dormant since 2025–26; 09-masterplan/15) | IMPROVE (raise-or-refund → optional Pot mode F41, P2) / DROP (LP vault) | A refund path is a cleaner failure outcome than a 24 h fallback for community pre-commits; the LP vault needs a CL DEX + ALM that GIWA lacks (07 §3), looks like a pooled investment (10-legal Q3), exposes retail to impermanent loss, and makes liquidity withdrawable — contrary to S9. |
+
+Summary: 8 MUST-COPY, 12 IMPROVE, 6 DROP, 7 REPLACE (one mechanic split). Session 3 added M33 (Honeypot Pot2Pump, owner request): IMPROVE for the raise-or-refund phase, DROP for the participant-LP vault — full reasoning in 09-masterplan/15-honeypot-pot2pump-review. The three REPLACEs that define the product: snipe tax → batch window + manifest; quote-only graduation → people threshold; v4 hook → locked CPAMM with holder share.
 
 ## 2. User pains and abuse vectors (Phases 2–6)
 

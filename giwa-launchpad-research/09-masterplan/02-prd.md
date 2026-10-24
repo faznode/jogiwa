@@ -87,9 +87,10 @@ P0 = required for public testnet Season 1; P1 = Season 2; P2 = mainnet or later.
 | F35 | Per-block uniform pricing on the curve (Flashblocks-aware) | P2 | yes | I05 |
 | F36 | Verified-balance whale tiers (Dojang Verified Balance) | P2 | yes | I30 |
 | F37 | Additional pair tokens (stablecoin) once present on GIWA | P2 | config | M13 |
-| F38 | Creator studio AI kit (translation, image checks, share cards) | P2 | no | I15 |
+| F38 | Creator studio AI kit (translation, image checks, share cards; optional AI image generation routed through the safety pipeline — 15-honeypot §4 H8) | P2 | no | I15, ADR-15 |
 | F39 | Verified streamer collab launches | P2 | no | I35 |
 | F40 | Mainnet migration pass (badges carried) | P2 | partial | I44, 12-migration |
+| F41 | Pot mode: raise-to-target-or-refund launch mode (fixed window from presets, uniform price, graduate iff `G` and `N` are met at close, otherwise full refund via pull claims) | P2 | yes | ADR-15 (15-honeypot §4 H2), M23, M33 |
 
 ## 5. Non-goals (v1)
 

@@ -1,0 +1,12 @@
+{
+  "name": "bros-web",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@12.3.4",
+  "scripts": {
+    "dev": "pnpm --filter bros-prototype dev",
+    "build": "pnpm --filter bros-prototype build",
+    "preview": "pnpm --filter bros-prototype preview",
+    "typecheck": "pnpm --filter bros-prototype typecheck"
+  }
+}

@@ -115,7 +115,7 @@ ERC-20 (name, symbol, 18 decimals) + per-account `Checkpoints.Trace208` written 
 enum State { Batch, Open, Full, Graduated }
 interface IMadangCurve is IQuoteMarket {
   // window
-  function deposit(uint256 amount, uint256 maxPriceX96) external;   // tier ≥ 1, cap by tier
+  function deposit(uint256 amount, uint8 limitBucket) external;     // tier ≥ 1, cap by tier; bucket 0 = no limit, 1..7 = 1.1×…10× opening price (§3.2)
   function cancelDeposit() external;                                 // until obwEnd − 15 s
   function settle() external;                                        // anyone, after obwEnd; bounty
   function claimWindow(address account) external;                    // anyone can trigger, pays to account
@@ -132,7 +132,7 @@ interface IMadangCurve is IQuoteMarket {
   function reserves() external view returns (uint256 quoteReserve, uint256 tokenReserve, uint256 trackedQuote, uint256 sold);
   function attestedBuyers() external view returns (uint32);
   function fullSince() external view returns (uint64);
-  event Deposited(address indexed account, uint256 amount, uint256 maxPriceX96, uint256 total);
+  event Deposited(address indexed account, uint256 amount, uint8 limitBucket, uint256 total);
   event DepositCancelled(address indexed account, uint256 amount);
   event Settled(uint256 deposits, uint256 filled, uint256 refunded, uint256 tokensAllocated, uint256 clearingPriceX96, uint32 participants, address caller);
   event WindowClaimed(address indexed account, uint256 tokens, uint256 refund);
@@ -141,7 +141,7 @@ interface IMadangCurve is IQuoteMarket {
   event StateChanged(State from, State to, uint64 at);
 }
 ```
-State: `params` (copied), `manifestHash`, `creator`, `vault`, `token`, `quote`, `openAt` (= createdAt), `obwEnd`, `state`, `trackedQuote`, `sold`, `deposits[addr]`, `maxPrice[addr]`, `totalDeposits`, `windowAllocation`, `windowFilledQuote`, `boughtInWindow[addr]`, `attestedBuyers`, `isCountedBuyer[addr]`, `fullSince`, `creatorTaxAccrued` (pushed to splitter), `feeAccrued`.
+State: `params` (copied), `manifestHash`, `creator`, `vault`, `token`, `quote`, `openAt` (= createdAt), `obwEnd`, `state`, `trackedQuote`, `sold`, `deposits[addr]`, `limitBucket[addr]`, `depositsAtLimit[8]`, `totalDeposits`, `windowAllocation`, `windowFilledQuote`, `boughtInWindow[addr]`, `attestedBuyers`, `isCountedBuyer[addr]`, `fullSince`, `creatorTaxAccrued` (pushed to splitter), `feeAccrued`.
 
 Eligibility: `_eligible(addr, amount)`: if `state == Batch` or `block.timestamp < obwEnd + humansFirst` → require `tier ≥ 1` and `boughtInWindow[addr] + amount ≤ cap(tier)`. Afterwards unrestricted.
 
@@ -161,11 +161,15 @@ interface IMadangPool is IQuoteMarket {
 ```
 No `mint/burn/removeLiquidity`; reserves can only change through swaps and `sync()`. Fee on the quote leg routed to `FeeSplitter` (M03). `skim` is intentionally absent.
 
+Adapter seam (ADR-15, session 3): `MadangPool` implements `IGraduationTarget` — `initialize(...)` above is the adapter entry point — and the factory calls whichever graduation target its `LaunchParams` names (v1: the pool implementation). If a canonical DEX reaches GIWA mainnet (OQ-7.3 / OQ-9.2), a DEX adapter (for example Uniswap v4 with a fee-routing hook) is registered through a new factory version; the window and curve code never reference the pool type. Cost today: one interface and one indirection.
+
 ### 2.7 `FeeSplitter`
 `accrue(token, amount, Kind)` callable only by registered curves/pools (registered by the factory at creation); `claimCreator(token, to)` by the launch creator; `pushHolders(token)` by anyone (moves `holdersAccrued[token]` into `HolderRewards.fund(token, amount)` and pays `bountyBps` of it to caller); `claimProtocol(to)` by Treasury. Split tables per token copied at registration. Invariant: `quote.balanceOf(this) == Σ accrued − Σ claimed`.
 
 ### 2.8 `HolderRewards`
 `fund(token, amount)` (from splitter); epochs of `EPOCH = 1 day` since `startOf[token]`; `finalizeEpoch(token)` (anyone, bounty) fixes `snapshotBlock = epochEnd − (prevrandao % 3600 / blockTime)` within the last hour and `eligibleSupply = totalSupplyAt(snapshot) − Σ excluded.balanceOfAt(snapshot)`; `claim(token, epochs[])` pays `funded[e] · balanceOfAt(user, snap_e) / eligible_e`; unclaimed after 180 days rolls into the next epoch via `recycle(e)`. Excluded set: curve, pool, vault, `0xdead`, splitter, this.
+
+Session 3 audit note (ADR-16, **proposed**): on OP Stack chains `block.prevrandao` is the L1 RANDAO of the current L1 origin — constant across many L2 blocks and knowable minutes ahead — so the snapshot block above is predictable, and only the 2% round-trip fee (04-security §1.3) deters snapshot farming. Proposed replacement: pay `funded_e · twab_user / twab_eligible`, where `twab` is the time-weighted average balance over the epoch computed from the token's existing checkpoints; there is then no snapshot block to game, and a one-hour hold earns 1/24 of a day's share. Needs owner approval before F10 is built (W4–W5).
 
 ### 2.9 `IdentityRegistry`
 ```solidity
@@ -251,7 +255,7 @@ Buy: `net = quoteIn·(1−f)`, `tokensOut = R_t·net/(R_q+net)`; sell: `gross = 
 | `Q0` | 1,000 SC | 1.0 ETH | > 0 | ration-scaled; mainnet ≈ Pons 1.68 scaled down for a new chain |
 | `G` | 2,500 SC | 2.5 ETH | `G/Q0 ∈ [1.5, 4]` | keeps 71/20/8 split near Pons' verified 2.5 ratio |
 | `feeBps` | 100 | 100 | ≤ 200 | Pons 1% [ONCHAIN]; pump.fun 1.25% [WEB] |
-| split creator/holders/protocol | 40/30/30 | 40/30/30 | creator ≥ 30, holders ≥ 20 | M07 |
+| split creator/holders/protocol | 40/30/30 | 40/30/30 (or 55/0/45 if counsel requires, 12 §5) | creator ∈ [30, 70]; holders ∈ {0} ∪ [20, 40]; protocol ≤ 45 (ADR-17) | M07 |
 | `obwDuration` | 120 s (A/B 90/180) | 120 s | 60–600 | S1 |
 | `humansFirst` | 600 s | 600 s | 0–3600 | S2 |
 | caps tier1/tier2 | 2% / 5% of `G` | same | ≤ 10% | S2 |

@@ -19,8 +19,8 @@ gantt
   Season 1                                     :s1, after b1, 28d
   Season 2 (squads, ID locale)                 :s2, after s1, 28d
   section Audit
-  Internal review                              :au0, 2027-01-11, 14d
-  Boutique audit + fixes                       :au1, 2027-02-22, 28d
+  Internal review                              :au0, 2027-01-04, 14d
+  Boutique audit + fixes                       :au1, 2027-02-15, 28d
   Public contest                               :au2, after au1, 21d
   section Mainnet-ready
   Migration rehearsal, legal, go/no-go         :m1, after au2, 28d

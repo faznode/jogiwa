@@ -1,0 +1,8 @@
+packages:
+  - giwa-launchpad-web/08-prototype
+
+pmOnFail: ignore
+
+minimumReleaseAgeExclude:
+  - '@next/*'
+  - next
